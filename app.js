@@ -37,9 +37,44 @@ const StopwatchRandomStarted = require('./lib/triggers/stopwatch_random_started.
 
 class Chronograph extends Homey.App {
 	onInit() {
-		var self = this;
+		let self = this;
+
+		let cards = [
+			new TimerStart('timer_start'),
+			new TimerAdjust('timer_adjust'),
+			new TimerStop('timer_stop'),
+			new TimerRandomStart('timer_random_start'),
+			new TimerRandomAdjust('timer_random_adjust'),
+			new TimerRandomStop('timer_random_stop'),
+			new StopwatchStart('stopwatch_start'),
+			new StopwatchAdjust('stopwatch_adjust'),
+			new StopwatchStop('stopwatch_stop'),
+			new StopwatchRandomStart('stopwatch_random_start'),
+			new StopwatchRandomAdjust('stopwatch_random_adjust'),
+			new StopwatchRandomStop('stopwatch_random_stop'),
+
+			new TimerCompare('timer_compare'),
+			new TimerRunning('timer_running'),
+			new TimerRandomCompare('timer_random_compare'),
+			new TimerRandomRunning('timer_random_running'),
+			new StopwatchCompare('stopwatch_compare'),
+			new StopwatchRunning('stopwatch_running'),
+			new StopwatchRandomCompare('stopwatch_random_compare'),
+			new StopwatchRandomRunning('stopwatch_random_running'),
+
+			new TimerStarted('timer_started'),
+			new TimerFinished('timer_finished'),
+			new TimerRandomStarted('timer_random_started'),
+			new TimerRandomFinished('timer_random_finished'),
+			new StopwatchStarted('stopwatch_started'),
+			new StopwatchRandomStarted('stopwatch_random_started')
+		];		
+		
 		self.log('Application is running.');
 	}
 }
+
+Chronograph.timers = [];
+Chronograph.stopwatches = [];
 
 module.exports = Chronograph;
