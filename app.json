@@ -1,0 +1,89 @@
+{
+    "id": "nl.fellownet.chronograph",
+    "version": "1.0.0",
+    "compatibility": ">=1.5.0",
+    "sdk": 2,
+    "name": {
+        "en": "Chronograph"
+    },
+    "description": {
+        "en": "Adds timer and stopwatch devices to Homey.",
+        "nl": "Voegt timer en stopwatch apparaten toe aan Homey."
+    },
+    "category": [
+        "tools"
+    ],
+    "tags": {
+        "en": [ "timer", "countdown", "stopwatch", "chronograph" ],
+        "nl": [ "timer", "countdown", "stopwatch", "chronograph" ]
+    },
+    "permissions": [],
+    "images": {
+        "large": "/assets/images/large.png",
+        "small": "/assets/images/small.png"
+    },
+    "author": {
+        "name": "Fellownet",
+        "email": "bob@fellownet.nl"
+    },
+    "contributors": {
+        "developers": [
+            {
+            "name": "Bob Kersten",
+            "email": "bob@fellownet.nl"
+            }
+        ]
+    },
+    "drivers": [
+		{
+			"id": "timer_driver",
+			"name": {
+				"en": "Timer"
+            },
+            "images": {
+				"large": "drivers/timer_driver/assets/images/large.png",
+				"small": "drivers/timer_driver/assets/images/small.png"
+			},
+			"class": "other",
+			"capabilities": [ "button" ],
+			"pair": [
+				{
+					"id": "list_triggers",
+					"template": "list_devices",
+					"navigation": {
+						"next": "add_triggers"
+					}
+				},
+				{
+					"id": "add_triggers",
+					"template": "add_devices"
+				}
+			]
+		},
+		{
+			"id": "stopwatch_driver",
+			"name": {
+				"en": "Stopwatch"
+            },
+            "images": {
+				"large": "drivers/timer_driver/assets/images/large.png",
+				"small": "drivers/timer_driver/assets/images/small.png"
+			},
+			"class": "other",
+			"capabilities": [ "button" ],
+			"pair": [
+				{
+					"id": "list_triggers",
+					"template": "list_devices",
+					"navigation": {
+						"next": "add_triggers"
+					}
+				},
+				{
+					"id": "add_triggers",
+					"template": "add_devices"
+				}
+			]
+		}
+	]
+}
