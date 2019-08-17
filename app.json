@@ -10,6 +10,7 @@
         "en": "Adds timer and stopwatch devices to Homey.",
         "nl": "Voegt timer en stopwatch apparaten toe aan Homey."
     },
+	"brandColor": "#5583C3",
     "category": [
         "tools"
     ],
@@ -33,7 +34,624 @@
             "email": "bob@fellownet.nl"
             }
         ]
-    },
+	},
+
+	"flow": {
+		"triggers": [
+			{
+				"id": "timer_started",
+				"title": {
+					"en": "The timer was started",
+					"nl": "De timer is gestart"
+				},
+				"args": [
+					{
+						"name": "device",
+						"type": "device",
+						"filter": "driver_id=timer_driver"
+					}
+				],
+				"tokens": [
+					{
+						"name": "name",
+						"type": "string",
+						"title": {
+							"en": "Timer name",
+							"nl": "Timer naam"
+						}
+					}
+				]
+			},
+			{
+				"id": "timer_finished",
+				"title": {
+					"en": "The timer is finished",
+					"nl": "De timer is afgelopen"
+				},
+				"args": [
+					{
+						"name": "device",
+						"type": "device",
+						"filter": "driver_id=timer_driver"
+					}
+				],
+				"tokens": [
+					{
+						"name": "name",
+						"type": "string",
+						"title": {
+							"en": "Timer name",
+							"nl": "Timer naam"
+						}
+					}
+				]
+			},
+			{
+				"id": "timer_random_started",
+				"title": {
+					"en": "A timer was started",
+					"nl": "Een timer is gestart"
+				},
+				"args": [
+					{
+						"name": "name",
+						"title": {
+							"en": "Name of the timer",
+							"nl": "Naam van de timer"
+						},
+						"type": "text",
+						"placeholder": {
+							"en": "Name",
+							"nl": "Naam"
+						}
+					}
+				]
+			},
+			{
+				"id": "timer_random_finished",
+				"title": {
+					"en": "A timer is finished",
+					"nl": "Een timer is afgelopen"
+				},
+				"args": [
+					{
+						"name": "name",
+						"title": {
+							"en": "Name of the timer",
+							"nl": "Naam van de timer"
+						},
+						"type": "text",
+						"placeholder": {
+							"en": "Name",
+							"nl": "Naam"
+						}
+					}
+				]
+			},
+			{
+				"id": "stopwatch_started",
+				"title": {
+					"en": "The stopwatch was started",
+					"nl": "De stopwatch is gestart"
+				},
+				"args": [
+					{
+						"name": "device",
+						"type": "device",
+						"filter": "driver_id=stopwatch_driver"
+					}
+				],
+				"tokens": [
+					{
+						"name": "name",
+						"type": "string",
+						"title": {
+							"en": "Stopwatch name",
+							"nl": "Stopwatch naam"
+						}
+					}
+				]
+			},
+			{
+				"id": "stopwatch_random_started",
+				"title": {
+					"en": "A stopwatch was started",
+					"nl": "Een stopwatch is gestart"
+				},
+				"args": [
+					{
+						"name": "name",
+						"title": {
+							"en": "Name of the stopwatch",
+							"nl": "Naam van de stopwatch"
+						},
+						"type": "text",
+						"placeholder": {
+							"en": "Name",
+							"nl": "Naam"
+						}
+					}
+				]
+			}
+		],
+
+		"conditions": [
+			{
+				"id": "timer_compare",
+				"title": {
+					"en": "!{{The timer runs longer than|The timer runs shorter than}}",
+					"nl": "!{{De timer duurt langer dan|De timer duurt korter dan}}"
+				},
+				"args": [
+					{
+						"name": "device",
+						"type": "device",
+						"filter": "driver_id=timer_driver"
+					},
+					{
+						"name": "duration",
+						"title": {
+							"en": "Duration of the timer",
+							"nl": "Duur van de timer"
+						},
+						"type": "number",
+						"placeholder": {
+							"en": "Seconds",
+							"nl": "Seconden"
+						}
+					}
+				]
+			},
+			{
+				"id": "timer_running",
+				"title": {
+					"en": "!{{The timer is running|The timer is stopped}}",
+					"nl": "!{{De timer loopt|De timer is gestopt}}"
+				},
+				"args": [
+					{
+						"name": "device",
+						"type": "device",
+						"filter": "driver_id=timer_driver"
+					}
+				]
+			},
+			{
+				"id": "timer_random_compare",
+				"title": {
+					"en": "!{{A timer runs longer than|A timer runs shorter than}}",
+					"nl": "!{{Een timer duurt langer dan|Een timer duurt korter dan}}"
+				},
+				"args": [
+					{
+						"name": "name",
+						"title": {
+							"en": "Name of the timer",
+							"nl": "Naam van de timer"
+						},
+						"type": "text",
+						"placeholder": {
+							"en": "Name",
+							"nl": "Naam"
+						}
+					},
+					{
+						"name": "duration",
+						"title": {
+							"en": "Duration of the timer",
+							"nl": "Duur van de timer"
+						},
+						"type": "number",
+						"placeholder": {
+							"en": "Seconds",
+							"nl": "Seconden"
+						}
+					}
+				]
+			},
+			{
+				"id": "timer_random_running",
+				"title": {
+					"en": "!{{A timer is running|A timer is stopped}}",
+					"nl": "!{{Een timer loopt|Een timer is gestopt}}"
+				},
+				"args": [
+					{
+						"name": "name",
+						"title": {
+							"en": "Name of the timer",
+							"nl": "Naam van de timer"
+						},
+						"type": "text",
+						"placeholder": {
+							"en": "Name",
+							"nl": "Naam"
+						}
+					}
+				]
+			},
+			{
+				"id": "stopwatch_compare",
+				"title": {
+					"en": "!{{The stopwatch is running longer than|The stopwatch is running shorter than}}",
+					"nl": "!{{De stopwatch loopt langer dan|De stopwatch loopt korter dan}}"
+				},
+				"args": [
+					{
+						"name": "device",
+						"type": "device",
+						"filter": "driver_id=stopwatch_driver"
+					},
+					{
+						"name": "duration",
+						"title": {
+							"en": "Duration of the stopwatch",
+							"nl": "Duur van de stopwatch"
+						},
+						"type": "number",
+						"placeholder": {
+							"en": "Seconds",
+							"nl": "Seconden"
+						}
+					}
+				]
+			},
+			{
+				"id": "stopwatch_running",
+				"title": {
+					"en": "!{{The stopwatch is running|The stopwatch is stopped}}",
+					"nl": "!{{De stopwatch loopt|De stopwatch is gestopt}}"
+				},
+				"args": [
+					{
+						"name": "device",
+						"type": "device",
+						"filter": "driver_id=stopwatch_driver"
+					}
+				]
+			},
+			{
+				"id": "stopwatch_random_compare",
+				"title": {
+					"en": "!{{A stopwatch is running longer than|A stopwatch is running shorter than}}",
+					"nl": "!{{Een stopwatch loopt langer dan|Een stopwatch loopt korter dan}}"
+				},
+				"args": [
+					{
+						"name": "name",
+						"title": {
+							"en": "Name of the stopwatch",
+							"nl": "Naam van de stopwatch"
+						},
+						"type": "text",
+						"placeholder": {
+							"en": "Name",
+							"nl": "Naam"
+						}
+					},
+					{
+						"name": "duration",
+						"title": {
+							"en": "Duration of the stopwatch",
+							"nl": "Duur van de stopwatch"
+						},
+						"type": "number",
+						"placeholder": {
+							"en": "Seconds",
+							"nl": "Seconden"
+						}
+					}
+				]
+			},
+			{
+				"id": "stopwatch_random_running",
+				"title": {
+					"en": "!{{A stopwatch is running|A stopwatch is stopped}}",
+					"nl": "!{{Een stopwatch loopt|Een stopwatch is gestopt}}"
+				},
+				"args": [
+					{
+						"name": "name",
+						"title": {
+							"en": "Name of the stopwatch",
+							"nl": "Naam van de stopwatch"
+						},
+						"type": "text",
+						"placeholder": {
+							"en": "Name",
+							"nl": "Naam"
+						}
+					}
+				]
+			}
+		],
+
+		"actions": [
+			{
+				"id": "timer_start",
+				"title": {
+					"en": "Start the timer",
+					"nl": "Start de timer"
+				},
+				"args": [
+					{
+						"name": "device",
+						"type": "device",
+						"filter": "driver_id=timer_driver"
+					},
+					{
+						"name": "duration",
+						"title": {
+							"en": "Duration of the timer",
+							"nl": "Duur van de timer"
+						},
+						"type": "number",
+						"placeholder": {
+							"en": "Seconds",
+							"nl": "Seconden"
+						}
+					}
+				]
+			},
+			{
+				"id": "timer_adjust",
+				"title": {
+					"en": "Adjust the timer",
+					"nl": "Pas de timer aan"
+				},
+				"args": [
+					{
+						"name": "device",
+						"type": "device",
+						"filter": "driver_id=timer_driver"
+					},
+					{
+						"name": "adjustment",
+						"title": {
+							"en": "Adjustment of the timer",
+							"nl": "Wijziging van de timer"
+						},
+						"type": "number",
+						"placeholder": {
+							"en": "Seconds",
+							"nl": "Seconden"
+						}
+					}
+				]
+			},
+			{
+				"id": "timer_stop",
+				"title": {
+					"en": "Stop the timer",
+					"nl": "Stop de timer"
+				},
+				"args": [
+					{
+						"name": "device",
+						"type": "device",
+						"filter": "driver_id=timer_driver"
+					}
+				]
+			},
+			{
+				"id": "timer_random_start",
+				"title": {
+					"en": "Start a timer",
+					"nl": "Start een timer"
+				},
+				"args": [
+					{
+						"name": "name",
+						"title": {
+							"en": "Name of the timer",
+							"nl": "Naam van de timer"
+						},
+						"type": "text",
+						"placeholder": {
+							"en": "Name",
+							"nl": "Naam"
+						}
+					},
+					{
+						"name": "duration",
+						"title": {
+							"en": "Duration of the timer",
+							"nl": "Duur van de timer"
+						},
+						"type": "number",
+						"placeholder": {
+							"en": "Seconds",
+							"nl": "Seconden"
+						}
+					}
+				]
+			},
+			{
+				"id": "timer_random_adjust",
+				"title": {
+					"en": "Adjust a timer",
+					"nl": "Pas een timer aan"
+				},
+				"args": [
+					{
+						"name": "name",
+						"title": {
+							"en": "Name of the timer",
+							"nl": "Naam van de timer"
+						},
+						"type": "text",
+						"placeholder": {
+							"en": "Name",
+							"nl": "Naam"
+						}
+					},
+					{
+						"name": "adjustment",
+						"title": {
+							"en": "Adjustment of the timer",
+							"nl": "Wijziging van de timer"
+						},
+						"type": "number",
+						"placeholder": {
+							"en": "Seconds",
+							"nl": "Seconden"
+						}
+					}
+				]
+			},
+			{
+				"id": "timer_random_stop",
+				"title": {
+					"en": "Stop a timer",
+					"nl": "Stop een timer"
+				},
+				"args": [
+					{
+						"name": "name",
+						"title": {
+							"en": "Name of the timer",
+							"nl": "Naam van de timer"
+						},
+						"type": "text",
+						"placeholder": {
+							"en": "Name",
+							"nl": "Naam"
+						}
+					}
+				]
+			},
+			{
+				"id": "stopwatch_start",
+				"title": {
+					"en": "Start the stopwatch",
+					"nl": "Start de stopwatch"
+				},
+				"args": [
+					{
+						"name": "device",
+						"type": "device",
+						"filter": "driver_id=stopwatch_driver"
+					}
+				]
+			},
+			{
+				"id": "stopwatch_adjust",
+				"title": {
+					"en": "Adjust the stopwatch",
+					"nl": "Pas de stopwatch aan"
+				},
+				"args": [
+					{
+						"name": "device",
+						"type": "device",
+						"filter": "driver_id=stopwatch_driver"
+					},
+					{
+						"name": "adjustment",
+						"title": {
+							"en": "Adjustment of the stopwatch",
+							"nl": "Wijziging van de stopwatch"
+						},
+						"type": "number",
+						"placeholder": {
+							"en": "Seconds",
+							"nl": "Seconden"
+						}
+					}
+				]
+			},
+			{
+				"id": "stopwatch_stop",
+				"title": {
+					"en": "Stop the stopwatch",
+					"nl": "Stop de stopwatch"
+				},
+				"args": [
+					{
+						"name": "device",
+						"type": "device",
+						"filter": "driver_id=stopwatch_driver"
+					}
+				]
+			},
+			{
+				"id": "stopwatch_random_start",
+				"title": {
+					"en": "Start a stopwatch",
+					"nl": "Start een stopwatch"
+				},
+				"args": [
+					{
+						"name": "name",
+						"title": {
+							"en": "Name of the stopwatch",
+							"nl": "Naam van de stopwatch"
+						},
+						"type": "text",
+						"placeholder": {
+							"en": "Name",
+							"nl": "Naam"
+						}
+					}
+				]
+			},
+			{
+				"id": "stopwatch_random_adjust",
+				"title": {
+					"en": "Adjust a stopwatch",
+					"nl": "Pas een stopwatch aan"
+				},
+				"args": [
+					{
+						"name": "name",
+						"title": {
+							"en": "Name of the stopwatch",
+							"nl": "Naam van de stopwatch"
+						},
+						"type": "text",
+						"placeholder": {
+							"en": "Name",
+							"nl": "Naam"
+						}
+					},
+					{
+						"name": "adjustment",
+						"title": {
+							"en": "Adjustment of the stopwatch",
+							"nl": "Wijziging van de stopwatch"
+						},
+						"type": "number",
+						"placeholder": {
+							"en": "Seconds",
+							"nl": "Seconden"
+						}
+					}
+				]
+			},
+			{
+				"id": "stopwatch_random_stop",
+				"title": {
+					"en": "Stop a stopwatch",
+					"nl": "Stop een stopwatch"
+				},
+				"args": [
+					{
+						"name": "name",
+						"title": {
+							"en": "Name of the stopwatch",
+							"nl": "Naam van de stopwatch"
+						},
+						"type": "text",
+						"placeholder": {
+							"en": "Name",
+							"nl": "Naam"
+						}
+					}
+				]
+			}
+		]
+	},
+
     "drivers": [
 		{
 			"id": "timer_driver",
