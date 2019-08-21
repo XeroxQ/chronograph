@@ -37,6 +37,18 @@
 	},
 
 	"capabilities": {
+		"running": {
+			"type": "boolean",
+			"title": {
+				"en": "Running",
+				"nl": "Loopt"
+			},
+			"getable": true,
+			"setable": true,
+			"uiComponent": null,
+			"uiQuickAction": true,
+			"icon": "drivers/timer_driver/assets/icon.svg"
+		},
 		"seconds": {
 			"type": "number",
 			"title": {
@@ -680,7 +692,7 @@
 				"small": "drivers/timer_driver/assets/images/small.png"
 			},
 			"class": "other",
-			"capabilities": [ "onoff.0", "seconds" ],
+			"capabilities": [ "running", "seconds" ],
 			"settings": [
 				{
 					"id": "default_seconds",
@@ -718,7 +730,7 @@
 				"small": "drivers/timer_driver/assets/images/small.png"
 			},
 			"class": "other",
-			"capabilities": [ "onoff.0" ],
+			"capabilities": [ "running" ],
 			"pair": [
 				{
 					"id": "list_triggers",

@@ -9,7 +9,7 @@ class StopwatchDevice extends Homey.Device {
 
 		/*
 		// Register a handler for when a stopwatch is started through the Homey ui.
-		this.registerCapabilityListener('onoff.0', async (value) => {
+		this.registerCapabilityListener('running', async (value) => {
 			let id = self.getData().id;
 			if (value) {
 				let counter = new Counter(id, self, 0, (counter) => counter.count++);
@@ -21,7 +21,7 @@ class StopwatchDevice extends Homey.Device {
 		});
 
 		// A stopwatch device is turned off by default.
-		this.setCapabilityValue('onoff.0', false)
+		this.setCapabilityValue('running', false)
 			.catch(error => this.log(error));
 		*/
 		this.log('Device initialized.');

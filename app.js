@@ -33,6 +33,8 @@ class Application extends Homey.App {
 			// Actions.
 			"timer_start": new TimerStart('timer_start'),
 			"timer_random_start": new TimerStart('timer_random_start'),
+			"timer_stop": new TimerStop('timer_stop'),
+			"timer_random_stop": new TimerStop('timer_random_stop'),
 
 			// Triggers.
 			"timer_started": new TimerStarted('timer_started'),

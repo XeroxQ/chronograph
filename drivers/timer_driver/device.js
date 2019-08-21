@@ -10,7 +10,7 @@ class TimerDevice extends Homey.Device {
 		let id = self.getData().id;
 
 		// Register a handler for when a timer is started through the Homey ui.
-		self.registerCapabilityListener('onoff.0', async (value) => {
+		self.registerCapabilityListener('running', async (value) => {
 			let settings = self.getSettings();
 			let duration = parseInt(settings.default_seconds);
 			if (duration <= 0) {
@@ -25,26 +25,37 @@ class TimerDevice extends Homey.Device {
 					timer.Stop();
 				}
 			}
+
+			return Promise.resolve();
 		});
-
-		// A timer device is turned off by default.
-		self.setCapabilityValue('onoff.0', false);
-
-		// A timer device in idle state should show the default duration.
-		let settings = self.getSettings();
-		let duration = parseInt(settings.default_seconds);
-		if (duration > 0) {
-			self.setCapabilityValue('seconds', duration);
-		}
 
 		self.log('Device initialized.');
 	}
 
 	onAdded() {
-		this.log('Device added.');
+		var self = this;
+		this.ready(() => {
+			// A timer device is turned off by default.
+			self.setCapabilityValue('running', false);
+
+			// A timer device in idle state should show the default duration.
+			let settings = self.getSettings();
+			let duration = parseInt(settings.default_seconds);
+			if (duration > 0) {
+				self.setCapabilityValue('seconds', duration);
+			}
+
+			self.log('Device ready.');
+		});
 	}
 
 	onDeleted() {
+		let id = this.getData().id;
+		if (Timer.IsRunning(id)) {
+			let timer = Timer.timers[id];
+			timer.Stop(true);
+		}
+
 		this.log('Device deleted.');
 	}
 
