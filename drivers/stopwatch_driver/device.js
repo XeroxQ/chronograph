@@ -1,26 +1,40 @@
 'use strict';
 
 const Homey = require('homey');
+//const Chronograph = require('../../lib/chronograph.js');
+//const Counter = require('../../lib/counter.js');
 
 class StopwatchDevice extends Homey.Device {
-    onInit() {
-        this.log('device init');
-    }
+	onInit() {
+		var self = this;
 
-    onAdded() {
-        this.log('device added');
-    }
+		/*
+		// Register a handler for when a stopwatch is started through the Homey ui.
+		this.registerCapabilityListener('onoff.0', async (value) => {
+			let id = self.getData().id;
+			if (value) {
+				let counter = new Counter(id, self, 0, (counter) => counter.count++);
+				Chronograph.counters[id] = counter;
+			} else {
+				Chronograph.counters[id].Stop();
+				delete Chronograph.counters[id];
+			}
+		});
 
-    onDeleted() {
-        this.log('device deleted');
-    }
+		// A stopwatch device is turned off by default.
+		this.setCapabilityValue('onoff.0', false)
+			.catch(error => this.log(error));
+		*/
+		this.log('Device initialized.');
+	}
 
-    onCapabilityBoolean( value, opts, callback ) {
-        this.log('state change');
-        this.log(value);
-        this.log(opts);
-        return Promise.resolve( true );
-    }
+	onAdded() {
+		this.log('Device added.');
+	}
+
+	onDeleted() {
+		this.log('Device deleted.');
+	}
 }
 
 module.exports = StopwatchDevice;
