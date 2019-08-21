@@ -1,35 +1,43 @@
 'use strict';
 
 const Homey = require('homey');
-const Chronograph = require('../../lib/chronograph.js');
 const Timer = require('../../lib/timer.js');
 
 class TimerDevice extends Homey.Device {
 	onInit() {
 		var self = this;
 
+		let id = self.getData().id;
+
 		// Register a handler for when a timer is started through the Homey ui.
-		this.registerCapabilityListener('onoff.0', async (value) => {
-			let id = self.getData().id;
+		self.registerCapabilityListener('onoff.0', async (value) => {
 			let settings = self.getSettings();
 			let duration = parseInt(settings.default_seconds);
-			if (duration > 0 && value) {
-				let timer = new Timer(id, self, duration, (timer) => {
-					self.setCapabilityValue('onoff.0', false);
-					delete Chronograph.timers[timer.id];
-				});
-				Chronograph.timers[id] = timer;
+			if (duration <= 0) {
+				return;
+			}
+
+			if (value) {
+				new Timer(id, self, duration);
 			} else {
-				Chronograph.timers[id].Stop();
-				delete Chronograph.timers[id];
+				let timer = Timer.timers[id];
+				if (timer) {
+					timer.Stop();
+				}
 			}
 		});
 
 		// A timer device is turned off by default.
-		this.setCapabilityValue('onoff.0', false)
-			.catch(error => this.log(error));
+		self.setCapabilityValue('onoff.0', false);
 
-		this.log('Device initialized.');
+		// A timer device in idle state should show the default duration.
+		let settings = self.getSettings();
+		let duration = parseInt(settings.default_seconds);
+		if (duration > 0) {
+			self.setCapabilityValue('seconds', duration);
+		}
+
+		self.log('Device initialized.');
 	}
 
 	onAdded() {
@@ -38,6 +46,18 @@ class TimerDevice extends Homey.Device {
 
 	onDeleted() {
 		this.log('Device deleted.');
+	}
+
+	async onSettings(oldSettings, newSettings, changedKeys) {
+		// When the default duration of the timer is changed and the timer is not running,
+		// the device ui should show the default duration.
+		let id = this.getData().id;
+		if (!Timer.IsRunning(id)) {
+			let duration = parseInt(newSettings.default_seconds);
+			if (duration > 0) {
+				this.setCapabilityValue('seconds', duration);
+			}
+		}
 	}
 }
 

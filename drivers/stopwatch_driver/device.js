@@ -1,7 +1,6 @@
 'use strict';
 
 const Homey = require('homey');
-//const Chronograph = require('../../lib/chronograph.js');
 //const Counter = require('../../lib/counter.js');
 
 class StopwatchDevice extends Homey.Device {
