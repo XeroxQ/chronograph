@@ -33,8 +33,16 @@ class Application extends Homey.App {
 			// Actions.
 			"timer_start": new TimerStart('timer_start'),
 			"timer_random_start": new TimerStart('timer_random_start'),
+			"timer_adjust": new TimerAdjust('timer_adjust'),
+			"timer_random_adjust": new TimerAdjust('timer_random_adjust'),
 			"timer_stop": new TimerStop('timer_stop'),
 			"timer_random_stop": new TimerStop('timer_random_stop'),
+
+			// Conditions.
+			"timer_compare": new TimerCompare("timer_compare"),
+			"timer_random_compare": new TimerCompare('timer_random_compare'),
+			"timer_running": new TimerRunning("timer_running"),
+			"timer_random_running": new TimerRunning("timer_random_running"),
 
 			// Triggers.
 			"timer_started": new TimerStarted('timer_started'),
@@ -44,48 +52,6 @@ class Application extends Homey.App {
 		});
 
 		this.log('Application is running.');
-
-
-		/*
-		let cards = [
-			// Actions.
-			new TimerStart('timer_start'),
-			new TimerAdjust('timer_adjust'),
-			new TimerStop('timer_stop'),
-			new TimerStart('timer_random_start'),
-			new TimerAdjust('timer_random_adjust'),
-			new TimerStop('timer_random_stop'),
-			new StopwatchStart('stopwatch_start'),
-			new StopwatchAdjust('stopwatch_adjust'),
-			new StopwatchStop('stopwatch_stop'),
-			new StopwatchStart('stopwatch_random_start'),
-			new StopwatchAdjust('stopwatch_random_adjust'),
-			new StopwatchStop('stopwatch_random_stop'),
-
-			// Conditions.
-			new TimerCompare('timer_compare'),
-			new TimerRunning('timer_running'),
-			new TimerCompare('timer_random_compare'),
-			new TimerRunning('timer_random_running'),
-			new StopwatchCompare('stopwatch_compare'),
-			new StopwatchRunning('stopwatch_running'),
-			new StopwatchCompare('stopwatch_random_compare'),
-			new StopwatchRunning('stopwatch_random_running'),
-
-			// Trigger flow cards are different for device triggers and flow triggers, so each
-			// variant has it's own class.
-			new TimerStarted('timer_started'),
-			new TimerFinished('timer_finished'),
-			new TimerStarted('timer_started'),
-			new TimerFinished('timer_finished'),
-			new TimerRandomStarted('timer_random_started'),
-			new TimerRandomFinished('timer_random_finished'),
-			new StopwatchStarted('stopwatch_started'),
-			new StopwatchRandomStarted('stopwatch_random_started')
-		];		
-		*/
-
-		
 	}
 }
 

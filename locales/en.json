@@ -1,1 +1,4 @@
-{}
+{
+	"timer_not_running": "Timer __name__ is not running.",
+	"invalid_duration": "Invalid timer duration."
+}

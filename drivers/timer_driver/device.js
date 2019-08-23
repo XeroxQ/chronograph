@@ -13,20 +13,23 @@ class TimerDevice extends Homey.Device {
 		self.registerCapabilityListener('running', async (value) => {
 			let settings = self.getSettings();
 			let duration = parseInt(settings.default_seconds);
-			if (duration <= 0) {
-				return;
+			if (
+				isNaN(duration) ||
+				duration <= 0
+			) {
+				return Promise.reject(new Error(Homey.__("invalid_duration")));
 			}
 
 			if (value) {
-				new Timer(id, self, duration);
+				new Timer(id, self.getName(), duration, self);
 			} else {
 				let timer = Timer.timers[id];
-				if (timer) {
-					timer.Stop();
+				if (!!timer) {
+					timer.stop();
 				}
 			}
 
-			return Promise.resolve();
+			return Promise.resolve(true);
 		});
 
 		self.log('Device initialized.');
@@ -41,7 +44,10 @@ class TimerDevice extends Homey.Device {
 			// A timer device in idle state should show the default duration.
 			let settings = self.getSettings();
 			let duration = parseInt(settings.default_seconds);
-			if (duration > 0) {
+			if (
+				!isNaN(duration) &&
+				duration > 0
+			) {
 				self.setCapabilityValue('seconds', duration);
 			}
 
@@ -51,21 +57,35 @@ class TimerDevice extends Homey.Device {
 
 	onDeleted() {
 		let id = this.getData().id;
-		if (Timer.IsRunning(id)) {
-			let timer = Timer.timers[id];
-			timer.Stop(true);
+		let timer = Timer.timers[id];
+		if (!!timer) {
+			timer.stop(true);
 		}
 
 		this.log('Device deleted.');
 	}
 
-	async onSettings(oldSettings, newSettings, changedKeys) {
+	onRenamed(name) {
+		let id = this.getData().id;
+		let timer = Timer.timers[id];
+		if (!!timer) {
+			timer.setName(name);
+		}
+
+		this.log('Device renamed.');
+	}
+
+	onSettings(oldSettings, newSettings, changedKeys) {
 		// When the default duration of the timer is changed and the timer is not running,
 		// the device ui should show the default duration.
 		let id = this.getData().id;
-		if (!Timer.IsRunning(id)) {
+		let timer = Timer.timers[id];
+		if (!!timer) {
 			let duration = parseInt(newSettings.default_seconds);
-			if (duration > 0) {
+			if (
+				!isNaN(duration) &&
+				duration > 0
+			) {
 				this.setCapabilityValue('seconds', duration);
 			}
 		}

@@ -46,8 +46,7 @@
 			"getable": true,
 			"setable": true,
 			"uiComponent": null,
-			"uiQuickAction": true,
-			"icon": "drivers/timer_driver/assets/icon.svg"
+			"uiQuickAction": true
 		},
 		"seconds": {
 			"type": "number",
@@ -70,8 +69,12 @@
 			{
 				"id": "timer_started",
 				"title": {
-					"en": "The timer was started",
+					"en": "The timer has started",
 					"nl": "De timer is gestart"
+				},
+				"hint": {
+					"en": "Use this card to create a Flow that is activated when the timer has started.",
+					"nl": "Gebruik dit kaartje om een Flow te maken die geactiveerd wordt als de timer wordt gestart."
 				},
 				"args": [
 					{
@@ -85,8 +88,16 @@
 						"name": "name",
 						"type": "string",
 						"title": {
-							"en": "Timer name",
-							"nl": "Timer naam"
+							"en": "Name",
+							"nl": "Naam"
+						}
+					},
+					{
+						"name": "seconds",
+						"type": "number",
+						"title": {
+							"en": "Duration",
+							"nl": "Looptijd"
 						}
 					}
 				]
@@ -94,8 +105,12 @@
 			{
 				"id": "timer_finished",
 				"title": {
-					"en": "The timer is finished",
+					"en": "The timer has finished",
 					"nl": "De timer is afgelopen"
+				},
+				"hint": {
+					"en": "Use this card to create a Flow that is activated when the timer has finished.",
+					"nl": "Gebruik dit kaartje om een Flow te maken die geactiveerd wordt als de timer is afgelopen."
 				},
 				"args": [
 					{
@@ -109,8 +124,8 @@
 						"name": "name",
 						"type": "string",
 						"title": {
-							"en": "Timer name",
-							"nl": "Timer naam"
+							"en": "Name",
+							"nl": "Naam"
 						}
 					}
 				]
@@ -118,8 +133,16 @@
 			{
 				"id": "timer_random_started",
 				"title": {
-					"en": "A timer was started",
+					"en": "A timer has started",
 					"nl": "Een timer is gestart"
+				},
+				"titleFormatted": {
+					"en": "Timer [[name]] has started",
+					"nl": "Timer [[name]] is gestart"
+				},
+				"hint": {
+					"en": "Use this card to create a Flow that is activated when the timer with the provided name has started.",
+					"nl": "Gebruik dit kaartje om een Flow te maken die geactiveerd wordt als de timer met de ingevoerde naam wordt gestart."
 				},
 				"args": [
 					{
@@ -134,13 +157,39 @@
 							"nl": "Naam"
 						}
 					}
+				],
+				"tokens": [
+					{
+						"name": "name",
+						"type": "string",
+						"title": {
+							"en": "Name",
+							"nl": "Naam"
+						}
+					},
+					{
+						"name": "seconds",
+						"type": "number",
+						"title": {
+							"en": "Duration",
+							"nl": "Looptijd"
+						}
+					}
 				]
 			},
 			{
 				"id": "timer_random_finished",
 				"title": {
-					"en": "A timer is finished",
+					"en": "A timer has finished",
 					"nl": "Een timer is afgelopen"
+				},
+				"titleFormatted": {
+					"en": "Timer [[name]] has finished",
+					"nl": "Timer [[name]] is afgelopen"
+				},
+				"hint": {
+					"en": "Use this card to create a Flow that is activated when the timer with the provided name has finished.",
+					"nl": "Gebruik dit kaartje om een Flow te maken die geactiveerd wordt als de timer met de ingevoerde naam is afgelopen."
 				},
 				"args": [
 					{
@@ -151,6 +200,16 @@
 						},
 						"type": "text",
 						"placeholder": {
+							"en": "Name",
+							"nl": "Naam"
+						}
+					}
+				],
+				"tokens": [
+					{
+						"name": "name",
+						"type": "string",
+						"title": {
 							"en": "Name",
 							"nl": "Naam"
 						}
@@ -234,8 +293,8 @@
 			{
 				"id": "timer_running",
 				"title": {
-					"en": "!{{The timer is running|The timer is stopped}}",
-					"nl": "!{{De timer loopt|De timer is gestopt}}"
+					"en": "!{{The timer is running|The timer is not running}}",
+					"nl": "!{{De timer loopt|De timer loopt niet}}"
 				},
 				"args": [
 					{
@@ -281,8 +340,8 @@
 			{
 				"id": "timer_random_running",
 				"title": {
-					"en": "!{{A timer is running|A timer is stopped}}",
-					"nl": "!{{Een timer loopt|Een timer is gestopt}}"
+					"en": "!{{A timer is running|A timer is not running}}",
+					"nl": "!{{Een timer loopt|Een timer loopt niet}}"
 				},
 				"args": [
 					{
@@ -402,6 +461,10 @@
 					"en": "Start the timer",
 					"nl": "Start de timer"
 				},
+				"hint": {
+					"en": "Use this card to start the timer with the provided duration. This action will trigger the \"The timer has started\" card.",
+					"nl": "Gebruik dit kaartje om de timer te starten met de ingevoerde looptijd. Deze actie activeerd het \"De timer is gestart\" kaartje."
+				},
 				"args": [
 					{
 						"name": "device",
@@ -427,6 +490,10 @@
 				"title": {
 					"en": "Adjust the timer",
 					"nl": "Pas de timer aan"
+				},
+				"hint": {
+					"en": "Use this card to adjust the duration of the timer. Use a positive duration to extend the timer, or a negative duration to shorten the timer.",
+					"nl": "Gebruik dit kaartje om de looptijd van de timer aan te passen. Gebruik een positive looptijd om de timer te verlengen, of een negative looptijd om de timer te verkorten."
 				},
 				"args": [
 					{
@@ -454,6 +521,10 @@
 					"en": "Stop the timer",
 					"nl": "Stop de timer"
 				},
+				"hint": {
+					"en": "Use this card to stop the timer without triggering the \"A timer has finished\" card.",
+					"nl": "Gebruik dit kaartje om de timer te stoppen zonder het kaartje \"Een timer is afgelopen\" te activeren."
+				},
 				"args": [
 					{
 						"name": "device",
@@ -467,6 +538,14 @@
 				"title": {
 					"en": "Start a timer",
 					"nl": "Start een timer"
+				},
+				"titleFormatted": {
+					"en": "Start timer [[name]] with a duration of [[seconds]] seconds",
+					"nl": "Start timer [[name]] met een looptijd van [[seconds]] seconden"
+				},
+				"hint": {
+					"en": "Use this card to start a timer with the provided name and duration. This action will trigger the \"A timer has started\" card.",
+					"nl": "Gebruik dit kaartje om een timer te starten met de ingevoerde naam en looptijd. Deze actie activeerd het \"Een timer is gestart\" kaartje."
 				},
 				"args": [
 					{
@@ -501,6 +580,14 @@
 					"en": "Adjust a timer",
 					"nl": "Pas een timer aan"
 				},
+				"titleFormatted": {
+					"en": "Adjust timer [[name]] with a duration of [[seconds]] seconds",
+					"nl": "Pas timer [[name]] aan met een looptijd van [[seconds]] seconden"
+				},
+				"hint": {
+					"en": "Use this card to adjust the duration of the timer with the provided name. Use a positive duration to extend the timer, or a negative duration to shorten the timer.",
+					"nl": "Gebruik dit kaartje om de looptijd van de timer met de ingevoerde naam aan te passen. Gebruik een positive looptijd om de timer te verlengen, of een negative looptijd om de timer te verkorten."
+				},
 				"args": [
 					{
 						"name": "name",
@@ -533,6 +620,14 @@
 				"title": {
 					"en": "Stop a timer",
 					"nl": "Stop een timer"
+				},
+				"titleFormatted": {
+					"en": "Stop timer [[name]]",
+					"nl": "Stop timer [[name]]"
+				},
+				"hint": {
+					"en": "Use this card to stop a timer with the provided name without triggering the \"A timer has finished\" card.",
+					"nl": "Gebruik dit kaartje om een timer te stoppen met de ingevoerde naam zonder het kaartje \"Een timer is afgelopen\" te activeren."
 				},
 				"args": [
 					{
