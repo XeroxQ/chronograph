@@ -219,8 +219,12 @@
 			{
 				"id": "stopwatch_started",
 				"title": {
-					"en": "The stopwatch was started",
+					"en": "The stopwatch has started",
 					"nl": "De stopwatch is gestart"
+				},
+				"hint": {
+					"en": "Use this card to create a Flow that is activated when the stopwatch has started.",
+					"nl": "Gebruik dit kaartje om een Flow te maken die geactiveerd wordt als de stopwatch wordt gestart."
 				},
 				"args": [
 					{
@@ -234,8 +238,8 @@
 						"name": "name",
 						"type": "string",
 						"title": {
-							"en": "Stopwatch name",
-							"nl": "Stopwatch naam"
+							"en": "Name",
+							"nl": "Naam"
 						}
 					}
 				]
@@ -243,8 +247,16 @@
 			{
 				"id": "stopwatch_random_started",
 				"title": {
-					"en": "A stopwatch was started",
+					"en": "A stopwatch has started",
 					"nl": "Een stopwatch is gestart"
+				},
+				"titleFormatted": {
+					"en": "Stopwatch [[name]] has started",
+					"nl": "Stopwatch [[name]] is gestart"
+				},
+				"hint": {
+					"en": "Use this card to create a Flow that is activated when the stopwatch with the provided name has started.",
+					"nl": "Gebruik dit kaartje om een Flow te maken die geactiveerd wordt als de stopwatch met de ingevoerde naam wordt gestart."
 				},
 				"args": [
 					{
@@ -259,6 +271,16 @@
 							"nl": "Naam"
 						}
 					}
+				],
+				"tokens": [
+					{
+						"name": "name",
+						"type": "string",
+						"title": {
+							"en": "Name",
+							"nl": "Naam"
+						}
+					}
 				]
 			}
 		],
@@ -267,8 +289,12 @@
 			{
 				"id": "timer_compare",
 				"title": {
-					"en": "!{{The timer runs longer than|The timer runs shorter than}}",
-					"nl": "!{{De timer duurt langer dan|De timer duurt korter dan}}"
+					"en": "The timer runs !{{longer|shorter}} than",
+					"nl": "De timer loopt !{{langer|korter}} dan"
+				},
+				"hint": {
+					"en": "Use this card to run or cancel a Flow depending on the duration of the timer.",
+					"nl": "Gebruik dit kaartje om een Flow wel of niet uit te voeren afhankelijk van de looptijd van de timer."
 				},
 				"args": [
 					{
@@ -293,8 +319,12 @@
 			{
 				"id": "timer_running",
 				"title": {
-					"en": "!{{The timer is running|The timer is not running}}",
-					"nl": "!{{De timer loopt|De timer loopt niet}}"
+					"en": "The timer !{{is running|is not running}}",
+					"nl": "De timer !{{loopt|loopt niet}}"
+				},
+				"hint": {
+					"en": "Use this card to run or cancel a Flow depending on the run state of the timer.",
+					"nl": "Gebruik dit kaartje om een Flow wel of niet uit te voeren afhankelijk van de loop status van de timer."
 				},
 				"args": [
 					{
@@ -307,8 +337,16 @@
 			{
 				"id": "timer_random_compare",
 				"title": {
-					"en": "!{{A timer runs longer than|A timer runs shorter than}}",
-					"nl": "!{{Een timer duurt langer dan|Een timer duurt korter dan}}"
+					"en": "A timer runs !{{longer|shorter}} than",
+					"nl": "Een timer loopt !{{langer|korter}} dan"
+				},
+				"titleFormatted": {
+					"en": "Timer [[name]] runs !{{longer|shorter}} than [[seconds]] seconds",
+					"nl": "Timer [[name]] loopt !{{langer|korter}} dan [[seconds]] seconden"
+				},
+				"hint": {
+					"en": "Use this card to run or cancel a Flow depending on the duration of the timer with the provided name.",
+					"nl": "Gebruik dit kaartje om een Flow wel of niet uit te voeren afhankelijk van de looptijd van de timer met de ingevoerde naam."
 				},
 				"args": [
 					{
@@ -340,8 +378,16 @@
 			{
 				"id": "timer_random_running",
 				"title": {
-					"en": "!{{A timer is running|A timer is not running}}",
-					"nl": "!{{Een timer loopt|Een timer loopt niet}}"
+					"en": "A timer !{{is running|is not running}}",
+					"nl": "Een timer !{{loopt|loopt niet}}"
+				},
+				"titleFormatted": {
+					"en": "Timer [[name]] !{{is running|is not running}}",
+					"nl": "Timer [[name]] !{{loopt|loopt niet}}"
+				},
+				"hint": {
+					"en": "Use this card to run or cancel a Flow depending on the run state of the timer with the provided name.",
+					"nl": "Gebruik dit kaartje om een Flow wel of niet uit te voeren afhankelijk van de loop status van de timer met de ingevoerde naam."
 				},
 				"args": [
 					{
@@ -361,8 +407,12 @@
 			{
 				"id": "stopwatch_compare",
 				"title": {
-					"en": "!{{The stopwatch is running longer than|The stopwatch is running shorter than}}",
-					"nl": "!{{De stopwatch loopt langer dan|De stopwatch loopt korter dan}}"
+					"en": "The stopwatch is running !{{longer|shorter}} than",
+					"nl": "De stopwatch loopt !{{langer|korter}} dan"
+				},
+				"hint": {
+					"en": "Use this card to run or cancel a Flow depending on the duration of the stopwatch.",
+					"nl": "Gebruik dit kaartje om een Flow wel of niet uit te voeren afhankelijk van de looptijd van de stopwatch."
 				},
 				"args": [
 					{
@@ -387,8 +437,12 @@
 			{
 				"id": "stopwatch_running",
 				"title": {
-					"en": "!{{The stopwatch is running|The stopwatch is stopped}}",
-					"nl": "!{{De stopwatch loopt|De stopwatch is gestopt}}"
+					"en": "The stopwatch !{{is running|is not running}}",
+					"nl": "De stopwatch !{{loopt|loopt niet}}"
+				},
+				"hint": {
+					"en": "Use this card to run or cancel a Flow depending on the run state of the stopwatch.",
+					"nl": "Gebruik dit kaartje om een Flow wel of niet uit te voeren afhankelijk van de loop status van de stopwatch."
 				},
 				"args": [
 					{
@@ -401,8 +455,12 @@
 			{
 				"id": "stopwatch_random_compare",
 				"title": {
-					"en": "!{{A stopwatch is running longer than|A stopwatch is running shorter than}}",
-					"nl": "!{{Een stopwatch loopt langer dan|Een stopwatch loopt korter dan}}"
+					"en": "A stopwatch is running !{{longer|shorter}} than",
+					"nl": "Een stopwatch loopt !{{langer|korter}} dan"
+				},
+				"titleFormatted": {
+					"en": "Stopwatch [[name]] runs !{{longer|shorter}} than [[seconds]] seconds",
+					"nl": "Stopwatch [[name]] loopt !{{langer|korter}} dan [[seconds]] seconden"
 				},
 				"args": [
 					{
@@ -434,8 +492,16 @@
 			{
 				"id": "stopwatch_random_running",
 				"title": {
-					"en": "!{{A stopwatch is running|A stopwatch is stopped}}",
-					"nl": "!{{Een stopwatch loopt|Een stopwatch is gestopt}}"
+					"en": "A stopwatch !{{is running|is not running}}",
+					"nl": "Een stopwatch !{{loopt|loopt niet}}"
+				},
+				"titleFormatted": {
+					"en": "Stopwatch [[name]] !{{is running|is not running}}",
+					"nl": "Stopwatch [[name]] !{{loopt|loopt niet}}"
+				},
+				"hint": {
+					"en": "Use this card to run or cancel a Flow depending on the run state of the stopwatch with the provided name.",
+					"nl": "Gebruik dit kaartje om een Flow wel of niet uit te voeren afhankelijk van de loop status van de stopwatch met de ingevoerde naam."
 				},
 				"args": [
 					{
@@ -650,6 +716,10 @@
 					"en": "Start the stopwatch",
 					"nl": "Start de stopwatch"
 				},
+				"hint": {
+					"en": "Use this card to start the stopwatch. This action will trigger the \"The stopwatch has started\" card.",
+					"nl": "Gebruik dit kaartje om de stopwatch te starten. Deze actie activeerd het \"De stopwatch is gestart\" kaartje."
+				},
 				"args": [
 					{
 						"name": "device",
@@ -663,6 +733,10 @@
 				"title": {
 					"en": "Adjust the stopwatch",
 					"nl": "Pas de stopwatch aan"
+				},
+				"hint": {
+					"en": "Use this card to adjust the duration of the stopwatch. Use a positive duration to extend the stopwatch, or a negative duration to shorten the stopwatch.",
+					"nl": "Gebruik dit kaartje om de looptijd van de stopwatch aan te passen. Gebruik een positive looptijd om de stopwatch te verlengen, of een negative looptijd om de stopwatch te verkorten."
 				},
 				"args": [
 					{
@@ -690,6 +764,10 @@
 					"en": "Stop the stopwatch",
 					"nl": "Stop de stopwatch"
 				},
+				"hint": {
+					"en": "Use this card to stop the stopwatch.",
+					"nl": "Gebruik dit kaartje om de stopwatch te stoppen."
+				},
 				"args": [
 					{
 						"name": "device",
@@ -703,6 +781,14 @@
 				"title": {
 					"en": "Start a stopwatch",
 					"nl": "Start een stopwatch"
+				},
+				"titleFormatted": {
+					"en": "Start stopwatch [[name]]",
+					"nl": "Start stopwatch [[name]]"
+				},
+				"hint": {
+					"en": "Use this card to start a stopwatch with the provided name. This action will trigger the \"A stopwatch has started\" card.",
+					"nl": "Gebruik dit kaartje om een stopwatch te starten met de ingevoerde naam. Deze actie activeerd het \"Een stopwatch is gestart\" kaartje."
 				},
 				"args": [
 					{
@@ -724,6 +810,14 @@
 				"title": {
 					"en": "Adjust a stopwatch",
 					"nl": "Pas een stopwatch aan"
+				},
+				"titleFormatted": {
+					"en": "Adjust stopwatch [[name]] with a duration of [[seconds]] seconds",
+					"nl": "Pas stopwatch [[name]] aan met een looptijd van [[seconds]] seconden"
+				},
+				"hint": {
+					"en": "Use this card to adjust the duration of the stopwatch with the provided name. Use a positive duration to extend the stopwatch, or a negative duration to shorten the stopwatch.",
+					"nl": "Gebruik dit kaartje om de looptijd van de stopwatch met de ingevoerde naam aan te passen. Gebruik een positive looptijd om de stopwatch te verlengen, of een negative looptijd om de stopwatch te verkorten."
 				},
 				"args": [
 					{
@@ -757,6 +851,14 @@
 				"title": {
 					"en": "Stop a stopwatch",
 					"nl": "Stop een stopwatch"
+				},
+				"titleFormatted": {
+					"en": "Stop stopwatch [[name]]",
+					"nl": "Stop stopwatch [[name]]"
+				},
+				"hint": {
+					"en": "Use this card to stop a stopwatch with the provided name.",
+					"nl": "Gebruik dit kaartje om een timer te stoppen met de ingevoerde naam."
 				},
 				"args": [
 					{
@@ -825,7 +927,7 @@
 				"small": "drivers/timer_driver/assets/images/small.png"
 			},
 			"class": "other",
-			"capabilities": [ "running" ],
+			"capabilities": [ "running", "seconds" ],
 			"pair": [
 				{
 					"id": "list_triggers",

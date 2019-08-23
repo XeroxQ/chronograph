@@ -32,7 +32,7 @@ class TimerDevice extends Homey.Device {
 			return Promise.resolve(true);
 		});
 
-		self.log('Device initialized.');
+		self.log('Timer device initialized.');
 	}
 
 	onAdded() {
@@ -51,7 +51,7 @@ class TimerDevice extends Homey.Device {
 				self.setCapabilityValue('seconds', duration);
 			}
 
-			self.log('Device ready.');
+			self.log('Timer device ready.');
 		});
 	}
 
@@ -62,7 +62,7 @@ class TimerDevice extends Homey.Device {
 			timer.stop(true);
 		}
 
-		this.log('Device deleted.');
+		this.log('Timer device deleted.');
 	}
 
 	onRenamed(name) {
@@ -72,7 +72,7 @@ class TimerDevice extends Homey.Device {
 			timer.setName(name);
 		}
 
-		this.log('Device renamed.');
+		this.log('Timer device renamed.');
 	}
 
 	onSettings(oldSettings, newSettings, changedKeys) {

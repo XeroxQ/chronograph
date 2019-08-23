@@ -1,4 +1,5 @@
 {
 	"timer_not_running": "Timer __name__ loopt niet.",
+	"stopwatch_not_running": "Stopwatch __name__ loopt niet.",
 	"invalid_duration": "Ongeldige timer looptijd."
 }

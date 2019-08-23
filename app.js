@@ -38,17 +38,32 @@ class Application extends Homey.App {
 			"timer_stop": new TimerStop('timer_stop'),
 			"timer_random_stop": new TimerStop('timer_random_stop'),
 
+			"stopwatch_start": new StopwatchStart('stopwatch_start'),
+			"stopwatch_random_start": new StopwatchStart('stopwatch_random_start'),
+			"stopwatch_adjust": new StopwatchAdjust('stopwatch_adjust'),
+			"stopwatch_random_adjust": new StopwatchAdjust('stopwatch_random_adjust'),
+			"stopwatch_stop": new StopwatchStop('stopwatch_stop'),
+			"stopwatch_random_stop": new StopwatchStop('stopwatch_random_stop'),
+
 			// Conditions.
 			"timer_compare": new TimerCompare("timer_compare"),
 			"timer_random_compare": new TimerCompare('timer_random_compare'),
 			"timer_running": new TimerRunning("timer_running"),
 			"timer_random_running": new TimerRunning("timer_random_running"),
 
+			"stopwatch_compare": new StopwatchCompare("stopwatch_compare"),
+			"stopwatch_random_compare": new StopwatchCompare('stopwatch_random_compare'),
+			"stopwatch_running": new StopwatchRunning("stopwatch_running"),
+			"stopwatch_random_running": new StopwatchRunning("stopwatch_random_running"),
+
 			// Triggers.
 			"timer_started": new TimerStarted('timer_started'),
 			"timer_finished": new TimerFinished('timer_finished'),
 			"timer_random_started": new TimerRandomStarted('timer_random_started'),
-			"timer_random_finished": new TimerRandomFinished('timer_random_finished')
+			"timer_random_finished": new TimerRandomFinished('timer_random_finished'),
+
+			"stopwatch_started": new StopwatchStarted('stopwatch_started'),
+			"stopwatch_random_started": new StopwatchRandomStarted('stopwatch_random_started')
 		});
 
 		this.log('Application is running.');
