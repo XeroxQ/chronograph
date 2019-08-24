@@ -1,11 +1,15 @@
 # Chronograph
 
-Adds timer and stopwatch devices to Homey.
+Adds timer and stopwatch functionality to Homey. Timers and stopwatches can be created ad-hoc from an
+action flow card, or in the form of a device, in which case its status can be viewed from within the
+devices section of the Homey app.
 
 ## Features
 
-* Create a timer or stopwatch device and use it in flows,
-* Start or stop a timer or stopwatch from within the devices section of the Homey App,
+* Create ad-hoc- or device timers and stopwatches and control them using flow cards,
+* Start or stop ad-hoc- or device timers and stopwatches from action flow cards,
+* Start or stop device timers and stopwatches from the devices section of the Homey App,
+* View the status of a timer or stopwatch device from the devices section of the Homey App,
 * Integrate timers and stopwatches in your home automation.
 
 ## Contributing
@@ -19,6 +23,10 @@ If you'd like to contribute code to this project, please read the
 
 If you like this project, perhaps you can support us by making a donation?
 - Paypal: [Donate](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=VQNGE3N5L6MKS)
+
+## Credits
+
+Application image by [Agê Barros](https://unsplash.com/@agebarros?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText) on [Unsplash](https://unsplash.com/search/photos/time?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText).
 
 ## Changelog
 
