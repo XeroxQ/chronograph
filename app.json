@@ -923,8 +923,8 @@
 				"en": "Stopwatch"
 			},
 			"images": {
-				"large": "drivers/timer_driver/assets/images/large.png",
-				"small": "drivers/timer_driver/assets/images/small.png"
+				"large": "drivers/stopwatch_driver/assets/images/large.png",
+				"small": "drivers/stopwatch_driver/assets/images/small.png"
 			},
 			"class": "other",
 			"capabilities": [ "running", "seconds" ],
