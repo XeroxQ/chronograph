@@ -1,7 +1,7 @@
 {
 	"id": "nl.fellownet.chronograph",
-	"version": "1.0.0",
-	"compatibility": ">=1.5.0",
+	"version": "1.0.1",
+	"compatibility": ">=2.0.0",
 	"sdk": 2,
 	"name": {
 		"en": "Chronograph"
@@ -46,7 +46,16 @@
 			"getable": true,
 			"setable": true,
 			"uiComponent": null,
-			"uiQuickAction": true
+			"uiQuickAction": true,
+			"insights": true,
+			"insightsTitleTrue": {
+				"en": "Started",
+				"nl": "Gestart"
+			},
+			"insightsTitleFalse": {
+				"en": "Stopped",
+				"nl": "Gestopt"
+			}
 		},
 		"seconds": {
 			"type": "number",
