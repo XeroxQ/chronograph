@@ -7,8 +7,8 @@
 		"en": "Chronograph"
 	},
 	"description": {
-		"en": "Adds timer and stopwatch devices to Homey.",
-		"nl": "Voegt timer en stopwatch apparaten toe aan Homey."
+		"en": "Adds precice timer- and stopwatch functionality to Homey.",
+		"nl": "Voegt accurate timer- en stopwatch functionaliteit toe aan Homey."
 	},
 	"brandColor": "#5583C3",
 	"category": [
@@ -43,109 +43,8 @@
 		}
 	},
 
-	"capabilities": {
-		"alarm_running": {
-			"type": "boolean",
-			"title": {
-				"en": "Running",
-				"nl": "Loopt"
-			},
-			"getable": true,
-			"setable": false,
-			"uiComponent": "sensor",
-			"insights": true,
-			"insightsTitleTrue": {
-				"en": "Started",
-				"nl": "Gestart"
-			},
-			"insightsTitleFalse": {
-				"en": "Stopped",
-				"nl": "Gestopt"
-			},
-			"icon": "assets/running.svg"
-		},
-		"duration": {
-			"type": "number",
-			"title": {
-				"en": "Duration",
-				"nl": "Looptijd"
-			},
-			"units": {
-				"en": "seconds",
-				"nl": "seconden"
-			},
-			"getable": true,
-			"setable": false,
-			"icon": "assets/duration.svg"
-		}
-	},
-
 	"flow": {
 		"triggers": [
-			{
-				"id": "timer_started",
-				"title": {
-					"en": "The timer has started",
-					"nl": "De timer is gestart"
-				},
-				"hint": {
-					"en": "Use this card to create a Flow that is activated when the timer has started.",
-					"nl": "Gebruik dit kaartje om een Flow te maken die geactiveerd wordt als de timer wordt gestart."
-				},
-				"args": [
-					{
-						"name": "device",
-						"type": "device",
-						"filter": "driver_id=timer_driver"
-					}
-				],
-				"tokens": [
-					{
-						"name": "name",
-						"type": "string",
-						"title": {
-							"en": "Name",
-							"nl": "Naam"
-						}
-					},
-					{
-						"name": "seconds",
-						"type": "number",
-						"title": {
-							"en": "Duration",
-							"nl": "Looptijd"
-						}
-					}
-				]
-			},
-			{
-				"id": "timer_finished",
-				"title": {
-					"en": "The timer has finished",
-					"nl": "De timer is afgelopen"
-				},
-				"hint": {
-					"en": "Use this card to create a Flow that is activated when the timer has finished.",
-					"nl": "Gebruik dit kaartje om een Flow te maken die geactiveerd wordt als de timer is afgelopen."
-				},
-				"args": [
-					{
-						"name": "device",
-						"type": "device",
-						"filter": "driver_id=timer_driver"
-					}
-				],
-				"tokens": [
-					{
-						"name": "name",
-						"type": "string",
-						"title": {
-							"en": "Name",
-							"nl": "Naam"
-						}
-					}
-				]
-			},
 			{
 				"id": "timer_random_started",
 				"title": {
@@ -233,34 +132,6 @@
 				]
 			},
 			{
-				"id": "stopwatch_started",
-				"title": {
-					"en": "The stopwatch has started",
-					"nl": "De stopwatch is gestart"
-				},
-				"hint": {
-					"en": "Use this card to create a Flow that is activated when the stopwatch has started.",
-					"nl": "Gebruik dit kaartje om een Flow te maken die geactiveerd wordt als de stopwatch wordt gestart."
-				},
-				"args": [
-					{
-						"name": "device",
-						"type": "device",
-						"filter": "driver_id=stopwatch_driver"
-					}
-				],
-				"tokens": [
-					{
-						"name": "name",
-						"type": "string",
-						"title": {
-							"en": "Name",
-							"nl": "Naam"
-						}
-					}
-				]
-			},
-			{
 				"id": "stopwatch_random_started",
 				"title": {
 					"en": "A stopwatch has started",
@@ -302,56 +173,6 @@
 		],
 
 		"conditions": [
-			{
-				"id": "timer_compare",
-				"title": {
-					"en": "The timer runs !{{longer|shorter}} than",
-					"nl": "De timer loopt !{{langer|korter}} dan"
-				},
-				"hint": {
-					"en": "Use this card to run or cancel a Flow depending on the duration of the timer.",
-					"nl": "Gebruik dit kaartje om een Flow wel of niet uit te voeren afhankelijk van de looptijd van de timer."
-				},
-				"args": [
-					{
-						"name": "device",
-						"type": "device",
-						"filter": "driver_id=timer_driver"
-					},
-					{
-						"name": "seconds",
-						"title": {
-							"en": "Duration of the timer",
-							"nl": "Looptijd van de timer"
-						},
-						"type": "number",
-						"min": 0,
-						"step": 0.01,
-						"placeholder": {
-							"en": "Seconds",
-							"nl": "Seconden"
-						}
-					}
-				]
-			},
-			{
-				"id": "timer_running",
-				"title": {
-					"en": "The timer !{{is running|is not running}}",
-					"nl": "De timer !{{loopt|loopt niet}}"
-				},
-				"hint": {
-					"en": "Use this card to run or cancel a Flow depending on the run state of the timer.",
-					"nl": "Gebruik dit kaartje om een Flow wel of niet uit te voeren afhankelijk van de loop status van de timer."
-				},
-				"args": [
-					{
-						"name": "device",
-						"type": "device",
-						"filter": "driver_id=timer_driver"
-					}
-				]
-			},
 			{
 				"id": "timer_random_compare",
 				"title": {
@@ -421,56 +242,6 @@
 							"en": "Name",
 							"nl": "Naam"
 						}
-					}
-				]
-			},
-			{
-				"id": "stopwatch_compare",
-				"title": {
-					"en": "The stopwatch is running !{{longer|shorter}} than",
-					"nl": "De stopwatch loopt !{{langer|korter}} dan"
-				},
-				"hint": {
-					"en": "Use this card to run or cancel a Flow depending on the duration of the stopwatch.",
-					"nl": "Gebruik dit kaartje om een Flow wel of niet uit te voeren afhankelijk van de looptijd van de stopwatch."
-				},
-				"args": [
-					{
-						"name": "device",
-						"type": "device",
-						"filter": "driver_id=stopwatch_driver"
-					},
-					{
-						"name": "seconds",
-						"title": {
-							"en": "Duration of the stopwatch",
-							"nl": "Looptijd van de stopwatch"
-						},
-						"type": "number",
-						"min": 0,
-						"step": 0.01,
-						"placeholder": {
-							"en": "Seconds",
-							"nl": "Seconden"
-						}
-					}
-				]
-			},
-			{
-				"id": "stopwatch_running",
-				"title": {
-					"en": "The stopwatch !{{is running|is not running}}",
-					"nl": "De stopwatch !{{loopt|loopt niet}}"
-				},
-				"hint": {
-					"en": "Use this card to run or cancel a Flow depending on the run state of the stopwatch.",
-					"nl": "Gebruik dit kaartje om een Flow wel of niet uit te voeren afhankelijk van de loop status van de stopwatch."
-				},
-				"args": [
-					{
-						"name": "device",
-						"type": "device",
-						"filter": "driver_id=stopwatch_driver"
 					}
 				]
 			},
@@ -545,87 +316,6 @@
 		],
 
 		"actions": [
-			{
-				"id": "timer_start",
-				"title": {
-					"en": "Start the timer",
-					"nl": "Start de timer"
-				},
-				"hint": {
-					"en": "Use this card to start the timer with the provided duration. This action will trigger the \"The timer has started\" card.",
-					"nl": "Gebruik dit kaartje om de timer te starten met de ingevoerde looptijd. Deze actie activeerd het \"De timer is gestart\" kaartje."
-				},
-				"args": [
-					{
-						"name": "device",
-						"type": "device",
-						"filter": "driver_id=timer_driver"
-					},
-					{
-						"name": "seconds",
-						"title": {
-							"en": "Duration of the timer",
-							"nl": "Looptijd van de timer"
-						},
-						"type": "number",
-						"min": 0,
-						"step": 0.01,
-						"placeholder": {
-							"en": "Seconds",
-							"nl": "Seconden"
-						}
-					}
-				]
-			},
-			{
-				"id": "timer_adjust",
-				"title": {
-					"en": "Adjust the timer",
-					"nl": "Pas de timer aan"
-				},
-				"hint": {
-					"en": "Use this card to adjust the duration of the timer. Use a positive duration to extend the timer, or a negative duration to shorten the timer.",
-					"nl": "Gebruik dit kaartje om de looptijd van de timer aan te passen. Gebruik een positive looptijd om de timer te verlengen, of een negative looptijd om de timer te verkorten."
-				},
-				"args": [
-					{
-						"name": "device",
-						"type": "device",
-						"filter": "driver_id=timer_driver"
-					},
-					{
-						"name": "seconds",
-						"title": {
-							"en": "Adjustment of the timer",
-							"nl": "Wijziging van de timer"
-						},
-						"type": "number",
-						"step": 0.01,
-						"placeholder": {
-							"en": "Seconds",
-							"nl": "Seconden"
-						}
-					}
-				]
-			},
-			{
-				"id": "timer_stop",
-				"title": {
-					"en": "Stop the timer",
-					"nl": "Stop de timer"
-				},
-				"hint": {
-					"en": "Use this card to stop the timer without triggering the \"A timer has finished\" card.",
-					"nl": "Gebruik dit kaartje om de timer te stoppen zonder het kaartje \"Een timer is afgelopen\" te activeren."
-				},
-				"args": [
-					{
-						"name": "device",
-						"type": "device",
-						"filter": "driver_id=timer_driver"
-					}
-				]
-			},
 			{
 				"id": "timer_random_start",
 				"title": {
@@ -741,73 +431,6 @@
 				]
 			},
 			{
-				"id": "stopwatch_start",
-				"title": {
-					"en": "Start the stopwatch",
-					"nl": "Start de stopwatch"
-				},
-				"hint": {
-					"en": "Use this card to start the stopwatch. This action will trigger the \"The stopwatch has started\" card.",
-					"nl": "Gebruik dit kaartje om de stopwatch te starten. Deze actie activeerd het \"De stopwatch is gestart\" kaartje."
-				},
-				"args": [
-					{
-						"name": "device",
-						"type": "device",
-						"filter": "driver_id=stopwatch_driver"
-					}
-				]
-			},
-			{
-				"id": "stopwatch_adjust",
-				"title": {
-					"en": "Adjust the stopwatch",
-					"nl": "Pas de stopwatch aan"
-				},
-				"hint": {
-					"en": "Use this card to adjust the duration of the stopwatch. Use a positive duration to extend the stopwatch, or a negative duration to shorten the stopwatch.",
-					"nl": "Gebruik dit kaartje om de looptijd van de stopwatch aan te passen. Gebruik een positive looptijd om de stopwatch te verlengen, of een negative looptijd om de stopwatch te verkorten."
-				},
-				"args": [
-					{
-						"name": "device",
-						"type": "device",
-						"filter": "driver_id=stopwatch_driver"
-					},
-					{
-						"name": "seconds",
-						"title": {
-							"en": "Adjustment of the stopwatch",
-							"nl": "Wijziging van de stopwatch"
-						},
-						"type": "number",
-						"step": 0.01,
-						"placeholder": {
-							"en": "Seconds",
-							"nl": "Seconden"
-						}
-					}
-				]
-			},
-			{
-				"id": "stopwatch_stop",
-				"title": {
-					"en": "Stop the stopwatch",
-					"nl": "Stop de stopwatch"
-				},
-				"hint": {
-					"en": "Use this card to stop the stopwatch.",
-					"nl": "Gebruik dit kaartje om de stopwatch te stoppen."
-				},
-				"args": [
-					{
-						"name": "device",
-						"type": "device",
-						"filter": "driver_id=stopwatch_driver"
-					}
-				]
-			},
-			{
 				"id": "stopwatch_random_start",
 				"title": {
 					"en": "Start a stopwatch",
@@ -908,90 +531,6 @@
 				]
 			}
 		]
-	},
+	}
 
-	"drivers": [
-		{
-			"id": "timer_driver",
-			"name": {
-				"en": "Timer"
-			},
-			"images": {
-				"large": "drivers/timer_driver/assets/images/large.png",
-				"small": "drivers/timer_driver/assets/images/small.png"
-			},
-			"class": "sensor",
-			"capabilities": [ "alarm_running", "duration", "button.0" ],
-			"capabilitiesOptions": {
-				"alarm_running": {
-					"preventTag": true
-				},
-				"duration": {
-					"preventTag": true
-				},
-				"button.0": {
-					"title":{
-						"en": "Stop",
-						"nl": "Stoppen"
-					},
-					"preventTag": true,
-					"preventInsights": true
-				}
-			},
-			"pair": [
-				{
-					"id": "list_triggers",
-					"template": "list_devices",
-					"navigation": {
-						"next": "add_triggers"
-					}
-				},
-				{
-					"id": "add_triggers",
-					"template": "add_devices"
-				}
-			]
-		},
-		{
-			"id": "stopwatch_driver",
-			"name": {
-				"en": "Stopwatch"
-			},
-			"images": {
-				"large": "drivers/stopwatch_driver/assets/images/large.png",
-				"small": "drivers/stopwatch_driver/assets/images/small.png"
-			},
-			"class": "sensor",
-			"capabilities": [ "alarm_running", "duration", "onoff.0" ],
-			"capabilitiesOptions": {
-				"alarm_running": {
-					"preventTag": true
-				},
-				"duration": {
-					"preventTag": true
-				},
-				"onoff.0": {
-					"title":{
-						"en": "Start / Stop",
-						"nl": "Starten / Stoppen"
-					},
-					"preventTag": true,
-					"preventInsights": true
-				}
-			},
-			"pair": [
-				{
-					"id": "list_triggers",
-					"template": "list_devices",
-					"navigation": {
-						"next": "add_triggers"
-					}
-				},
-				{
-					"id": "add_triggers",
-					"template": "add_devices"
-				}
-			]
-		}
-	]
 }
