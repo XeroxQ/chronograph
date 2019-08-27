@@ -9,49 +9,41 @@ class StopwatchDevice extends Homey.Device {
 
 		let id = self.getData().id;
 
-		// Register a handler for when a stopwatch is started through the Homey ui.
-		self.registerCapabilityListener('running', async (value) => {
-			if (value) {
-				new Stopwatch(id, self.getName(), self);
+		this.registerCapabilityListener('onoff.0', async (value) => {
+			var stopwatch = Stopwatch.get(id);
+			if (!!stopwatch) {
+				stopwatch.stop();
 			} else {
-				let stopwatch = Stopwatch.stopwatches[id];
-				if (!!stopwatch) {
-					stopwatch.stop();
-				}
+				new Stopwatch(id, self.getName(), self);
 			}
+			Promise.resolve();
+		});
 
-			return Promise.resolve(true);
+		this.ready(async () => {
+			self.setCapabilityValue('duration', NaN);
+			self.setCapabilityValue('alarm_running', false);
+			self.setCapabilityValue('onoff.0', false);
+			self.log('Stopwatch device ready.');
 		});
 
 		self.log('Stopwatch device initialized.');
 	}
 
 	onAdded() {
-		var self = this;
-		this.ready(() => {
-			// A stopwatch device is turned off by default.
-			self.setCapabilityValue('running', false);
-
-			// A stopwatch device in idle state should show zero.
-			self.setCapabilityValue('seconds', 0);
-
-			self.log('Stopwatch device ready.');
-		});
+		this.log('Stopwatch device added.');
 	}
 
 	onDeleted() {
-		let id = this.getData().id;
-		let stopwatch = Stopwatch.stopwatches[id];
+		let stopwatch = Stopwatch.get(this.getData().id);
 		if (!!stopwatch) {
-			stopwatch.stop(true);
+			stopwatch.destroy();
 		}
 
 		this.log('Stopwatch device deleted.');
 	}
 
 	onRenamed(name) {
-		let id = this.getData().id;
-		let stopwatch = Stopwatch.stopwatches[id];
+		let stopwatch = Stopwatch.get(this.getData().id);
 		if (!!stopwatch) {
 			stopwatch.setName(name);
 		}

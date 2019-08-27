@@ -1,7 +1,7 @@
 {
 	"id": "nl.fellownet.chronograph",
 	"version": "1.0.1",
-	"compatibility": ">=2.0.0",
+	"compatibility": ">=2.1.0",
 	"sdk": 2,
 	"name": {
 		"en": "Chronograph"
@@ -35,18 +35,24 @@
 			}
 		]
 	},
+	"contributing": {
+		"donate": {
+			"paypal": {
+				"username": "info@bobkersten.nl"
+			}
+		}
+	},
 
 	"capabilities": {
-		"running": {
+		"alarm_running": {
 			"type": "boolean",
 			"title": {
 				"en": "Running",
 				"nl": "Loopt"
 			},
 			"getable": true,
-			"setable": true,
-			"uiComponent": null,
-			"uiQuickAction": true,
+			"setable": false,
+			"uiComponent": "sensor",
 			"insights": true,
 			"insightsTitleTrue": {
 				"en": "Started",
@@ -55,9 +61,10 @@
 			"insightsTitleFalse": {
 				"en": "Stopped",
 				"nl": "Gestopt"
-			}
+			},
+			"icon": "assets/running.svg"
 		},
-		"seconds": {
+		"duration": {
 			"type": "number",
 			"title": {
 				"en": "Duration",
@@ -69,7 +76,7 @@
 			},
 			"getable": true,
 			"setable": false,
-			"icon": "drivers/timer_driver/assets/icon.svg"
+			"icon": "assets/duration.svg"
 		}
 	},
 
@@ -318,6 +325,8 @@
 							"nl": "Looptijd van de timer"
 						},
 						"type": "number",
+						"min": 0,
+						"step": 0.01,
 						"placeholder": {
 							"en": "Seconds",
 							"nl": "Seconden"
@@ -377,6 +386,8 @@
 							"nl": "Looptijd van de timer"
 						},
 						"type": "number",
+						"min": 0,
+						"step": 0.01,
 						"placeholder": {
 							"en": "Seconds",
 							"nl": "Seconden"
@@ -436,6 +447,8 @@
 							"nl": "Looptijd van de stopwatch"
 						},
 						"type": "number",
+						"min": 0,
+						"step": 0.01,
 						"placeholder": {
 							"en": "Seconds",
 							"nl": "Seconden"
@@ -491,6 +504,8 @@
 							"nl": "Looptijd van de stopwatch"
 						},
 						"type": "number",
+						"min": 0,
+						"step": 0.01,
 						"placeholder": {
 							"en": "Seconds",
 							"nl": "Seconden"
@@ -553,6 +568,8 @@
 							"nl": "Looptijd van de timer"
 						},
 						"type": "number",
+						"min": 0,
+						"step": 0.01,
 						"placeholder": {
 							"en": "Seconds",
 							"nl": "Seconden"
@@ -583,6 +600,7 @@
 							"nl": "Wijziging van de timer"
 						},
 						"type": "number",
+						"step": 0.01,
 						"placeholder": {
 							"en": "Seconds",
 							"nl": "Seconden"
@@ -641,6 +659,8 @@
 							"en": "Duration of the timer",
 							"nl": "Looptijd van de timer"
 						},
+						"min": 0,
+						"step": 0.01,
 						"type": "number",
 						"placeholder": {
 							"en": "Seconds",
@@ -683,6 +703,7 @@
 							"nl": "Wijziging van de timer"
 						},
 						"type": "number",
+						"step": 0.01,
 						"placeholder": {
 							"en": "Seconds",
 							"nl": "Seconden"
@@ -760,6 +781,7 @@
 							"nl": "Wijziging van de stopwatch"
 						},
 						"type": "number",
+						"step": 0.01,
 						"placeholder": {
 							"en": "Seconds",
 							"nl": "Seconden"
@@ -848,6 +870,7 @@
 							"nl": "Wijziging van de stopwatch"
 						},
 						"type": "number",
+						"step": 0.01,
 						"placeholder": {
 							"en": "Seconds",
 							"nl": "Seconden"
@@ -897,21 +920,24 @@
 				"large": "drivers/timer_driver/assets/images/large.png",
 				"small": "drivers/timer_driver/assets/images/small.png"
 			},
-			"class": "other",
-			"capabilities": [ "running", "seconds" ],
-			"settings": [
-				{
-					"id": "default_seconds",
-					"type": "number",
-					"label": {
-						"en": "Default duration",
-						"nl": "Standaard looptijd"
+			"class": "sensor",
+			"capabilities": [ "alarm_running", "duration", "button.0" ],
+			"capabilitiesOptions": {
+				"alarm_running": {
+					"preventTag": true
+				},
+				"duration": {
+					"preventTag": true
+				},
+				"button.0": {
+					"title":{
+						"en": "Stop",
+						"nl": "Stoppen"
 					},
-					"value": 60,
-					"min": 1,
-					"max": 86400
+					"preventTag": true,
+					"preventInsights": true
 				}
-			],
+			},
 			"pair": [
 				{
 					"id": "list_triggers",
@@ -935,8 +961,24 @@
 				"large": "drivers/stopwatch_driver/assets/images/large.png",
 				"small": "drivers/stopwatch_driver/assets/images/small.png"
 			},
-			"class": "other",
-			"capabilities": [ "running", "seconds" ],
+			"class": "sensor",
+			"capabilities": [ "alarm_running", "duration", "onoff.0" ],
+			"capabilitiesOptions": {
+				"alarm_running": {
+					"preventTag": true
+				},
+				"duration": {
+					"preventTag": true
+				},
+				"onoff.0": {
+					"title":{
+						"en": "Start / Stop",
+						"nl": "Starten / Stoppen"
+					},
+					"preventTag": true,
+					"preventInsights": true
+				}
+			},
 			"pair": [
 				{
 					"id": "list_triggers",
