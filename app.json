@@ -15,8 +15,8 @@
 		"tools"
 	],
 	"tags": {
-		"en": [ "timer", "countdown", "stopwatch", "chronograph" ],
-		"nl": [ "timer", "countdown", "stopwatch", "chronograph" ]
+		"en": [ "timer", "countdown", "stopwatch", "chronograph", "hourglass" ],
+		"nl": [ "timer", "countdown", "stopwatch", "chronograph", "zandloper" ]
 	},
 	"permissions": [],
 	"images": {
