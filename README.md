@@ -4,11 +4,11 @@ Adds precice timer- and stopwatch functionality to Homey.
 
 ## Features
 
-* Create ad-hoc- or device timers and stopwatches and control them using flow cards,
-* Start or stop ad-hoc- or device timers and stopwatches from action flow cards,
-* Start or stop device timers and stopwatches from the devices section of the Homey App,
-* View the status of a timer or stopwatch device from the devices section of the Homey App,
-* Integrate timers and stopwatches in your home automation.
+* Create timers and stopwatches directly from flow cards, no need for a prior configuration,
+* Start timers with a duration in milliseconds (fractional seconds), seconds, minutes, hours or days,
+* Start stopwatches without a predefined end time,
+* Trigger flows at exact timer- or stopwatch durations with millisecond (fractional seconds) precision,
+* Self-explanatory flow cards for easy integration of timers and stopwatches in your home automation.
 
 ## Contributing
 

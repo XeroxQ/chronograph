@@ -7,9 +7,11 @@ const Chronograph = require('./lib/chronograph.js');
 const TimerStart = require('./lib/actions/timer_start.js');
 const TimerAdjust = require('./lib/actions/timer_adjust.js');
 const TimerStop = require('./lib/actions/timer_stop.js');
+const TimerStopAll = require('./lib/actions/timer_stop_all.js');
 const StopwatchStart = require('./lib/actions/stopwatch_start.js');
 const StopwatchAdjust = require('./lib/actions/stopwatch_adjust.js');
 const StopwatchStop = require('./lib/actions/stopwatch_stop.js');
+const StopwatchStopAll = require('./lib/actions/stopwatch_stop_all.js');
 
 // Conditions.
 const TimerCompare = require('./lib/conditions/timer_compare.js');
@@ -33,10 +35,12 @@ class Application extends Homey.App {
 			"timer_start": new TimerStart('timer_start'),
 			"timer_adjust": new TimerAdjust('timer_adjust'),
 			"timer_stop": new TimerStop('timer_stop'),
+			"timer_stop_all": new TimerStopAll('timer_stop_all'),
 
 			"stopwatch_start": new StopwatchStart('stopwatch_start'),
 			"stopwatch_adjust": new StopwatchAdjust('stopwatch_adjust'),
 			"stopwatch_stop": new StopwatchStop('stopwatch_stop'),
+			"stopwatch_stop_all": new StopwatchStopAll('stopwatch_stop_all'),
 
 			// Conditions.
 			"timer_compare": new TimerCompare("timer_compare"),
