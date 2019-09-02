@@ -298,6 +298,43 @@
 						}
 					}
 				]
+			},
+			{
+				"id": "stopwatch_random_split",
+				"title": {
+					"en": "A stopwatch has split",
+					"nl": "Een stopwatch is gesplitst"
+				},
+				"titleFormatted": {
+					"en": "Stopwatch [[name]] has split on [[seconds]] seconds",
+					"nl": "Stopwatch [[name]] is gesplitst op [[seconds]] seconds"
+				},
+				"hint": {
+					"en": "Use this card to create a Flow that is activated when the stopwatch with the provided name was split at a set duration.",
+					"nl": "Gebruik dit kaartje om een Flow te maken die geactiveerd wordt als de stopwatch met de ingevoerde naam is gesplitst op een ingestelde looptijd."
+				},
+				"args": [
+					{
+						"name": "name",
+						"title": {
+							"en": "Name of the stopwatch",
+							"nl": "Naam van de stopwatch"
+						},
+						"type": "text",
+						"placeholder": {
+							"en": "Name",
+							"nl": "Naam"
+						}
+					},
+					{
+						"name": "seconds",
+						"title": {
+							"en": "Duration",
+							"nl": "Looptijd"
+						},
+						"type": "number"
+					}
+				]
 			}
 		],
 

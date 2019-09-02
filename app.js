@@ -24,6 +24,7 @@ const TimerRandomStarted = require('./lib/triggers/timer_random_started.js');
 const TimerRandomFinished = require('./lib/triggers/timer_random_finished.js');
 const StopwatchStarted = require('./lib/triggers/stopwatch_started.js');
 const StopwatchRandomStarted = require('./lib/triggers/stopwatch_random_started.js');
+const StopwatchRandomSplit = require('./lib/triggers/stopwatch_random_split.js');
 
 
 class Application extends Homey.App {
@@ -63,7 +64,8 @@ class Application extends Homey.App {
 			"timer_random_finished": new TimerRandomFinished('timer_random_finished'),
 
 			"stopwatch_started": new StopwatchStarted('stopwatch_started'),
-			"stopwatch_random_started": new StopwatchRandomStarted('stopwatch_random_started')
+			"stopwatch_random_started": new StopwatchRandomStarted('stopwatch_random_started'),
+			"stopwatch_random_split": new StopwatchRandomSplit('stopwatch_random_split')
 		});
 
 		this.log('Application is running.');
