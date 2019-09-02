@@ -1,8 +1,6 @@
 # Chronograph
 
-Adds timer and stopwatch functionality to Homey. Timers and stopwatches can be created ad-hoc from an
-action flow card, or in the form of a device, in which case its status can be viewed from within the
-devices section of the Homey app.
+Adds precice timer- and stopwatch functionality to Homey.
 
 ## Features
 

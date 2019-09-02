@@ -19,12 +19,10 @@ const StopwatchRunning = require('./lib/conditions/stopwatch_running.js');
 
 // Triggers.
 const TimerStarted = require('./lib/triggers/timer_started.js');
+const TimerSplit = require('./lib/triggers/timer_split.js');
 const TimerFinished = require('./lib/triggers/timer_finished.js');
-const TimerRandomStarted = require('./lib/triggers/timer_random_started.js');
-const TimerRandomFinished = require('./lib/triggers/timer_random_finished.js');
 const StopwatchStarted = require('./lib/triggers/stopwatch_started.js');
-const StopwatchRandomStarted = require('./lib/triggers/stopwatch_random_started.js');
-const StopwatchRandomSplit = require('./lib/triggers/stopwatch_random_split.js');
+const StopwatchSplit = require('./lib/triggers/stopwatch_split.js');
 
 
 class Application extends Homey.App {
@@ -33,39 +31,27 @@ class Application extends Homey.App {
 		Chronograph.initializeCards({
 			// Actions.
 			"timer_start": new TimerStart('timer_start'),
-			"timer_random_start": new TimerStart('timer_random_start'),
 			"timer_adjust": new TimerAdjust('timer_adjust'),
-			"timer_random_adjust": new TimerAdjust('timer_random_adjust'),
 			"timer_stop": new TimerStop('timer_stop'),
-			"timer_random_stop": new TimerStop('timer_random_stop'),
 
 			"stopwatch_start": new StopwatchStart('stopwatch_start'),
-			"stopwatch_random_start": new StopwatchStart('stopwatch_random_start'),
 			"stopwatch_adjust": new StopwatchAdjust('stopwatch_adjust'),
-			"stopwatch_random_adjust": new StopwatchAdjust('stopwatch_random_adjust'),
 			"stopwatch_stop": new StopwatchStop('stopwatch_stop'),
-			"stopwatch_random_stop": new StopwatchStop('stopwatch_random_stop'),
 
 			// Conditions.
 			"timer_compare": new TimerCompare("timer_compare"),
-			"timer_random_compare": new TimerCompare('timer_random_compare'),
 			"timer_running": new TimerRunning("timer_running"),
-			"timer_random_running": new TimerRunning("timer_random_running"),
 
 			"stopwatch_compare": new StopwatchCompare("stopwatch_compare"),
-			"stopwatch_random_compare": new StopwatchCompare('stopwatch_random_compare'),
 			"stopwatch_running": new StopwatchRunning("stopwatch_running"),
-			"stopwatch_random_running": new StopwatchRunning("stopwatch_random_running"),
 
 			// Triggers.
 			"timer_started": new TimerStarted('timer_started'),
+			"timer_split": new TimerSplit('timer_split'),
 			"timer_finished": new TimerFinished('timer_finished'),
-			"timer_random_started": new TimerRandomStarted('timer_random_started'),
-			"timer_random_finished": new TimerRandomFinished('timer_random_finished'),
 
 			"stopwatch_started": new StopwatchStarted('stopwatch_started'),
-			"stopwatch_random_started": new StopwatchRandomStarted('stopwatch_random_started'),
-			"stopwatch_random_split": new StopwatchRandomSplit('stopwatch_random_split')
+			"stopwatch_split": new StopwatchSplit('stopwatch_split')
 		});
 
 		this.log('Application is running.');
