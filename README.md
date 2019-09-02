@@ -1,6 +1,6 @@
 # Chronograph
 
-Adds precice timer- and stopwatch functionality to Homey.
+Adds precise timer- and stopwatch functionality to Homey.
 
 ## Features
 
