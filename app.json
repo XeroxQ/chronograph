@@ -35,13 +35,6 @@
 			}
 		]
 	},
-	"contributing": {
-		"donate": {
-			"paypal": {
-				"username": "info@bobkersten.nl"
-			}
-		}
-	},
 
 	"flow": {
 		"triggers": [
