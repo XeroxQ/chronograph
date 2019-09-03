@@ -12,10 +12,15 @@ Adds precise timer- and stopwatch functionality to Homey.
 
 ## Contributing
 
-To submit a bug report, please create an [issue at GitHub](https://github.com/fellownet/timers/issues/new).
+To submit a bug report or feature request, please create an [issue at GitHub](https://github.com/fellownet/chronograph/issues/new).
 
 If you'd like to contribute code to this project, please read the
-[CONTRIBUTING.md](https://github.com/fellownet/timers/blob/master/CONTRIBUTING.md) document.
+[CONTRIBUTING.md](https://github.com/fellownet/chronograph/blob/master/CONTRIBUTING.md) document.
+
+## Support
+
+If you like this project, perhaps you can support us by making a donation?
+- Paypal: [Donate](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=VQNGE3N5L6MKS)
 
 ## Credits
 
