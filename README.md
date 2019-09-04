@@ -28,6 +28,11 @@ Application image by [Agê Barros](https://unsplash.com/@agebarros?utm_source=un
 
 ## Changelog
 
+### v1.0.1
+
+* Updated several flow descriptions.
+* Fixed a missing import bug.
+
 ### v1.0.0
 
 * First public release.
