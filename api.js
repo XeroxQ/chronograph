@@ -25,7 +25,10 @@ module.exports = [
 		method: 'DELETE',
 		path: '/timers/:id',
 		fn: function(args, callback) {
-			console.log(args.params.id);
+			let timer = Timer.get(args.params.id);
+			if (!!timer) {
+				timer.stop();
+			}
 		}
 	},
 	{
@@ -48,7 +51,10 @@ module.exports = [
 		method: 'DELETE',
 		path: '/stopwatches/:id',
 		fn: function(args, callback) {
-			console.log(args.params.id);
+			let stopwatch = Stopwatch.get(args.params.id);
+			if (!!stopwatch) {
+				stopwatch.stop();
+			}
 		}
 	}
 ];

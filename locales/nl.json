@@ -5,5 +5,11 @@
 	"unit_seconds": "seconden",
 	"unit_minutes": "minuten",
 	"unit_hours": "uren",
-	"unit_days": "dagen"
+	"unit_days": "dagen",
+	"settings": {
+		"timers": "Timers",
+		"stopwatches": "Stopwatches",
+		"no_active_timers": "Geen actieve timers.",
+		"no_active_stopwatches": "Geen actieve stopwatches."
+	}
 }

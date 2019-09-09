@@ -32,6 +32,7 @@ Application image by [Agê Barros](https://unsplash.com/@agebarros?utm_source=un
 
 * Updated several flow descriptions.
 * Fixed a missing import bug.
+* Added stop trigger cards and duration tokens.
 
 ### v1.0.0
 
