@@ -1,0 +1,149 @@
+<!doctype html>
+<html>
+<head>
+	<script type="text/javascript" src="/homey.js" data-origin="settings"></script>
+	<script type="text/javascript" src="lib/vue.js"></script>
+</head>
+
+<body>
+
+<div id="app">
+<h1>Timers</h1>
+<ol>
+	<timer-item
+		v-for="timer in timers"
+		v-bind:timer="timer"
+	></imer-item>
+</ol>
+<hr>
+<h1>Stopwatches</h1>
+<ol>
+	<stopwatch-item
+		v-for="stopwatch in stopwatches"
+		v-bind:stopwatch="stopwatch"
+	></stopwatch-item>
+</ol>
+</div>
+
+<script type="text/javascript">
+	function onHomeyReady(Homey) {
+		Vue.component('timer-item', {
+			props: [ 'timer' ],
+			template: '<li>{{ timer.name }} {{ (timer.duration / 1e3).toFixed(2) }}</li>',
+			mounted: function() {
+				var self = this;
+				this._intervalRef = setInterval(function() {
+					self.timer.duration = self.timer.duration - 100;
+				}, 100);
+			},
+			beforeDestroy: function() {
+				clearInterval(this._intervalRef);
+			}
+		});
+
+		Vue.component('stopwatch-item', {
+			props: [ 'stopwatch' ],
+			template: '<li>{{ stopwatch.name }} {{ (stopwatch.duration / 1e3).toFixed(2) }}</li>',
+			mounted: function() {
+				var self = this;
+				this._intervalRef = setInterval(function() {
+					self.stopwatch.duration = self.stopwatch.duration + 100;
+				}, 100);
+			},
+			beforeDestroy: function() {
+				clearInterval(this._intervalRef);
+			}
+		});
+
+		var app = new Vue({
+			el: '#app',
+			data: {
+				timers: [],
+				stopwatches: []
+			},
+			mounted: function() {
+				var self = this; // the vue app
+				var timersGet = new Promise(function(resolve, reject) {
+					Homey.api('GET', '/timers/', null, (err, body) => {
+						if (err) {
+							reject(err);
+						} else {
+							self.timers = JSON.parse(body);
+							resolve();
+						}
+					});
+
+				});
+				var stopwatchesGet = new Promise(function(resolve, reject) {
+					Homey.api('GET', '/stopwatches/', null, (err, body) => {
+						if (err) {
+							reject(err);
+						} else {
+							self.stopwatches = JSON.parse(body);
+							resolve();
+						}
+					});
+				});
+				Promise.all([timersGet, stopwatchesGet])
+					.then(function() {
+						Homey.ready();
+					})
+					.catch(function(error) {
+						Homey.alert(error);
+					})
+				;
+			}
+		});
+
+		Homey.on('timer_created', function(timer) {
+			app.timers.push(timer);
+		});
+
+		Homey.on('timer_updated', function(timer) {
+			var index = app.timers.length;
+			while (index--) {
+				if (app.timers[index].id == timer.id) {
+					app.timers[index].duration = timer.duration;
+					return;
+				}
+			}
+		});
+
+		Homey.on('timer_removed', function(timer) {
+			var index = app.timers.length;
+			while (index--) {
+				if (app.timers[index].id == timer.id) {
+					app.timers.splice(index, 1);
+					return;
+				}
+			}
+		});
+
+		Homey.on('stopwatch_created', function(stopwatch) {
+			app.stopwatches.push(stopwatch);
+		});
+
+		Homey.on('stopwatch_updated', function(stopwatch) {
+			var index = app.stopwatches.length;
+			while (index--) {
+				if (app.stopwatches[index].id == stopwatch.id) {
+					app.stopwatches[index].duration = stopwatch.duration;
+					return;
+				}
+			}
+		});
+
+		Homey.on('stopwatch_removed', function(stopwatch) {
+			var index = app.stopwatches.length;
+			while (index--) {
+				if (app.stopwatches[index].id == stopwatch.id) {
+					app.stopwatches.splice(index, 1);
+					return;
+				}
+			}
+		});
+	}
+</script>
+
+</body>
+</html>
