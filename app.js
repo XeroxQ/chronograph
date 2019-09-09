@@ -23,8 +23,10 @@ const StopwatchRunning = require('./lib/conditions/stopwatch_running.js');
 const TimerStarted = require('./lib/triggers/timer_started.js');
 const TimerSplit = require('./lib/triggers/timer_split.js');
 const TimerFinished = require('./lib/triggers/timer_finished.js');
+const TimerStopped = require('./lib/triggers/timer_stopped.js');
 const StopwatchStarted = require('./lib/triggers/stopwatch_started.js');
 const StopwatchSplit = require('./lib/triggers/stopwatch_split.js');
+const StopwatchStopped = require('./lib/triggers/stopwatch_stopped.js');
 
 
 class Application extends Homey.App {
@@ -53,9 +55,11 @@ class Application extends Homey.App {
 			"timer_started": new TimerStarted('timer_started'),
 			"timer_split": new TimerSplit('timer_split'),
 			"timer_finished": new TimerFinished('timer_finished'),
+			"timer_stopped": new TimerStopped('timer_stopped'),
 
 			"stopwatch_started": new StopwatchStarted('stopwatch_started'),
-			"stopwatch_split": new StopwatchSplit('stopwatch_split')
+			"stopwatch_split": new StopwatchSplit('stopwatch_split'),
+			"stopwatch_stopped": new StopwatchStopped('stopwatch_stopped')
 		});
 
 		this.log('Application is running.');
