@@ -1,0 +1,34 @@
+{
+	"name": "nl.fellownet.chronograph",
+	"version": "1.0.2",
+	"description": "Adds precise timer- and stopwatch functionality to Homey.",
+	"main": "app.js",
+	"directories": {
+		"lib": "lib",
+		"test": "test"
+	},
+	"scripts": {
+		"test": "mocha ./test/**/*.test.js"
+	},
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/fellownet/chronograph.git"
+	},
+	"keywords": [
+		"timer",
+		"countdown",
+		"stopwatch",
+		"chronograph",
+		"hourglass"
+	],
+	"author": "Fellownet <bob@fellownet.nl>",
+	"license": "GPL-3.0",
+	"bugs": {
+		"url": "https://github.com/fellownet/chronograph/issues"
+	},
+	"homepage": "https://github.com/fellownet/chronograph#readme",
+	"devDependencies": {
+		"mocha": "^6.2.0",
+		"mock-require": "^3.0.3"
+	}
+}
