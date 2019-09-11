@@ -31,6 +31,7 @@ Application image by [Agê Barros](https://unsplash.com/@agebarros?utm_source=un
 ### v1.0.2
 
 * Timers and stopwatches are now persistent across Homey reboots.
+* Fine-tuning of the settings page.
 
 ### v1.0.1
 

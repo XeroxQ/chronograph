@@ -1,10 +1,10 @@
 {
-	"id": "nl.fellownet.chronograph_debug",
+	"id": "nl.fellownet.chronograph",
 	"version": "1.0.2",
 	"compatibility": ">=2.1.0",
 	"sdk": 2,
 	"name": {
-		"en": "Chronograph Debug"
+		"en": "Chronograph"
 	},
 	"description": {
 		"en": "Adds precise timer- and stopwatch functionality to Homey.",
