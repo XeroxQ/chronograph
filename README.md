@@ -30,6 +30,7 @@ Application image by [Agê Barros](https://unsplash.com/@agebarros?utm_source=un
 
 ### v1.0.1
 
+* Added settings screen for overview and stop actions.
 * Updated several flow descriptions.
 * Fixed a missing import bug.
 * Added stop trigger cards and duration tokens.
