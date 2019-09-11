@@ -2,6 +2,9 @@
 
 Adds precise timer- and stopwatch functionality to Homey.
 
+[![Build Status](https://travis-ci.com/fellownet/chronograph.svg?branch=master)](https://travis-ci.com/fellownet/chronograph)
+[![Code Climate](https://codeclimate.com/github/fellownet/chronograph/badges/gpa.svg)](https://codeclimate.com/github/fellownet/chronograph)
+
 ## Features
 
 * Create timers and stopwatches directly from flow cards, no need for a prior configuration,
