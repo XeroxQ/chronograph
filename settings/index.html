@@ -42,12 +42,12 @@
 	function onHomeyReady(Homey) {
 		Vue.component('timer-item', {
 			props: [ 'timer' ],
-			template: '<li>{{ timer.name }} <strong>{{ Math.max(0, (timer.duration / 1e3)).toFixed(2) }}</strong> <button v-on:click="stop">Stop</button></li>',
+			template: '<li><span>{{ timer.name.replace(/([^\s]{15})/g, "$1 ") }}<br /><strong>{{ $root.niceDuration(Math.max(0, timer.duration)) }}</strong></span><span><button v-on:click="stop">Stop</button></span></li>',
 			mounted: function() {
 				var self = this;
 				this._intervalRef = setInterval(function() {
 					self.timer.duration = self.timer.duration - 100;
-				}, 100);
+				}, 110);
 			},
 			beforeDestroy: function() {
 				clearInterval(this._intervalRef);
@@ -61,12 +61,12 @@
 
 		Vue.component('stopwatch-item', {
 			props: [ 'stopwatch' ],
-			template: '<li>{{ stopwatch.name }} <strong>{{ (stopwatch.duration / 1e3).toFixed(2) }}</strong> <button v-on:click="stop">Stop</button></li>',
+			template: '<li><span>{{ stopwatch.name.replace(/([^\s]{15})/g, "$1 ") }}<br /><strong>{{ $root.niceDuration(stopwatch.duration) }}</strong></span><span><button v-on:click="stop">Stop</button></span></li>',
 			mounted: function() {
 				var self = this;
 				this._intervalRef = setInterval(function() {
 					self.stopwatch.duration = self.stopwatch.duration + 100;
-				}, 100);
+				}, 110);
 			},
 			beforeDestroy: function() {
 				clearInterval(this._intervalRef);
@@ -96,31 +96,66 @@
 					});
 				}
 			},
-			mounted: function() {
-				var self = this; // the vue app
-				var timersGet = new Promise(function(resolve, reject) {
-					Homey.api('GET', '/timers/', null, (err, body) => {
-						if (err) {
-							reject(err);
-						} else {
-							self.timers = JSON.parse(body);
-							resolve();
-						}
+			methods: {
+				refresh: function() {
+					var self = this;
+					var timersGet = new Promise(function(resolve, reject) {
+						Homey.api('GET', '/timers/', null, (err, body) => {
+							if (err) {
+								reject(err);
+							} else {
+								self.timers = JSON.parse(body);
+								resolve();
+							}
+						});
 					});
+					var stopwatchesGet = new Promise(function(resolve, reject) {
+						Homey.api('GET', '/stopwatches/', null, (err, body) => {
+							if (err) {
+								reject(err);
+							} else {
+								self.stopwatches = JSON.parse(body);
+								resolve();
+							}
+						});
+					});
+					return Promise.all([timersGet, stopwatchesGet]);
+				},
+				niceDuration(duration) {
+					duration /= 1e3;
+					var days = Math.floor(duration / (24 * 3600));
+					duration %= (24 * 3600);
+					var hours = Math.floor(duration / 3600);
+					duration %= 3600;
+					var minutes = Math.floor(duration / 60);
+					duration %= 60;
+					var seconds = duration.toFixed(2);
 
-				});
-				var stopwatchesGet = new Promise(function(resolve, reject) {
-					Homey.api('GET', '/stopwatches/', null, (err, body) => {
-						if (err) {
-							reject(err);
-						} else {
-							self.stopwatches = JSON.parse(body);
-							resolve();
-						}
-					});
-				});
-				Promise.all([timersGet, stopwatchesGet])
+					var result = seconds.toString().padStart(5, '0');
+					if (minutes > 0) {
+						result = minutes.toString().padStart(2, '0') + ':' + result;
+					}
+					if (hours > 0) {
+						result = hours.toString().padStart(2, '0') + ':' + result;
+					}
+					if (days > 0) {
+						result = days + Homey.__('settings.days_abbreviation') + ' ' + result;
+					}
+
+					return result;
+				}
+			},
+			mounted: function() {
+				var self = this;
+				this.refresh()
 					.then(function() {
+						// After the first refresh, keep on refreshing to make sure the view is updated
+						// even when the events are not properly received.
+						setInterval(function() {
+							self.refresh();
+						}, 5000);
+
+						// Install the event handlers that process real-time events.
 						Homey.on('timer_created', function(timer) {
 							app.timers.push(timer);
 						});
@@ -168,12 +203,13 @@
 								}
 							}
 						});
-
+						
+						// Mark the app as ready; this removes the loading indicator and shows the app.
 						Homey.ready();
 					})
 					.catch(function(error) {
 						Homey.alert(error);
-					})
+					});
 				;
 			}
 		});
