@@ -27,7 +27,13 @@
 		"url": "https://github.com/fellownet/chronograph/issues"
 	},
 	"homepage": "https://github.com/fellownet/chronograph#readme",
+	"husky": {
+		"hooks": {
+			"pre-commit": "npm test"
+		}
+	},
 	"devDependencies": {
+		"husky": "^3.0.5",
 		"mocha": "^6.2.0",
 		"mock-require": "^3.0.3"
 	}
