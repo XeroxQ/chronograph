@@ -1,6 +1,14 @@
 #app h1 {
 	padding: 0;
 	margin: 0 0 0.4em 0;
+	display: flex;
+	align-items: center;
+	font-size: 1.6em;
+}
+#app h1 img {
+	width: auto;
+	height: 1.6em;
+	margin: 0 0.2em 0.2em 0;
 }
 #app ol {
 	list-style-position: inside;
@@ -13,8 +21,15 @@
 	flex-wrap: nowrap;
 	justify-content: space-between;
 	align-items: center;
-	padding: 2px 0px;
+	padding: 0.1em 0.3em;
+}
+#app ol li:nth-child(even) {
+	background: #F8F8F8;
 }
 #app ol li span {
+	display: block;
+}
+#app em {
+	padding: 0 0.3em;
 	display: block;
 }
