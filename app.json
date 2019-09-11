@@ -1,6 +1,6 @@
 {
 	"id": "nl.fellownet.chronograph",
-	"version": "1.0.1",
+	"version": "1.0.2",
 	"compatibility": ">=2.1.0",
 	"sdk": 2,
 	"name": {

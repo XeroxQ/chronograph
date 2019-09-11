@@ -28,6 +28,10 @@ Application image by [Agê Barros](https://unsplash.com/@agebarros?utm_source=un
 
 ## Changelog
 
+### v1.0.2
+
+* Timers and stopwatches are now persistent across Homey reboots.
+
 ### v1.0.1
 
 * Added settings screen for overview and stop actions.

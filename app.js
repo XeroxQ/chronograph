@@ -2,6 +2,8 @@
 
 const Homey = require('homey');
 const Chronograph = require('./lib/chronograph.js');
+const Timer = require('./lib/timer.js');
+const Stopwatch = require('./lib/stopwatch.js');
 
 // Actions.
 const TimerStart = require('./lib/actions/timer_start.js');
@@ -32,6 +34,9 @@ const StopwatchStopped = require('./lib/triggers/stopwatch_stopped.js');
 class Application extends Homey.App {
 	onInit() {
 		Chronograph.setApplication(this);
+
+		// Initializing cards.
+		this.log('Initializing cards.');
 		Chronograph.initializeCards({
 			// Actions.
 			"timer_start": new TimerStart('timer_start'),
@@ -61,6 +66,21 @@ class Application extends Homey.App {
 			"stopwatch_split": new StopwatchSplit('stopwatch_split'),
 			"stopwatch_stopped": new StopwatchStopped('stopwatch_stopped')
 		});
+
+		// Restore timers and stopwatches from settings.
+		this.log('Restoring timers.');
+		let timersActive = Homey.ManagerSettings.get('timers_active') || {};
+		for (var timerId in timersActive) {
+			let timerDef = timersActive[timerId];
+			new Timer(timerDef.id, timerDef.name, timerDef.time, timerDef.unit, timerDef.started);
+		}
+
+		this.log('Restoring stopwatches.');
+		let stopwatchesActive = Homey.ManagerSettings.get('stopwatches_active') || {};
+		for (var stopwatchId in stopwatchesActive) {
+			let stopwatchDef = stopwatchesActive[stopwatchId];
+			new Stopwatch(stopwatchDef.id, stopwatchDef.name, stopwatchDef.started);
+		}
 
 		this.log('Application is running.');
 	}
