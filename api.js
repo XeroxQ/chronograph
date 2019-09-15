@@ -27,16 +27,16 @@ module.exports = [
 		public: true,
 		fn: function(args, callback) {
 			let timer = Timer.getById(args.params.id);
-			if (timer) {
-				callback(null, {
-					id: timer.getId(),
-					name: timer.getName(),
-					duration: timer.getDuration(),
-					running: timer.isRunning()
-				});
-			} else {
+			if (!timer) {
 				callback(new Error('timer not found'), false);
+				return;
 			}
+			callback(null, {
+				id: timer.getId(),
+				name: timer.getName(),
+				duration: timer.getDuration(),
+				running: timer.isRunning()
+			});
 		}
 	},
 	{
@@ -45,28 +45,28 @@ module.exports = [
 		public: true,
 		fn: function(args, callback) {
 			let timer = Timer.getById(args.params.id);
-			if (timer) {
-				if (
-					args.body.running
-					&& !timer.isRunning()
-				) {
-					timer.resume();
-				}
-				if (
-					!args.body.running
-					&& timer.isRunning()
-				) {
-					timer.pause();
-				}
-				callback(null, {
-					id: timer.getId(),
-					name: timer.getName(),
-					duration: timer.getDuration(),
-					running: timer.isRunning()
-				});
-			} else {
+			if (!timer) {
 				callback(new Error('timer not found'), false);
+				return;
 			}
+			if (
+				args.body.running
+				&& !timer.isRunning()
+			) {
+				timer.resume();
+			}
+			if (
+				!args.body.running
+				&& timer.isRunning()
+			) {
+				timer.pause();
+			}
+			callback(null, {
+				id: timer.getId(),
+				name: timer.getName(),
+				duration: timer.getDuration(),
+				running: timer.isRunning()
+			});
 		}
 	},
 	{
@@ -74,12 +74,12 @@ module.exports = [
 		path: '/timers/:id',
 		fn: function(args, callback) {
 			let timer = Timer.getById(args.params.id);
-			if (timer) {
-				timer.stop();
-				callback(null, true);
-			} else {
+			if (!timer) {
 				callback(new Error('timer not found'), false);
+				return;
 			}
+			timer.stop();
+			callback(null, true);
 		}
 	},
 	{
@@ -104,16 +104,16 @@ module.exports = [
 		public: true,
 		fn: function(args, callback) {
 			let stopwatch = Stopwatch.getById(args.params.id);
-			if (stopwatch) {
-				callback(null, {
-					id: stopwatch.getId(),
-					name: stopwatch.getName(),
-					duration: stopwatch.getDuration(),
-					running: stopwatch.isRunning()
-				});
-			} else {
+			if (!stopwatch) {
 				callback(new Error('stopwatch not found'), false);
+				return;
 			}
+			callback(null, {
+				id: stopwatch.getId(),
+				name: stopwatch.getName(),
+				duration: stopwatch.getDuration(),
+				running: stopwatch.isRunning()
+			});
 		}
 	},
 	{
@@ -122,28 +122,28 @@ module.exports = [
 		public: true,
 		fn: function(args, callback) {
 			let stopwatch = Stopwatch.getById(args.params.id);
-			if (stopwatch) {
-				if (
-					args.body.running
-					&& !stopwatch.isRunning()
-				) {
-					stopwatch.resume();
-				}
-				if (
-					!args.body.running
-					&& stopwatch.isRunning()
-				) {
-					stopwatch.pause();
-				}
-				callback(null, {
-					id: stopwatch.getId(),
-					name: stopwatch.getName(),
-					duration: stopwatch.getDuration(),
-					running: stopwatch.isRunning()
-				});
-			} else {
+			if (!stopwatch) {
 				callback(new Error('stopwatch not found'), false);
+				return;
 			}
+			if (
+				args.body.running
+				&& !stopwatch.isRunning()
+			) {
+				stopwatch.resume();
+			}
+			if (
+				!args.body.running
+				&& stopwatch.isRunning()
+			) {
+				stopwatch.pause();
+			}
+			callback(null, {
+				id: stopwatch.getId(),
+				name: stopwatch.getName(),
+				duration: stopwatch.getDuration(),
+				running: stopwatch.isRunning()
+			});
 		}
 	},
 	{
@@ -151,12 +151,12 @@ module.exports = [
 		path: '/stopwatches/:id',
 		fn: function(args, callback) {
 			let stopwatch = Stopwatch.getById(args.params.id);
-			if (stopwatch) {
-				stopwatch.stop();
-				callback(null, true);
-			} else {
+			if (!stopwatch) {
 				callback(new Error('stopwatch not found'), false);
+				return;
 			}
+			stopwatch.stop();
+			callback(null, true);
 		}
 	}
 ];
