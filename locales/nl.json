@@ -7,6 +7,9 @@
 		"stopwatches": "Stopwatches",
 		"no_active_timers": "Geen actieve timers.",
 		"no_active_stopwatches": "Geen actieve stopwatches.",
-		"days_abbreviation": "d"
+		"days_abbreviation": "d",
+		"stop": "Stoppen",
+		"pause": "Pauzeren",
+		"resume": "Hervatten"
 	}
 }

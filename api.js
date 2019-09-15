@@ -10,24 +10,72 @@ module.exports = [
 		public: true,
 		fn: function(args, callback) {
 			let result = [];
-			for (var timerId in Timer.timers) {
-				let timer = Timer.get(timerId);
+			Timer.all().forEach((timer) => {
 				result.push({
 					id: timer.getId(),
 					name: timer.getName(),
-					duration: timer.getDuration()
+					duration: timer.getDuration(),
+					running: timer.isRunning()
 				});
-			}
+			});
 			callback(null, JSON.stringify(result));
+		}
+	},
+	{
+		method: 'GET',
+		path: '/timers/:id',
+		public: true,
+		fn: function(args, callback) {
+			let timer = Timer.getById(args.params.id);
+			if (!!timer) {
+				callback(null, {
+					id: timer.getId(),
+					name: timer.getName(),
+					duration: timer.getDuration(),
+					running: timer.isRunning()
+				});
+			} else {
+				callback(new Error('timer not found'), false);
+			}
+		}
+	},
+	{
+		method: 'PUT',
+		path: '/timers/:id',
+		public: true,
+		fn: function(args, callback) {
+			let timer = Timer.getById(args.params.id);
+			if (!!timer) {
+				if (args.body.running) {
+					if (!timer.isRunning()) {
+						timer.resume();
+					}
+				} else {
+					if (timer.isRunning()) {
+						timer.pause();
+					}
+				}
+				callback(null, {
+					id: timer.getId(),
+					name: timer.getName(),
+					duration: timer.getDuration(),
+					running: timer.isRunning()
+				});
+			} else {
+				callback(new Error('timer not found'), false);
+			}
 		}
 	},
 	{
 		method: 'DELETE',
 		path: '/timers/:id',
 		fn: function(args, callback) {
-			let timer = Timer.get(args.params.id);
+			let timer = Timer.getById(args.params.id);
 			if (!!timer) {
 				timer.stop();
+				callback(null, true);
+			} else {
+				callback(new Error('timer not found'), false);
 			}
 		}
 	},
@@ -36,24 +84,72 @@ module.exports = [
 		path: '/stopwatches/',
 		fn: function(args, callback) {
 			let result = [];
-			for (var stopwatchId in Stopwatch.stopwatches) {
-				let stopwatch = Stopwatch.get(stopwatchId);
+			Stopwatch.all().forEach((stopwatch) => {
 				result.push({
 					id: stopwatch.getId(),
 					name: stopwatch.getName(),
-					duration: stopwatch.getDuration()
+					duration: stopwatch.getDuration(),
+					running: stopwatch.isRunning()
 				});
-			}
+			});
 			callback(null, JSON.stringify(result));
+		}
+	},
+	{
+		method: 'GET',
+		path: '/stopwatches/:id',
+		public: true,
+		fn: function(args, callback) {
+			let stopwatch = Stopwatch.getById(args.params.id);
+			if (!!stopwatch) {
+				callback(null, {
+					id: stopwatch.getId(),
+					name: stopwatch.getName(),
+					duration: stopwatch.getDuration(),
+					running: stopwatch.isRunning()
+				});
+			} else {
+				callback(new Error('stopwatch not found'), false);
+			}
+		}
+	},
+	{
+		method: 'PUT',
+		path: '/stopwatches/:id',
+		public: true,
+		fn: function(args, callback) {
+			let stopwatch = Stopwatch.getById(args.params.id);
+			if (!!stopwatch) {
+				if (args.body.running) {
+					if (!stopwatch.isRunning()) {
+						stopwatch.resume();
+					}
+				} else {
+					if (stopwatch.isRunning()) {
+						stopwatch.pause();
+					}
+				}
+				callback(null, {
+					id: stopwatch.getId(),
+					name: stopwatch.getName(),
+					duration: stopwatch.getDuration(),
+					running: stopwatch.isRunning()
+				});
+			} else {
+				callback(new Error('stopwatch not found'), false);
+			}
 		}
 	},
 	{
 		method: 'DELETE',
 		path: '/stopwatches/:id',
 		fn: function(args, callback) {
-			let stopwatch = Stopwatch.get(args.params.id);
+			let stopwatch = Stopwatch.getById(args.params.id);
 			if (!!stopwatch) {
 				stopwatch.stop();
+				callback(null, true);
+			} else {
+				callback(new Error('stopwatch not found'), false);
 			}
 		}
 	}

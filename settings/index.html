@@ -42,36 +42,96 @@
 	function onHomeyReady(Homey) {
 		Vue.component('timer-item', {
 			props: [ 'timer' ],
-			template: '<li><span><strong>{{ timer.name.replace(/([^\s]{15})/g, "$1 ") }}</strong><br />{{ $root.niceDuration(Math.max(0, timer.duration)) }}</span><span><button v-on:click="stop">Stop</button></span></li>',
+			template:
+				'<li>'
+					+ '<span><strong>{{ timer.name }}</strong><br />{{ $root.niceDuration(Math.max(0, timer.duration)) }}</span>'
+					+ '<span><button v-on:click="toggle">{{ timer.running ? Homey.__("settings.pause") : Homey.__("settings.resume") }}</button><button v-on:click="stop">{{ Homey.__("settings.stop") }}</button></span>'
+				+ '</li>',
+			updated: function() {
+				this.update();
+			},
 			mounted: function() {
-				this._intervalRef = setInterval(() => {
-					this.timer.duration = this.timer.duration - 103;
-				}, 103);
+				this.update();
 			},
 			beforeDestroy: function() {
-				clearInterval(this._intervalRef);
+				clearInterval(this.interval);
 			},
 			methods: {
 				stop: function(event) {
 					Homey.api('DELETE', '/timers/' + this.timer.id);
+					var index = app.timers.length;
+					while (index--) {
+						if (app.timers[index].id == this.timer.id) {
+							app.timers.splice(index, 1);
+							return;
+						}
+					}
+				},
+				toggle: function(event) {
+					this.timer.running = !this.timer.running;
+					Homey.api('PUT', '/timers/' + this.timer.id, this.timer);
+				},
+				update: function() {
+					if (this.timer.running) {
+						if (!this.interval) {
+							this.interval = setInterval(() => {
+								this.timer.duration = this.timer.duration - 100;
+							}, 100);
+						}
+					} else {
+						if (this.interval) {
+							clearInterval(this.interval);
+							delete(this.interval);
+						}
+					}
 				}
 			}
 		});
 
 		Vue.component('stopwatch-item', {
 			props: [ 'stopwatch' ],
-			template: '<li><span><strong>{{ stopwatch.name.replace(/([^\s]{15})/g, "$1 ") }}</strong><br />{{ $root.niceDuration(stopwatch.duration) }}</span><span><button v-on:click="stop">Stop</button></span></li>',
+			template:
+				'<li>'
+					+ '<span><strong>{{ stopwatch.name }}</strong><br />{{ $root.niceDuration(stopwatch.duration) }}</span>'
+					+ '<span><button v-on:click="toggle">{{ stopwatch.running ? Homey.__("settings.pause") : Homey.__("settings.resume") }}</button><button v-on:click="stop">{{ Homey.__("settings.stop") }}</button></span>'
+				+ '</li>',
+			updated: function() {
+				this.update();
+			},
 			mounted: function() {
-				this._intervalRef = setInterval(() => {
-					this.stopwatch.duration = this.stopwatch.duration + 103;
-				}, 103);
+				this.update();
 			},
 			beforeDestroy: function() {
-				clearInterval(this._intervalRef);
+				clearInterval(this.interval);
 			},
 			methods: {
 				stop: function(event) {
 					Homey.api('DELETE', '/stopwatches/' + this.stopwatch.id);
+					var index = app.stopwatches.length;
+					while (index--) {
+						if (app.stopwatches[index].id == this.stopwatch.id) {
+							app.stopwatches.splice(index, 1);
+							return;
+						}
+					}
+				},
+				toggle: function(event) {
+					this.stopwatch.running = !this.stopwatch.running;
+					Homey.api('PUT', '/stopwatches/' + this.stopwatch.id, this.stopwatch);
+				},
+				update: function() {
+					if (this.stopwatch.running) {
+						if (!this.interval) {
+							this.interval = setInterval(() => {
+								this.stopwatch.duration = this.stopwatch.duration + 100;
+							}, 100);
+						}
+					} else {
+						if (this.interval) {
+							clearInterval(this.interval);
+							delete(this.interval);
+						}
+					}
 				}
 			}
 		});
@@ -146,54 +206,41 @@
 						setInterval(this.refresh, 5000);
 
 						// Install the event handlers that process real-time events.
-						Homey.on('timer_created', (timer) => {
-							app.timers.push(timer);
-						});
-
-						Homey.on('timer_updated', (timer) => {
+						Homey.on('timer_event', (event) => {
 							var index = this.timers.length;
 							while (index--) {
-								if (this.timers[index].id == timer.id) {
-									this.timers[index].duration = timer.duration;
+								if (this.timers[index].id == event.id) {
+									if (event.removed) {
+										this.timers.splice(index, 1);
+									} else {
+										this.timers[index].duration = event.duration;
+										this.timers[index].running = event.running;
+									}
 									return;
 								}
 							}
-						});
-
-						Homey.on('timer_removed', (timer) => {
-							var index = this.timers.length;
-							while (index--) {
-								if (this.timers[index].id == timer.id) {
-									this.timers.splice(index, 1);
-									return;
-								}
+							if (!event.removed) {
+								this.timers.push(event);
 							}
 						});
-
-						Homey.on('stopwatch_created', (stopwatch) => {
-							this.stopwatches.push(stopwatch);
-						});
-
-						Homey.on('stopwatch_updated', (stopwatch) => {
+						Homey.on('stopwatch_event', (event) => {
 							var index = this.stopwatches.length;
 							while (index--) {
-								if (this.stopwatches[index].id == stopwatch.id) {
-									this.stopwatches[index].duration = stopwatch.duration;
+								if (this.stopwatches[index].id == event.id) {
+									if (event.removed) {
+										this.stopwatches.splice(index, 1);
+									} else {
+										this.stopwatches[index].duration = event.duration;
+										this.stopwatches[index].running = event.running;
+									}
 									return;
 								}
+							}
+							if (!event.removed) {
+								this.stopwatches.push(event);
 							}
 						});
 
-						Homey.on('stopwatch_removed', (stopwatch) => {
-							var index = this.stopwatches.length;
-							while (index--) {
-								if (this.stopwatches[index].id == stopwatch.id) {
-									this.stopwatches.splice(index, 1);
-									return;
-								}
-							}
-						});
-						
 						// Set the app to ready; this removes the loading indicator.
 						Homey.ready();
 					})

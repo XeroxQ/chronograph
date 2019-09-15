@@ -7,6 +7,9 @@
 		"stopwatches": "Stopwatches",
 		"no_active_timers": "No active timers.",
 		"no_active_stopwatches": "No active stopwatches.",
-		"days_abbreviation": "d"
+		"days_abbreviation": "d",
+		"stop": "Stop",
+		"pause": "Pause",
+		"resume": "Resume"
 	}
 }

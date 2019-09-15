@@ -1,10 +1,10 @@
 {
-	"id": "nl.fellownet.chronograph_debug",
+	"id": "nl.fellownet.chronograph",
 	"version": "1.0.2",
 	"compatibility": ">=2.1.0",
 	"sdk": 2,
 	"name": {
-		"en": "Chronograph Debug"
+		"en": "Chronograph"
 	},
 	"description": {
 		"en": "Adds precise timer- and stopwatch functionality to Homey.",
@@ -728,6 +728,79 @@
 				]
 			},
 			{
+				"id": "timer_resume",
+				"title": {
+					"en": "Start or resume timer",
+					"nl": "Start of hervat timer"
+				},
+				"titleFormatted": {
+					"en": "Start or resume timer [[name]] with a duration of [[time]] [[unit]]",
+					"nl": "Start of hervat timer [[name]] met een looptijd van [[time]] [[unit]]"
+				},
+				"hint": {
+					"en": "Use this card to start a new timer with the provided name and duration. If a timer with the same name already exists, it is resumed.",
+					"nl": "Gebruik dit kaartje om een timer te starten met de ingevoerde naam en looptijd. Als er al een timer met dezelfde naam loopt dan wordt deze hervat."
+				},
+				"args": [
+					{
+						"name": "name",
+						"title": {
+							"en": "Name",
+							"nl": "Naam"
+						},
+						"type": "text"
+					},
+					{
+						"name": "time",
+						"title": {
+							"en": "Duration",
+							"nl": "Looptijd"
+						},
+						"min": 0,
+						"step": 0.01,
+						"type": "number"
+					},
+					{
+						"name": "unit",
+						"title": {
+							"en": "Unit",
+							"nl": "Eenheid"
+						},
+						"type": "dropdown",
+						"values": [
+							{
+								"id": "seconds",
+								"label": {
+									"en": "seconds",
+									"nl": "seconden"
+								}
+							},
+							{
+								"id": "minutes",
+								"label": {
+									"en": "minutes",
+									"nl": "minuten"
+								}
+							},
+							{
+								"id": "hours",
+								"label": {
+									"en": "hours",
+									"nl": "uren"
+								}
+							},
+							{
+								"id": "days",
+								"label": {
+									"en": "days",
+									"nl": "dagen"
+								}
+							}
+						]
+					}
+				]
+			},
+			{
 				"id": "timer_adjust",
 				"title": {
 					"en": "Adjust timer",
@@ -800,6 +873,31 @@
 				]
 			},
 			{
+				"id": "timer_pause",
+				"title": {
+					"en": "Pause timer",
+					"nl": "Pauzeer timer"
+				},
+				"titleFormatted": {
+					"en": "Pause timer [[name]]",
+					"nl": "Pauzeer timer [[name]]"
+				},
+				"hint": {
+					"en": "Use this card to pause a timer with the provided name.",
+					"nl": "Gebruik dit kaartje om een timer te pauzeren met de ingevoerde naam."
+				},
+				"args": [
+					{
+						"name": "name",
+						"title": {
+							"en": "Name",
+							"nl": "Naam"
+						},
+						"type": "text"
+					}
+				]
+			},
+			{
 				"id": "timer_stop",
 				"title": {
 					"en": "Stop timer",
@@ -848,6 +946,31 @@
 				"hint": {
 					"en": "Use this card to start a stopwatch with the provided name. If a stopwatch with the same name is already running, it is replaced.",
 					"nl": "Gebruik dit kaartje om een stopwatch te starten met de ingevoerde naam. Als er al een stopwatch met dezelfde naam loopt dan wordt deze vervangen."
+				},
+				"args": [
+					{
+						"name": "name",
+						"title": {
+							"en": "Name",
+							"nl": "Naam"
+						},
+						"type": "text"
+					}
+				]
+			},
+			{
+				"id": "stopwatch_resume",
+				"title": {
+					"en": "Start or resume stopwatch",
+					"nl": "Start of hervat stopwatch"
+				},
+				"titleFormatted": {
+					"en": "Start or resume stopwatch [[name]]",
+					"nl": "Start of hervat stopwatch [[name]]"
+				},
+				"hint": {
+					"en": "Use this card to start a stopwatch with the provided name. If a stopwatch with the same name is already running, it is resumed.",
+					"nl": "Gebruik dit kaartje om een stopwatch te starten met de ingevoerde naam. Als er al een stopwatch met dezelfde naam loopt dan wordt deze hervat."
 				},
 				"args": [
 					{
@@ -929,6 +1052,31 @@
 								}
 							}
 						]
+					}
+				]
+			},
+			{
+				"id": "stopwatch_pause",
+				"title": {
+					"en": "Pause a stopwatch",
+					"nl": "Pauzeer een stopwatch"
+				},
+				"titleFormatted": {
+					"en": "Pause stopwatch [[name]]",
+					"nl": "Pauzeer stopwatch [[name]]"
+				},
+				"hint": {
+					"en": "Use this card to pause a stopwatch with the provided name.",
+					"nl": "Gebruik dit kaartje om een stopwatch te pauzeren met de ingevoerde naam."
+				},
+				"args": [
+					{
+						"name": "name",
+						"title": {
+							"en": "Name",
+							"nl": "Naam"
+						},
+						"type": "text"
 					}
 				]
 			},
