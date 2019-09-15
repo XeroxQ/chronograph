@@ -145,44 +145,38 @@ class Application extends Homey.App {
 
 	_restoreTimers() {
 		let timersActive = Homey.ManagerSettings.get('timers_active') || {};
-		for (var timerId in timersActive) {
-			let timerObj = timersActive[timerId];
+		Object.values(timersActive).forEach(timerObj => {
 			let duration = timerObj.duration;
 			if (timerObj.running) {
 				duration -= ((new Date()).getTime() - timerObj.now);
 			}
 			if (duration < 0) {
-				continue;
+				return;
 			}
 			let timer = new Timer(timerObj.name, duration / 1e3, 'seconds');
 			let splits = Homey.ManagerSettings.get('timer_splits') || [];
-			splits.forEach((split) => {
-				timer.addSplit(split.time, split.unit);
-			});
+			splits.forEach(split => timer.addSplit(split.time, split.unit));
 			if (timerObj.running) {
 				timer.start(true);
 			}
-		}
+		});
 	}
 
 	_restoreStopwatches() {
 		let stopwatchesActive = Homey.ManagerSettings.get('stopwatches_active') || {};
-		for (var stopwatchId in stopwatchesActive) {
-			let stopwatchObj = stopwatchesActive[stopwatchId];
+		Object.values(stopwatchesActive).forEach(stopwatchObj => {
 			let duration = stopwatchObj.duration;
 			if (stopwatchObj.running) {
 				duration += ((new Date()).getTime() - stopwatchObj.now);
 			}
 			let stopwatch = new Stopwatch(stopwatchObj.name);
 			let splits = Homey.ManagerSettings.get('stopwatch_splits') || [];
-			splits.forEach((split) => {
-				stopwatch.addSplit(split.time, split.unit);
-			});
+			splits.forEach(split => stopwatch.addSplit(split.time, split.unit));
 			stopwatch.adjust(duration / 1e3, 'seconds', true);
 			if (stopwatchObj.running) {
 				stopwatch.start(true);
 			}
-		}
+		});
 	}
 }
 
