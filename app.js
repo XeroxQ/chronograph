@@ -38,6 +38,25 @@ class Application extends Homey.App {
 	onInit() {
 		// Initializing cards.
 		this.log('Initializing cards.');
+		this._initializeCards();
+
+		// Listen for log events.
+		this._installLogEventHandlers();
+
+		// Listen for events that need to be passed on to the settings page.
+		this.log('Installing event handlers.');
+		this._installTimerEventHandlers();
+		this._installStopwatchEventHandlers();
+
+		// Restore timers and stopwatches from settings.
+		this.log('Restoring timers and stopwatches.');
+		this._restoreTimers();
+		this._restoreStopwatches();
+
+		this.log('Application is running.');
+	}
+
+	_initializeCards() {
 		this._cards = {
 			// Actions.
 			"timer_start": new TimerStart('timer_start'),
@@ -71,17 +90,18 @@ class Application extends Homey.App {
 			"stopwatch_split": new StopwatchSplit('stopwatch_split'),
 			"stopwatch_stopped": new StopwatchStopped('stopwatch_stopped')
 		};
+	}
 
-		// Listen for log events.
+	_installLogEventHandlers() {
 		Timer.events.on('log', (timer, text) => {
 			this.log('[' + timer.getName() + '] ' + text);
 		});
 		Stopwatch.events.on('log', (stopwatch, text) => {
 			this.log('[' + stopwatch.getName() + '] ' + text);
 		});
+	}
 
-		// Listen for events that need to be passed on to the settings page.
-		this.log('Installing event handlers.');
+	_installTimerEventHandlers() {
 		Timer.events.mon([ 'started', 'resumed', 'paused', 'updated', 'removed' ], (name, timer) => {
 			let timerObj = {
 				id: timer.getId(),
@@ -100,6 +120,9 @@ class Application extends Homey.App {
 			}
 			Homey.ManagerSettings.set('timers_active', timersActive);
 		});
+	}
+
+	_installStopwatchEventHandlers() {
 		Stopwatch.events.mon([ 'started', 'resumed', 'paused', 'updated', 'removed' ], (name, stopwatch) => {
 			let stopwatchObj = {
 				id: stopwatch.getId(),
@@ -118,9 +141,9 @@ class Application extends Homey.App {
 			}
 			Homey.ManagerSettings.set('stopwatches_active', stopwatchesActive);
 		});
+	}
 
-		// Restore timers and stopwatches from settings.
-		this.log('Restoring timers and stopwatches.');
+	_restoreTimers() {
 		try {
 			let timersActive = Homey.ManagerSettings.get('timers_active') || {};
 			for (var timerId in timersActive) {
@@ -143,6 +166,9 @@ class Application extends Homey.App {
 		} catch(ex) {
 			Homey.ManagerSettings.set('timers_active', {});
 		}
+	}
+
+	_restoreStopwatches() {
 		try {
 			let stopwatchesActive = Homey.ManagerSettings.get('stopwatches_active') || {};
 			for (var stopwatchId in stopwatchesActive) {
@@ -164,8 +190,6 @@ class Application extends Homey.App {
 		} catch(ex) {
 			Homey.ManagerSettings.set('stopwatches_active', {});
 		}
-
-		this.log('Application is running.');
 	}
 }
 

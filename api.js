@@ -27,7 +27,7 @@ module.exports = [
 		public: true,
 		fn: function(args, callback) {
 			let timer = Timer.getById(args.params.id);
-			if (!!timer) {
+			if (timer) {
 				callback(null, {
 					id: timer.getId(),
 					name: timer.getName(),
@@ -45,15 +45,17 @@ module.exports = [
 		public: true,
 		fn: function(args, callback) {
 			let timer = Timer.getById(args.params.id);
-			if (!!timer) {
-				if (args.body.running) {
-					if (!timer.isRunning()) {
-						timer.resume();
-					}
-				} else {
-					if (timer.isRunning()) {
-						timer.pause();
-					}
+			if (timer) {
+				if (
+					args.body.running
+					&& !timer.isRunning()
+				) {
+					timer.resume();
+				} else if (
+					!args.body.running
+					&& timer.isRunning()
+				) {
+					timer.pause();
 				}
 				callback(null, {
 					id: timer.getId(),
@@ -71,7 +73,7 @@ module.exports = [
 		path: '/timers/:id',
 		fn: function(args, callback) {
 			let timer = Timer.getById(args.params.id);
-			if (!!timer) {
+			if (timer) {
 				timer.stop();
 				callback(null, true);
 			} else {
@@ -101,7 +103,7 @@ module.exports = [
 		public: true,
 		fn: function(args, callback) {
 			let stopwatch = Stopwatch.getById(args.params.id);
-			if (!!stopwatch) {
+			if (stopwatch) {
 				callback(null, {
 					id: stopwatch.getId(),
 					name: stopwatch.getName(),
@@ -119,15 +121,17 @@ module.exports = [
 		public: true,
 		fn: function(args, callback) {
 			let stopwatch = Stopwatch.getById(args.params.id);
-			if (!!stopwatch) {
-				if (args.body.running) {
-					if (!stopwatch.isRunning()) {
-						stopwatch.resume();
-					}
-				} else {
-					if (stopwatch.isRunning()) {
-						stopwatch.pause();
-					}
+			if (stopwatch) {
+				if (
+					args.body.running
+					&& !stopwatch.isRunning()
+				) {
+					stopwatch.resume();
+				} else if (
+					!args.body.running
+					&& stopwatch.isRunning()
+				) {
+					stopwatch.pause();
 				}
 				callback(null, {
 					id: stopwatch.getId(),
@@ -145,7 +149,7 @@ module.exports = [
 		path: '/stopwatches/:id',
 		fn: function(args, callback) {
 			let stopwatch = Stopwatch.getById(args.params.id);
-			if (!!stopwatch) {
+			if (stopwatch) {
 				stopwatch.stop();
 				callback(null, true);
 			} else {
