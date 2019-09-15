@@ -51,7 +51,8 @@ module.exports = [
 					&& !timer.isRunning()
 				) {
 					timer.resume();
-				} else if (
+				}
+				if (
 					!args.body.running
 					&& timer.isRunning()
 				) {
@@ -127,7 +128,8 @@ module.exports = [
 					&& !stopwatch.isRunning()
 				) {
 					stopwatch.resume();
-				} else if (
+				}
+				if (
 					!args.body.running
 					&& stopwatch.isRunning()
 				) {
