@@ -35,6 +35,7 @@ Application image by [Agê Barros](https://unsplash.com/@agebarros?utm_source=un
 
 * Timers and stopwatches are now persistent across Homey reboots.
 * Fine-tuning of the settings page.
+* Pause and resume timers and stopwatches.
 
 ### v1.0.1
 
