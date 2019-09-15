@@ -151,15 +151,16 @@ class Application extends Homey.App {
 			if (timerObj.running) {
 				duration -= ((new Date()).getTime() - timerObj.now);
 			}
-			if (duration > 0) {
-				let timer = new Timer(timerObj.name, duration / 1e3, 'seconds');
-				let splits = Homey.ManagerSettings.get('timer_splits') || [];
-				splits.forEach((split) => {
-					timer.addSplit(split.time, split.unit);
-				});
-				if (timerObj.running) {
-					timer.start(true);
-				}
+			if (duration < 0) {
+				continue;
+			}
+			let timer = new Timer(timerObj.name, duration / 1e3, 'seconds');
+			let splits = Homey.ManagerSettings.get('timer_splits') || [];
+			splits.forEach((split) => {
+				timer.addSplit(split.time, split.unit);
+			});
+			if (timerObj.running) {
+				timer.start(true);
 			}
 		}
 	}
