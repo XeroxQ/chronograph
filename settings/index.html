@@ -11,30 +11,24 @@
 <div id="app">
 
 <h1><img src="assets/timer.svg" /><span data-i18n="settings.timers">Timers</span></h1>
-<p>
 <ol v-if="timers.length > 0">
 	<timer-item
-		v-for="timer in timersSorted"
+		v-for="timer in timers"
 		v-bind:timer="timer"
 		v-bind:key="timer.id"
 	></imer-item>
 </ol>
 <em v-else data-i18n="settings.no_active_timers">No active timers.</em>
-</p>
-
-<hr>
 
 <h1><img src="assets/stopwatch.svg" /><span data-i18n="settings.stopwatches">Stopwatches</span></h1>
-<p>
 <ol v-if="stopwatches.length > 0">
 	<stopwatch-item
-		v-for="stopwatch in stopwatchesSorted"
+		v-for="stopwatch in stopwatches"
 		v-bind:stopwatch="stopwatch"
 		v-bind:key="stopwatch.id"
 	></stopwatch-item>
 </ol>
 <em v-else data-i18n="settings.no_active_stopwatches">No active stopwatches.</em>
-</p>
 
 </div>
 
@@ -44,8 +38,10 @@
 			props: [ 'timer' ],
 			template:
 				'<li>'
-					+ '<span><strong>{{ timer.name }}</strong><br />{{ $root.niceDuration(Math.max(0, timer.duration)) }}</span>'
+					+ '<span><strong>{{ timer.name }}</strong></span>'
 					+ '<span><button v-on:click="toggle">{{ timer.running ? Homey.__("settings.pause") : Homey.__("settings.resume") }}</button><button v-on:click="stop">{{ Homey.__("settings.stop") }}</button></span>'
+					+ '<span>{{ $root.niceDuration(Math.max(0, timer.duration)) }}</span>'
+					+ '<br class="cb">'
 				+ '</li>',
 			updated: function() {
 				this.update();
@@ -92,8 +88,10 @@
 			props: [ 'stopwatch' ],
 			template:
 				'<li>'
-					+ '<span><strong>{{ stopwatch.name }}</strong><br />{{ $root.niceDuration(stopwatch.duration) }}</span>'
+					+ '<span><strong>{{ stopwatch.name }}</strong></span>'
 					+ '<span><button v-on:click="toggle">{{ stopwatch.running ? Homey.__("settings.pause") : Homey.__("settings.resume") }}</button><button v-on:click="stop">{{ Homey.__("settings.stop") }}</button></span>'
+					+ '<span>{{ $root.niceDuration(stopwatch.duration) }}</span>'
+					+ '<br class="cb">'
 				+ '</li>',
 			updated: function() {
 				this.update();
@@ -142,14 +140,6 @@
 				timers: [],
 				stopwatches: []
 			},
-			computed: {
-				timersSorted: function() {
-					return this.timers.sort((timer1, timer2) => timer1.duration > timer2.duration ? 1 : -1);
-				},
-				stopwatchesSorted: function() {
-					return this.stopwatches.sort((stopwatch1, stopwatch2) => stopwatch1.duration > stopwatch2.duration ? 1 : -1);
-				}
-			},
 			methods: {
 				refresh: function() {
 					var timersGet = new Promise((resolve, reject) => {
@@ -157,7 +147,7 @@
 							if (err) {
 								reject(err);
 							} else {
-								this.timers = JSON.parse(body);
+								this.timers = this.sort(JSON.parse(body));
 								resolve();
 							}
 						});
@@ -167,7 +157,7 @@
 							if (err) {
 								reject(err);
 							} else {
-								this.stopwatches = JSON.parse(body);
+								this.stopwatches = this.sort(JSON.parse(body));
 								resolve();
 							}
 						});
@@ -196,6 +186,9 @@
 					}
 
 					return result;
+				},
+				sort(what) {
+					return what.sort((left, right) => left.duration == right.duration ? left.name.localeCompare(right.name) : (left.duration > right.duration ? 1 : -1));
 				}
 			},
 			mounted: function() {

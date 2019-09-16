@@ -1,9 +1,10 @@
 #app h1 {
 	padding: 0;
-	margin: 0 0 0.4em 0;
+	margin: 0 0 10px 0;
 	display: flex;
 	align-items: center;
 	font-size: 1.6em;
+	clear: both;
 }
 #app h1 img {
 	width: auto;
@@ -13,23 +14,41 @@
 #app ol {
 	list-style-position: inside;
 	padding: 0;
-	margin: 0;
+	margin: 0 0 15px 0;
 }
 #app ol li {
-	display: flex;
-	flex-direction: row;
-	flex-wrap: nowrap;
-	justify-content: space-between;
-	align-items: center;
-	padding: 0.1em 0.3em;
+	display: block;
+	clear: both;
+	padding: 0 4px;
 }
 #app ol li:nth-child(even) {
 	background: #F8F8F8;
 }
 #app ol li span {
 	display: block;
+	max-width: 100%;
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+}
+#app ol li br.cb {
+	clear: both;
+}
+#app ol li span:nth-child(1),
+#app ol li span:nth-child(3) {
+	float: left;
+	clear: left;
+}
+#app ol li span:nth-child(2) {
+	float: right;
+	clear: right;
 }
 #app em {
-	padding: 0 0.3em;
 	display: block;
+	padding: 0 4px;
+	margin: 0 0 15px 0;
+}
+#app button {
+	margin: 4px 0 4px 4px;
+	padding: 5px;
 }
