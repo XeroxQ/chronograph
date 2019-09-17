@@ -18,6 +18,7 @@
 		"en": [ "timer", "countdown", "stopwatch", "chronograph", "hourglass" ],
 		"nl": [ "timer", "countdown", "stopwatch", "chronograph", "zandloper" ]
 	},
+	"homeyCommunityTopicId": 18214,
 	"permissions": [],
 	"images": {
 		"large": "/assets/images/large.png",
