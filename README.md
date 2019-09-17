@@ -13,10 +13,10 @@ Adds precise timer- and stopwatch functionality to Homey.
 * Trigger flows at exact timer- or stopwatch durations with millisecond (fractional seconds) precision,
 * Self-explanatory flow cards for easy integration of timers and stopwatches in your home automation.
 
-### HomeyScript
+**HomeyScript**
 
-Timers and stopwatches can be controlled using [HomeyScript](https://homeyscript.homey.app). For example,
-this script will stop all running timers:
+Timers and stopwatches can also be controlled using [HomeyScript](https://homeyscript.homey.app). For
+example, this script will stop all running timers:
 
 ```javascript
 let app = await Homey.apps.getApp({id:'nl.fellownet.chronograph'});
