@@ -7,7 +7,7 @@ module.exports = [
 	{
 		method: 'GET',
 		path: '/timers/',
-		public: true,
+		public: false,
 		fn: function(args, callback) {
 			let result = [];
 			Timer.all().forEach((timer) => {
@@ -24,7 +24,7 @@ module.exports = [
 	{
 		method: 'GET',
 		path: '/timers/:id',
-		public: true,
+		public: false,
 		fn: function(args, callback) {
 			let timer = Timer.getById(args.params.id);
 			if (!timer) {
@@ -42,7 +42,7 @@ module.exports = [
 	{
 		method: 'PUT',
 		path: '/timers/:id',
-		public: true,
+		public: false,
 		fn: function(args, callback) {
 			let timer = Timer.getById(args.params.id);
 			if (!timer) {
@@ -72,6 +72,7 @@ module.exports = [
 	{
 		method: 'DELETE',
 		path: '/timers/:id',
+		public: false,
 		fn: function(args, callback) {
 			let timer = Timer.getById(args.params.id);
 			if (!timer) {
@@ -85,6 +86,7 @@ module.exports = [
 	{
 		method: 'GET',
 		path: '/stopwatches/',
+		public: false,
 		fn: function(args, callback) {
 			let result = [];
 			Stopwatch.all().forEach((stopwatch) => {
@@ -101,7 +103,7 @@ module.exports = [
 	{
 		method: 'GET',
 		path: '/stopwatches/:id',
-		public: true,
+		public: false,
 		fn: function(args, callback) {
 			let stopwatch = Stopwatch.getById(args.params.id);
 			if (!stopwatch) {
@@ -119,7 +121,7 @@ module.exports = [
 	{
 		method: 'PUT',
 		path: '/stopwatches/:id',
-		public: true,
+		public: false,
 		fn: function(args, callback) {
 			let stopwatch = Stopwatch.getById(args.params.id);
 			if (!stopwatch) {
@@ -149,6 +151,7 @@ module.exports = [
 	{
 		method: 'DELETE',
 		path: '/stopwatches/:id',
+		public: false,
 		fn: function(args, callback) {
 			let stopwatch = Stopwatch.getById(args.params.id);
 			if (!stopwatch) {
