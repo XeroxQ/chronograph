@@ -236,19 +236,19 @@ describe('Timer', () => {
 			assert.ok(timer.isRunning(), 'timer should be running');
 			timer.pause();
 			assert.ok(!timer.isRunning(), 'paused timer should not be running');
-			assert.equal(2, events.split, 'two split events should be emitted')
+			assert.equal(events.split, 2, 'two split events should be emitted')
 
 			setTimeout(() => {
-				assert.equal(2, events.split, 'splits should be paused too')
+				assert.equal(events.split, 2, 'splits should be paused too')
 				timer.resume();
 
 				setTimeout(() => {
-					assert.equal(3, events.split, 'third split should come in the correct time')
+					assert.equal(events.split, 3, 'third split should come in the correct time')
 					timer.stop();
 
 					setTimeout(() => {
-						assert.equal(3, events.split, 'splits should be stopped too')
-						assert.equal(0, timer.getDuration(), 'stopped timer should have a zero duration')
+						assert.equal(events.split, 3, 'splits should be stopped too')
+						assert.equal(timer.getDuration(), 0, 'stopped timer should have a zero duration')
 						assert.ok(!timer.isRunning(), 'stopped timer should not be running');
 		
 						events = {};
