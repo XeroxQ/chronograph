@@ -59,9 +59,12 @@ Application image by [Agê Barros](https://unsplash.com/@agebarros?utm_source=un
 
 ### v1.0.2
 
-* Timers and stopwatches are now persistent across Homey reboots.
+* Timers and stopwatches are now persistent across application restarts and Homey reboots.
+* Pause and resume timers and stopwatches from flow cards.
 * Fine-tuning of the settings page.
-* Pause and resume timers and stopwatches.
+* Pause and resume timers and stopwatches from settings.
+* Support for timers longer than 24.855 days.
+* Unit testing.
 
 ### v1.0.1
 
