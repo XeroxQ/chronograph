@@ -30,13 +30,13 @@ app.apiGet('/timers').then(result => {
 ```
 
 * GET /timers - retrieve a list of all active timers,
-* GET /timers/<id> - retrieve a single timer,
-* PUT /timers/<id> - pause or resume a timer,
-* DELETE /timers/<id> - stops a timer.
+* GET /timers/:id - retrieve a single timer,
+* PUT /timers/:id - pause or resume a timer,
+* DELETE /timers/:id - stops a timer.
 * GET /stopwatches - retrieve a list of all active timers,
-* GET /stopwatches/<id> - retrieve a single timer,
-* PUT /stopwatches/<id> - pause or resume a timer,
-* DELETE /stopwatches/<id> - stops a timer.
+* GET /stopwatches/:id - retrieve a single timer,
+* PUT /stopwatches/:id - pause or resume a timer,
+* DELETE /stopwatches/:id - stops a timer.
 
 ## Contributing
 
