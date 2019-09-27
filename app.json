@@ -5,10 +5,12 @@
 	"sdk": 2,
 	"name": {
 		"en": "Chronograph"
+		"de": "Chronograph"
 	},
 	"description": {
 		"en": "Adds precise timer- and stopwatch functionality to Homey.",
-		"nl": "Voegt accurate timer- en stopwatch functionaliteit toe aan Homey."
+		"nl": "Voegt accurate timer- en stopwatch functionaliteit toe aan Homey.",
+		"de": "Fügt Homey präzise Timer- und Stoppuhrfunktionen hinzu."
 	},
 	"brandColor": "#5583C3",
 	"category": [
@@ -16,7 +18,8 @@
 	],
 	"tags": {
 		"en": [ "timer", "countdown", "stopwatch", "chronograph", "hourglass" ],
-		"nl": [ "timer", "countdown", "stopwatch", "chronograph", "zandloper" ]
+		"nl": [ "timer", "countdown", "stopwatch", "chronograph", "zandloper" ],
+		"de": [ "timer", "countdown", "stopuhr", "chronograph", "sanduhr" ]
 	},
 	"homeyCommunityTopicId": 18214,
 	"permissions": [],
@@ -43,22 +46,26 @@
 				"id": "timer_started",
 				"title": {
 					"en": "Timer has started",
-					"nl": "Timer is gestart"
+					"nl": "Timer is gestart",
+					"de": "Timer ist gestartet"
 				},
 				"titleFormatted": {
 					"en": "Timer [[name]] has started",
-					"nl": "Timer [[name]] is gestart"
+					"nl": "Timer [[name]] is gestart",
+					"de": "Timer [[name]] ist gestartet"
 				},
 				"hint": {
 					"en": "This card is activated when a timer with the provided name has started.",
-					"nl": "Dit kaartje wordt geactiveerd als een timer met de ingevoerde naam wordt gestart."
+					"nl": "Dit kaartje wordt geactiveerd als een timer met de ingevoerde naam wordt gestart.",
+					"de": "Diese Karte wird aktiviert, wenn ein Timer mit dem angegebenen Namen gestartet wurde."
 				},
 				"args": [
 					{
 						"name": "name",
 						"title": {
 							"en": "Name",
-							"nl": "Naam"
+							"nl": "Naam",
+							"de": "Name"
 						},
 						"type": "text"
 					}
@@ -69,11 +76,13 @@
 						"type": "string",
 						"title": {
 							"en": "Name",
-							"nl": "Naam"
+							"nl": "Naam",
+							"de": "Name"
 						},
 						"example": {
 							"en": "bathroom",
-							"nl": "badkamer"
+							"nl": "badkamer",
+							"de": "Badezimmer"
 						}
 					},
 					{
@@ -81,7 +90,8 @@
 						"type": "number",
 						"title": {
 							"en": "Duration (s)",
-							"nl": "Looptijd (s)"
+							"nl": "Looptijd (s)",
+							"de": "Dauer (s)"
 						},
 						"example": 60
 					}
@@ -91,22 +101,26 @@
 				"id": "timer_split",
 				"title": {
 					"en": "Timer reached a duration",
-					"nl": "Timer heeft looptijd bereikt"
+					"nl": "Timer heeft looptijd bereikt",
+					"de": "Timer hat eine Dauer erreicht"
 				},
 				"titleFormatted": {
 					"en": "Timer [[name]] has reached a duration of [[time]] [[unit]]",
-					"nl": "Timer [[name]] heeft een looptijd van [[time]] [[unit]] bereikt"
+					"nl": "Timer [[name]] heeft een looptijd van [[time]] [[unit]] bereikt",
+					"de": "Timer [[Name]] hat eine Dauer von erreicht"
 				},
 				"hint": {
 					"en": "This card is activated when a timer with the provided name has reached a specific duration.",
-					"nl": "Dit kaartje wordt geactiveerd als een timer met de ingevoerde naam een bepaalde looptijd heeft bereikt."
+					"nl": "Dit kaartje wordt geactiveerd als een timer met de ingevoerde naam een bepaalde looptijd heeft bereikt.",
+					"de": "Diese Karte wird aktiviert, wenn ein Timer mit dem angegebenen Namen eine bestimmte Dauer erreicht hat."
 				},
 				"args": [
 					{
 						"name": "name",
 						"title": {
 							"en": "Name",
-							"nl": "Naam"
+							"nl": "Naam",
+							"de": "Name"
 						},
 						"type": "text"
 					},
@@ -114,7 +128,8 @@
 						"name": "time",
 						"title": {
 							"en": "Duration",
-							"nl": "Looptijd"
+							"nl": "Looptijd",
+							"de": "Dauer"
 						},
 						"type": "number",
 						"min": 0,
@@ -124,7 +139,8 @@
 						"name": "unit",
 						"title": {
 							"en": "Unit",
-							"nl": "Eenheid"
+							"nl": "Eenheid",
+							"de": "Einheit"
 						},
 						"type": "dropdown",
 						"values": [
@@ -132,28 +148,32 @@
 								"id": "seconds",
 								"label": {
 									"en": "seconds",
-									"nl": "seconden"
+									"nl": "seconden",
+									"de": "Sekunden"
 								}
 							},
 							{
 								"id": "minutes",
 								"label": {
 									"en": "minutes",
-									"nl": "minuten"
+									"nl": "minuten",
+									"de": "Minuten"
 								}
 							},
 							{
 								"id": "hours",
 								"label": {
 									"en": "hours",
-									"nl": "uren"
+									"nl": "uren",
+									"de": "Stunden"
 								}
 							},
 							{
 								"id": "days",
 								"label": {
 									"en": "days",
-									"nl": "dagen"
+									"nl": "dagen",
+									"de": "Tage"
 								}
 							}
 						]
@@ -165,11 +185,13 @@
 						"type": "string",
 						"title": {
 							"en": "Name",
-							"nl": "Naam"
+							"nl": "Naam",
+							"de": "Name"
 						},
 						"example": {
 							"en": "bathroom",
-							"nl": "badkamer"
+							"nl": "badkamer",
+							"de": "Badezimmer"
 						}
 					},
 					{
@@ -177,7 +199,8 @@
 						"type": "number",
 						"title": {
 							"en": "Duration (s)",
-							"nl": "Looptijd (s)"
+							"nl": "Looptijd (s)",
+							"de". "Laufzeit (s)"
 						},
 						"example": 60
 					}
@@ -187,22 +210,26 @@
 				"id": "timer_finished",
 				"title": {
 					"en": "Timer has finished",
-					"nl": "Timer is afgelopen"
+					"nl": "Timer is afgelopen",
+					"de": "Timer ist abgelaufen"
 				},
 				"titleFormatted": {
 					"en": "Timer [[name]] has finished",
 					"nl": "Timer [[name]] is afgelopen"
+					"de": "Timer [[name]] ist abgelaufen"
 				},
 				"hint": {
 					"en": "This card is activated when a timer with the provided name has finished, not when a timer is prematurely stopped.",
-					"nl": "Dit kaartje wordt geactiveerd als een timer met de ingevoerde naam is afgelopen, niet als een timer vroegtijdig wordt gestopt."
+					"nl": "Dit kaartje wordt geactiveerd als een timer met de ingevoerde naam is afgelopen, niet als een timer vroegtijdig wordt gestopt.",
+					"en": "Diese Karte wird aktiviert, wenn ein Timer mit dem angegebenen Namen abgelaufen ist, nicht wenn ein Timer vorzeitig gestoppt wird."
 				},
 				"args": [
 					{
 						"name": "name",
 						"title": {
 							"en": "Name",
-							"nl": "Naam"
+							"nl": "Naam",
+							"de": "Name"
 						},
 						"type": "text"
 					}
@@ -213,11 +240,13 @@
 						"type": "string",
 						"title": {
 							"en": "Name",
-							"nl": "Naam"
+							"nl": "Naam",
+							"de": "Name"
 						},
 						"example": {
 							"en": "bathroom",
-							"nl": "badkamer"
+							"nl": "badkamer",
+							"de": "Badezimmer"
 						}
 					}
 				]
@@ -226,22 +255,26 @@
 				"id": "timer_stopped",
 				"title": {
 					"en": "Timer is stopped",
-					"nl": "Timer wordt gestopt"
+					"nl": "Timer wordt gestopt",
+					"de": "Timer wurde gestoppt"
 				},
 				"titleFormatted": {
 					"en": "Timer [[name]] is stopped",
-					"nl": "Timer [[name]] wordt gestopt"
+					"nl": "Timer [[name]] wordt gestopt",
+					"de": "Timer [[name]] wurde gestoppt
 				},
 				"hint": {
 					"en": "This card is activated when a timer with the provided name has been prematurely stopped, not when a timer is finished.",
-					"nl": "Dit kaartje wordt geactiveerd als een timer met de ingevoerde naam vroegtijdig wordt gestopt, niet als een timer is afgelopen."
+					"nl": "Dit kaartje wordt geactiveerd als een timer met de ingevoerde naam vroegtijdig wordt gestopt, niet als een timer is afgelopen.",
+					"de": "Diese Karte wird aktiviert, wenn ein Timer mit dem angegebenen Namen vorzeitig gestoppt wurde, nicht wenn ein Timer abgelaufen ist."
 				},
 				"args": [
 					{
 						"name": "name",
 						"title": {
 							"en": "Name",
-							"nl": "Naam"
+							"nl": "Naam",
+							"de": "Name"
 						},
 						"type": "text"
 					}
@@ -252,11 +285,13 @@
 						"type": "string",
 						"title": {
 							"en": "Name",
-							"nl": "Naam"
+							"nl": "Naam",
+							"de": "Name"
 						},
 						"example": {
 							"en": "bathroom",
-							"nl": "badkamer"
+							"nl": "badkamer",
+							"de": "Badezimmer"
 						}
 					},
 					{
@@ -264,7 +299,8 @@
 						"type": "number",
 						"title": {
 							"en": "Duration (s)",
-							"nl": "Looptijd (s)"
+							"nl": "Looptijd (s)",
+							"de": "Dauer (s)"
 						},
 						"example": 60
 					}
@@ -274,22 +310,26 @@
 				"id": "stopwatch_started",
 				"title": {
 					"en": "Stopwatch has started",
-					"nl": "Stopwatch is gestart"
+					"nl": "Stopwatch is gestart",
+					"de": "Stopwatch ist gestartet"
 				},
 				"titleFormatted": {
 					"en": "Stopwatch [[name]] has started",
-					"nl": "Stopwatch [[name]] is gestart"
+					"nl": "Stopwatch [[name]] is gestart",
+					"de": "Stopwatch [[name]] ist gestartet"
 				},
 				"hint": {
 					"en": "This card is activated when a stopwatch with the provided name has started.",
-					"nl": "Dit kaartje wordt geactiveerd als een stopwatch met de ingevoerde naam wordt gestart."
+					"nl": "Dit kaartje wordt geactiveerd als een stopwatch met de ingevoerde naam wordt gestart.",
+					"de": "Diese Karte wird aktiviert, wenn eine Stoppuhr mit dem angegebenen Namen gestartet wurde."
 				},
 				"args": [
 					{
 						"name": "name",
 						"title": {
 							"en": "Name",
-							"nl": "Naam"
+							"nl": "Naam",
+							"de": "Name"
 						},
 						"type": "text"
 					}
@@ -300,11 +340,13 @@
 						"type": "string",
 						"title": {
 							"en": "Name",
-							"nl": "Naam"
+							"nl": "Naam",
+							"de": "Name"
 						},
 						"example": {
 							"en": "bathroom",
-							"nl": "badkamer"
+							"nl": "badkamer",
+							"de": "Badezimmer"
 						}
 					}
 				]
@@ -313,22 +355,26 @@
 				"id": "stopwatch_split",
 				"title": {
 					"en": "Stopwatch reached a duration",
-					"nl": "Stopwatch heeft looptijd bereikt"
+					"nl": "Stopwatch heeft looptijd bereikt",
+					"de": "Stopwatch hat eine Dauer erreicht."
 				},
 				"titleFormatted": {
 					"en": "Stopwatch [[name]] has reached a duration of [[time]] [[unit]]",
-					"nl": "Stopwatch [[name]] heeft een looptijd van [[time]] [[unit]] bereikt"
+					"nl": "Stopwatch [[name]] heeft een looptijd van [[time]] [[unit]] bereikt",
+					"de": "Stopwatch [[Name]] hat eine Dauer von [[time]] [[unit]] erreicht"
 				},
 				"hint": {
 					"en": "This card is activated when a stopwatch with the provided name has reached a specific duration.",
-					"nl": "Dit kaartje wordt geactiveerd als een stopwatch met de ingevoerde naam een bepaalde looptijd heeft bereikt."
+					"nl": "Dit kaartje wordt geactiveerd als een stopwatch met de ingevoerde naam een bepaalde looptijd heeft bereikt.",
+					"de": "Diese Karte wird aktiviert, wenn eine Stoppuhr mit dem angegebenen Namen eine bestimmte Dauer erreicht hat."
 				},
 				"args": [
 					{
 						"name": "name",
 						"title": {
 							"en": "Name",
-							"nl": "Naam"
+							"nl": "Naam",
+							"de": "Name"
 						},
 						"type": "text"
 					},
@@ -336,7 +382,8 @@
 						"name": "time",
 						"title": {
 							"en": "Duration",
-							"nl": "Looptijd"
+							"nl": "Looptijd",
+							"de": "Dauer"
 						},
 						"type": "number",
 						"min": 0,
@@ -346,7 +393,8 @@
 						"name": "unit",
 						"title": {
 							"en": "Unit",
-							"nl": "Eenheid"
+							"nl": "Eenheid",
+							"de": "Einheit"
 						},
 						"type": "dropdown",
 						"values": [
@@ -354,28 +402,32 @@
 								"id": "seconds",
 								"label": {
 									"en": "seconds",
-									"nl": "seconden"
+									"nl": "seconden",
+									"de": "Sekunden"
 								}
 							},
 							{
 								"id": "minutes",
 								"label": {
 									"en": "minutes",
-									"nl": "minuten"
+									"nl": "minuten",
+									"de": "Minuten"
 								}
 							},
 							{
 								"id": "hours",
 								"label": {
 									"en": "hours",
-									"nl": "uren"
+									"nl": "uren",
+									"de": "Stunden"
 								}
 							},
 							{
 								"id": "days",
 								"label": {
 									"en": "days",
-									"nl": "dagen"
+									"nl": "dagen",
+									"de": "Tage"
 								}
 							}
 						]
@@ -387,11 +439,13 @@
 						"type": "string",
 						"title": {
 							"en": "Name",
-							"nl": "Naam"
+							"nl": "Naam",
+							"de": "Name"
 						},
 						"example": {
 							"en": "bathroom",
-							"nl": "badkamer"
+							"nl": "badkamer",
+							"de": "Badezimmer"
 						}
 					},
 					{
@@ -399,7 +453,8 @@
 						"type": "number",
 						"title": {
 							"en": "Duration (s)",
-							"nl": "Looptijd (s)"
+							"nl": "Looptijd (s)",
+							"de": "Dauer (s)"
 						},
 						"example": 60
 					}
@@ -409,22 +464,26 @@
 				"id": "stopwatch_stopped",
 				"title": {
 					"en": "Stopwatch is stopped",
-					"nl": "Stopwatch wordt gestopt"
+					"nl": "Stopwatch wordt gestopt",
+					"de": "Stopwatch wurde gestoppt"
 				},
 				"titleFormatted": {
 					"en": "Stopwatch [[name]] is stopped",
-					"nl": "Stopwatch [[name]] wordt gestopt"
+					"nl": "Stopwatch [[name]] wordt gestopt",
+					"de": "Stopatch [[name]] wurde gestoppt"
 				},
 				"hint": {
 					"en": "This card is activated when a stopwatch with the provided name has been stopped.",
-					"nl": "Dit kaartje wordt geactiveerd als een stopwatch met de ingevoerde naam wordt gestopt."
+					"nl": "Dit kaartje wordt geactiveerd als een stopwatch met de ingevoerde naam wordt gestopt.",
+					"de": "Diese Karte wird aktiviert, wenn eine Stoppuhr mit dem angegebenen Namen gestoppt wurde."
 				},
 				"args": [
 					{
 						"name": "name",
 						"title": {
 							"en": "Name",
-							"nl": "Naam"
+							"nl": "Naam",
+							"de": "Name"
 						},
 						"type": "text"
 					}
@@ -435,11 +494,13 @@
 						"type": "string",
 						"title": {
 							"en": "Name",
-							"nl": "Naam"
+							"nl": "Naam",
+							"de": "Name"
 						},
 						"example": {
 							"en": "bathroom",
-							"nl": "badkamer"
+							"nl": "badkamer",
+							"de": "Badezimmer"
 						}
 					},
 					{
@@ -447,7 +508,8 @@
 						"type": "number",
 						"title": {
 							"en": "Duration (s)",
-							"nl": "Looptijd (s)"
+							"nl": "Looptijd (s)",
+							"de": "Dauer"
 						},
 						"example": 60
 					}
@@ -460,22 +522,26 @@
 				"id": "timer_compare",
 				"title": {
 					"en": "Timer longer or shorter than",
-					"nl": "Timer langer of korter dan"
+					"nl": "Timer langer of korter dan",
+					"de": "Timer länger oder kurzer als"
 				},
 				"titleFormatted": {
 					"en": "Timer [[name]] has a duration !{{longer|shorter}} than [[time]] [[unit]]",
-					"nl": "Timer [[name]] heeft een looptijd !{{langer|korter}} dan [[time]] [[unit]]"
+					"nl": "Timer [[name]] heeft een looptijd !{{langer|korter}} dan [[time]] [[unit]]",
+					"de": "Timer [[name]] hat eine Dauer! {{länger|kürzer}} als [[time]] [[unit]]"
 				},
 				"hint": {
 					"en": "Use this card to run or cancel a flow depending on the duration of the timer with the provided name.",
-					"nl": "Gebruik dit kaartje om een flow wel of niet uit te voeren afhankelijk van de looptijd van de timer met de ingevoerde naam."
+					"nl": "Gebruik dit kaartje om een flow wel of niet uit te voeren afhankelijk van de looptijd van de timer met de ingevoerde naam.",
+					"de": "Verwenden Sie diese Karte, um einen Flow abhängig von der Dauer des Timers mit dem angegebenen Namen auszuführen oder abzubrechen."
 				},
 				"args": [
 					{
 						"name": "name",
 						"title": {
 							"en": "Name",
-							"nl": "Naam"
+							"nl": "Naam",
+							"de": "Name"
 						},
 						"type": "text"
 					},
@@ -483,7 +549,8 @@
 						"name": "time",
 						"title": {
 							"en": "Duration",
-							"nl": "Looptijd"
+							"nl": "Looptijd",
+							"de": "Dauer"
 						},
 						"type": "number",
 						"min": 0,
@@ -493,7 +560,8 @@
 						"name": "unit",
 						"title": {
 							"en": "Unit",
-							"nl": "Eenheid"
+							"nl": "Eenheid",
+							"de": "Einheit"
 						},
 						"type": "dropdown",
 						"values": [
@@ -501,28 +569,32 @@
 								"id": "seconds",
 								"label": {
 									"en": "seconds",
-									"nl": "seconden"
+									"nl": "seconden",
+									"de": "Sekunden"
 								}
 							},
 							{
 								"id": "minutes",
 								"label": {
 									"en": "minutes",
-									"nl": "minuten"
+									"nl": "minuten",
+									"de": "Minuten"
 								}
 							},
 							{
 								"id": "hours",
 								"label": {
 									"en": "hours",
-									"nl": "uren"
+									"nl": "uren",
+									"de": "Stunden"
 								}
 							},
 							{
 								"id": "days",
 								"label": {
 									"en": "days",
-									"nl": "dagen"
+									"nl": "dagen",
+									"de": "Tage"
 								}
 							}
 						]
@@ -533,22 +605,26 @@
 				"id": "timer_running",
 				"title": {
 					"en": "Timer is running or not",
-					"nl": "Timer loopt wel of niet"
+					"nl": "Timer loopt wel of niet",
+					"de": "Timer läuft oder nicht"
 				},
 				"titleFormatted": {
 					"en": "Timer [[name]] !{{is running|is not running}}",
-					"nl": "Timer [[name]] !{{loopt|loopt niet}}"
+					"nl": "Timer [[name]] !{{loopt|loopt niet}}",
+					"de": "Timer [[name]] !{{läuft|läuft nicht}}"
 				},
 				"hint": {
 					"en": "Use this card to run or cancel a flow depending on the run state of the timer with the provided name.",
-					"nl": "Gebruik dit kaartje om een flow wel of niet uit te voeren afhankelijk van de loop status van de timer met de ingevoerde naam."
+					"nl": "Gebruik dit kaartje om een flow wel of niet uit te voeren afhankelijk van de loop status van de timer met de ingevoerde naam.",
+					"de": "Verwende diese Karte, um einen Flow abhängig vom Ausführungsstatus des Timers mit dem angegebenen Namen auszuführen oder abzubrechen."
 				},
 				"args": [
 					{
 						"name": "name",
 						"title": {
 							"en": "Name",
-							"nl": "Naam"
+							"nl": "Naam",
+							"de": "Name"
 						},
 						"type": "text"
 					}
@@ -558,22 +634,26 @@
 				"id": "stopwatch_compare",
 				"title": {
 					"en": "Stopwatch longer or shorter than",
-					"nl": "Stopwatch langer of korter dan"
+					"nl": "Stopwatch langer of korter dan",
+					"de": "Stopwatch länger oder kürzer als"
 				},
 				"titleFormatted": {
 					"en": "Stopwatch [[name]] has a duration !{{longer|shorter}} than [[time]] [[unit]]",
-					"nl": "Stopwatch [[name]] heeft een looptijd !{{langer|korter}} dan [[time]] [[unit]]"
+					"nl": "Stopwatch [[name]] heeft een looptijd !{{langer|korter}} dan [[time]] [[unit]]",
+					"de": "Stopwatch [[name]] hat eine Dauer !{{länger|kürzer}} als [[time]] [[unit]]"
 				},
 				"hint": {
 					"en": "Use this card to run or cancel a flow depending on the duration of the stopwatch with the provided name.",
-					"nl": "Gebruik dit kaartje om een flow wel of niet uit te voeren afhankelijk van de looptijd van de stopwatch met de ingevoerde naam."
+					"nl": "Gebruik dit kaartje om een flow wel of niet uit te voeren afhankelijk van de looptijd van de stopwatch met de ingevoerde naam.",
+					"de": "Verwenden Sie diese Karte, um einen Flow abhängig von der Dauer der Stoppuhr mit dem angegebenen Namen auszuführen oder abzubrechen."
 				},
 				"args": [
 					{
 						"name": "name",
 						"title": {
 							"en": "Name",
-							"nl": "Naam"
+							"nl": "Naam",
+							"de": "Name"
 						},
 						"type": "text"
 					},
@@ -581,7 +661,8 @@
 						"name": "time",
 						"title": {
 							"en": "Duration",
-							"nl": "Looptijd"
+							"nl": "Looptijd",
+							"de": "Dauer"
 						},
 						"type": "number",
 						"min": 0,
@@ -591,7 +672,8 @@
 						"name": "unit",
 						"title": {
 							"en": "Unit",
-							"nl": "Eenheid"
+							"nl": "Eenheid",
+							"de": "Einheit"
 						},
 						"type": "dropdown",
 						"values": [
@@ -599,28 +681,32 @@
 								"id": "seconds",
 								"label": {
 									"en": "seconds",
-									"nl": "seconden"
+									"nl": "seconden",
+									"de": "Sekunden"
 								}
 							},
 							{
 								"id": "minutes",
 								"label": {
 									"en": "minutes",
-									"nl": "minuten"
+									"nl": "minuten",
+									"de": "Minuten"
 								}
 							},
 							{
 								"id": "hours",
 								"label": {
 									"en": "hours",
-									"nl": "uren"
+									"nl": "uren",
+									"de": "Stunden"
 								}
 							},
 							{
 								"id": "days",
 								"label": {
 									"en": "days",
-									"nl": "dagen"
+									"nl": "dagen",
+									"de": "Tage"
 								}
 							}
 						]
@@ -631,15 +717,18 @@
 				"id": "stopwatch_running",
 				"title": {
 					"en": "Stopwatch is running or not",
-					"nl": "Stopwatch loopt wel of niet"
+					"nl": "Stopwatch loopt wel of niet",
+					"de": "Stopwatch läuft oder nicht"
 				},
 				"titleFormatted": {
 					"en": "Stopwatch [[name]] !{{is running|is not running}}",
-					"nl": "Stopwatch [[name]] !{{loopt|loopt niet}}"
+					"nl": "Stopwatch [[name]] !{{loopt|loopt niet}}",
+					"de": "Stopwatch [[name]] !{{is running|is not running}}",
 				},
 				"hint": {
 					"en": "Use this card to run or cancel a flow depending on the run state of the stopwatch with the provided name.",
-					"nl": "Gebruik dit kaartje om een flow wel of niet uit te voeren afhankelijk van de loop status van de stopwatch met de ingevoerde naam."
+					"nl": "Gebruik dit kaartje om een flow wel of niet uit te voeren afhankelijk van de loop status van de stopwatch met de ingevoerde naam.",
+					"de": "Verwenden Sie diese Karte um einen Ablauf abhängig vom Betriebsstatus der Stoppuhr mit dem angegebenen Namen auszuführen oder abzubrechen."
 				},
 				"args": [
 					{
@@ -647,6 +736,7 @@
 						"title": {
 							"en": "Name",
 							"nl": "Naam"
+							"de": "Name"
 						},
 						"type": "text"
 					}
@@ -663,18 +753,21 @@
 				},
 				"titleFormatted": {
 					"en": "Start or replace timer [[name]] with a duration of [[time]] [[unit]]",
-					"nl": "Start of vervang timer [[name]] met een looptijd van [[time]] [[unit]]"
+					"nl": "Start of vervang timer [[name]] met een looptijd van [[time]] [[unit]]",
+					"de": "Timer [[name]] mit einer Dauer von [[time]] [[unit]] starten oder ersetzen"
 				},
 				"hint": {
 					"en": "Use this card to start a new timer with the provided name and duration. If a timer with the same name already exists, it is replaced.",
-					"nl": "Gebruik dit kaartje om een timer te starten met de ingevoerde naam en looptijd. Als er al een timer met dezelfde naam loopt dan wordt deze vervangen."
+					"nl": "Gebruik dit kaartje om een timer te starten met de ingevoerde naam en looptijd. Als er al een timer met dezelfde naam loopt dan wordt deze vervangen.",
+					"de": "Verwenden Sie diese Karte um einen neuen Timer mit dem angegebenen Namen und der angegebenen Dauer zu starten. Wenn bereits ein Timer mit dem gleichen Namen vorhanden ist, wird er ersetzt."
 				},
 				"args": [
 					{
 						"name": "name",
 						"title": {
 							"en": "Name",
-							"nl": "Naam"
+							"nl": "Naam",
+							"de": "Name"
 						},
 						"type": "text"
 					},
@@ -682,7 +775,8 @@
 						"name": "time",
 						"title": {
 							"en": "Duration",
-							"nl": "Looptijd"
+							"nl": "Looptijd",
+							"de": "Dauer"
 						},
 						"min": 0,
 						"step": 0.01,
@@ -692,7 +786,8 @@
 						"name": "unit",
 						"title": {
 							"en": "Unit",
-							"nl": "Eenheid"
+							"nl": "Eenheid",
+							"de": "Einheit"
 						},
 						"type": "dropdown",
 						"values": [
@@ -700,28 +795,33 @@
 								"id": "seconds",
 								"label": {
 									"en": "seconds",
-									"nl": "seconden"
+									"nl": "seconden",
+									"de": "Sekunden"
 								}
 							},
 							{
 								"id": "minutes",
 								"label": {
 									"en": "minutes",
-									"nl": "minuten"
+									"nl": "minuten",
+									"de": "Minuten"
 								}
 							},
 							{
 								"id": "hours",
 								"label": {
 									"en": "hours",
-									"nl": "uren"
+									"nl": "uren",
+									"de": "Stunden"
 								}
 							},
 							{
 								"id": "days",
 								"label": {
 									"en": "days",
-									"nl": "dagen"
+									"nl": "dagen",
+									"de": "Tage"
+
 								}
 							}
 						]
@@ -732,22 +832,26 @@
 				"id": "timer_resume",
 				"title": {
 					"en": "Start or resume timer",
-					"nl": "Start of hervat timer"
+					"nl": "Start of hervat timer",
+					"de": "Timer starten oder fortsetzen"
 				},
 				"titleFormatted": {
 					"en": "Start or resume timer [[name]] with a duration of [[time]] [[unit]]",
-					"nl": "Start of hervat timer [[name]] met een looptijd van [[time]] [[unit]]"
+					"nl": "Start of hervat timer [[name]] met een looptijd van [[time]] [[unit]]",
+					"de": "Timer [[name]] mit einer Dauer von [[time]] [[unit]] starten oder fortsetzen"
 				},
 				"hint": {
 					"en": "Use this card to start a new timer with the provided name and duration. If a timer with the same name already exists, it is resumed.",
-					"nl": "Gebruik dit kaartje om een timer te starten met de ingevoerde naam en looptijd. Als er al een timer met dezelfde naam loopt dan wordt deze hervat."
+					"nl": "Gebruik dit kaartje om een timer te starten met de ingevoerde naam en looptijd. Als er al een timer met dezelfde naam loopt dan wordt deze hervat.",
+					"de": "Verwenden Sie diese Karte um einen neuen Timer mit dem angegebenen Namen und der angegebenen Dauer zu starten. Wenn bereits ein Timer mit dem gleichen Namen vorhanden ist, wird er fortgesetzt."
 				},
 				"args": [
 					{
 						"name": "name",
 						"title": {
 							"en": "Name",
-							"nl": "Naam"
+							"nl": "Naam",
+							"de": "Name"
 						},
 						"type": "text"
 					},
@@ -755,7 +859,8 @@
 						"name": "time",
 						"title": {
 							"en": "Duration",
-							"nl": "Looptijd"
+							"nl": "Looptijd",
+							"de": "Dauer"
 						},
 						"min": 0,
 						"step": 0.01,
@@ -765,7 +870,8 @@
 						"name": "unit",
 						"title": {
 							"en": "Unit",
-							"nl": "Eenheid"
+							"nl": "Eenheid",
+							"de": "Einheit"
 						},
 						"type": "dropdown",
 						"values": [
@@ -773,28 +879,33 @@
 								"id": "seconds",
 								"label": {
 									"en": "seconds",
-									"nl": "seconden"
+									"nl": "seconden",
+									"de": "Sekunden"
 								}
 							},
 							{
 								"id": "minutes",
 								"label": {
 									"en": "minutes",
-									"nl": "minuten"
+									"nl": "minuten",
+									"de": "Minuten"
 								}
 							},
 							{
 								"id": "hours",
 								"label": {
 									"en": "hours",
-									"nl": "uren"
+									"nl": "uren",
+									"de": "Stunden"
 								}
 							},
 							{
 								"id": "days",
 								"label": {
 									"en": "days",
-									"nl": "dagen"
+									"nl": "dagen",
+									"de": "Tage"
+
 								}
 							}
 						]
@@ -809,18 +920,22 @@
 				},
 				"titleFormatted": {
 					"en": "Adjust timer [[name]] with a duration of [[time]] [[unit]]",
-					"nl": "Pas timer [[name]] aan met een looptijd van [[time]] [[unit]]"
+					"nl": "Pas timer [[name]] aan met een looptijd van [[time]] [[unit]]",
+					"de": "Timer [[name]] mit einer Dauer von [[time]] [[unit]] einstellen"
 				},
 				"hint": {
 					"en": "Use this card to adjust the duration of the timer with the provided name. Use a positive duration to extend the timer, or a negative duration to shorten the timer.",
-					"nl": "Gebruik dit kaartje om de looptijd van de timer met de ingevoerde naam aan te passen. Gebruik een positive looptijd om de timer te verlengen, of een negative looptijd om de timer te verkorten."
+					"nl": "Gebruik dit kaartje om de looptijd van de timer met de ingevoerde naam aan te passen. Gebruik een positive looptijd om de timer te verlengen, of een negative looptijd om de timer te verkorten.",
+					"de": "Verwenden Sie diese Karte um die Dauer des Timers mit dem angegebenen Namen anzupassen. Verwenden Sie eine positive Dauer um den Timer zu verlängern oder eine negative Dauer um den Timer zu verkürzen."
+
 				},
 				"args": [
 					{
 						"name": "name",
 						"title": {
 							"en": "Name",
-							"nl": "Naam"
+							"nl": "Naam",
+							"de": "Name"
 						},
 						"type": "text"
 					},
@@ -828,7 +943,8 @@
 						"name": "time",
 						"title": {
 							"en": "Adjustment",
-							"nl": "Wijziging"
+							"nl": "Wijziging",
+							"in": "Anpassung"
 						},
 						"type": "number",
 						"step": 0.01
@@ -837,7 +953,8 @@
 						"name": "unit",
 						"title": {
 							"en": "Unit",
-							"nl": "Eenheid"
+							"nl": "Eenheid",
+							"de": "Einheit"
 						},
 						"type": "dropdown",
 						"values": [
@@ -845,28 +962,32 @@
 								"id": "seconds",
 								"label": {
 									"en": "seconds",
-									"nl": "seconden"
+									"nl": "seconden",
+									"de": "Sekunden"
 								}
 							},
 							{
 								"id": "minutes",
 								"label": {
 									"en": "minutes",
-									"nl": "minuten"
+									"nl": "minuten",
+									"de": "Minuten"
 								}
 							},
 							{
 								"id": "hours",
 								"label": {
 									"en": "hours",
-									"nl": "uren"
+									"nl": "uren",
+									"de": "Stunden"
 								}
 							},
 							{
 								"id": "days",
 								"label": {
 									"en": "days",
-									"nl": "dagen"
+									"nl": "dagen",
+									"de": "Tage"
 								}
 							}
 						]
@@ -877,22 +998,28 @@
 				"id": "timer_pause",
 				"title": {
 					"en": "Pause timer",
-					"nl": "Pauzeer timer"
+					"nl": "Pauzeer timer",
+					"de": "Timer pausieren"
 				},
 				"titleFormatted": {
 					"en": "Pause timer [[name]]",
-					"nl": "Pauzeer timer [[name]]"
+					"nl": "Pauzeer timer [[name]]",
+					"de": "Timer anhalten [[name]]"
+
 				},
 				"hint": {
 					"en": "Use this card to pause a timer with the provided name.",
-					"nl": "Gebruik dit kaartje om een timer te pauzeren met de ingevoerde naam."
+					"nl": "Gebruik dit kaartje om een timer te pauzeren met de ingevoerde naam.",
+					"de": "Mit dieser Karte können Sie einen Timer mit dem angegebenen Namen anhalten."
+
 				},
 				"args": [
 					{
 						"name": "name",
 						"title": {
 							"en": "Name",
-							"nl": "Naam"
+							"nl": "Naam",
+							"de": "Name"
 						},
 						"type": "text"
 					}
@@ -902,22 +1029,29 @@
 				"id": "timer_stop",
 				"title": {
 					"en": "Stop timer",
-					"nl": "Stop timer"
+					"nl": "Stop timer",
+					"de": "Timer anhalten"
+
 				},
 				"titleFormatted": {
 					"en": "Stop timer [[name]]",
-					"nl": "Stop timer [[name]]"
+					"nl": "Stop timer [[name]]",
+					"de": "Timer stoppen [[name]]"
+
 				},
 				"hint": {
 					"en": "Use this card to stop a timer with the provided name.",
-					"nl": "Gebruik dit kaartje om een timer te stoppen met de ingevoerde naam."
+					"nl": "Gebruik dit kaartje om een timer te stoppen met de ingevoerde naam.",
+					"de": "Mit dieser Karte können Sie einen Timer mit dem angegebenen Namen stoppen."
+
 				},
 				"args": [
 					{
 						"name": "name",
 						"title": {
 							"en": "Name",
-							"nl": "Naam"
+							"nl": "Naam",
+							"de": "Name"
 						},
 						"type": "text"
 					}
@@ -927,33 +1061,44 @@
 				"id": "timer_stop_all",
 				"title": {
 					"en": "Stop all timers",
-					"nl": "Stop alle timers"
+					"nl": "Stop alle timers",
+					"de": "Alle Timer anhalten"
+
 				},
 				"hint": {
 					"en": "Use this card to stop all running timers.",
-					"nl": "Gebruik dit kaartje om alle timers te stoppen."
+					"nl": "Gebruik dit kaartje om alle timers te stoppen.",
+					"de": "Verwenden Sie diese Karte, um alle laufenden Timer zu stoppen."
+
 				}
 			},
 			{
 				"id": "stopwatch_start",
 				"title": {
 					"en": "Start or replace stopwatch",
-					"nl": "Start of vervang stopwatch"
+					"nl": "Start of vervang stopwatch",
+					"de": "Stoppuhr starten oder ersetzen"
+
 				},
 				"titleFormatted": {
 					"en": "Start or replace stopwatch [[name]]",
-					"nl": "Start of vervang stopwatch [[name]]"
+					"nl": "Start of vervang stopwatch [[name]]",
+					"de": "Stoppuhr starten oder ersetzen [[name]]"
+
 				},
 				"hint": {
 					"en": "Use this card to start a stopwatch with the provided name. If a stopwatch with the same name is already running, it is replaced.",
-					"nl": "Gebruik dit kaartje om een stopwatch te starten met de ingevoerde naam. Als er al een stopwatch met dezelfde naam loopt dan wordt deze vervangen."
+					"nl": "Gebruik dit kaartje om een stopwatch te starten met de ingevoerde naam. Als er al een stopwatch met dezelfde naam loopt dan wordt deze vervangen.",
+					"de": "Verwenden Sie diese Karte, um eine Stoppuhr mit dem angegebenen Namen zu starten. Wenn bereits eine Stoppuhr mit dem gleichen Namen läuft, wird diese ersetzt."
+
 				},
 				"args": [
 					{
 						"name": "name",
 						"title": {
 							"en": "Name",
-							"nl": "Naam"
+							"nl": "Naam",
+							"de": "Name"
 						},
 						"type": "text"
 					}
@@ -963,22 +1108,29 @@
 				"id": "stopwatch_resume",
 				"title": {
 					"en": "Start or resume stopwatch",
-					"nl": "Start of hervat stopwatch"
+					"nl": "Start of hervat stopwatch",
+					"de": "Stoppuhr starten oder fortsetzen"
+
 				},
 				"titleFormatted": {
 					"en": "Start or resume stopwatch [[name]]",
-					"nl": "Start of hervat stopwatch [[name]]"
+					"nl": "Start of hervat stopwatch [[name]]",
+					"de": "Stoppuhr starten oder fortsetzen [[name]]"
+
 				},
 				"hint": {
 					"en": "Use this card to start a stopwatch with the provided name. If a stopwatch with the same name is already running, it is resumed.",
-					"nl": "Gebruik dit kaartje om een stopwatch te starten met de ingevoerde naam. Als er al een stopwatch met dezelfde naam loopt dan wordt deze hervat."
+					"nl": "Gebruik dit kaartje om een stopwatch te starten met de ingevoerde naam. Als er al een stopwatch met dezelfde naam loopt dan wordt deze hervat.",
+					"de": "Verwenden Sie diese Karte, um eine Stoppuhr mit dem angegebenen Namen zu starten. Wenn bereits eine Stoppuhr mit dem gleichen Namen läuft, wird sie fortgesetzt.",
+
 				},
 				"args": [
 					{
 						"name": "name",
 						"title": {
 							"en": "Name",
-							"nl": "Naam"
+							"nl": "Naam",
+							"de": "Name"
 						},
 						"type": "text"
 					}
@@ -988,22 +1140,27 @@
 				"id": "stopwatch_adjust",
 				"title": {
 					"en": "Adjust stopwatch",
-					"nl": "Pas stopwatch aan"
+					"nl": "Pas stopwatch aan",
+					"de": "Stoppuh einstellen"
 				},
 				"titleFormatted": {
 					"en": "Adjust stopwatch [[name]] with a duration of [[time]] [[unit]]",
-					"nl": "Pas stopwatch [[name]] aan met een looptijd van [[time]] [[unit]]"
+					"nl": "Pas stopwatch [[name]] aan met een looptijd van [[time]] [[unit]]",
+					"de": "Stellen Sie die Stoppuhr [[name]] mit einer Dauer von [[time]] [[unit]] ein"
 				},
 				"hint": {
 					"en": "Use this card to adjust the duration of the stopwatch with the provided name. Use a positive duration to extend the stopwatch, or a negative duration to shorten the stopwatch.",
-					"nl": "Gebruik dit kaartje om de looptijd van de stopwatch met de ingevoerde naam aan te passen. Gebruik een positive looptijd om de stopwatch te verlengen, of een negative looptijd om de stopwatch te verkorten."
+					"nl": "Gebruik dit kaartje om de looptijd van de stopwatch met de ingevoerde naam aan te passen. Gebruik een positive looptijd om de stopwatch te verlengen, of een negative looptijd om de stopwatch te verkorten.",
+					"de": "Verwenden Sie diese Karte, um die Dauer der Stoppuhr mit dem angegebenen Namen anzupassen. Verwenden Sie eine positive Dauer um die Stoppuhr zu verlängern, oder eine negative Dauer um die Stoppuhr zu verkürzen."
+
 				},
 				"args": [
 					{
 						"name": "name",
 						"title": {
 							"en": "Name",
-							"nl": "Naam"
+							"nl": "Naam",
+							"de": "Name"
 						},
 						"type": "text"
 					},
@@ -1011,7 +1168,8 @@
 						"name": "time",
 						"title": {
 							"en": "Adjustment",
-							"nl": "Wijziging"
+							"nl": "Wijziging",
+							"de": "Einstellung"
 						},
 						"type": "number",
 						"step": 0.01
@@ -1020,7 +1178,8 @@
 						"name": "unit",
 						"title": {
 							"en": "Unit",
-							"nl": "Eenheid"
+							"nl": "Eenheid",
+							"de": "Einheit
 						},
 						"type": "dropdown",
 						"values": [
@@ -1028,28 +1187,32 @@
 								"id": "seconds",
 								"label": {
 									"en": "seconds",
-									"nl": "seconden"
+									"nl": "seconden",
+									"de": "Sekunden"
 								}
 							},
 							{
 								"id": "minutes",
 								"label": {
 									"en": "minutes",
-									"nl": "minuten"
+									"nl": "minuten",
+									"de": "Minuten"
 								}
 							},
 							{
 								"id": "hours",
 								"label": {
 									"en": "hours",
-									"nl": "uren"
+									"nl": "uren",
+									"de": "Stunden"
 								}
 							},
 							{
 								"id": "days",
 								"label": {
 									"en": "days",
-									"nl": "dagen"
+									"nl": "dagen",
+									"de": "Tagen"
 								}
 							}
 						]
@@ -1060,22 +1223,27 @@
 				"id": "stopwatch_pause",
 				"title": {
 					"en": "Pause a stopwatch",
-					"nl": "Pauzeer een stopwatch"
+					"nl": "Pauzeer een stopwatch",
+					"de": "Pausiere eine Stoppuhr"
 				},
 				"titleFormatted": {
 					"en": "Pause stopwatch [[name]]",
-					"nl": "Pauzeer stopwatch [[name]]"
+					"nl": "Pauzeer stopwatch [[name]]",
+					"de": "Pausiere Stoppuhr [[name]]"
 				},
 				"hint": {
 					"en": "Use this card to pause a stopwatch with the provided name.",
-					"nl": "Gebruik dit kaartje om een stopwatch te pauzeren met de ingevoerde naam."
+					"nl": "Gebruik dit kaartje om een stopwatch te pauzeren met de ingevoerde naam.",
+					"de": "Verwenden Sie diese Karte, um eine Stoppuhr mit dem angegebenen Namen anzuhalten.
+"
 				},
 				"args": [
 					{
 						"name": "name",
 						"title": {
 							"en": "Name",
-							"nl": "Naam"
+							"nl": "Naam",
+							"de": "Name"
 						},
 						"type": "text"
 					}
@@ -1085,22 +1253,26 @@
 				"id": "stopwatch_stop",
 				"title": {
 					"en": "Stop a stopwatch",
-					"nl": "Stop een stopwatch"
+					"nl": "Stop een stopwatch",
+					"de": "Stoppe eine Stopuhr"
 				},
 				"titleFormatted": {
 					"en": "Stop stopwatch [[name]]",
-					"nl": "Stop stopwatch [[name]]"
+					"nl": "Stop stopwatch [[name]]",
+					"de": "Stoppe Stopuhren [[name]]"
 				},
 				"hint": {
 					"en": "Use this card to stop a stopwatch with the provided name.",
-					"nl": "Gebruik dit kaartje om een stopwatch te stoppen met de ingevoerde naam."
+					"nl": "Gebruik dit kaartje om een stopwatch te stoppen met de ingevoerde naam.",
+					"de": "Benutze diese Karte um eine Stoppuhr mit dem angegebenen Namen zu stoppen"
 				},
 				"args": [
 					{
 						"name": "name",
 						"title": {
 							"en": "Name",
-							"nl": "Naam"
+							"nl": "Naam",
+							"de": "Name"
 						},
 						"type": "text"
 					}
@@ -1110,11 +1282,13 @@
 				"id": "stopwatch_stop_all",
 				"title": {
 					"en": "Stop all stopwatches",
-					"nl": "Stop alle stopwatches"
+					"nl": "Stop alle stopwatches",
+					"de": "Stoppe alle Stopuhren"
 				},
 				"hint": {
 					"en": "Use this card to stop all stopwatches.",
-					"nl": "Gebruik dit kaartje om alle stopwatches te stoppen."
+					"nl": "Gebruik dit kaartje om alle stopwatches te stoppen.",
+					"de": "Verwenden Sie diese Karte, um alle Stoppuhren zu stoppen."
 				}
 			}
 		]
