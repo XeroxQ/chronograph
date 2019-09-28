@@ -1,11 +1,10 @@
 {
 	"id": "nl.fellownet.chronograph",
-	"version": "1.0.2",
+	"version": "1.0.3",
 	"compatibility": ">=2.1.0",
 	"sdk": 2,
 	"name": {
 		"en": "Chronograph"
-		"de": "Chronograph"
 	},
 	"description": {
 		"en": "Adds precise timer- and stopwatch functionality to Homey.",
@@ -107,7 +106,7 @@
 				"titleFormatted": {
 					"en": "Timer [[name]] has reached a duration of [[time]] [[unit]]",
 					"nl": "Timer [[name]] heeft een looptijd van [[time]] [[unit]] bereikt",
-					"de": "Timer [[Name]] hat eine Dauer von erreicht"
+					"de": "Timer [[name]] hat eine Dauer von [[time]] [[unit]] erreicht"
 				},
 				"hint": {
 					"en": "This card is activated when a timer with the provided name has reached a specific duration.",
@@ -221,7 +220,7 @@
 				"hint": {
 					"en": "This card is activated when a timer with the provided name has finished, not when a timer is prematurely stopped.",
 					"nl": "Dit kaartje wordt geactiveerd als een timer met de ingevoerde naam is afgelopen, niet als een timer vroegtijdig wordt gestopt.",
-					"en": "Diese Karte wird aktiviert, wenn ein Timer mit dem angegebenen Namen abgelaufen ist, nicht wenn ein Timer vorzeitig gestoppt wird."
+					"de": "Diese Karte wird aktiviert, wenn ein Timer mit dem angegebenen Namen abgelaufen ist, nicht wenn ein Timer vorzeitig gestoppt wird."
 				},
 				"args": [
 					{
@@ -261,7 +260,7 @@
 				"titleFormatted": {
 					"en": "Timer [[name]] is stopped",
 					"nl": "Timer [[name]] wordt gestopt",
-					"de": "Timer [[name]] wurde gestoppt
+					"de": "Timer [[name]] wurde gestoppt"
 				},
 				"hint": {
 					"en": "This card is activated when a timer with the provided name has been prematurely stopped, not when a timer is finished.",
@@ -361,7 +360,7 @@
 				"titleFormatted": {
 					"en": "Stopwatch [[name]] has reached a duration of [[time]] [[unit]]",
 					"nl": "Stopwatch [[name]] heeft een looptijd van [[time]] [[unit]] bereikt",
-					"de": "Stopwatch [[Name]] hat eine Dauer von [[time]] [[unit]] erreicht"
+					"de": "Stopwatch [[name]] hat eine Dauer von [[time]] [[unit]] erreicht"
 				},
 				"hint": {
 					"en": "This card is activated when a stopwatch with the provided name has reached a specific duration.",
@@ -723,7 +722,7 @@
 				"titleFormatted": {
 					"en": "Stopwatch [[name]] !{{is running|is not running}}",
 					"nl": "Stopwatch [[name]] !{{loopt|loopt niet}}",
-					"de": "Stopwatch [[name]] !{{läuft|läuft nicht}}",
+					"de": "Stopwatch [[name]] !{{läuft|läuft nicht}}"
 				},
 				"hint": {
 					"en": "Use this card to run or cancel a flow depending on the run state of the stopwatch with the provided name.",
@@ -1181,7 +1180,7 @@
 						"title": {
 							"en": "Unit",
 							"nl": "Eenheid",
-							"de": "Einheit
+							"de": "Einheit"
 						},
 						"type": "dropdown",
 						"values": [
@@ -1237,7 +1236,6 @@
 					"en": "Use this card to pause a stopwatch with the provided name.",
 					"nl": "Gebruik dit kaartje om een stopwatch te pauzeren met de ingevoerde naam.",
 					"de": "Verwenden Sie diese Karte, um eine Stoppuhr mit dem angegebenen Namen anzuhalten."
-"
 				},
 				"args": [
 					{

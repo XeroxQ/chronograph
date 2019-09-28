@@ -57,6 +57,10 @@ Application image by [Agê Barros](https://unsplash.com/@agebarros?utm_source=un
 
 ## Changelog
 
+### v1.0.3
+
+* German translation, thanks to [Copiis](https://github.com/copiis).
+
 ### v1.0.2
 
 * Timers and stopwatches are now persistent across application restarts and Homey reboots.
