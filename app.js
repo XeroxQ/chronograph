@@ -60,8 +60,11 @@ class Application extends Homey.App {
 		this._cards = {
 			// Actions.
 			"timer_start": new TimerStart('timer_start'),
+			"timer_start_v2": new TimerStart('timer_start_v2'),
 			"timer_resume": new TimerResume('timer_resume'),
+			"timer_resume_v2": new TimerResume('timer_resume_v2'),
 			"timer_adjust": new TimerAdjust('timer_adjust'),
+			"timer_adjust_v2": new TimerAdjust('timer_adjust_v2'),
 			"timer_pause": new TimerPause('timer_pause'),
 			"timer_stop": new TimerStop('timer_stop'),
 			"timer_stop_all": new TimerStopAll('timer_stop_all'),
@@ -69,6 +72,7 @@ class Application extends Homey.App {
 			"stopwatch_start": new StopwatchStart('stopwatch_start'),
 			"stopwatch_resume": new StopwatchResume('stopwatch_resume'),
 			"stopwatch_adjust": new StopwatchAdjust('stopwatch_adjust'),
+			"stopwatch_adjust_v2": new StopwatchAdjust('stopwatch_adjust_v2'),
 			"stopwatch_pause": new StopwatchPause('stopwatch_pause'),
 			"stopwatch_stop": new StopwatchStop('stopwatch_stop'),
 			"stopwatch_stop_all": new StopwatchStopAll('stopwatch_stop_all'),
