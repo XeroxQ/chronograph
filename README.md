@@ -18,7 +18,7 @@ Adds precise timer- and stopwatch functionality to Homey.
 **Simple math expressions**
 
 The start, resume and adjust action cards have built-in support for simple math expressions. This allows
-for random or computed timer or stopwatch durations and adjustments. Tokens 
+for random or computed timer and stopwatch durations, including calculations based on token values.
 
 For example:
 
@@ -83,7 +83,7 @@ Application image by [Agê Barros](https://unsplash.com/@agebarros?utm_source=un
 
 ### v1.0.4
 
-* Support for simple math functions in timer and stopwatch durations.
+* Support for simple math expressions in timer and stopwatch durations.
 
 ### v1.0.3
 
