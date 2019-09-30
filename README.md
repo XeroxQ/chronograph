@@ -13,26 +13,30 @@ Adds precise timer- and stopwatch functionality to Homey.
 * Start stopwatches without a predefined end time,
 * Trigger flows at exact timer- or stopwatch durations with millisecond (fractional seconds) precision,
 * Pause and resume timers and stopwatches.
-* Support for random or computed durations or adjustments using simple math functions.
+* Support for random or computed durations or adjustments using simple math expressions.
 
-**Simple math functions**
+**Simple math expressions**
 
-The start, resume and adjust action cards have built-in support for simple mathematical functions. This
-allows for random or computed timer durations and timer or stopwatch adjustments. In addition to basic
-math formulas, the following functions are supported:
+The start, resume and adjust action cards have built-in support for simple math expressions. This allows
+for random or computed timer or stopwatch durations and adjustments. Tokens 
+
+For example:
+
+```javascript
+ceil(99.5) / 5
+pick(1, 3, 5, 9) * 2
+random(10, 30)
+abs(-10)
+```
+
+In addition to basic math expressions, the following functions are supported:
 
 * abs(x) - calculate the absolute value of a number,
 * ceil(x) - rounds a number up to the next whole number,
 * floor(x) - rounds a number down to the previous whole number,
 * round(x) - rounds a number towards the nearest whole number,
 * random(min, max) - a random number larger or equal to min and smaller than max,
-```javascript
-random(10, 30)
-```
 * pick(x, y[, n]) - pick a random value from the supplied list.
-```javascript
-pick(1, 3, 5, 9)
-```
 
 **HomeyScript**
 
