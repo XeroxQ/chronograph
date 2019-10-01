@@ -36,6 +36,8 @@ In addition to basic math expressions, the following functions are supported:
 * floor(x) - rounds a number down to the previous whole number,
 * round(x) - rounds a number towards the nearest whole number,
 * random(min, max) - a random number larger or equal to min and smaller than max,
+* min(x, y) - the lowest number from the supplied list,
+* max(x, y) - the largest number from the supplied list,
 * pick(x, y[, n]) - pick a random value from the supplied list.
 
 **HomeyScript**
