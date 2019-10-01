@@ -3,6 +3,7 @@
 const Homey = require('homey');
 const Timer = require('./lib/timer.js');
 const Stopwatch = require('./lib/stopwatch.js');
+const { LogLevel } = require('./lib/utils.js');
 
 // Actions.
 const TimerStart = require('./lib/actions/timer_start.js');
@@ -97,11 +98,19 @@ class Application extends Homey.App {
 	}
 
 	_installLogEventHandlers() {
-		Timer.events.on('log', (timer, text) => {
-			this.log('[' + timer.getName() + '] ' + text);
+		Timer.events.on('log', (timer, text, level) => {
+			if (level >= LogLevel.WARNING) {
+				this.error('[' + timer.getName() + '] ' + text);
+			} else {
+				this.log('[' + timer.getName() + '] ' + text);
+			}
 		});
-		Stopwatch.events.on('log', (stopwatch, text) => {
-			this.log('[' + stopwatch.getName() + '] ' + text);
+		Stopwatch.events.on('log', (stopwatch, text, level) => {
+			if (level >= LogLevel.WARNING) {
+				this.error('[' + stopwatch.getName() + '] ' + text);
+			} else {
+				this.log('[' + stopwatch.getName() + '] ' + text);
+			}
 		});
 	}
 
