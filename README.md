@@ -83,7 +83,7 @@ Application image by [Agê Barros](https://unsplash.com/@agebarros?utm_source=un
 
 ## Changelog
 
-### v1.0.4
+### v1.0.5
 
 * Support for simple math expressions in timer and stopwatch durations.
 
