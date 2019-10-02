@@ -3,6 +3,7 @@
 const Homey = require('homey');
 const Timer = require('./lib/timer.js');
 const Stopwatch = require('./lib/stopwatch.js');
+const { Utils, SplitTypes } = require('./lib/utils.js');
 
 // Actions.
 const TimerStart = require('./lib/actions/timer_start.js');
@@ -27,6 +28,7 @@ const StopwatchRunning = require('./lib/conditions/stopwatch_running.js');
 // Triggers.
 const TimerStarted = require('./lib/triggers/timer_started.js');
 const TimerSplit = require('./lib/triggers/timer_split.js');
+const TimerTransition = require('./lib/triggers/timer_transition.js');
 const TimerFinished = require('./lib/triggers/timer_finished.js');
 const TimerStopped = require('./lib/triggers/timer_stopped.js');
 const StopwatchStarted = require('./lib/triggers/stopwatch_started.js');
@@ -83,6 +85,7 @@ class Application extends Homey.App {
 			// Triggers.
 			"timer_started": new TimerStarted('timer_started'),
 			"timer_split": new TimerSplit('timer_split'),
+			"timer_transition": new TimerTransition('timer_transition'),
 			"timer_finished": new TimerFinished('timer_finished'),
 			"timer_stopped": new TimerStopped('timer_stopped'),
 
@@ -145,17 +148,23 @@ class Application extends Homey.App {
 
 	_restoreTimers() {
 		let timersActive = Homey.ManagerSettings.get('timers_active') || {};
+		Homey.ManagerSettings.set('timers_active', {});
 		Object.values(timersActive).forEach(timerObj => {
 			let duration = timerObj.duration;
 			if (timerObj.running) {
 				duration -= ((new Date()).getTime() - timerObj.now);
 			}
 			if (duration < 0) {
-				return;
+				duration = 0;
 			}
 			let timer = new Timer(timerObj.name, duration / 1e3, 'seconds');
+
 			let splits = Homey.ManagerSettings.get('timer_splits') || [];
-			splits.forEach(split => timer.addSplit(split.time, split.unit));
+			splits.forEach(split => {
+				split.type = SplitTypes.SPLIT;
+				timer.addSplit(split.time, split.unit, split);
+			});
+
 			if (timerObj.running) {
 				timer.start(true);
 			}
@@ -164,14 +173,20 @@ class Application extends Homey.App {
 
 	_restoreStopwatches() {
 		let stopwatchesActive = Homey.ManagerSettings.get('stopwatches_active') || {};
+		Homey.ManagerSettings.set('stopwatches_active', {});
 		Object.values(stopwatchesActive).forEach(stopwatchObj => {
 			let duration = stopwatchObj.duration;
 			if (stopwatchObj.running) {
 				duration += ((new Date()).getTime() - stopwatchObj.now);
 			}
 			let stopwatch = new Stopwatch(stopwatchObj.name);
+
 			let splits = Homey.ManagerSettings.get('stopwatch_splits') || [];
-			splits.forEach(split => stopwatch.addSplit(split.time, split.unit));
+			splits.forEach(split => {
+				split.type = SplitTypes.SPLIT;
+				stopwatch.addSplit(split.time, split.unit, split);
+			});
+
 			stopwatch.adjust(duration / 1e3, 'seconds', true);
 			if (stopwatchObj.running) {
 				stopwatch.start(true);

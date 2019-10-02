@@ -208,13 +208,13 @@
 			{
 				"id": "timer_transition",
 				"title": {
-					"en": "Timer reached a step in a transition",
-					"nl": "Timer heeft transitie stap bereikt",
-					"de": "Timer hat Übergang Schritt erreicht"
+					"en": "Timer reached step in a transition",
+					"nl": "Timer heeft transitiestap bereikt",
+					"de": "Timer hat Übergangsschritt erreicht"
 				},
 				"titleFormatted": {
 					"en": "Timer [[name]] has reached a step of [[time]] [[unit]] in a transition from [[start]] to [[end]]",
-					"nl": "Timer [[name]] heeft een positie van [[time]] [[unit]] in een transitie van [[start]] naar [[end]] bereikt",
+					"nl": "Timer [[name]] heeft een stap van [[time]] [[unit]] in een transitie van [[start]] naar [[end]] bereikt",
 					"de": "Timer [[name]] hat einen Schritt von [[time]] [[unit]] in einem Übergang von [[start]] bis [[end]] erreicht"
 				},
 				"hint": {
@@ -235,9 +235,9 @@
 					{
 						"name": "time",
 						"title": {
-							"en": "Duration",
-							"nl": "Looptijd",
-							"de": "Dauer"
+							"en": "Step",
+							"nl": "Stap",
+							"de": "Schritt"
 						},
 						"type": "number",
 						"min": 0,
@@ -338,9 +338,9 @@
 						"name": "value",
 						"type": "number",
 						"title": {
-							"en": "Value",
-							"nl": "Waarde",
-							"de": "Wert"
+							"en": "Transition value",
+							"nl": "Transitiewaarde",
+							"de": "Übergangswert"
 						},
 						"example": 4
 					}
