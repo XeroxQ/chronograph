@@ -13,6 +13,32 @@ Adds precise timer- and stopwatch functionality to Homey.
 * Start stopwatches without a predefined end time,
 * Trigger flows at exact timer- or stopwatch durations with millisecond (fractional seconds) precision,
 * Pause and resume timers and stopwatches.
+* Support for random or computed durations or adjustments using simple math expressions.
+
+**Simple math expressions**
+
+The start, resume and adjust action cards have built-in support for simple math expressions. This allows
+for random or computed timer and stopwatch durations, including calculations based on token values.
+
+For example:
+
+```javascript
+ceil(99.5) / 5
+pick(1, 3, 5, 9) * 2
+random(10, 30)
+abs(-10)
+```
+
+In addition to basic math expressions, the following functions are supported:
+
+* abs(x) - calculate the absolute value of a number,
+* ceil(x) - rounds a number up to the next whole number,
+* floor(x) - rounds a number down to the previous whole number,
+* round(x) - rounds a number towards the nearest whole number,
+* random(min, max) - a random number larger or equal to min and smaller than max,
+* min(x, y) - the lowest number from the supplied list,
+* max(x, y) - the largest number from the supplied list,
+* pick(x, y[, n]) - pick a random value from the supplied list.
 
 **HomeyScript**
 
@@ -56,6 +82,10 @@ If you like this project, perhaps you can support us by making a donation?
 Application image by [Agê Barros](https://unsplash.com/@agebarros?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText) on [Unsplash](https://unsplash.com/search/photos/time?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText).
 
 ## Changelog
+
+### v1.0.6
+
+* Support for simple math expressions in timer and stopwatch durations.
 
 ### v1.0.3
 

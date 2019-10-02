@@ -34,6 +34,7 @@ describe('Timer', () => {
 		assert.ok(!!events.updated, 'updated event should be emitted');
 		assert.equal(timer, events.updated, 'updated event should emit correct timer');
 		timer.stop();
+		timer.stop(); // second stop should do nothing
 		assert.ok(!Timer.get(name), 'timer should not be in global timers array');
 
 		assert.throws(() => {
@@ -53,9 +54,7 @@ describe('Timer', () => {
 		let timer = new Timer(name, 0.1, 'seconds');
 		assert.ok(!!Timer.get(name), 'timer should be in global timers array');
 		timer.start();
-		assert.throws(() => {
-			timer.start();
-		}, 'starting a running timer should throw an exception');
+		timer.start(); // second start should do nothing
 		assert.ok(!!events.started, 'started event should be emitted');
 		assert.equal(timer, events.started, 'started event should emit correct timer');
 		assert.ok(timer.isRunning(), 'new timer should be running');
@@ -67,12 +66,6 @@ describe('Timer', () => {
 			assert.equal(timer, events.finished, 'finished event should emit correct timer');
 			assert.ok(!!events.removed, 'removed event should be emitted');
 			assert.equal(timer, events.removed, 'removed event should emit correct timer');
-			assert.throws(() => {
-				timer.stop();
-			}, 'stopping a finished timer should throw an exception');
-			assert.throws(() => {
-				timer.start();
-			}, 'starting a finished timer should throw an exception');
 	
 			events = {};
 			done();
@@ -96,18 +89,12 @@ describe('Timer', () => {
 			assert.ok(!timer.isRunning(), 'stopped timer should not be running');
 			assert.ok(!!events.stopped, 'stopped event should be emitted');
 			assert.equal(timer, events.stopped, 'stopped event should emit correct timer');
-			assert.throws(() => {
-				timer.stop();
-			}, 'stopping a stopped timer should throw an exception');
 
 			setTimeout(() => {
 				assert.ok(!events.finished, 'finished event should not be emitted');
 				assert.ok(!events.split, 'split event should not be emitted');
 				assert.ok(!events.paused, 'paused event should not be emitted');
 				assert.ok(!events.resumed, 'resumed event should not be emitted');
-				assert.throws(() => {
-					timer.start();
-				}, 'starting a stopped timer should throw an exception');
 	
 				events = {};
 				done();
@@ -122,9 +109,6 @@ describe('Timer', () => {
 		let timer = new Timer(name, 2, 'seconds');
 		assert.ok(!!Timer.get(name), 'timer should be in global timers array');
 		timer.start();
-		assert.throws(() => {
-			timer.resume();
-		}, 'resuming a running timer should throw an exception');
 		assert.ok(!!events.started, 'started event should be emitted');
 		assert.equal(timer, events.started, 'started event should emit correct timer');
 
@@ -136,9 +120,6 @@ describe('Timer', () => {
 			assert.ok(timer.getDuration() > 1450 && timer.getDuration() < 1550, 'timer should stopped at the correct position');
 			assert.ok(!!events.paused, 'paused event should be emitted');
 			assert.equal(timer, events.paused, 'paused event should emit correct timer');
-			assert.throws(() => {
-				timer.pause();
-			}, 'pausing a paused timer should throw an exception');
 
 			setTimeout(() => {
 				assert.ok(timer.getDuration() > 1450 && timer.getDuration() < 1550, 'timer should not moved when paused');
@@ -147,12 +128,6 @@ describe('Timer', () => {
 				assert.ok(timer.isRunning(), 'timer should be running');
 				assert.ok(!!events.resumed, 'resumed event should be emitted');
 				assert.equal(timer, events.resumed, 'resumed event should emit correct timer');
-				assert.throws(() => {
-					timer.start();
-				}, 'starting a running timer should throw an exception');
-				assert.throws(() => {
-					timer.resume();
-				}, 'resuming a running timer should throw an exception');
 		
 				setTimeout(() => {
 					assert.ok(timer.getDuration() > 950 && timer.getDuration() < 1050, 'timer duration should be correct while running');
@@ -170,9 +145,6 @@ describe('Timer', () => {
 						assert.equal(timer, events.finished, 'finished event should emit correct timer');
 						assert.ok(!!events.removed, 'removed event should be emitted');
 						assert.equal(timer, events.removed, 'removed event should emit correct timer');
-						assert.throws(() => {
-							timer.stop();
-						}, 'stopping a finished timer should throw an exception');
 
 						events = {};
 						done();
@@ -189,9 +161,6 @@ describe('Timer', () => {
 		let timer = new Timer(name, 1, 'days');
 		assert.ok(!!Timer.get(name), 'timer should be in global timers array');
 		timer.start();
-		assert.throws(() => {
-			timer.resume();
-		}, 'resuming a running timer should throw an exception');
 		assert.ok(!!events.started, 'started event should be emitted');
 		assert.equal(timer, events.started, 'started event should emit correct timer');
 

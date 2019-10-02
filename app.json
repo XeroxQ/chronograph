@@ -1,6 +1,6 @@
 {
 	"id": "nl.fellownet.chronograph_debug",
-	"version": "1.0.3",
+	"version": "1.0.6",
 	"compatibility": ">=2.1.0",
 	"sdk": 2,
 	"name": {
@@ -887,6 +887,7 @@
 		"actions": [
 			{
 				"id": "timer_start",
+				"deprecated": true,
 				"title": {
 					"en": "Start or replace timer",
 					"nl": "Start of vervang timer",
@@ -970,7 +971,90 @@
 				]
 			},
 			{
+				"id": "timer_start_v2",
+				"title": {
+					"en": "Start or replace timer",
+					"nl": "Start of vervang timer",
+					"de": "Timer starten oder ersetzen"
+				},
+				"titleFormatted": {
+					"en": "Start or replace timer [[name]] with a duration of [[time]] [[unit]]",
+					"nl": "Start of vervang timer [[name]] met een looptijd van [[time]] [[unit]]",
+					"de": "Timer [[name]] mit einer Dauer von [[time]] [[unit]] starten oder ersetzen"
+				},
+				"hint": {
+					"en": "Use this card to start a new timer with the provided name and duration. If a timer with the same name already exists, it is replaced.",
+					"nl": "Gebruik dit kaartje om een timer te starten met de ingevoerde naam en looptijd. Als er al een timer met dezelfde naam loopt dan wordt deze vervangen.",
+					"de": "Verwenden Sie diese Karte um einen neuen Timer mit dem angegebenen Namen und der angegebenen Dauer zu starten. Wenn bereits ein Timer mit dem gleichen Namen vorhanden ist, wird er ersetzt."
+				},
+				"args": [
+					{
+						"name": "name",
+						"title": {
+							"en": "Name",
+							"nl": "Naam",
+							"de": "Name"
+						},
+						"type": "text"
+					},
+					{
+						"name": "time",
+						"title": {
+							"en": "Duration",
+							"nl": "Looptijd",
+							"de": "Dauer"
+						},
+						"type": "text"
+					},
+					{
+						"name": "unit",
+						"title": {
+							"en": "Unit",
+							"nl": "Eenheid",
+							"de": "Einheit"
+						},
+						"type": "dropdown",
+						"values": [
+							{
+								"id": "seconds",
+								"label": {
+									"en": "seconds",
+									"nl": "seconden",
+									"de": "Sekunden"
+								}
+							},
+							{
+								"id": "minutes",
+								"label": {
+									"en": "minutes",
+									"nl": "minuten",
+									"de": "Minuten"
+								}
+							},
+							{
+								"id": "hours",
+								"label": {
+									"en": "hours",
+									"nl": "uren",
+									"de": "Stunden"
+								}
+							},
+							{
+								"id": "days",
+								"label": {
+									"en": "days",
+									"nl": "dagen",
+									"de": "Tage"
+
+								}
+							}
+						]
+					}
+				]
+			},
+			{
 				"id": "timer_resume",
+				"deprecated": true,
 				"title": {
 					"en": "Start or resume timer",
 					"nl": "Start of hervat timer",
@@ -1054,7 +1138,90 @@
 				]
 			},
 			{
+				"id": "timer_resume_v2",
+				"title": {
+					"en": "Start or resume timer",
+					"nl": "Start of hervat timer",
+					"de": "Timer starten oder fortsetzen"
+				},
+				"titleFormatted": {
+					"en": "Start or resume timer [[name]] with a duration of [[time]] [[unit]]",
+					"nl": "Start of hervat timer [[name]] met een looptijd van [[time]] [[unit]]",
+					"de": "Timer [[name]] mit einer Dauer von [[time]] [[unit]] starten oder fortsetzen"
+				},
+				"hint": {
+					"en": "Use this card to start a new timer with the provided name and duration. If a timer with the same name already exists, it is resumed.",
+					"nl": "Gebruik dit kaartje om een timer te starten met de ingevoerde naam en looptijd. Als er al een timer met dezelfde naam loopt dan wordt deze hervat.",
+					"de": "Verwenden Sie diese Karte um einen neuen Timer mit dem angegebenen Namen und der angegebenen Dauer zu starten. Wenn bereits ein Timer mit dem gleichen Namen vorhanden ist, wird er fortgesetzt."
+				},
+				"args": [
+					{
+						"name": "name",
+						"title": {
+							"en": "Name",
+							"nl": "Naam",
+							"de": "Name"
+						},
+						"type": "text"
+					},
+					{
+						"name": "time",
+						"title": {
+							"en": "Duration",
+							"nl": "Looptijd",
+							"de": "Dauer"
+						},
+						"type": "text"
+					},
+					{
+						"name": "unit",
+						"title": {
+							"en": "Unit",
+							"nl": "Eenheid",
+							"de": "Einheit"
+						},
+						"type": "dropdown",
+						"values": [
+							{
+								"id": "seconds",
+								"label": {
+									"en": "seconds",
+									"nl": "seconden",
+									"de": "Sekunden"
+								}
+							},
+							{
+								"id": "minutes",
+								"label": {
+									"en": "minutes",
+									"nl": "minuten",
+									"de": "Minuten"
+								}
+							},
+							{
+								"id": "hours",
+								"label": {
+									"en": "hours",
+									"nl": "uren",
+									"de": "Stunden"
+								}
+							},
+							{
+								"id": "days",
+								"label": {
+									"en": "days",
+									"nl": "dagen",
+									"de": "Tage"
+
+								}
+							}
+						]
+					}
+				]
+			},
+			{
 				"id": "timer_adjust",
+				"deprecated": true,
 				"title": {
 					"en": "Adjust timer",
 					"nl": "Pas timer aan",
@@ -1090,6 +1257,88 @@
 						},
 						"type": "number",
 						"step": 0.01
+					},
+					{
+						"name": "unit",
+						"title": {
+							"en": "Unit",
+							"nl": "Eenheid",
+							"de": "Einheit"
+						},
+						"type": "dropdown",
+						"values": [
+							{
+								"id": "seconds",
+								"label": {
+									"en": "seconds",
+									"nl": "seconden",
+									"de": "Sekunden"
+								}
+							},
+							{
+								"id": "minutes",
+								"label": {
+									"en": "minutes",
+									"nl": "minuten",
+									"de": "Minuten"
+								}
+							},
+							{
+								"id": "hours",
+								"label": {
+									"en": "hours",
+									"nl": "uren",
+									"de": "Stunden"
+								}
+							},
+							{
+								"id": "days",
+								"label": {
+									"en": "days",
+									"nl": "dagen",
+									"de": "Tage"
+								}
+							}
+						]
+					}
+				]
+			},
+			{
+				"id": "timer_adjust_v2",
+				"title": {
+					"en": "Adjust timer",
+					"nl": "Pas timer aan",
+					"de": "Timer justieren"
+				},
+				"titleFormatted": {
+					"en": "Adjust timer [[name]] with a duration of [[time]] [[unit]]",
+					"nl": "Pas timer [[name]] aan met een looptijd van [[time]] [[unit]]",
+					"de": "Timer [[name]] mit einer Dauer von [[time]] [[unit]] einstellen"
+				},
+				"hint": {
+					"en": "Use this card to adjust the duration of the timer with the provided name. Use a positive duration to extend the timer, or a negative duration to shorten the timer.",
+					"nl": "Gebruik dit kaartje om de looptijd van de timer met de ingevoerde naam aan te passen. Gebruik een positive looptijd om de timer te verlengen, of een negative looptijd om de timer te verkorten.",
+					"de": "Verwenden Sie diese Karte um die Dauer des Timers mit dem angegebenen Namen anzupassen. Verwenden Sie eine positive Dauer um den Timer zu verlängern oder eine negative Dauer um den Timer zu verkürzen."
+
+				},
+				"args": [
+					{
+						"name": "name",
+						"title": {
+							"en": "Name",
+							"nl": "Naam",
+							"de": "Name"
+						},
+						"type": "text"
+					},
+					{
+						"name": "time",
+						"title": {
+							"en": "Adjustment",
+							"nl": "Wijziging",
+							"de": "Anpassung"
+						},
+						"type": "text"
 					},
 					{
 						"name": "unit",
@@ -1280,6 +1529,7 @@
 			},
 			{
 				"id": "stopwatch_adjust",
+				"deprecated": true,
 				"title": {
 					"en": "Adjust stopwatch",
 					"nl": "Pas stopwatch aan",
@@ -1315,6 +1565,88 @@
 						},
 						"type": "number",
 						"step": 0.01
+					},
+					{
+						"name": "unit",
+						"title": {
+							"en": "Unit",
+							"nl": "Eenheid",
+							"de": "Einheit"
+						},
+						"type": "dropdown",
+						"values": [
+							{
+								"id": "seconds",
+								"label": {
+									"en": "seconds",
+									"nl": "seconden",
+									"de": "Sekunden"
+								}
+							},
+							{
+								"id": "minutes",
+								"label": {
+									"en": "minutes",
+									"nl": "minuten",
+									"de": "Minuten"
+								}
+							},
+							{
+								"id": "hours",
+								"label": {
+									"en": "hours",
+									"nl": "uren",
+									"de": "Stunden"
+								}
+							},
+							{
+								"id": "days",
+								"label": {
+									"en": "days",
+									"nl": "dagen",
+									"de": "Tagen"
+								}
+							}
+						]
+					}
+				]
+			},
+			{
+				"id": "stopwatch_adjust_v2",
+				"title": {
+					"en": "Adjust stopwatch",
+					"nl": "Pas stopwatch aan",
+					"de": "Stoppuh einstellen"
+				},
+				"titleFormatted": {
+					"en": "Adjust stopwatch [[name]] with a duration of [[time]] [[unit]]",
+					"nl": "Pas stopwatch [[name]] aan met een looptijd van [[time]] [[unit]]",
+					"de": "Stellen Sie die Stoppuhr [[name]] mit einer Dauer von [[time]] [[unit]] ein"
+				},
+				"hint": {
+					"en": "Use this card to adjust the duration of the stopwatch with the provided name. Use a positive duration to extend the stopwatch, or a negative duration to shorten the stopwatch.",
+					"nl": "Gebruik dit kaartje om de looptijd van de stopwatch met de ingevoerde naam aan te passen. Gebruik een positive looptijd om de stopwatch te verlengen, of een negative looptijd om de stopwatch te verkorten.",
+					"de": "Verwenden Sie diese Karte um die Dauer der Stoppuhr mit dem angegebenen Namen anzupassen. Verwenden Sie eine positive Dauer um die Stoppuhr zu verlängern oder eine negative Dauer um die Stoppuhr zu verkürzen."
+
+				},
+				"args": [
+					{
+						"name": "name",
+						"title": {
+							"en": "Name",
+							"nl": "Naam",
+							"de": "Name"
+						},
+						"type": "text"
+					},
+					{
+						"name": "time",
+						"title": {
+							"en": "Adjustment",
+							"nl": "Wijziging",
+							"de": "Einstellung"
+						},
+						"type": "text"
 					},
 					{
 						"name": "unit",

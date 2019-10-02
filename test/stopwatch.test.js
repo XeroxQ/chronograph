@@ -31,6 +31,7 @@ describe('Stopwatch', () => {
 		assert.ok(!!events.updated, 'updated event should be emitted');
 		assert.equal(stopwatch, events.updated, 'updated event should emit correct stopwatch');
 		stopwatch.stop();
+		stopwatch.stop(); // second stop should do nothing
 		assert.ok(!Stopwatch.get(name), 'stopwatch should not be in global stopwatches array');
 
 		events = {};
@@ -43,9 +44,7 @@ describe('Stopwatch', () => {
 		let stopwatch = new Stopwatch(name);
 		assert.ok(!!Stopwatch.get(name), 'stopwatch should be in global stopwatches array');
 		stopwatch.start();
-		assert.throws(() => {
-			stopwatch.start();
-		}, 'starting a running stopwatch should throw an exception');
+		stopwatch.start(); // second start should do nothing
 		assert.ok(!!events.started, 'started event should be emitted');
 		assert.equal(stopwatch, events.started, 'started event should emit correct stopwatch');
 		assert.ok(stopwatch.isRunning(), 'new stopwatch should be running');
@@ -75,17 +74,11 @@ describe('Stopwatch', () => {
 			assert.ok(!stopwatch.isRunning(), 'stopped stopwatch should not be running');
 			assert.ok(!!events.stopped, 'stopped event should be emitted');
 			assert.equal(stopwatch, events.stopped, 'stopped event should emit correct stopwatch');
-			assert.throws(() => {
-				stopwatch.stop();
-			}, 'stopping a stopped stopwatch should throw an exception');
 
 			setTimeout(() => {
 				assert.ok(!events.split, 'split event should not be emitted');
 				assert.ok(!events.paused, 'paused event should not be emitted');
 				assert.ok(!events.resumed, 'resumed event should not be emitted');
-				assert.throws(() => {
-					stopwatch.start();
-				}, 'starting a stopped stopwatch should throw an exception');
 	
 				events = {};
 				done();
@@ -100,9 +93,6 @@ describe('Stopwatch', () => {
 		let stopwatch = new Stopwatch(name);
 		assert.ok(!!Stopwatch.get(name), 'stopwatch should be in global stopwatches array');
 		stopwatch.start();
-		assert.throws(() => {
-			stopwatch.resume();
-		}, 'resuming a running stopwatch should throw an exception');
 		assert.ok(!!events.started, 'started event should be emitted');
 		assert.equal(stopwatch, events.started, 'started event should emit correct stopwatch');
 
@@ -114,9 +104,6 @@ describe('Stopwatch', () => {
 			assert.ok(stopwatch.getDuration() > 450 && stopwatch.getDuration() < 550, 'stopwatch should stopped at the correct position');
 			assert.ok(!!events.paused, 'paused event should be emitted');
 			assert.equal(stopwatch, events.paused, 'paused event should emit correct stopwatch');
-			assert.throws(() => {
-				stopwatch.pause();
-			}, 'pausing a paused stopwatch should throw an exception');
 
 			setTimeout(() => {
 				assert.ok(stopwatch.getDuration() > 450 && stopwatch.getDuration() < 550, 'stopwatch should not moved when paused');
@@ -125,12 +112,6 @@ describe('Stopwatch', () => {
 				assert.ok(stopwatch.isRunning(), 'stopwatch should be running');
 				assert.ok(!!events.resumed, 'resumed event should be emitted');
 				assert.equal(stopwatch, events.resumed, 'resumed event should emit correct stopwatch');
-				assert.throws(() => {
-					stopwatch.start();
-				}, 'starting a running stopwatch should throw an exception');
-				assert.throws(() => {
-					stopwatch.resume();
-				}, 'resuming a running stopwatch should throw an exception');
 		
 				setTimeout(() => {
 					assert.ok(stopwatch.getDuration() > 950 && stopwatch.getDuration() < 1050, 'stopwatch duration should be correct while running');
@@ -159,9 +140,6 @@ describe('Stopwatch', () => {
 		let stopwatch = new Stopwatch(name);
 		assert.ok(!!Stopwatch.get(name), 'stopwatch should be in global stopwatches array');
 		stopwatch.start();
-		assert.throws(() => {
-			stopwatch.resume();
-		}, 'resuming a running stopwatch should throw an exception');
 		assert.ok(!!events.started, 'started event should be emitted');
 		assert.equal(stopwatch, events.started, 'started event should emit correct stopwatch');
 
