@@ -1,7 +1,7 @@
 'use strict';
 
 const assert = require('assert');
-const Transition = require('../lib/transition.js');
+const Transition = require('../lib/transition/transition.js');
 
 Transition.events.on('log', (transition, text) => {
 //	console.log('[' + transition.getName() + '] ' + text);

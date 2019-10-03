@@ -1,7 +1,7 @@
 'use strict';
 
 const assert = require('assert');
-const Timer = require('../lib/timer.js');
+const Timer = require('../lib/timer/timer.js');
 
 Timer.events.on('log', (timer, text) => {
 //	console.log('[' + timer.getName() + '] ' + text);

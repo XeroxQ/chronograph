@@ -30,6 +30,16 @@
 </ol>
 <em v-else data-i18n="settings.no_active_stopwatches">No active stopwatches.</em>
 
+<h1><img src="assets/transition.svg" /><span data-i18n="settings.transitions">Transitions</span></h1>
+<ol v-if="transitions.length > 0">
+	<transition-item
+		v-for="transition in transitions"
+		v-bind:transition="transition"
+		v-bind:key="transition.id"
+	></transition-item>
+</ol>
+<em v-else data-i18n="settings.no_active_transitions">No active transitions.</em>
+
 </div>
 
 <script type="text/javascript">
@@ -134,11 +144,62 @@
 			}
 		});
 
+		Vue.component('transition-item', {
+			props: [ 'transition' ],
+			template:
+				'<li>'
+					+ '<span><strong>{{ transition.name }}</strong></span>'
+					+ '<span><button v-on:click="toggle">{{ transition.running ? Homey.__("settings.pause") : Homey.__("settings.resume") }}</button><button v-on:click="stop">{{ Homey.__("settings.stop") }}</button></span>'
+					+ '<span>{{ $root.niceDuration(transition.duration) }}</span>'
+					+ '<br class="cb">'
+				+ '</li>',
+			updated: function() {
+				this.update();
+			},
+			mounted: function() {
+				this.update();
+			},
+			beforeDestroy: function() {
+				clearInterval(this.interval);
+			},
+			methods: {
+				stop: function(event) {
+					Homey.api('DELETE', '/transitions/' + this.transition.id);
+					var index = app.transitions.length;
+					while (index--) {
+						if (app.transitions[index].id == this.transition.id) {
+							app.transitions.splice(index, 1);
+							return;
+						}
+					}
+				},
+				toggle: function(event) {
+					this.transition.running = !this.transition.running;
+					Homey.api('PUT', '/transitions/' + this.transition.id, this.transition);
+				},
+				update: function() {
+					if (this.transition.running) {
+						if (!this.interval) {
+							this.interval = setInterval(() => {
+								this.transition.duration = this.transition.duration + 100;
+							}, 100);
+						}
+					} else {
+						if (this.interval) {
+							clearInterval(this.interval);
+							delete(this.interval);
+						}
+					}
+				}
+			}
+		});
+
 		var app = new Vue({
 			el: '#app',
 			data: {
 				timers: [],
-				stopwatches: []
+				stopwatches: [],
+				transitions: []
 			},
 			methods: {
 				refresh: function() {
@@ -162,7 +223,17 @@
 							}
 						});
 					});
-					return Promise.all([timersGet, stopwatchesGet]);
+					var transitionsGet = new Promise((resolve, reject) => {
+						Homey.api('GET', '/transitions/', null, (err, body) => {
+							if (err) {
+								reject(err);
+							} else {
+								this.transitions = this.sort(JSON.parse(body));
+								resolve();
+							}
+						});
+					});
+					return Promise.all([timersGet, stopwatchesGet, transitionsGet]);
 				},
 				niceDuration(duration) {
 					duration /= 1e3;
@@ -231,6 +302,23 @@
 							}
 							if (!event.removed) {
 								this.stopwatches.push(event);
+							}
+						});
+						Homey.on('transition_event', (event) => {
+							var index = this.transitions.length;
+							while (index--) {
+								if (this.transitions[index].id == event.id) {
+									if (event.removed) {
+										this.transitions.splice(index, 1);
+									} else {
+										this.transitions[index].duration = event.duration;
+										this.transitions[index].running = event.running;
+									}
+									return;
+								}
+							}
+							if (!event.removed) {
+								this.transitions.push(event);
 							}
 						});
 

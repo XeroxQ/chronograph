@@ -1,13 +1,16 @@
 {
 	"timer_not_running": "Timer __name__ läuft nicht.",
 	"stopwatch_not_running": "Stopuhr __name__ läuft nicht.",
+	"transition_not_running": "Übergang __name__ läuft nicht.",
 	"invalid_duration": "Ungültige Timer-Dauer.",
 	"invalid_transition": "Ungültige Übergang.",
 	"settings": {
 		"timers": "Timer",
 		"stopwatches": "Stopuhren",
+		"transitions": "Übergange",
 		"no_active_timers": "Keine aktive Timer.",
 		"no_active_stopwatches": "Keine aktive Stopuhren.",
+		"no_active_transitions": "Keine aktive Übergange.",
 		"days_abbreviation": "d",
 		"stop": "Stop",
 		"pause": "Pause",

@@ -1,7 +1,7 @@
 'use strict';
 
 const assert = require('assert');
-const Stopwatch = require('../lib/stopwatch.js');
+const Stopwatch = require('../lib/stopwatch/stopwatch.js');
 
 Stopwatch.events.on('log', (stopwatch, text) => {
 //	console.log('[' + stopwatch.getName() + '] ' + text);

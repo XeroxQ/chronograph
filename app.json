@@ -7,18 +7,18 @@
 		"en": "Chronograph Debug"
 	},
 	"description": {
-		"en": "Adds precise timer- and stopwatch functionality to Homey.",
-		"nl": "Voegt accurate timer- en stopwatch functionaliteit toe aan Homey.",
-		"de": "Fügt Homey präzise Timer- und Stoppuhrfunktionen hinzu."
+		"en": "Adds precise timer-, stopwatch- and transition functionality to Homey.",
+		"nl": "Voegt accurate timer-,stopwatch- en transitie functionaliteit toe aan Homey.",
+		"de": "Fügt Homey präzise Timer-, Stoppuhrfunktionen- und Übergänge hinzu."
 	},
 	"brandColor": "#5583C3",
 	"category": [
 		"tools"
 	],
 	"tags": {
-		"en": [ "timer", "countdown", "stopwatch", "chronograph", "hourglass" ],
-		"nl": [ "timer", "countdown", "stopwatch", "chronograph", "zandloper" ],
-		"de": [ "timer", "countdown", "stopuhr", "chronograph", "sanduhr" ]
+		"en": [ "timer", "countdown", "stopwatch", "transitions", "chronograph", "hourglass" ],
+		"nl": [ "timer", "countdown", "stopwatch", "transities", "chronograph", "zandloper" ],
+		"de": [ "timer", "countdown", "stopuhr", "übergänge", "chronograph", "sanduhr" ]
 	},
 	"homeyCommunityTopicId": 18214,
 	"permissions": [],
@@ -1852,6 +1852,166 @@
 						"step": 1
 					}
 				]
+			},
+			{
+				"id": "transition_adjust",
+				"title": {
+					"en": "Adjust transition",
+					"nl": "Pas transitie aan",
+					"de": "Übergang justieren"
+				},
+				"titleFormatted": {
+					"en": "Adjust transition [[name]] with a duration of [[time]] [[unit]]",
+					"nl": "Pas transitie [[name]] aan met een looptijd van [[time]] [[unit]]",
+					"de": "Übergang [[name]] mit einer Dauer von [[time]] [[unit]] einstellen"
+				},
+				"hint": {
+					"en": "Use this card to adjust the duration of the transition with the provided name. Use a positive duration to extend the transition, or a negative duration to shorten the transition.",
+					"nl": "Gebruik dit kaartje om de looptijd van de transitie met de ingevoerde naam aan te passen. Gebruik een positive looptijd om de transitie te verlengen, of een negative looptijd om de transitie te verkorten.",
+					"de": "Verwenden Sie diese Karte um die Dauer des Übergang mit dem angegebenen Namen anzupassen. Verwenden Sie eine positive Dauer um den Übergang zu verlängern oder eine negative Dauer um den Übergang zu verkürzen."
+
+				},
+				"args": [
+					{
+						"name": "name",
+						"title": {
+							"en": "Name",
+							"nl": "Naam",
+							"de": "Name"
+						},
+						"type": "text"
+					},
+					{
+						"name": "time",
+						"title": {
+							"en": "Adjustment",
+							"nl": "Wijziging",
+							"de": "Anpassung"
+						},
+						"type": "text"
+					},
+					{
+						"name": "unit",
+						"title": {
+							"en": "Unit",
+							"nl": "Eenheid",
+							"de": "Einheit"
+						},
+						"type": "dropdown",
+						"values": [
+							{
+								"id": "seconds",
+								"label": {
+									"en": "seconds",
+									"nl": "seconden",
+									"de": "Sekunden"
+								}
+							},
+							{
+								"id": "minutes",
+								"label": {
+									"en": "minutes",
+									"nl": "minuten",
+									"de": "Minuten"
+								}
+							},
+							{
+								"id": "hours",
+								"label": {
+									"en": "hours",
+									"nl": "uren",
+									"de": "Stunden"
+								}
+							},
+							{
+								"id": "days",
+								"label": {
+									"en": "days",
+									"nl": "dagen",
+									"de": "Tage"
+								}
+							}
+						]
+					}
+				]
+			},
+			{
+				"id": "transition_pause",
+				"title": {
+					"en": "Pause transition",
+					"nl": "Pauzeer transitie",
+					"de": "Übergang pausieren"
+				},
+				"titleFormatted": {
+					"en": "Pause transition [[name]]",
+					"nl": "Pauzeer transitie [[name]]",
+					"de": "Übergang anhalten [[name]]"
+
+				},
+				"hint": {
+					"en": "Use this card to pause a transition with the provided name.",
+					"nl": "Gebruik dit kaartje om een transitie te pauzeren met de ingevoerde naam.",
+					"de": "Mit dieser Karte können Sie einen Übergang mit dem angegebenen Namen anhalten."
+
+				},
+				"args": [
+					{
+						"name": "name",
+						"title": {
+							"en": "Name",
+							"nl": "Naam",
+							"de": "Name"
+						},
+						"type": "text"
+					}
+				]
+			},
+			{
+				"id": "transition_stop",
+				"title": {
+					"en": "Stop transition",
+					"nl": "Stop transitie",
+					"de": "Übergang anhalten"
+
+				},
+				"titleFormatted": {
+					"en": "Stop transition [[name]]",
+					"nl": "Stop transitie [[name]]",
+					"de": "Übergang stoppen [[name]]"
+
+				},
+				"hint": {
+					"en": "Use this card to stop a transition with the provided name.",
+					"nl": "Gebruik dit kaartje om een transitie te stoppen met de ingevoerde naam.",
+					"de": "Mit dieser Karte können Sie einen Übergang mit dem angegebenen Namen stoppen."
+
+				},
+				"args": [
+					{
+						"name": "name",
+						"title": {
+							"en": "Name",
+							"nl": "Naam",
+							"de": "Name"
+						},
+						"type": "text"
+					}
+				]
+			},
+			{
+				"id": "transition_stop_all",
+				"title": {
+					"en": "Stop all transitions",
+					"nl": "Stop alle transities",
+					"de": "Alle Übergänge anhalten"
+
+				},
+				"hint": {
+					"en": "Use this card to stop all running transitions.",
+					"nl": "Gebruik dit kaartje om alle transities te stoppen.",
+					"de": "Verwenden Sie diese Karte um alle laufenden Übergange zu stoppen."
+
+				}
 			}
 		]
 	}

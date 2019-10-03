@@ -1,41 +1,45 @@
 'use strict';
 
 const Homey = require('homey');
-const Timer = require('./lib/timer.js');
-const Stopwatch = require('./lib/stopwatch.js');
-const Transition = require('./lib/transition.js');
+const Timer = require('./lib/timer/timer.js');
+const Stopwatch = require('./lib/stopwatch/stopwatch.js');
+const Transition = require('./lib/transition/transition.js');
 const { LogLevel } = require('./lib/utils.js');
 
 // Actions.
-const TimerStart = require('./lib/actions/timer_start.js');
-const TimerResume = require('./lib/actions/timer_resume.js');
-const TimerAdjust = require('./lib/actions/timer_adjust.js');
-const TimerPause = require('./lib/actions/timer_pause.js');
-const TimerStop = require('./lib/actions/timer_stop.js');
-const TimerStopAll = require('./lib/actions/timer_stop_all.js');
-const StopwatchStart = require('./lib/actions/stopwatch_start.js');
-const StopwatchResume = require('./lib/actions/stopwatch_resume.js');
-const StopwatchAdjust = require('./lib/actions/stopwatch_adjust.js');
-const StopwatchPause = require('./lib/actions/stopwatch_pause.js');
-const StopwatchStop = require('./lib/actions/stopwatch_stop.js');
-const StopwatchStopAll = require('./lib/actions/stopwatch_stop_all.js');
-const TransitionStart = require('./lib/actions/transition_start.js');
-const TransitionResume = require('./lib/actions/transition_resume.js');
+const TimerStart = require('./lib/timer/actions/timer_start.js');
+const TimerResume = require('./lib/timer/actions/timer_resume.js');
+const TimerAdjust = require('./lib/timer/actions/timer_adjust.js');
+const TimerPause = require('./lib/timer/actions/timer_pause.js');
+const TimerStop = require('./lib/timer/actions/timer_stop.js');
+const TimerStopAll = require('./lib/timer/actions/timer_stop_all.js');
+const StopwatchStart = require('./lib/stopwatch/actions/stopwatch_start.js');
+const StopwatchResume = require('./lib/stopwatch/actions/stopwatch_resume.js');
+const StopwatchAdjust = require('./lib/stopwatch/actions/stopwatch_adjust.js');
+const StopwatchPause = require('./lib/stopwatch/actions/stopwatch_pause.js');
+const StopwatchStop = require('./lib/stopwatch/actions/stopwatch_stop.js');
+const StopwatchStopAll = require('./lib/stopwatch/actions/stopwatch_stop_all.js');
+const TransitionStart = require('./lib/transition/actions/transition_start.js');
+const TransitionResume = require('./lib/transition/actions/transition_resume.js');
+const TransitionAdjust = require('./lib/transition/actions/transition_adjust.js');
+const TransitionPause = require('./lib/transition/actions/transition_pause.js');
+const TransitionStop = require('./lib/transition/actions/transition_stop.js');
+const TransitionStopAll = require('./lib/transition/actions/transition_stop_all.js');
 
 // Conditions.
-const TimerCompare = require('./lib/conditions/timer_compare.js');
-const TimerRunning = require('./lib/conditions/timer_running.js');
-const StopwatchCompare = require('./lib/conditions/stopwatch_compare.js');
-const StopwatchRunning = require('./lib/conditions/stopwatch_running.js');
+const TimerCompare = require('./lib/timer/conditions/timer_compare.js');
+const TimerRunning = require('./lib/timer/conditions/timer_running.js');
+const StopwatchCompare = require('./lib/stopwatch/conditions/stopwatch_compare.js');
+const StopwatchRunning = require('./lib/stopwatch/conditions/stopwatch_running.js');
 
 // Triggers.
-const TimerStarted = require('./lib/triggers/timer_started.js');
-const TimerSplit = require('./lib/triggers/timer_split.js');
-const TimerFinished = require('./lib/triggers/timer_finished.js');
-const TimerStopped = require('./lib/triggers/timer_stopped.js');
-const StopwatchStarted = require('./lib/triggers/stopwatch_started.js');
-const StopwatchSplit = require('./lib/triggers/stopwatch_split.js');
-const StopwatchStopped = require('./lib/triggers/stopwatch_stopped.js');
+const TimerStarted = require('./lib/timer/triggers/timer_started.js');
+const TimerSplit = require('./lib/timer/triggers/timer_split.js');
+const TimerFinished = require('./lib/timer/triggers/timer_finished.js');
+const TimerStopped = require('./lib/timer/triggers/timer_stopped.js');
+const StopwatchStarted = require('./lib/stopwatch/triggers/stopwatch_started.js');
+const StopwatchSplit = require('./lib/stopwatch/triggers/stopwatch_split.js');
+const StopwatchStopped = require('./lib/stopwatch/triggers/stopwatch_stopped.js');
 
 
 class Application extends Homey.App {
@@ -51,6 +55,7 @@ class Application extends Homey.App {
 		this.log('Installing event handlers.');
 		this._installTimerEventHandlers();
 		this._installStopwatchEventHandlers();
+		this._installTransitionEventHandlers();
 
 		// Restore timers and stopwatches from settings.
 		this.log('Restoring timers and stopwatches.');
@@ -83,6 +88,10 @@ class Application extends Homey.App {
 
 			"transition_start": new TransitionStart('transition_start'),
 			"transition_resume": new TransitionResume('transition_resume'),
+			"transition_adjust": new TransitionAdjust('transition_adjust'),
+			"transition_pause": new TransitionPause('transition_pause'),
+			"transition_stop": new TransitionStop('transition_stop'),
+			"transition_stop_all": new TransitionStopAll('transition_stop_all'),
 
 			// Conditions.
 			"timer_compare": new TimerCompare("timer_compare"),
@@ -166,6 +175,27 @@ class Application extends Homey.App {
 				stopwatchesActive[stopwatch.getId()] = stopwatchObj;
 			}
 			Homey.ManagerSettings.set('stopwatches_active', stopwatchesActive);
+		});
+	}
+
+	_installTransitionEventHandlers() {
+		Transition.events.mon([ 'started', 'resumed', 'paused', 'updated', 'removed' ], (name, transition) => {
+			let transitionObj = {
+				id: transition.getId(),
+				name: transition.getName(),
+				duration: transition.getDuration(),
+				running: transition.isRunning(),
+				removed: name == 'removed',
+				now: (new Date()).getTime()
+			};
+			Homey.ManagerApi.realtime('transition_event', transitionObj);
+			let transitionsActive = Homey.ManagerSettings.get('transitions_active') || {};
+			if (name == 'removed') {
+				delete(transitionsActive[transition.getId()]);
+			} else {
+				transitionsActive[transition.getId()] = transitionObj;
+			}
+			Homey.ManagerSettings.set('transitions_active', transitionsActive);
 		});
 	}
 

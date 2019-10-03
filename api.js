@@ -1,13 +1,14 @@
 'use strict';
 
-const Timer = require('./lib/timer.js');
-const Stopwatch = require('./lib/stopwatch.js');
+const Timer = require('./lib/timer/timer.js');
+const Stopwatch = require('./lib/stopwatch/stopwatch.js');
+const Transition = require('./lib/transition/transition.js');
 
 module.exports = [
 	{
 		method: 'GET',
 		path: '/timers/',
-		public: false,
+		public: true,
 		fn: function(args, callback) {
 			let result = [];
 			Timer.all().forEach((timer) => {
@@ -24,7 +25,7 @@ module.exports = [
 	{
 		method: 'GET',
 		path: '/timers/:id',
-		public: false,
+		//public: false,
 		fn: function(args, callback) {
 			let timer = Timer.getById(args.params.id);
 			if (!timer) {
@@ -42,7 +43,7 @@ module.exports = [
 	{
 		method: 'PUT',
 		path: '/timers/:id',
-		public: false,
+		//public: false,
 		fn: function(args, callback) {
 			let timer = Timer.getById(args.params.id);
 			if (!timer) {
@@ -72,7 +73,7 @@ module.exports = [
 	{
 		method: 'DELETE',
 		path: '/timers/:id',
-		public: false,
+		//public: false,
 		fn: function(args, callback) {
 			let timer = Timer.getById(args.params.id);
 			if (!timer) {
@@ -86,7 +87,7 @@ module.exports = [
 	{
 		method: 'GET',
 		path: '/stopwatches/',
-		public: false,
+		//public: false,
 		fn: function(args, callback) {
 			let result = [];
 			Stopwatch.all().forEach((stopwatch) => {
@@ -103,7 +104,7 @@ module.exports = [
 	{
 		method: 'GET',
 		path: '/stopwatches/:id',
-		public: false,
+		//public: false,
 		fn: function(args, callback) {
 			let stopwatch = Stopwatch.getById(args.params.id);
 			if (!stopwatch) {
@@ -121,7 +122,7 @@ module.exports = [
 	{
 		method: 'PUT',
 		path: '/stopwatches/:id',
-		public: false,
+		//public: false,
 		fn: function(args, callback) {
 			let stopwatch = Stopwatch.getById(args.params.id);
 			if (!stopwatch) {
@@ -151,7 +152,7 @@ module.exports = [
 	{
 		method: 'DELETE',
 		path: '/stopwatches/:id',
-		public: false,
+		//public: false,
 		fn: function(args, callback) {
 			let stopwatch = Stopwatch.getById(args.params.id);
 			if (!stopwatch) {
@@ -159,6 +160,85 @@ module.exports = [
 				return;
 			}
 			stopwatch.stop();
+			callback(null, true);
+		}
+	},
+	{
+		method: 'GET',
+		path: '/transitions/',
+		//public: false,
+		fn: function(args, callback) {
+			let result = [];
+			Transition.all().forEach((transition) => {
+				result.push({
+					id: transition.getId(),
+					name: transition.getName(),
+					duration: transition.getDuration(),
+					running: transition.isRunning()
+				});
+			});
+			callback(null, JSON.stringify(result));
+		}
+	},
+	{
+		method: 'GET',
+		path: '/transitions/:id',
+		//public: false,
+		fn: function(args, callback) {
+			let transition = Transition.getById(args.params.id);
+			if (!transition) {
+				callback(new Error('transition not found'), false);
+				return;
+			}
+			callback(null, {
+				id: transition.getId(),
+				name: transition.getName(),
+				duration: transition.getDuration(),
+				running: transition.isRunning()
+			});
+		}
+	},
+	{
+		method: 'PUT',
+		path: '/transitions/:id',
+		//public: false,
+		fn: function(args, callback) {
+			let transition = Transition.getById(args.params.id);
+			if (!transition) {
+				callback(new Error('transition not found'), false);
+				return;
+			}
+			if (
+				args.body.running
+				&& !transition.isRunning()
+			) {
+				transition.resume();
+			}
+			if (
+				!args.body.running
+				&& transition.isRunning()
+			) {
+				transition.pause();
+			}
+			callback(null, {
+				id: transition.getId(),
+				name: transition.getName(),
+				duration: transition.getDuration(),
+				running: transition.isRunning()
+			});
+		}
+	},
+	{
+		method: 'DELETE',
+		path: '/transitions/:id',
+		//public: false,
+		fn: function(args, callback) {
+			let transition = Transition.getById(args.params.id);
+			if (!transition) {
+				callback(new Error('transition not found'), false);
+				return;
+			}
+			transition.stop();
 			callback(null, true);
 		}
 	}
