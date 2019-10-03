@@ -1,0 +1,29 @@
+{
+	"id": "transition_running",
+	"title": {
+		"en": "Transition is running or not",
+		"nl": "Transitie loopt wel of niet",
+		"de": "Übergang läuft oder nicht"
+	},
+	"titleFormatted": {
+		"en": "Transition [[name]] !{{is running|is not running}}",
+		"nl": "Transitie [[name]] !{{loopt|loopt niet}}",
+		"de": "Übergang [[name]] !{{läuft|läuft nicht}}"
+	},
+	"hint": {
+		"en": "Use this card to run or cancel a flow depending on the run state of the transition with the provided name.",
+		"nl": "Gebruik dit kaartje om een flow wel of niet uit te voeren afhankelijk van de loop status van de transitie met de ingevoerde naam.",
+		"de": "Verwende diese Karte um einen Flow abhängig vom Ausführungsstatus des Übergangs mit dem angegebenen Namen auszuführen oder abzubrechen."
+	},
+	"args": [
+		{
+			"name": "name",
+			"title": {
+				"en": "Name",
+				"nl": "Naam",
+				"de": "Name"
+			},
+			"type": "text"
+		}
+	]
+}

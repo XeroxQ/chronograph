@@ -31,6 +31,8 @@ const TimerCompare = require('./lib/timer/conditions/timer_compare.js');
 const TimerRunning = require('./lib/timer/conditions/timer_running.js');
 const StopwatchCompare = require('./lib/stopwatch/conditions/stopwatch_compare.js');
 const StopwatchRunning = require('./lib/stopwatch/conditions/stopwatch_running.js');
+const TransitionCompare = require('./lib/transition/conditions/transition_compare.js');
+const TransitionRunning = require('./lib/transition/conditions/transition_running.js');
 
 // Triggers.
 const TimerStarted = require('./lib/timer/triggers/timer_started.js');
@@ -40,6 +42,9 @@ const TimerStopped = require('./lib/timer/triggers/timer_stopped.js');
 const StopwatchStarted = require('./lib/stopwatch/triggers/stopwatch_started.js');
 const StopwatchSplit = require('./lib/stopwatch/triggers/stopwatch_split.js');
 const StopwatchStopped = require('./lib/stopwatch/triggers/stopwatch_stopped.js');
+const TransitionStarted = require('./lib/transition/triggers/transition_started.js');
+const TransitionFinished = require('./lib/transition/triggers/transition_finished.js');
+const TransitionStopped = require('./lib/transition/triggers/transition_stopped.js');
 
 
 class Application extends Homey.App {
@@ -100,6 +105,9 @@ class Application extends Homey.App {
 			"stopwatch_compare": new StopwatchCompare("stopwatch_compare"),
 			"stopwatch_running": new StopwatchRunning("stopwatch_running"),
 
+			"transition_compare": new TransitionCompare("transition_compare"),
+			"transition_running": new TransitionRunning("transition_running"),
+
 			// Triggers.
 			"timer_started": new TimerStarted('timer_started'),
 			"timer_split": new TimerSplit('timer_split'),
@@ -108,7 +116,11 @@ class Application extends Homey.App {
 
 			"stopwatch_started": new StopwatchStarted('stopwatch_started'),
 			"stopwatch_split": new StopwatchSplit('stopwatch_split'),
-			"stopwatch_stopped": new StopwatchStopped('stopwatch_stopped')
+			"stopwatch_stopped": new StopwatchStopped('stopwatch_stopped'),
+
+			"transition_started": new TransitionStarted('transition_started'),
+			"transition_finished": new TransitionFinished('transition_finished'),
+			"transition_stopped": new TransitionStopped('transition_stopped')
 		};
 	}
 

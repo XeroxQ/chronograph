@@ -533,6 +533,161 @@
             "example": 60
           }
         ]
+      },
+      {
+        "id": "transition_finished",
+        "title": {
+          "en": "Transition has finished",
+          "nl": "Transitie is afgelopen",
+          "de": "Übergang ist abgelaufen"
+        },
+        "titleFormatted": {
+          "en": "Transition [[name]] has finished",
+          "nl": "Transitie [[name]] is afgelopen",
+          "de": "Übergang [[name]] ist abgelaufen"
+        },
+        "hint": {
+          "en": "This card is activated when a transition with the provided name has finished, not when a transition is prematurely stopped.",
+          "nl": "Dit kaartje wordt geactiveerd als een transitie met de ingevoerde naam is afgelopen, niet als een transitie vroegtijdig wordt gestopt.",
+          "de": "Diese Karte wird aktiviert, wenn ein Übergang mit dem angegebenen Namen abgelaufen ist, nicht wenn ein Übergang vorzeitig gestoppt wird."
+        },
+        "args": [
+          {
+            "name": "name",
+            "title": {
+              "en": "Name",
+              "nl": "Naam",
+              "de": "Name"
+            },
+            "type": "text"
+          }
+        ],
+        "tokens": [
+          {
+            "name": "name",
+            "type": "string",
+            "title": {
+              "en": "Name",
+              "nl": "Naam",
+              "de": "Name"
+            },
+            "example": {
+              "en": "bathroom",
+              "nl": "badkamer",
+              "de": "Badezimmer"
+            }
+          }
+        ]
+      },
+      {
+        "id": "transition_started",
+        "title": {
+          "en": "Transition has started",
+          "nl": "Transitie is gestart",
+          "de": "Übergang ist gestartet"
+        },
+        "titleFormatted": {
+          "en": "Transition [[name]] has started",
+          "nl": "Transitie [[name]] is gestart",
+          "de": "Übergang [[name]] ist gestartet"
+        },
+        "hint": {
+          "en": "This card is activated when a transition with the provided name has started.",
+          "nl": "Dit kaartje wordt geactiveerd als een transitie met de ingevoerde naam wordt gestart.",
+          "de": "Diese Karte wird aktiviert, wenn ein Übergang mit dem angegebenen Namen gestartet wurde."
+        },
+        "args": [
+          {
+            "name": "name",
+            "title": {
+              "en": "Name",
+              "nl": "Naam",
+              "de": "Name"
+            },
+            "type": "text"
+          }
+        ],
+        "tokens": [
+          {
+            "name": "name",
+            "type": "string",
+            "title": {
+              "en": "Name",
+              "nl": "Naam",
+              "de": "Name"
+            },
+            "example": {
+              "en": "bathroom",
+              "nl": "badkamer",
+              "de": "Badezimmer"
+            }
+          },
+          {
+            "name": "seconds",
+            "type": "number",
+            "title": {
+              "en": "Duration (s)",
+              "nl": "Looptijd (s)",
+              "de": "Dauer (s)"
+            },
+            "example": 60
+          }
+        ]
+      },
+      {
+        "id": "transition_stopped",
+        "title": {
+          "en": "Transition is stopped",
+          "nl": "Transitie wordt gestopt",
+          "de": "Übergang wurde gestoppt"
+        },
+        "titleFormatted": {
+          "en": "Transition [[name]] is stopped",
+          "nl": "Transitie [[name]] wordt gestopt",
+          "de": "Übergang [[name]] wurde gestoppt"
+        },
+        "hint": {
+          "en": "This card is activated when a transition with the provided name has been prematurely stopped, not when a transition is finished.",
+          "nl": "Dit kaartje wordt geactiveerd als een transitie met de ingevoerde naam vroegtijdig wordt gestopt, niet als een transitie is afgelopen.",
+          "de": "Diese Karte wird aktiviert, wenn ein Übergang mit dem angegebenen Namen vorzeitig gestoppt wurde, nicht wenn ein Übergang abgelaufen ist."
+        },
+        "args": [
+          {
+            "name": "name",
+            "title": {
+              "en": "Name",
+              "nl": "Naam",
+              "de": "Name"
+            },
+            "type": "text"
+          }
+        ],
+        "tokens": [
+          {
+            "name": "name",
+            "type": "string",
+            "title": {
+              "en": "Name",
+              "nl": "Naam",
+              "de": "Name"
+            },
+            "example": {
+              "en": "bathroom",
+              "nl": "badkamer",
+              "de": "Badezimmer"
+            }
+          },
+          {
+            "name": "seconds",
+            "type": "number",
+            "title": {
+              "en": "Duration (s)",
+              "nl": "Looptijd (s)",
+              "de": "Dauer (s)"
+            },
+            "example": 60
+          }
+        ]
       }
     ],
     "conditions": [
@@ -658,7 +813,7 @@
         "titleFormatted": {
           "en": "Timer [[name]] has a duration !{{longer|shorter}} than [[time]] [[unit]]",
           "nl": "Timer [[name]] heeft een looptijd !{{langer|korter}} dan [[time]] [[unit]]",
-          "de": "Timer [[name]] hat eine Dauer! {{länger|kürzer}} als [[time]] [[unit]]"
+          "de": "Timer [[name]] hat eine Dauer !{{länger|kürzer}} als [[time]] [[unit]]"
         },
         "hint": {
           "en": "Use this card to run or cancel a flow depending on the duration of the timer with the provided name.",
@@ -747,6 +902,118 @@
           "en": "Use this card to run or cancel a flow depending on the run state of the timer with the provided name.",
           "nl": "Gebruik dit kaartje om een flow wel of niet uit te voeren afhankelijk van de loop status van de timer met de ingevoerde naam.",
           "de": "Verwende diese Karte um einen Flow abhängig vom Ausführungsstatus des Timers mit dem angegebenen Namen auszuführen oder abzubrechen."
+        },
+        "args": [
+          {
+            "name": "name",
+            "title": {
+              "en": "Name",
+              "nl": "Naam",
+              "de": "Name"
+            },
+            "type": "text"
+          }
+        ]
+      },
+      {
+        "id": "transition_compare",
+        "title": {
+          "en": "Transition longer or shorter than",
+          "nl": "Transitie langer of korter dan",
+          "de": "Übergang länger oder kurzer als"
+        },
+        "titleFormatted": {
+          "en": "Transition [[name]] has a duration !{{longer|shorter}} than [[time]] [[unit]]",
+          "nl": "Transitie [[name]] heeft een looptijd !{{langer|korter}} dan [[time]] [[unit]]",
+          "de": "Übergang [[name]] hat eine Dauer !{{länger|kürzer}} als [[time]] [[unit]]"
+        },
+        "hint": {
+          "en": "Use this card to run or cancel a flow depending on the duration of the transition with the provided name.",
+          "nl": "Gebruik dit kaartje om een flow wel of niet uit te voeren afhankelijk van de looptijd van de transitie met de ingevoerde naam.",
+          "de": "Verwenden Sie diese Karte um einen Flow abhängig von der Dauer des Übergangs mit dem angegebenen Namen auszuführen oder abzubrechen."
+        },
+        "args": [
+          {
+            "name": "name",
+            "title": {
+              "en": "Name",
+              "nl": "Naam",
+              "de": "Name"
+            },
+            "type": "text"
+          },
+          {
+            "name": "time",
+            "title": {
+              "en": "Duration",
+              "nl": "Looptijd",
+              "de": "Dauer"
+            },
+            "type": "number",
+            "min": 0,
+            "step": 0.01
+          },
+          {
+            "name": "unit",
+            "title": {
+              "en": "Unit",
+              "nl": "Eenheid",
+              "de": "Einheit"
+            },
+            "type": "dropdown",
+            "values": [
+              {
+                "id": "seconds",
+                "label": {
+                  "en": "seconds",
+                  "nl": "seconden",
+                  "de": "Sekunden"
+                }
+              },
+              {
+                "id": "minutes",
+                "label": {
+                  "en": "minutes",
+                  "nl": "minuten",
+                  "de": "Minuten"
+                }
+              },
+              {
+                "id": "hours",
+                "label": {
+                  "en": "hours",
+                  "nl": "uren",
+                  "de": "Stunden"
+                }
+              },
+              {
+                "id": "days",
+                "label": {
+                  "en": "days",
+                  "nl": "dagen",
+                  "de": "Tage"
+                }
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "transition_running",
+        "title": {
+          "en": "Transition is running or not",
+          "nl": "Transitie loopt wel of niet",
+          "de": "Übergang läuft oder nicht"
+        },
+        "titleFormatted": {
+          "en": "Transition [[name]] !{{is running|is not running}}",
+          "nl": "Transitie [[name]] !{{loopt|loopt niet}}",
+          "de": "Übergang [[name]] !{{läuft|läuft nicht}}"
+        },
+        "hint": {
+          "en": "Use this card to run or cancel a flow depending on the run state of the transition with the provided name.",
+          "nl": "Gebruik dit kaartje om een flow wel of niet uit te voeren afhankelijk van de loop status van de transitie met de ingevoerde naam.",
+          "de": "Verwende diese Karte um einen Flow abhängig vom Ausführungsstatus des Übergangs mit dem angegebenen Namen auszuführen oder abzubrechen."
         },
         "args": [
           {

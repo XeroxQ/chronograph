@@ -1,0 +1,55 @@
+{
+	"id": "transition_stopped",
+	"title": {
+		"en": "Transition is stopped",
+		"nl": "Transitie wordt gestopt",
+		"de": "Übergang wurde gestoppt"
+	},
+	"titleFormatted": {
+		"en": "Transition [[name]] is stopped",
+		"nl": "Transitie [[name]] wordt gestopt",
+		"de": "Übergang [[name]] wurde gestoppt"
+	},
+	"hint": {
+		"en": "This card is activated when a transition with the provided name has been prematurely stopped, not when a transition is finished.",
+		"nl": "Dit kaartje wordt geactiveerd als een transitie met de ingevoerde naam vroegtijdig wordt gestopt, niet als een transitie is afgelopen.",
+		"de": "Diese Karte wird aktiviert, wenn ein Übergang mit dem angegebenen Namen vorzeitig gestoppt wurde, nicht wenn ein Übergang abgelaufen ist."
+	},
+	"args": [
+		{
+			"name": "name",
+			"title": {
+				"en": "Name",
+				"nl": "Naam",
+				"de": "Name"
+			},
+			"type": "text"
+		}
+	],
+	"tokens": [
+		{
+			"name": "name",
+			"type": "string",
+			"title": {
+				"en": "Name",
+				"nl": "Naam",
+				"de": "Name"
+			},
+			"example": {
+				"en": "bathroom",
+				"nl": "badkamer",
+				"de": "Badezimmer"
+			}
+		},
+		{
+			"name": "seconds",
+			"type": "number",
+			"title": {
+				"en": "Duration (s)",
+				"nl": "Looptijd (s)",
+				"de": "Dauer (s)"
+			},
+			"example": 60
+		}
+	]
+}

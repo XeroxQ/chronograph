@@ -1,19 +1,19 @@
 {
-	"id": "timer_compare",
+	"id": "transition_compare",
 	"title": {
-		"en": "Timer longer or shorter than",
-		"nl": "Timer langer of korter dan",
-		"de": "Timer länger oder kurzer als"
+		"en": "Transition longer or shorter than",
+		"nl": "Transitie langer of korter dan",
+		"de": "Übergang länger oder kurzer als"
 	},
 	"titleFormatted": {
-		"en": "Timer [[name]] has a duration !{{longer|shorter}} than [[time]] [[unit]]",
-		"nl": "Timer [[name]] heeft een looptijd !{{langer|korter}} dan [[time]] [[unit]]",
-		"de": "Timer [[name]] hat eine Dauer !{{länger|kürzer}} als [[time]] [[unit]]"
+		"en": "Transition [[name]] has a duration !{{longer|shorter}} than [[time]] [[unit]]",
+		"nl": "Transitie [[name]] heeft een looptijd !{{langer|korter}} dan [[time]] [[unit]]",
+		"de": "Übergang [[name]] hat eine Dauer !{{länger|kürzer}} als [[time]] [[unit]]"
 	},
 	"hint": {
-		"en": "Use this card to run or cancel a flow depending on the duration of the timer with the provided name.",
-		"nl": "Gebruik dit kaartje om een flow wel of niet uit te voeren afhankelijk van de looptijd van de timer met de ingevoerde naam.",
-		"de": "Verwenden Sie diese Karte um einen Flow abhängig von der Dauer des Timers mit dem angegebenen Namen auszuführen oder abzubrechen."
+		"en": "Use this card to run or cancel a flow depending on the duration of the transition with the provided name.",
+		"nl": "Gebruik dit kaartje om een flow wel of niet uit te voeren afhankelijk van de looptijd van de transitie met de ingevoerde naam.",
+		"de": "Verwenden Sie diese Karte um einen Flow abhängig von der Dauer des Übergangs mit dem angegebenen Namen auszuführen oder abzubrechen."
 	},
 	"args": [
 		{
