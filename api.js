@@ -4,242 +4,140 @@ const Timer = require('./lib/timer/timer.js');
 const Stopwatch = require('./lib/stopwatch/stopwatch.js');
 const Transition = require('./lib/transition/transition.js');
 
+let getAllFn = (getter, args, callback) => {
+	let result = [];
+	getter().forEach(entity => {
+		result.push({
+			id: entity.getId(),
+			name: entity.getName(),
+			duration: entity.getDuration(),
+			running: entity.isRunning()
+		});
+	});
+	callback(null, JSON.stringify(result));
+};
+
+let getOneFn = (getter, args, callback) => {
+	let entity = getter(args.params.id);
+	if (!entity) {
+		callback(new Error('entity not found'), false);
+		return;
+	}
+	callback(null, {
+		id: entity.getId(),
+		name: entity.getName(),
+		duration: entity.getDuration(),
+		running: entity.isRunning()
+	});
+};
+
+let putOneFn = (getter, args, callback) => {
+	let entity = getter(args.params.id);
+	if (!entity) {
+		callback(new Error('entity not found'), false);
+		return;
+	}
+	if (
+		args.body.running
+		&& !entity.isRunning()
+	) {
+		entity.resume();
+	}
+	if (
+		!args.body.running
+		&& entity.isRunning()
+	) {
+		entity.pause();
+	}
+	callback(null, {
+		id: entity.getId(),
+		name: entity.getName(),
+		duration: entity.getDuration(),
+		running: entity.isRunning()
+	});
+};
+
+let deleteOneFn = (getter, args, callback) => {
+	let entity = getter(args.params.id);
+	if (!entity) {
+		callback(new Error('entity not found'), false);
+		return;
+	}
+	entity.stop();
+	callback(null, true);
+};
+
 module.exports = [
 	{
 		method: 'GET',
 		path: '/timers/',
-		public: true,
-		fn: function(args, callback) {
-			let result = [];
-			Timer.all().forEach((timer) => {
-				result.push({
-					id: timer.getId(),
-					name: timer.getName(),
-					duration: timer.getDuration(),
-					running: timer.isRunning()
-				});
-			});
-			callback(null, JSON.stringify(result));
-		}
+		public: false,
+		fn: getAllFn.bind(null, Timer.all)
 	},
 	{
 		method: 'GET',
 		path: '/timers/:id',
-		//public: false,
-		fn: function(args, callback) {
-			let timer = Timer.getById(args.params.id);
-			if (!timer) {
-				callback(new Error('timer not found'), false);
-				return;
-			}
-			callback(null, {
-				id: timer.getId(),
-				name: timer.getName(),
-				duration: timer.getDuration(),
-				running: timer.isRunning()
-			});
-		}
+		public: false,
+		fn: getOneFn.bind(null, Timer.getById)
 	},
 	{
 		method: 'PUT',
 		path: '/timers/:id',
-		//public: false,
-		fn: function(args, callback) {
-			let timer = Timer.getById(args.params.id);
-			if (!timer) {
-				callback(new Error('timer not found'), false);
-				return;
-			}
-			if (
-				args.body.running
-				&& !timer.isRunning()
-			) {
-				timer.resume();
-			}
-			if (
-				!args.body.running
-				&& timer.isRunning()
-			) {
-				timer.pause();
-			}
-			callback(null, {
-				id: timer.getId(),
-				name: timer.getName(),
-				duration: timer.getDuration(),
-				running: timer.isRunning()
-			});
-		}
+		public: false,
+		fn: putOneFn.bind(null, Timer.getById)
 	},
 	{
 		method: 'DELETE',
 		path: '/timers/:id',
-		//public: false,
-		fn: function(args, callback) {
-			let timer = Timer.getById(args.params.id);
-			if (!timer) {
-				callback(new Error('timer not found'), false);
-				return;
-			}
-			timer.stop();
-			callback(null, true);
-		}
+		public: false,
+		fn: deleteOneFn.bind(null, Timer.getById)
 	},
 	{
 		method: 'GET',
 		path: '/stopwatches/',
-		//public: false,
-		fn: function(args, callback) {
-			let result = [];
-			Stopwatch.all().forEach((stopwatch) => {
-				result.push({
-					id: stopwatch.getId(),
-					name: stopwatch.getName(),
-					duration: stopwatch.getDuration(),
-					running: stopwatch.isRunning()
-				});
-			});
-			callback(null, JSON.stringify(result));
-		}
+		public: false,
+		fn: getAllFn.bind(null, Stopwatch.all)
 	},
 	{
 		method: 'GET',
 		path: '/stopwatches/:id',
-		//public: false,
-		fn: function(args, callback) {
-			let stopwatch = Stopwatch.getById(args.params.id);
-			if (!stopwatch) {
-				callback(new Error('stopwatch not found'), false);
-				return;
-			}
-			callback(null, {
-				id: stopwatch.getId(),
-				name: stopwatch.getName(),
-				duration: stopwatch.getDuration(),
-				running: stopwatch.isRunning()
-			});
-		}
+		public: false,
+		fn: getOneFn.bind(null, Stopwatch.getById)
 	},
 	{
 		method: 'PUT',
 		path: '/stopwatches/:id',
-		//public: false,
-		fn: function(args, callback) {
-			let stopwatch = Stopwatch.getById(args.params.id);
-			if (!stopwatch) {
-				callback(new Error('stopwatch not found'), false);
-				return;
-			}
-			if (
-				args.body.running
-				&& !stopwatch.isRunning()
-			) {
-				stopwatch.resume();
-			}
-			if (
-				!args.body.running
-				&& stopwatch.isRunning()
-			) {
-				stopwatch.pause();
-			}
-			callback(null, {
-				id: stopwatch.getId(),
-				name: stopwatch.getName(),
-				duration: stopwatch.getDuration(),
-				running: stopwatch.isRunning()
-			});
-		}
+		public: false,
+		fn: putOneFn.bind(null, Stopwatch.getById)
 	},
 	{
 		method: 'DELETE',
 		path: '/stopwatches/:id',
-		//public: false,
-		fn: function(args, callback) {
-			let stopwatch = Stopwatch.getById(args.params.id);
-			if (!stopwatch) {
-				callback(new Error('stopwatch not found'), false);
-				return;
-			}
-			stopwatch.stop();
-			callback(null, true);
-		}
+		public: false,
+		fn: deleteOneFn.bind(null, Stopwatch.getById)
 	},
 	{
 		method: 'GET',
 		path: '/transitions/',
-		//public: false,
-		fn: function(args, callback) {
-			let result = [];
-			Transition.all().forEach((transition) => {
-				result.push({
-					id: transition.getId(),
-					name: transition.getName(),
-					duration: transition.getDuration(),
-					running: transition.isRunning()
-				});
-			});
-			callback(null, JSON.stringify(result));
-		}
+		public: false,
+		fn: getAllFn.bind(null, Transition.all)
 	},
 	{
 		method: 'GET',
 		path: '/transitions/:id',
-		//public: false,
-		fn: function(args, callback) {
-			let transition = Transition.getById(args.params.id);
-			if (!transition) {
-				callback(new Error('transition not found'), false);
-				return;
-			}
-			callback(null, {
-				id: transition.getId(),
-				name: transition.getName(),
-				duration: transition.getDuration(),
-				running: transition.isRunning()
-			});
-		}
+		public: false,
+		fn: getOneFn.bind(null, Transition.getById)
 	},
 	{
 		method: 'PUT',
 		path: '/transitions/:id',
-		//public: false,
-		fn: function(args, callback) {
-			let transition = Transition.getById(args.params.id);
-			if (!transition) {
-				callback(new Error('transition not found'), false);
-				return;
-			}
-			if (
-				args.body.running
-				&& !transition.isRunning()
-			) {
-				transition.resume();
-			}
-			if (
-				!args.body.running
-				&& transition.isRunning()
-			) {
-				transition.pause();
-			}
-			callback(null, {
-				id: transition.getId(),
-				name: transition.getName(),
-				duration: transition.getDuration(),
-				running: transition.isRunning()
-			});
-		}
+		public: false,
+		fn: putOneFn.bind(null, Transition.getById)
 	},
 	{
 		method: 'DELETE',
 		path: '/transitions/:id',
-		//public: false,
-		fn: function(args, callback) {
-			let transition = Transition.getById(args.params.id);
-			if (!transition) {
-				callback(new Error('transition not found'), false);
-				return;
-			}
-			transition.stop();
-			callback(null, true);
-		}
+		public: false,
+		fn: deleteOneFn.bind(null, Transition.getById)
 	}
 ];
