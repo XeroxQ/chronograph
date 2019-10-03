@@ -3,7 +3,8 @@
 const Homey = require('homey');
 const Timer = require('./lib/timer.js');
 const Stopwatch = require('./lib/stopwatch.js');
-const { SplitTypes, LogLevel } = require('./lib/utils.js');
+const Transition = require('./lib/transition.js');
+const { LogLevel } = require('./lib/utils.js');
 
 // Actions.
 const TimerStart = require('./lib/actions/timer_start.js');
@@ -18,6 +19,8 @@ const StopwatchAdjust = require('./lib/actions/stopwatch_adjust.js');
 const StopwatchPause = require('./lib/actions/stopwatch_pause.js');
 const StopwatchStop = require('./lib/actions/stopwatch_stop.js');
 const StopwatchStopAll = require('./lib/actions/stopwatch_stop_all.js');
+const TransitionStart = require('./lib/actions/transition_start.js');
+const TransitionResume = require('./lib/actions/transition_resume.js');
 
 // Conditions.
 const TimerCompare = require('./lib/conditions/timer_compare.js');
@@ -28,7 +31,6 @@ const StopwatchRunning = require('./lib/conditions/stopwatch_running.js');
 // Triggers.
 const TimerStarted = require('./lib/triggers/timer_started.js');
 const TimerSplit = require('./lib/triggers/timer_split.js');
-const TimerTransition = require('./lib/triggers/timer_transition.js');
 const TimerFinished = require('./lib/triggers/timer_finished.js');
 const TimerStopped = require('./lib/triggers/timer_stopped.js');
 const StopwatchStarted = require('./lib/triggers/stopwatch_started.js');
@@ -79,6 +81,9 @@ class Application extends Homey.App {
 			"stopwatch_stop": new StopwatchStop('stopwatch_stop'),
 			"stopwatch_stop_all": new StopwatchStopAll('stopwatch_stop_all'),
 
+			"transition_start": new TransitionStart('transition_start'),
+			"transition_resume": new TransitionResume('transition_resume'),
+
 			// Conditions.
 			"timer_compare": new TimerCompare("timer_compare"),
 			"timer_running": new TimerRunning("timer_running"),
@@ -89,7 +94,6 @@ class Application extends Homey.App {
 			// Triggers.
 			"timer_started": new TimerStarted('timer_started'),
 			"timer_split": new TimerSplit('timer_split'),
-			"timer_transition": new TimerTransition('timer_transition'),
 			"timer_finished": new TimerFinished('timer_finished'),
 			"timer_stopped": new TimerStopped('timer_stopped'),
 
@@ -112,6 +116,13 @@ class Application extends Homey.App {
 				this.error('[' + stopwatch.getName() + '] ' + text);
 			} else {
 				this.log('[' + stopwatch.getName() + '] ' + text);
+			}
+		});
+		Transition.events.on('log', (transition, text, level) => {
+			if (level >= LogLevel.WARNING) {
+				this.error('[' + transition.getName() + '] ' + text);
+			} else {
+				this.log('[' + transition.getName() + '] ' + text);
 			}
 		});
 	}
@@ -172,10 +183,7 @@ class Application extends Homey.App {
 			let timer = new Timer(timerObj.name, duration / 1e3, 'seconds');
 
 			let splits = Homey.ManagerSettings.get('timer_splits') || [];
-			splits.forEach(split => {
-				split.type = SplitTypes.SPLIT;
-				timer.addSplit(split.time, split.unit, split);
-			});
+			splits.forEach(split => timer.addSplit(split.time, split.unit, split));
 
 			if (timerObj.running) {
 				timer.start(true);
@@ -194,10 +202,7 @@ class Application extends Homey.App {
 			let stopwatch = new Stopwatch(stopwatchObj.name);
 
 			let splits = Homey.ManagerSettings.get('stopwatch_splits') || [];
-			splits.forEach(split => {
-				split.type = SplitTypes.SPLIT;
-				stopwatch.addSplit(split.time, split.unit, split);
-			});
+			splits.forEach(split => stopwatch.addSplit(split.time, split.unit, split));
 
 			stopwatch.adjust(duration / 1e3, 'seconds', true);
 			if (stopwatchObj.running) {
