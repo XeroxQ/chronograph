@@ -1,0 +1,84 @@
+{
+	"id": "stopwatch_adjust",
+	"deprecated": true,
+	"title": {
+		"en": "Adjust stopwatch",
+		"nl": "Pas stopwatch aan",
+		"de": "Stoppuh einstellen"
+	},
+	"titleFormatted": {
+		"en": "Adjust stopwatch [[name]] with a duration of [[time]] [[unit]]",
+		"nl": "Pas stopwatch [[name]] aan met een looptijd van [[time]] [[unit]]",
+		"de": "Stellen Sie die Stoppuhr [[name]] mit einer Dauer von [[time]] [[unit]] ein"
+	},
+	"hint": {
+		"en": "Use this card to adjust the duration of the stopwatch with the provided name. Use a positive duration to extend the stopwatch, or a negative duration to shorten the stopwatch.",
+		"nl": "Gebruik dit kaartje om de looptijd van de stopwatch met de ingevoerde naam aan te passen. Gebruik een positive looptijd om de stopwatch te verlengen, of een negative looptijd om de stopwatch te verkorten.",
+		"de": "Verwenden Sie diese Karte um die Dauer der Stoppuhr mit dem angegebenen Namen anzupassen. Verwenden Sie eine positive Dauer um die Stoppuhr zu verlängern oder eine negative Dauer um die Stoppuhr zu verkürzen."
+
+	},
+	"args": [
+		{
+			"name": "name",
+			"title": {
+				"en": "Name",
+				"nl": "Naam",
+				"de": "Name"
+			},
+			"type": "text"
+		},
+		{
+			"name": "time",
+			"title": {
+				"en": "Adjustment",
+				"nl": "Wijziging",
+				"de": "Einstellung"
+			},
+			"type": "number",
+			"step": 0.01
+		},
+		{
+			"name": "unit",
+			"title": {
+				"en": "Unit",
+				"nl": "Eenheid",
+				"de": "Einheit"
+			},
+			"type": "dropdown",
+			"values": [
+				{
+					"id": "seconds",
+					"label": {
+						"en": "seconds",
+						"nl": "seconden",
+						"de": "Sekunden"
+					}
+				},
+				{
+					"id": "minutes",
+					"label": {
+						"en": "minutes",
+						"nl": "minuten",
+						"de": "Minuten"
+					}
+				},
+				{
+					"id": "hours",
+					"label": {
+						"en": "hours",
+						"nl": "uren",
+						"de": "Stunden"
+					}
+				},
+				{
+					"id": "days",
+					"label": {
+						"en": "days",
+						"nl": "dagen",
+						"de": "Tagen"
+					}
+				}
+			]
+		}
+	]
+}

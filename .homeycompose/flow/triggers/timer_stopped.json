@@ -1,0 +1,56 @@
+
+	{
+		"id": "timer_stopped",
+		"title": {
+			"en": "Timer is stopped",
+			"nl": "Timer wordt gestopt",
+			"de": "Timer wurde gestoppt"
+		},
+		"titleFormatted": {
+			"en": "Timer [[name]] is stopped",
+			"nl": "Timer [[name]] wordt gestopt",
+			"de": "Timer [[name]] wurde gestoppt"
+		},
+		"hint": {
+			"en": "This card is activated when a timer with the provided name has been prematurely stopped, not when a timer is finished.",
+			"nl": "Dit kaartje wordt geactiveerd als een timer met de ingevoerde naam vroegtijdig wordt gestopt, niet als een timer is afgelopen.",
+			"de": "Diese Karte wird aktiviert, wenn ein Timer mit dem angegebenen Namen vorzeitig gestoppt wurde, nicht wenn ein Timer abgelaufen ist."
+		},
+		"args": [
+			{
+				"name": "name",
+				"title": {
+					"en": "Name",
+					"nl": "Naam",
+					"de": "Name"
+				},
+				"type": "text"
+			}
+		],
+		"tokens": [
+			{
+				"name": "name",
+				"type": "string",
+				"title": {
+					"en": "Name",
+					"nl": "Naam",
+					"de": "Name"
+				},
+				"example": {
+					"en": "bathroom",
+					"nl": "badkamer",
+					"de": "Badezimmer"
+				}
+			},
+			{
+				"name": "seconds",
+				"type": "number",
+				"title": {
+					"en": "Duration (s)",
+					"nl": "Looptijd (s)",
+					"de": "Dauer (s)"
+				},
+				"example": 60
+			}
+		]
+	}

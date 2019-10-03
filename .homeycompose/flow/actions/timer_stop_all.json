@@ -1,0 +1,15 @@
+{
+	"id": "timer_stop_all",
+	"title": {
+		"en": "Stop all timers",
+		"nl": "Stop alle timers",
+		"de": "Alle Timer anhalten"
+
+	},
+	"hint": {
+		"en": "Use this card to stop all running timers.",
+		"nl": "Gebruik dit kaartje om alle timers te stoppen.",
+		"de": "Verwenden Sie diese Karte um alle laufenden Timer zu stoppen."
+
+	}
+}

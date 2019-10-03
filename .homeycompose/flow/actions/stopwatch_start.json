@@ -1,0 +1,32 @@
+{
+	"id": "stopwatch_start",
+	"title": {
+		"en": "Start or replace stopwatch",
+		"nl": "Start of vervang stopwatch",
+		"de": "Stoppuhr starten oder ersetzen"
+
+	},
+	"titleFormatted": {
+		"en": "Start or replace stopwatch [[name]]",
+		"nl": "Start of vervang stopwatch [[name]]",
+		"de": "Stoppuhr starten oder ersetzen [[name]]"
+
+	},
+	"hint": {
+		"en": "Use this card to start a stopwatch with the provided name. If a stopwatch with the same name is already running, it is replaced.",
+		"nl": "Gebruik dit kaartje om een stopwatch te starten met de ingevoerde naam. Als er al een stopwatch met dezelfde naam loopt dan wordt deze vervangen.",
+		"de": "Verwenden Sie diese Karte, um eine Stoppuhr mit dem angegebenen Namen zu starten. Wenn bereits eine Stoppuhr mit dem gleichen Namen läuft, wird diese ersetzt."
+
+	},
+	"args": [
+		{
+			"name": "name",
+			"title": {
+				"en": "Name",
+				"nl": "Naam",
+				"de": "Name"
+			},
+			"type": "text"
+		}
+	]
+}

@@ -1,0 +1,82 @@
+{
+	"id": "timer_resume_v2",
+	"title": {
+		"en": "Start or resume timer",
+		"nl": "Start of hervat timer",
+		"de": "Timer starten oder fortsetzen"
+	},
+	"titleFormatted": {
+		"en": "Start or resume timer [[name]] with a duration of [[time]] [[unit]]",
+		"nl": "Start of hervat timer [[name]] met een looptijd van [[time]] [[unit]]",
+		"de": "Timer [[name]] mit einer Dauer von [[time]] [[unit]] starten oder fortsetzen"
+	},
+	"hint": {
+		"en": "Use this card to start a new timer with the provided name and duration. If a timer with the same name already exists, it is resumed.",
+		"nl": "Gebruik dit kaartje om een timer te starten met de ingevoerde naam en looptijd. Als er al een timer met dezelfde naam loopt dan wordt deze hervat.",
+		"de": "Verwenden Sie diese Karte um einen neuen Timer mit dem angegebenen Namen und der angegebenen Dauer zu starten. Wenn bereits ein Timer mit dem gleichen Namen vorhanden ist, wird er fortgesetzt."
+	},
+	"args": [
+		{
+			"name": "name",
+			"title": {
+				"en": "Name",
+				"nl": "Naam",
+				"de": "Name"
+			},
+			"type": "text"
+		},
+		{
+			"name": "time",
+			"title": {
+				"en": "Duration",
+				"nl": "Looptijd",
+				"de": "Dauer"
+			},
+			"type": "text"
+		},
+		{
+			"name": "unit",
+			"title": {
+				"en": "Unit",
+				"nl": "Eenheid",
+				"de": "Einheit"
+			},
+			"type": "dropdown",
+			"values": [
+				{
+					"id": "seconds",
+					"label": {
+						"en": "seconds",
+						"nl": "seconden",
+						"de": "Sekunden"
+					}
+				},
+				{
+					"id": "minutes",
+					"label": {
+						"en": "minutes",
+						"nl": "minuten",
+						"de": "Minuten"
+					}
+				},
+				{
+					"id": "hours",
+					"label": {
+						"en": "hours",
+						"nl": "uren",
+						"de": "Stunden"
+					}
+				},
+				{
+					"id": "days",
+					"label": {
+						"en": "days",
+						"nl": "dagen",
+						"de": "Tage"
+
+					}
+				}
+			]
+		}
+	]
+}

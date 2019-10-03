@@ -1,0 +1,31 @@
+{
+	"id": "transition_pause",
+	"title": {
+		"en": "Pause transition",
+		"nl": "Pauzeer transitie",
+		"de": "Übergang pausieren"
+	},
+	"titleFormatted": {
+		"en": "Pause transition [[name]]",
+		"nl": "Pauzeer transitie [[name]]",
+		"de": "Übergang anhalten [[name]]"
+
+	},
+	"hint": {
+		"en": "Use this card to pause a transition with the provided name.",
+		"nl": "Gebruik dit kaartje om een transitie te pauzeren met de ingevoerde naam.",
+		"de": "Mit dieser Karte können Sie einen Übergang mit dem angegebenen Namen anhalten."
+
+	},
+	"args": [
+		{
+			"name": "name",
+			"title": {
+				"en": "Name",
+				"nl": "Naam",
+				"de": "Name"
+			},
+			"type": "text"
+		}
+	]
+}

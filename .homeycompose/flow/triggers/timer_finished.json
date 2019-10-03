@@ -1,0 +1,46 @@
+
+	{
+		"id": "timer_finished",
+		"title": {
+			"en": "Timer has finished",
+			"nl": "Timer is afgelopen",
+			"de": "Timer ist abgelaufen"
+		},
+		"titleFormatted": {
+			"en": "Timer [[name]] has finished",
+			"nl": "Timer [[name]] is afgelopen",
+			"de": "Timer [[name]] ist abgelaufen"
+		},
+		"hint": {
+			"en": "This card is activated when a timer with the provided name has finished, not when a timer is prematurely stopped.",
+			"nl": "Dit kaartje wordt geactiveerd als een timer met de ingevoerde naam is afgelopen, niet als een timer vroegtijdig wordt gestopt.",
+			"de": "Diese Karte wird aktiviert, wenn ein Timer mit dem angegebenen Namen abgelaufen ist, nicht wenn ein Timer vorzeitig gestoppt wird."
+		},
+		"args": [
+			{
+				"name": "name",
+				"title": {
+					"en": "Name",
+					"nl": "Naam",
+					"de": "Name"
+				},
+				"type": "text"
+			}
+		],
+		"tokens": [
+			{
+				"name": "name",
+				"type": "string",
+				"title": {
+					"en": "Name",
+					"nl": "Naam",
+					"de": "Name"
+				},
+				"example": {
+					"en": "bathroom",
+					"nl": "badkamer",
+					"de": "Badezimmer"
+				}
+			}
+		]
+	}

@@ -1,0 +1,31 @@
+{
+	"id": "timer_pause",
+	"title": {
+		"en": "Pause timer",
+		"nl": "Pauzeer timer",
+		"de": "Timer pausieren"
+	},
+	"titleFormatted": {
+		"en": "Pause timer [[name]]",
+		"nl": "Pauzeer timer [[name]]",
+		"de": "Timer anhalten [[name]]"
+
+	},
+	"hint": {
+		"en": "Use this card to pause a timer with the provided name.",
+		"nl": "Gebruik dit kaartje om een timer te pauzeren met de ingevoerde naam.",
+		"de": "Mit dieser Karte können Sie einen Timer mit dem angegebenen Namen anhalten."
+
+	},
+	"args": [
+		{
+			"name": "name",
+			"title": {
+				"en": "Name",
+				"nl": "Naam",
+				"de": "Name"
+			},
+			"type": "text"
+		}
+	]
+}

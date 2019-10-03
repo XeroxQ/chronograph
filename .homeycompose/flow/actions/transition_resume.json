@@ -1,0 +1,115 @@
+{
+	"id": "transition_resume",
+	"title": {
+		"en": "Start or resume transition",
+		"nl": "Start of hervat transitie",
+		"de": "Übergang starten oder fortsetzen"
+	},
+	"titleFormatted": {
+		"en": "Start or resume transition [[name]] from [[from]] to [[to]] in [[steps]] steps during [[time]] [[unit]]",
+		"nl": "Start of hervat transitie [[name]] van [[from]] naar [[to]] in [[steps]] stappen gedurende [[time]] [[unit]]",
+		"de": "Übergang [[name]] von [[from]] nach [[to]] in [[steps]] Schritten während [[time]] [[unit]] starten oder fortsetzen"
+	},
+	"hint": {
+		"en": "TODO Use this card to start a new timer with the provided name and duration. If a timer with the same name already exists, it is replaced.",
+		"nl": "TODO Gebruik dit kaartje om een timer te starten met de ingevoerde naam en looptijd. Als er al een timer met dezelfde naam loopt dan wordt deze vervangen.",
+		"de": "TODO Verwenden Sie diese Karte um einen neuen Timer mit dem angegebenen Namen und der angegebenen Dauer zu starten. Wenn bereits ein Timer mit dem gleichen Namen vorhanden ist, wird er ersetzt."
+	},
+	"args": [
+		{
+			"name": "name",
+			"title": {
+				"en": "Name",
+				"nl": "Naam",
+				"de": "Name"
+			},
+			"type": "text"
+		},
+		{
+			"name": "time",
+			"title": {
+				"en": "Duration",
+				"nl": "Looptijd",
+				"de": "Dauer"
+			},
+			"type": "text"
+		},
+		{
+			"name": "unit",
+			"title": {
+				"en": "Unit",
+				"nl": "Eenheid",
+				"de": "Einheit"
+			},
+			"type": "dropdown",
+			"values": [
+				{
+					"id": "seconds",
+					"label": {
+						"en": "seconds",
+						"nl": "seconden",
+						"de": "Sekunden"
+					}
+				},
+				{
+					"id": "minutes",
+					"label": {
+						"en": "minutes",
+						"nl": "minuten",
+						"de": "Minuten"
+					}
+				},
+				{
+					"id": "hours",
+					"label": {
+						"en": "hours",
+						"nl": "uren",
+						"de": "Stunden"
+					}
+				},
+				{
+					"id": "days",
+					"label": {
+						"en": "days",
+						"nl": "dagen",
+						"de": "Tage"
+
+					}
+				}
+			]
+		},
+		{
+			"name": "from",
+			"title": {
+				"en": "From",
+				"nl": "Van",
+				"de": "Von"
+			},
+			"type": "number",
+			"min": 0,
+			"step": 0.01
+		},
+		{
+			"name": "to",
+			"title": {
+				"en": "To",
+				"nl": "Naar",
+				"de": "Nach"
+			},
+			"type": "number",
+			"min": 0,
+			"step": 0.01
+		},
+		{
+			"name": "steps",
+			"title": {
+				"en": "Steps",
+				"nl": "Stappen",
+				"de": "Schritte"
+			},
+			"type": "number",
+			"min": 2,
+			"step": 1
+		}
+	]
+}

@@ -1,0 +1,29 @@
+{
+	"id": "stopwatch_running",
+	"title": {
+		"en": "Stopwatch is running or not",
+		"nl": "Stopwatch loopt wel of niet",
+		"de": "Stopwatch läuft oder nicht"
+	},
+	"titleFormatted": {
+		"en": "Stopwatch [[name]] !{{is running|is not running}}",
+		"nl": "Stopwatch [[name]] !{{loopt|loopt niet}}",
+		"de": "Stopwatch [[name]] !{{läuft|läuft nicht}}"
+	},
+	"hint": {
+		"en": "Use this card to run or cancel a flow depending on the run state of the stopwatch with the provided name.",
+		"nl": "Gebruik dit kaartje om een flow wel of niet uit te voeren afhankelijk van de loop status van de stopwatch met de ingevoerde naam.",
+		"de": "Verwenden Sie diese Karte um einen Ablauf abhängig vom Betriebsstatus der Stoppuhr mit dem angegebenen Namen auszuführen oder abzubrechen."
+	},
+	"args": [
+		{
+			"name": "name",
+			"title": {
+				"en": "Name",
+				"nl": "Naam",
+				"de": "Name"
+			},
+			"type": "text"
+		}
+	]
+}

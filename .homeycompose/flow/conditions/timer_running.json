@@ -1,0 +1,29 @@
+{
+	"id": "timer_running",
+	"title": {
+		"en": "Timer is running or not",
+		"nl": "Timer loopt wel of niet",
+		"de": "Timer läuft oder nicht"
+	},
+	"titleFormatted": {
+		"en": "Timer [[name]] !{{is running|is not running}}",
+		"nl": "Timer [[name]] !{{loopt|loopt niet}}",
+		"de": "Timer [[name]] !{{läuft|läuft nicht}}"
+	},
+	"hint": {
+		"en": "Use this card to run or cancel a flow depending on the run state of the timer with the provided name.",
+		"nl": "Gebruik dit kaartje om een flow wel of niet uit te voeren afhankelijk van de loop status van de timer met de ingevoerde naam.",
+		"de": "Verwende diese Karte um einen Flow abhängig vom Ausführungsstatus des Timers mit dem angegebenen Namen auszuführen oder abzubrechen."
+	},
+	"args": [
+		{
+			"name": "name",
+			"title": {
+				"en": "Name",
+				"nl": "Naam",
+				"de": "Name"
+			},
+			"type": "text"
+		}
+	]
+}

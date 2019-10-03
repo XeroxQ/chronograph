@@ -1,0 +1,82 @@
+{
+	"id": "transition_adjust",
+	"title": {
+		"en": "Adjust transition",
+		"nl": "Pas transitie aan",
+		"de": "Übergang justieren"
+	},
+	"titleFormatted": {
+		"en": "Adjust transition [[name]] with a duration of [[time]] [[unit]]",
+		"nl": "Pas transitie [[name]] aan met een looptijd van [[time]] [[unit]]",
+		"de": "Übergang [[name]] mit einer Dauer von [[time]] [[unit]] einstellen"
+	},
+	"hint": {
+		"en": "Use this card to adjust the duration of the transition with the provided name. Use a positive duration to extend the transition, or a negative duration to shorten the transition.",
+		"nl": "Gebruik dit kaartje om de looptijd van de transitie met de ingevoerde naam aan te passen. Gebruik een positive looptijd om de transitie te verlengen, of een negative looptijd om de transitie te verkorten.",
+		"de": "Verwenden Sie diese Karte um die Dauer des Übergang mit dem angegebenen Namen anzupassen. Verwenden Sie eine positive Dauer um den Übergang zu verlängern oder eine negative Dauer um den Übergang zu verkürzen."
+
+	},
+	"args": [
+		{
+			"name": "name",
+			"title": {
+				"en": "Name",
+				"nl": "Naam",
+				"de": "Name"
+			},
+			"type": "text"
+		},
+		{
+			"name": "time",
+			"title": {
+				"en": "Adjustment",
+				"nl": "Wijziging",
+				"de": "Anpassung"
+			},
+			"type": "text"
+		},
+		{
+			"name": "unit",
+			"title": {
+				"en": "Unit",
+				"nl": "Eenheid",
+				"de": "Einheit"
+			},
+			"type": "dropdown",
+			"values": [
+				{
+					"id": "seconds",
+					"label": {
+						"en": "seconds",
+						"nl": "seconden",
+						"de": "Sekunden"
+					}
+				},
+				{
+					"id": "minutes",
+					"label": {
+						"en": "minutes",
+						"nl": "minuten",
+						"de": "Minuten"
+					}
+				},
+				{
+					"id": "hours",
+					"label": {
+						"en": "hours",
+						"nl": "uren",
+						"de": "Stunden"
+					}
+				},
+				{
+					"id": "days",
+					"label": {
+						"en": "days",
+						"nl": "dagen",
+						"de": "Tage"
+					}
+				}
+			]
+		}
+	]
+}

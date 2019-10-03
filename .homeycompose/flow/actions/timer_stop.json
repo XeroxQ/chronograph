@@ -1,0 +1,32 @@
+{
+	"id": "timer_stop",
+	"title": {
+		"en": "Stop timer",
+		"nl": "Stop timer",
+		"de": "Timer anhalten"
+
+	},
+	"titleFormatted": {
+		"en": "Stop timer [[name]]",
+		"nl": "Stop timer [[name]]",
+		"de": "Timer stoppen [[name]]"
+
+	},
+	"hint": {
+		"en": "Use this card to stop a timer with the provided name.",
+		"nl": "Gebruik dit kaartje om een timer te stoppen met de ingevoerde naam.",
+		"de": "Mit dieser Karte können Sie einen Timer mit dem angegebenen Namen stoppen."
+
+	},
+	"args": [
+		{
+			"name": "name",
+			"title": {
+				"en": "Name",
+				"nl": "Naam",
+				"de": "Name"
+			},
+			"type": "text"
+		}
+	]
+}

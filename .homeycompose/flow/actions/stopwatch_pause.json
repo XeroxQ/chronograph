@@ -1,0 +1,29 @@
+{
+	"id": "stopwatch_pause",
+	"title": {
+		"en": "Pause a stopwatch",
+		"nl": "Pauzeer een stopwatch",
+		"de": "Pausiere eine Stoppuhr"
+	},
+	"titleFormatted": {
+		"en": "Pause stopwatch [[name]]",
+		"nl": "Pauzeer stopwatch [[name]]",
+		"de": "Pausiere Stoppuhr [[name]]"
+	},
+	"hint": {
+		"en": "Use this card to pause a stopwatch with the provided name.",
+		"nl": "Gebruik dit kaartje om een stopwatch te pauzeren met de ingevoerde naam.",
+		"de": "Verwenden Sie diese Karte, um eine Stoppuhr mit dem angegebenen Namen anzuhalten."
+	},
+	"args": [
+		{
+			"name": "name",
+			"title": {
+				"en": "Name",
+				"nl": "Naam",
+				"de": "Name"
+			},
+			"type": "text"
+		}
+	]
+}
