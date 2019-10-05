@@ -1,16 +1,15 @@
-'use strict';
-
-const Timer = require('./lib/timer/timer.js');
-const Stopwatch = require('./lib/stopwatch/stopwatch.js');
-const Transition = require('./lib/transition/transition.js');
+const Chronograph = require('./lib/chronograph.js');
+const { ChronographType } = require('./lib/utils.js');
 
 let getAllFn = (getter, args, callback) => {
 	let result = [];
 	getter().forEach(entity => {
 		result.push({
 			id: entity.getId(),
+			prefix: entity.getPrefix(),
 			name: entity.getName(),
 			duration: entity.getDuration(),
+			targetDuration: entity.getTargetDuration(),
 			running: entity.isRunning()
 		});
 	});
@@ -25,8 +24,10 @@ let getOneFn = (getter, args, callback) => {
 	}
 	callback(null, {
 		id: entity.getId(),
+		prefix: entity.getPrefix(),
 		name: entity.getName(),
 		duration: entity.getDuration(),
+		targetDuration: entity.getTargetDuration(),
 		running: entity.isRunning()
 	});
 };
@@ -51,8 +52,10 @@ let putOneFn = (getter, args, callback) => {
 	}
 	callback(null, {
 		id: entity.getId(),
+		prefix: entity.getPrefix(),
 		name: entity.getName(),
 		duration: entity.getDuration(),
+		targetDuration: entity.getTargetDuration(),
 		running: entity.isRunning()
 	});
 };
@@ -72,72 +75,96 @@ module.exports = [
 		method: 'GET',
 		path: '/timers/',
 		public: false,
-		fn: getAllFn.bind(null, Timer.all)
+		fn: getAllFn.bind(null, () => Chronograph.all().filter(entity => entity.getPrefix() == ChronographType.TIMER))
 	},
 	{
 		method: 'GET',
 		path: '/timers/:id',
 		public: false,
-		fn: getOneFn.bind(null, Timer.getById)
+		fn: getOneFn.bind(null, Chronograph.getById)
 	},
 	{
 		method: 'PUT',
 		path: '/timers/:id',
 		public: false,
-		fn: putOneFn.bind(null, Timer.getById)
+		fn: putOneFn.bind(null, Chronograph.getById)
 	},
 	{
 		method: 'DELETE',
 		path: '/timers/:id',
 		public: false,
-		fn: deleteOneFn.bind(null, Timer.getById)
+		fn: deleteOneFn.bind(null, Chronograph.getById)
 	},
 	{
 		method: 'GET',
 		path: '/stopwatches/',
 		public: false,
-		fn: getAllFn.bind(null, Stopwatch.all)
+		fn: getAllFn.bind(null, () => Chronograph.all().filter(entity => entity.getPrefix() == ChronographType.STOPWATCH))
 	},
 	{
 		method: 'GET',
 		path: '/stopwatches/:id',
 		public: false,
-		fn: getOneFn.bind(null, Stopwatch.getById)
+		fn: getOneFn.bind(null, Chronograph.getById)
 	},
 	{
 		method: 'PUT',
 		path: '/stopwatches/:id',
 		public: false,
-		fn: putOneFn.bind(null, Stopwatch.getById)
+		fn: putOneFn.bind(null, Chronograph.getById)
 	},
 	{
 		method: 'DELETE',
 		path: '/stopwatches/:id',
 		public: false,
-		fn: deleteOneFn.bind(null, Stopwatch.getById)
+		fn: deleteOneFn.bind(null, Chronograph.getById)
 	},
 	{
 		method: 'GET',
 		path: '/transitions/',
 		public: false,
-		fn: getAllFn.bind(null, Transition.all)
+		fn: getAllFn.bind(null, () => Chronograph.all().filter(entity => entity.getPrefix() == ChronographType.TRANSITION))
 	},
 	{
 		method: 'GET',
 		path: '/transitions/:id',
 		public: false,
-		fn: getOneFn.bind(null, Transition.getById)
+		fn: getOneFn.bind(null, Chronograph.getById)
 	},
 	{
 		method: 'PUT',
 		path: '/transitions/:id',
 		public: false,
-		fn: putOneFn.bind(null, Transition.getById)
+		fn: putOneFn.bind(null, Chronograph.getById)
 	},
 	{
 		method: 'DELETE',
 		path: '/transitions/:id',
 		public: false,
-		fn: deleteOneFn.bind(null, Transition.getById)
+		fn: deleteOneFn.bind(null, Chronograph.getById)
+	},
+	{
+		method: 'GET',
+		path: '/chronographs/',
+		public: false,
+		fn: getAllFn.bind(null, Chronograph.all)
+	},
+	{
+		method: 'GET',
+		path: '/chronographs/:id',
+		public: false,
+		fn: getOneFn.bind(null, Chronograph.getById)
+	},
+	{
+		method: 'PUT',
+		path: '/chronographs/:id',
+		public: false,
+		fn: putOneFn.bind(null, Chronograph.getById)
+	},
+	{
+		method: 'DELETE',
+		path: '/chronographs/:id',
+		public: false,
+		fn: deleteOneFn.bind(null, Chronograph.getById)
 	}
 ];

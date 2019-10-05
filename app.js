@@ -1,9 +1,7 @@
 'use strict';
 
 const Homey = require('homey');
-const Timer = require('./lib/timer/timer.js');
-const Stopwatch = require('./lib/stopwatch/stopwatch.js');
-const Transition = require('./lib/transition/transition.js');
+const Chronograph = require('./lib/chronograph.js');
 const { LogLevel } = require('./lib/utils.js');
 
 // Actions.
@@ -26,6 +24,7 @@ const TransitionPause = require('./lib/transition/actions/transition_pause.js');
 const TransitionStop = require('./lib/transition/actions/transition_stop.js');
 const TransitionStopAll = require('./lib/transition/actions/transition_stop_all.js');
 
+
 // Conditions.
 const TimerCompare = require('./lib/timer/conditions/timer_compare.js');
 const TimerRunning = require('./lib/timer/conditions/timer_running.js');
@@ -46,26 +45,19 @@ const TransitionStarted = require('./lib/transition/triggers/transition_started.
 const TransitionFinished = require('./lib/transition/triggers/transition_finished.js');
 const TransitionStopped = require('./lib/transition/triggers/transition_stopped.js');
 
-
 class Application extends Homey.App {
 	onInit() {
 		// Initializing cards.
 		this.log('Initializing cards.');
 		this._initializeCards();
 
-		// Listen for log events.
-		this._installLogEventHandlers();
-
-		// Listen for events that need to be passed on to the settings page.
+		// Install event handlers.
 		this.log('Installing event handlers.');
-		this._installTimerEventHandlers();
-		this._installStopwatchEventHandlers();
-		this._installTransitionEventHandlers();
+		this._installEventHandlers();
 
-		// Restore timers and stopwatches from settings.
-		this.log('Restoring timers and stopwatches.');
-		this._restoreTimers();
-		this._restoreStopwatches();
+		// Restore chronographs from settings.
+		this.log('Restoring chronographs.');
+		this._restoreChronographs();
 
 		this.log('Application is running.');
 	}
@@ -82,7 +74,6 @@ class Application extends Homey.App {
 			"timer_pause": new TimerPause('timer_pause'),
 			"timer_stop": new TimerStop('timer_stop'),
 			"timer_stop_all": new TimerStopAll('timer_stop_all'),
-
 			"stopwatch_start": new StopwatchStart('stopwatch_start'),
 			"stopwatch_resume": new StopwatchResume('stopwatch_resume'),
 			"stopwatch_adjust": new StopwatchAdjust('stopwatch_adjust'),
@@ -90,7 +81,6 @@ class Application extends Homey.App {
 			"stopwatch_pause": new StopwatchPause('stopwatch_pause'),
 			"stopwatch_stop": new StopwatchStop('stopwatch_stop'),
 			"stopwatch_stop_all": new StopwatchStopAll('stopwatch_stop_all'),
-
 			"transition_start": new TransitionStart('transition_start'),
 			"transition_resume": new TransitionResume('transition_resume'),
 			"transition_adjust": new TransitionAdjust('transition_adjust'),
@@ -101,10 +91,8 @@ class Application extends Homey.App {
 			// Conditions.
 			"timer_compare": new TimerCompare("timer_compare"),
 			"timer_running": new TimerRunning("timer_running"),
-
 			"stopwatch_compare": new StopwatchCompare("stopwatch_compare"),
 			"stopwatch_running": new StopwatchRunning("stopwatch_running"),
-
 			"transition_compare": new TransitionCompare("transition_compare"),
 			"transition_running": new TransitionRunning("transition_running"),
 
@@ -113,142 +101,71 @@ class Application extends Homey.App {
 			"timer_split": new TimerSplit('timer_split'),
 			"timer_finished": new TimerFinished('timer_finished'),
 			"timer_stopped": new TimerStopped('timer_stopped'),
-
 			"stopwatch_started": new StopwatchStarted('stopwatch_started'),
 			"stopwatch_split": new StopwatchSplit('stopwatch_split'),
 			"stopwatch_stopped": new StopwatchStopped('stopwatch_stopped'),
-
 			"transition_started": new TransitionStarted('transition_started'),
 			"transition_finished": new TransitionFinished('transition_finished'),
 			"transition_stopped": new TransitionStopped('transition_stopped')
 		};
 	}
 
-	_installLogEventHandlers() {
-		Timer.events.on('log', (timer, text, level) => {
+	_installEventHandlers() {
+		Chronograph.events.on('log', (chronograph, text, level) => {
 			if (level >= LogLevel.WARNING) {
-				this.error('[' + timer.getName() + '] ' + text);
+				this.error('[' + chronograph.getPrefix() + '] [' + chronograph.getName() + '] ' + text);
 			} else {
-				this.log('[' + timer.getName() + '] ' + text);
+				this.log('[' + chronograph.getPrefix() + '] [' + chronograph.getName() + '] ' + text);
 			}
 		});
-		Stopwatch.events.on('log', (stopwatch, text, level) => {
-			if (level >= LogLevel.WARNING) {
-				this.error('[' + stopwatch.getName() + '] ' + text);
-			} else {
-				this.log('[' + stopwatch.getName() + '] ' + text);
-			}
-		});
-		Transition.events.on('log', (transition, text, level) => {
-			if (level >= LogLevel.WARNING) {
-				this.error('[' + transition.getName() + '] ' + text);
-			} else {
-				this.log('[' + transition.getName() + '] ' + text);
-			}
-		});
-	}
-
-	_installTimerEventHandlers() {
-		Timer.events.mon([ 'started', 'resumed', 'paused', 'updated', 'removed' ], (name, timer) => {
-			let timerObj = {
-				id: timer.getId(),
-				name: timer.getName(),
-				duration: timer.getDuration(),
-				running: timer.isRunning(),
-				removed: name == 'removed',
+		Chronograph.events.mon([ 'started', 'resumed', 'paused', 'updated', 'removed' ], (event, chronograph) => {
+			let raw = {
+				id: chronograph.getId(),
+				prefix: chronograph.getPrefix(),
+				name: chronograph.getName(),
+				duration: chronograph.getDuration(),
+				targetDuration: chronograph.getTargetDuration(),
+				running: chronograph.isRunning(),
+				removed: event == 'removed',
 				now: (new Date()).getTime()
 			};
-			Homey.ManagerApi.realtime('timer_event', timerObj);
-			let timersActive = Homey.ManagerSettings.get('timers_active') || {};
-			if (name == 'removed') {
-				delete(timersActive[timer.getId()]);
+			Homey.ManagerApi.realtime('chronograph_event', raw);
+			let active = Homey.ManagerSettings.get('chronographs_active') || {};
+			if (event == 'removed') {
+				delete(active[chronograph.getId()]);
 			} else {
-				timersActive[timer.getId()] = timerObj;
+				active[chronograph.getId()] = raw;
 			}
-			Homey.ManagerSettings.set('timers_active', timersActive);
+			Homey.ManagerSettings.set('chronographs_active', active);
 		});
 	}
 
-	_installStopwatchEventHandlers() {
-		Stopwatch.events.mon([ 'started', 'resumed', 'paused', 'updated', 'removed' ], (name, stopwatch) => {
-			let stopwatchObj = {
-				id: stopwatch.getId(),
-				name: stopwatch.getName(),
-				duration: stopwatch.getDuration(),
-				running: stopwatch.isRunning(),
-				removed: name == 'removed',
-				now: (new Date()).getTime()
-			};
-			Homey.ManagerApi.realtime('stopwatch_event', stopwatchObj);
-			let stopwatchesActive = Homey.ManagerSettings.get('stopwatches_active') || {};
-			if (name == 'removed') {
-				delete(stopwatchesActive[stopwatch.getId()]);
+	_restoreChronographs() {
+		let active = Homey.ManagerSettings.get('chronographs_active') || {};
+		Object.values(active).forEach(raw => {
+			let duration = raw.duration;
+			if (raw.running) {
+				duration += ((new Date()).getTime() - raw.now);
+			}
+			let chronograph;
+			if (raw.targetDuration) {
+				chronograph = new Chronograph(raw.prefix, raw.name, raw.targetDuration, 'milliseconds');
 			} else {
-				stopwatchesActive[stopwatch.getId()] = stopwatchObj;
+				chronograph = new Chronograph(raw.prefix, raw.name);
 			}
-			Homey.ManagerSettings.set('stopwatches_active', stopwatchesActive);
-		});
-	}
-
-	_installTransitionEventHandlers() {
-		Transition.events.mon([ 'started', 'resumed', 'paused', 'updated', 'removed' ], (name, transition) => {
-			let transitionObj = {
-				id: transition.getId(),
-				name: transition.getName(),
-				duration: transition.getDuration(),
-				running: transition.isRunning(),
-				removed: name == 'removed',
-				now: (new Date()).getTime()
-			};
-			Homey.ManagerApi.realtime('transition_event', transitionObj);
-			let transitionsActive = Homey.ManagerSettings.get('transitions_active') || {};
-			if (name == 'removed') {
-				delete(transitionsActive[transition.getId()]);
-			} else {
-				transitionsActive[transition.getId()] = transitionObj;
-			}
-			Homey.ManagerSettings.set('transitions_active', transitionsActive);
-		});
-	}
-
-	_restoreTimers() {
-		let timersActive = Homey.ManagerSettings.get('timers_active') || {};
-		Homey.ManagerSettings.set('timers_active', {});
-		Object.values(timersActive).forEach(timerObj => {
-			let duration = timerObj.duration;
-			if (timerObj.running) {
-				duration -= ((new Date()).getTime() - timerObj.now);
-			}
-			if (duration < 0) {
-				duration = 0;
-			}
-			let timer = new Timer(timerObj.name, duration / 1e3, 'seconds');
 
 			let splits = Homey.ManagerSettings.get('timer_splits') || [];
-			splits.forEach(split => timer.addSplit(split.time, split.unit, split));
+			splits.forEach(split => {
+				let reversedSplit = chronograph.getTargetDuration() - Utils.calculateDuration(split.time, split.unit);
+				chronograph.addSplit(reversedSplit, 'milliseconds', split);
+			});
 
-			if (timerObj.running) {
-				timer.start(true);
-			}
-		});
-	}
+			splits = Homey.ManagerSettings.get('stopwatch_splits') || [];
+			splits.forEach(split => chronograph.addSplit(split.time, split.unit, split));
 
-	_restoreStopwatches() {
-		let stopwatchesActive = Homey.ManagerSettings.get('stopwatches_active') || {};
-		Homey.ManagerSettings.set('stopwatches_active', {});
-		Object.values(stopwatchesActive).forEach(stopwatchObj => {
-			let duration = stopwatchObj.duration;
-			if (stopwatchObj.running) {
-				duration += ((new Date()).getTime() - stopwatchObj.now);
-			}
-			let stopwatch = new Stopwatch(stopwatchObj.name);
-
-			let splits = Homey.ManagerSettings.get('stopwatch_splits') || [];
-			splits.forEach(split => stopwatch.addSplit(split.time, split.unit, split));
-
-			stopwatch.adjust(duration / 1e3, 'seconds', true);
-			if (stopwatchObj.running) {
-				stopwatch.start(true);
+			chronograph.adjust(duration, 'milliseconds', true);
+			if (raw.running) {
+				chronograph.start(true);
 			}
 		});
 	}

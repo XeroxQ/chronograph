@@ -12,31 +12,31 @@
 
 <h1><img src="assets/timer.svg" /><span data-i18n="settings.timers">Timers</span></h1>
 <ol v-if="timers.length > 0">
-	<timer-item
+	<chronograph-item
 		v-for="timer in timers"
-		v-bind:timer="timer"
+		v-bind:chronograph="timer"
 		v-bind:key="timer.id"
-	></imer-item>
+	></chronograph-item>
 </ol>
 <em v-else data-i18n="settings.no_active_timers">No active timers.</em>
 
 <h1><img src="assets/stopwatch.svg" /><span data-i18n="settings.stopwatches">Stopwatches</span></h1>
 <ol v-if="stopwatches.length > 0">
-	<stopwatch-item
+	<chronograph-item
 		v-for="stopwatch in stopwatches"
-		v-bind:stopwatch="stopwatch"
+		v-bind:chronograph="stopwatch"
 		v-bind:key="stopwatch.id"
-	></stopwatch-item>
+	></chronograph-item>
 </ol>
 <em v-else data-i18n="settings.no_active_stopwatches">No active stopwatches.</em>
 
 <h1><img src="assets/transition.svg" /><span data-i18n="settings.transitions">Transitions</span></h1>
 <ol v-if="transitions.length > 0">
-	<transition-item
+	<chronograph-item
 		v-for="transition in transitions"
-		v-bind:transition="transition"
+		v-bind:chronograph="transition"
 		v-bind:key="transition.id"
-	></transition-item>
+	></chronograph-item>
 </ol>
 <em v-else data-i18n="settings.no_active_transitions">No active transitions.</em>
 
@@ -44,13 +44,13 @@
 
 <script type="text/javascript">
 	function onHomeyReady(Homey) {
-		Vue.component('timer-item', {
-			props: [ 'timer' ],
+		Vue.component('chronograph-item', {
+			props: [ 'chronograph' ],
 			template:
 				'<li>'
-					+ '<span><strong>{{ timer.name }}</strong></span>'
-					+ '<span><button v-on:click="toggle">{{ timer.running ? Homey.__("settings.pause") : Homey.__("settings.resume") }}</button><button v-on:click="stop">{{ Homey.__("settings.stop") }}</button></span>'
-					+ '<span>{{ $root.niceDuration(Math.max(0, timer.duration)) }}</span>'
+					+ '<span><strong>{{ chronograph.name }}</strong></span>'
+					+ '<span><button v-on:click="toggle">{{ chronograph.running ? Homey.__("settings.pause") : Homey.__("settings.resume") }}</button><button v-on:click="stop">{{ Homey.__("settings.stop") }}</button></span>'
+					+ '<span>{{ calculateDuration(chronograph) }}</span>'
 					+ '<br class="cb">'
 				+ '</li>',
 			updated: function() {
@@ -64,24 +64,24 @@
 			},
 			methods: {
 				stop: function(event) {
-					Homey.api('DELETE', '/timers/' + this.timer.id);
-					var index = app.timers.length;
+					Homey.api('DELETE', '/chronographs/' + this.chronograph.id);
+					var index = app.chronographs.length;
 					while (index--) {
-						if (app.timers[index].id == this.timer.id) {
-							app.timers.splice(index, 1);
+						if (app.chronographs[index].id == this.chronograph.id) {
+							app.chronographs.splice(index, 1);
 							return;
 						}
 					}
 				},
 				toggle: function(event) {
-					this.timer.running = !this.timer.running;
-					Homey.api('PUT', '/timers/' + this.timer.id, this.timer);
+					this.chronograph.running = !this.chronograph.running;
+					Homey.api('PUT', '/chronographs/' + this.chronograph.id, this.chronograph);
 				},
 				update: function() {
-					if (this.timer.running) {
+					if (this.chronograph.running) {
 						if (!this.interval) {
 							this.interval = setInterval(() => {
-								this.timer.duration = this.timer.duration - 100;
+								this.chronograph.duration = this.chronograph.duration + 100;
 							}, 100);
 						}
 					} else {
@@ -90,152 +90,9 @@
 							delete(this.interval);
 						}
 					}
-				}
-			}
-		});
-
-		Vue.component('stopwatch-item', {
-			props: [ 'stopwatch' ],
-			template:
-				'<li>'
-					+ '<span><strong>{{ stopwatch.name }}</strong></span>'
-					+ '<span><button v-on:click="toggle">{{ stopwatch.running ? Homey.__("settings.pause") : Homey.__("settings.resume") }}</button><button v-on:click="stop">{{ Homey.__("settings.stop") }}</button></span>'
-					+ '<span>{{ $root.niceDuration(stopwatch.duration) }}</span>'
-					+ '<br class="cb">'
-				+ '</li>',
-			updated: function() {
-				this.update();
-			},
-			mounted: function() {
-				this.update();
-			},
-			beforeDestroy: function() {
-				clearInterval(this.interval);
-			},
-			methods: {
-				stop: function(event) {
-					Homey.api('DELETE', '/stopwatches/' + this.stopwatch.id);
-					var index = app.stopwatches.length;
-					while (index--) {
-						if (app.stopwatches[index].id == this.stopwatch.id) {
-							app.stopwatches.splice(index, 1);
-							return;
-						}
-					}
 				},
-				toggle: function(event) {
-					this.stopwatch.running = !this.stopwatch.running;
-					Homey.api('PUT', '/stopwatches/' + this.stopwatch.id, this.stopwatch);
-				},
-				update: function() {
-					if (this.stopwatch.running) {
-						if (!this.interval) {
-							this.interval = setInterval(() => {
-								this.stopwatch.duration = this.stopwatch.duration + 100;
-							}, 100);
-						}
-					} else {
-						if (this.interval) {
-							clearInterval(this.interval);
-							delete(this.interval);
-						}
-					}
-				}
-			}
-		});
-
-		Vue.component('transition-item', {
-			props: [ 'transition' ],
-			template:
-				'<li>'
-					+ '<span><strong>{{ transition.name }}</strong></span>'
-					+ '<span><button v-on:click="toggle">{{ transition.running ? Homey.__("settings.pause") : Homey.__("settings.resume") }}</button><button v-on:click="stop">{{ Homey.__("settings.stop") }}</button></span>'
-					+ '<span>{{ $root.niceDuration(transition.duration) }}</span>'
-					+ '<br class="cb">'
-				+ '</li>',
-			updated: function() {
-				this.update();
-			},
-			mounted: function() {
-				this.update();
-			},
-			beforeDestroy: function() {
-				clearInterval(this.interval);
-			},
-			methods: {
-				stop: function(event) {
-					Homey.api('DELETE', '/transitions/' + this.transition.id);
-					var index = app.transitions.length;
-					while (index--) {
-						if (app.transitions[index].id == this.transition.id) {
-							app.transitions.splice(index, 1);
-							return;
-						}
-					}
-				},
-				toggle: function(event) {
-					this.transition.running = !this.transition.running;
-					Homey.api('PUT', '/transitions/' + this.transition.id, this.transition);
-				},
-				update: function() {
-					if (this.transition.running) {
-						if (!this.interval) {
-							this.interval = setInterval(() => {
-								this.transition.duration = this.transition.duration + 100;
-							}, 100);
-						}
-					} else {
-						if (this.interval) {
-							clearInterval(this.interval);
-							delete(this.interval);
-						}
-					}
-				}
-			}
-		});
-
-		var app = new Vue({
-			el: '#app',
-			data: {
-				timers: [],
-				stopwatches: [],
-				transitions: []
-			},
-			methods: {
-				refresh: function() {
-					var timersGet = new Promise((resolve, reject) => {
-						Homey.api('GET', '/timers/', null, (err, body) => {
-							if (err) {
-								reject(err);
-							} else {
-								this.timers = this.sort(JSON.parse(body));
-								resolve();
-							}
-						});
-					});
-					var stopwatchesGet = new Promise((resolve, reject) => {
-						Homey.api('GET', '/stopwatches/', null, (err, body) => {
-							if (err) {
-								reject(err);
-							} else {
-								this.stopwatches = this.sort(JSON.parse(body));
-								resolve();
-							}
-						});
-					});
-					var transitionsGet = new Promise((resolve, reject) => {
-						Homey.api('GET', '/transitions/', null, (err, body) => {
-							if (err) {
-								reject(err);
-							} else {
-								this.transitions = this.sort(JSON.parse(body));
-								resolve();
-							}
-						});
-					});
-					return Promise.all([timersGet, stopwatchesGet, transitionsGet]);
-				},
-				niceDuration(duration) {
+				calculateDuration: function(chronograph) {
+					var duration = Math.max(0, chronograph.prefix == 'Timer' ? chronograph.targetDuration - chronograph.duration : chronograph.duration);
 					duration /= 1e3;
 					var days = Math.floor(duration / (24 * 3600));
 					duration %= (24 * 3600);
@@ -257,6 +114,38 @@
 					}
 
 					return result;
+				}
+			}
+		});
+
+		var app = new Vue({
+			el: '#app',
+			data: {
+				chronographs: []
+			},
+			computed: {
+				timers: function() {
+					return this.chronographs.filter(chronograph => chronograph.prefix == 'Timer');
+				},
+				stopwatches: function() {
+					return this.chronographs.filter(chronograph => chronograph.prefix == 'Stopwatch');
+				},
+				transitions: function() {
+					return this.chronographs.filter(chronograph => chronograph.prefix == 'Transition');
+				}
+			},
+			methods: {
+				refresh: function() {
+					return new Promise((resolve, reject) => {
+						Homey.api('GET', '/chronographs/', null, (err, body) => {
+							if (err) {
+								reject(err);
+							} else {
+								this.chronographs = this.sort(JSON.parse(body));
+								resolve();
+							}
+						});
+					});
 				},
 				sort(what) {
 					return what.sort((left, right) => left.duration == right.duration ? left.name.localeCompare(right.name) : (left.duration > right.duration ? 1 : -1));
@@ -270,55 +159,21 @@
 						setInterval(this.refresh, 5000);
 
 						// Install the event handlers that process real-time events.
-						Homey.on('timer_event', (event) => {
-							var index = this.timers.length;
+						Homey.on('chronograph_event', (event) => {
+							var index = this.chronographs.length;
 							while (index--) {
-								if (this.timers[index].id == event.id) {
+								if (this.chronographs[index].id == event.id) {
 									if (event.removed) {
-										this.timers.splice(index, 1);
+										this.chronographs.splice(index, 1);
 									} else {
-										this.timers[index].duration = event.duration;
-										this.timers[index].running = event.running;
+										this.chronographs[index].duration = event.duration;
+										this.chronographs[index].running = event.running;
 									}
 									return;
 								}
 							}
 							if (!event.removed) {
-								this.timers.push(event);
-							}
-						});
-						Homey.on('stopwatch_event', (event) => {
-							var index = this.stopwatches.length;
-							while (index--) {
-								if (this.stopwatches[index].id == event.id) {
-									if (event.removed) {
-										this.stopwatches.splice(index, 1);
-									} else {
-										this.stopwatches[index].duration = event.duration;
-										this.stopwatches[index].running = event.running;
-									}
-									return;
-								}
-							}
-							if (!event.removed) {
-								this.stopwatches.push(event);
-							}
-						});
-						Homey.on('transition_event', (event) => {
-							var index = this.transitions.length;
-							while (index--) {
-								if (this.transitions[index].id == event.id) {
-									if (event.removed) {
-										this.transitions.splice(index, 1);
-									} else {
-										this.transitions[index].duration = event.duration;
-										this.transitions[index].running = event.running;
-									}
-									return;
-								}
-							}
-							if (!event.removed) {
-								this.transitions.push(event);
+								this.chronographs.push(event);
 							}
 						});
 
