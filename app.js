@@ -49,10 +49,13 @@ class Application extends Homey.App {
 	onInit() {
 		// Initializing cards.
 		this.log('Initializing cards.');
-		this._initializeCards();
+		this._initializeTimerCards();
+		this._initializeStopwatchCards();
+		this._initializeTransitionCards();
 
 		// Install event handlers.
 		this.log('Installing event handlers.');
+		this._installLogEventHandler();
 		this._installEventHandlers();
 
 		// Restore chronographs from settings.
@@ -62,7 +65,7 @@ class Application extends Homey.App {
 		this.log('Application is running.');
 	}
 
-	_initializeCards() {
+	_initializeTimerCards() {
 		this._cards = {
 			// Actions.
 			"timer_start": new TimerStart('timer_start'),
@@ -74,6 +77,22 @@ class Application extends Homey.App {
 			"timer_pause": new TimerPause('timer_pause'),
 			"timer_stop": new TimerStop('timer_stop'),
 			"timer_stop_all": new TimerStopAll('timer_stop_all'),
+
+			// Conditions.
+			"timer_compare": new TimerCompare("timer_compare"),
+			"timer_running": new TimerRunning("timer_running"),
+
+			// Triggers.
+			"timer_started": new TimerStarted('timer_started'),
+			"timer_split": new TimerSplit('timer_split'),
+			"timer_finished": new TimerFinished('timer_finished'),
+			"timer_stopped": new TimerStopped('timer_stopped'),
+		};
+	}
+
+	_initializeStopwatchCards() {
+		this._cards = {
+			// Actions.
 			"stopwatch_start": new StopwatchStart('stopwatch_start'),
 			"stopwatch_resume": new StopwatchResume('stopwatch_resume'),
 			"stopwatch_adjust": new StopwatchAdjust('stopwatch_adjust'),
@@ -81,6 +100,21 @@ class Application extends Homey.App {
 			"stopwatch_pause": new StopwatchPause('stopwatch_pause'),
 			"stopwatch_stop": new StopwatchStop('stopwatch_stop'),
 			"stopwatch_stop_all": new StopwatchStopAll('stopwatch_stop_all'),
+
+			// Conditions.
+			"stopwatch_compare": new StopwatchCompare("stopwatch_compare"),
+			"stopwatch_running": new StopwatchRunning("stopwatch_running"),
+
+			// Triggers.
+			"stopwatch_started": new StopwatchStarted('stopwatch_started'),
+			"stopwatch_split": new StopwatchSplit('stopwatch_split'),
+			"stopwatch_stopped": new StopwatchStopped('stopwatch_stopped'),
+		};
+	}
+
+	_initializeTransitionCards() {
+		this._cards = {
+			// Actions.
 			"transition_start": new TransitionStart('transition_start'),
 			"transition_resume": new TransitionResume('transition_resume'),
 			"transition_adjust": new TransitionAdjust('transition_adjust'),
@@ -89,21 +123,10 @@ class Application extends Homey.App {
 			"transition_stop_all": new TransitionStopAll('transition_stop_all'),
 
 			// Conditions.
-			"timer_compare": new TimerCompare("timer_compare"),
-			"timer_running": new TimerRunning("timer_running"),
-			"stopwatch_compare": new StopwatchCompare("stopwatch_compare"),
-			"stopwatch_running": new StopwatchRunning("stopwatch_running"),
 			"transition_compare": new TransitionCompare("transition_compare"),
 			"transition_running": new TransitionRunning("transition_running"),
 
 			// Triggers.
-			"timer_started": new TimerStarted('timer_started'),
-			"timer_split": new TimerSplit('timer_split'),
-			"timer_finished": new TimerFinished('timer_finished'),
-			"timer_stopped": new TimerStopped('timer_stopped'),
-			"stopwatch_started": new StopwatchStarted('stopwatch_started'),
-			"stopwatch_split": new StopwatchSplit('stopwatch_split'),
-			"stopwatch_stopped": new StopwatchStopped('stopwatch_stopped'),
 			"transition_started": new TransitionStarted('transition_started'),
 			"transition_split": new TransitionSplit('transition_split'),
 			"transition_finished": new TransitionFinished('transition_finished'),
@@ -111,7 +134,7 @@ class Application extends Homey.App {
 		};
 	}
 
-	_installEventHandlers() {
+	_installLogEventHandler() {
 		Chronograph.events.on('log', (chronograph, text, level) => {
 			if (level >= LogLevel.WARNING) {
 				this.error('[' + chronograph.getPrefix() + '] [' + chronograph.getName() + '] ' + text);
@@ -119,6 +142,9 @@ class Application extends Homey.App {
 				this.log('[' + chronograph.getPrefix() + '] [' + chronograph.getName() + '] ' + text);
 			}
 		});
+	}
+
+	_installEventHandlers() {
 		Chronograph.events.mon([ 'started', 'resumed', 'paused', 'updated', 'removed' ], (event, chronograph) => {
 			let raw = {
 				id: chronograph.getId(),
