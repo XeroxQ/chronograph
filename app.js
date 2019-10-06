@@ -24,7 +24,6 @@ const TransitionPause = require('./lib/transition/actions/transition_pause.js');
 const TransitionStop = require('./lib/transition/actions/transition_stop.js');
 const TransitionStopAll = require('./lib/transition/actions/transition_stop_all.js');
 
-
 // Conditions.
 const TimerCompare = require('./lib/timer/conditions/timer_compare.js');
 const TimerRunning = require('./lib/timer/conditions/timer_running.js');

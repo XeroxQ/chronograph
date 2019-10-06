@@ -1,7 +1,7 @@
 {
 	"name": "nl.fellownet.chronograph",
 	"version": "1.0.6",
-	"description": "Adds precise timer- and stopwatch functionality to Homey.",
+	"description": "Adds precise timer, stopwatch and transition functionality to Homey.",
 	"main": "app.js",
 	"directories": {
 		"lib": "lib",

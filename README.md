@@ -1,19 +1,21 @@
 # Chronograph
 
-Adds precise timer- and stopwatch functionality to Homey.
+Adds precise timer, stopwatch and transition functionality to Homey.
 
 [![Build Status](https://travis-ci.com/fellownet/chronograph.svg?branch=master)](https://travis-ci.com/fellownet/chronograph)
 [![Code Climate](https://codeclimate.com/github/fellownet/chronograph/badges/gpa.svg)](https://codeclimate.com/github/fellownet/chronograph)
 
 ## Features
 
-* Self-explanatory flow cards for easy integration of timers and stopwatches in your home automation,
-* Create timers and stopwatches directly from flow cards, no need for a prior configuration,
+* Self-explanatory flow cards for easy integration of timers, stopwatches and transitions in your home automation,
+* Create timers, stopwatches and transitions directly from flow cards, no need for a prior configuration,
 * Start timers with a duration in milliseconds (fractional seconds), seconds, minutes, hours or days,
 * Start stopwatches without a predefined end time,
+* Start transitions to gradually change a device parameter over time,
 * Trigger flows at exact timer- or stopwatch durations with millisecond (fractional seconds) precision,
-* Pause and resume timers and stopwatches.
-* Support for random or computed durations or adjustments using simple math expressions.
+* Pause and resume timers, stopwatches and transitions with action cards or from within settings,
+* Support for random or computed durations or adjustments using simple math expressions,
+* All timers, stopwatches and transitions are persistent across Homey restarts.
 
 **Simple math expressions**
 
@@ -63,6 +65,10 @@ app.apiGet('/timers').then(result => {
 * GET /stopwatches/:id - retrieve a single timer,
 * PUT /stopwatches/:id - pause or resume a timer,
 * DELETE /stopwatches/:id - stops a timer.
+* GET /transitions - retrieve a list of all active transitions,
+* GET /transitions/:id - retrieve a single transition,
+* PUT /transitions/:id - pause or resume a transition,
+* DELETE /transitions/:id - stops a transition.
 
 ## Contributing
 
@@ -85,7 +91,8 @@ Application image by [Agê Barros](https://unsplash.com/@agebarros?utm_source=un
 
 ### v1.0.6
 
-* Support for simple math expressions in timer and stopwatch durations.
+* Added transitions to gradually change a value over time.
+* Support for simple math expressions in timer, stopwatch and transition durations.
 
 ### v1.0.3
 
