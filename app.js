@@ -2,7 +2,7 @@
 
 const Homey = require('homey');
 const Chronograph = require('./lib/chronograph.js');
-const { LogLevel } = require('./lib/utils.js');
+const { Utils, ChronographType, LogLevel } = require('./lib/utils.js');
 
 // Actions.
 const TimerStart = require('./lib/timer/actions/timer_start.js');
@@ -42,6 +42,7 @@ const StopwatchStarted = require('./lib/stopwatch/triggers/stopwatch_started.js'
 const StopwatchSplit = require('./lib/stopwatch/triggers/stopwatch_split.js');
 const StopwatchStopped = require('./lib/stopwatch/triggers/stopwatch_stopped.js');
 const TransitionStarted = require('./lib/transition/triggers/transition_started.js');
+const TransitionSplit = require('./lib/transition/triggers/transition_split.js');
 const TransitionFinished = require('./lib/transition/triggers/transition_finished.js');
 const TransitionStopped = require('./lib/transition/triggers/transition_stopped.js');
 
@@ -105,6 +106,7 @@ class Application extends Homey.App {
 			"stopwatch_split": new StopwatchSplit('stopwatch_split'),
 			"stopwatch_stopped": new StopwatchStopped('stopwatch_stopped'),
 			"transition_started": new TransitionStarted('transition_started'),
+			"transition_split": new TransitionSplit('transition_split'),
 			"transition_finished": new TransitionFinished('transition_finished'),
 			"transition_stopped": new TransitionStopped('transition_stopped')
 		};
@@ -125,6 +127,7 @@ class Application extends Homey.App {
 				name: chronograph.getName(),
 				duration: chronograph.getDuration(),
 				targetDuration: chronograph.getTargetDuration(),
+				data: chronograph.getAllData(),
 				running: chronograph.isRunning(),
 				removed: event == 'removed',
 				now: (new Date()).getTime()
@@ -143,10 +146,7 @@ class Application extends Homey.App {
 	_restoreChronographs() {
 		let active = Homey.ManagerSettings.get('chronographs_active') || {};
 		Object.values(active).forEach(raw => {
-			let duration = raw.duration;
-			if (raw.running) {
-				duration += ((new Date()).getTime() - raw.now);
-			}
+			// Create the correct type of chronograph.
 			let chronograph;
 			if (raw.targetDuration) {
 				chronograph = new Chronograph(raw.prefix, raw.name, raw.targetDuration, 'milliseconds');
@@ -154,16 +154,40 @@ class Application extends Homey.App {
 				chronograph = new Chronograph(raw.prefix, raw.name);
 			}
 
-			let splits = Homey.ManagerSettings.get('timer_splits') || [];
-			splits.forEach(split => {
-				let reversedSplit = chronograph.getTargetDuration() - Utils.calculateDuration(split.time, split.unit);
-				chronograph.addSplit(reversedSplit, 'milliseconds', split);
-			});
+			// Add the splits.
+			if (raw.prefix == ChronographType.TIMER) {
+				let splits = Homey.ManagerSettings.get('timer_splits') || [];
+				splits
+					.filter(split => split.name == chronograph.getName())
+					.forEach(split => {
+						let reversedSplit = chronograph.getTargetDuration() - Utils.calculateDuration(split.time, split.unit);
+						chronograph.addSplit(reversedSplit, 'milliseconds', split);
+					});
+			}
 
-			splits = Homey.ManagerSettings.get('stopwatch_splits') || [];
-			splits.forEach(split => chronograph.addSplit(split.time, split.unit, split));
+			if (raw.prefix == ChronographType.STOPWATCH) {
+				let splits = Homey.ManagerSettings.get('stopwatch_splits') || [];
+				splits
+					.filter(split => split.name == chronograph.getName())
+					.forEach(split => chronograph.addSplit(split.time, split.unit, split));
+			}
 
+			if (raw.prefix == ChronographType.TRANSITION) {
+				let steps = raw.data.steps--;
+				let stepDuration = chronograph.getTargetDuration() / steps;
+				while(--steps > 0) {
+					chronograph.addSplit(steps * stepDuration, 'milliseconds');
+				}
+			}
+
+			// Move to exact duration, taking the offline time into account.
+			let duration = raw.duration;
+			if (raw.running) {
+				duration += ((new Date()).getTime() - raw.now);
+			}
 			chronograph.adjust(duration, 'milliseconds', true);
+
+			// Start chronograph if it was running before.
 			if (raw.running) {
 				chronograph.start(true);
 			}
