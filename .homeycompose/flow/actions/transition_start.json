@@ -26,6 +26,39 @@
 			"type": "text"
 		},
 		{
+			"name": "from",
+			"title": {
+				"en": "From",
+				"nl": "Van",
+				"de": "Von"
+			},
+			"type": "number",
+			"min": 0,
+			"step": 0.01
+		},
+		{
+			"name": "to",
+			"title": {
+				"en": "To",
+				"nl": "Naar",
+				"de": "Nach"
+			},
+			"type": "number",
+			"min": 0,
+			"step": 0.01
+		},
+		{
+			"name": "steps",
+			"title": {
+				"en": "Steps",
+				"nl": "Stappen",
+				"de": "Schritte"
+			},
+			"type": "number",
+			"min": 2,
+			"step": 1
+		},
+		{
 			"name": "time",
 			"title": {
 				"en": "Duration",
@@ -77,39 +110,6 @@
 					}
 				}
 			]
-		},
-		{
-			"name": "from",
-			"title": {
-				"en": "From",
-				"nl": "Van",
-				"de": "Von"
-			},
-			"type": "number",
-			"min": 0,
-			"step": 0.01
-		},
-		{
-			"name": "to",
-			"title": {
-				"en": "To",
-				"nl": "Naar",
-				"de": "Nach"
-			},
-			"type": "number",
-			"min": 0,
-			"step": 0.01
-		},
-		{
-			"name": "steps",
-			"title": {
-				"en": "Steps",
-				"nl": "Stappen",
-				"de": "Schritte"
-			},
-			"type": "number",
-			"min": 2,
-			"step": 1
 		}
 	]
 }
