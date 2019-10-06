@@ -6,8 +6,8 @@ let getAllFn = (getter, args, callback) => {
 	getter().forEach(entity => {
 		result.push({
 			id: entity.getId(),
-			prefix: entity.getPrefix(),
 			name: entity.getName(),
+			data: entity.getAllData(),
 			duration: entity.getDuration(),
 			targetDuration: entity.getTargetDuration(),
 			running: entity.isRunning()
@@ -24,8 +24,8 @@ let getOneFn = (getter, args, callback) => {
 	}
 	callback(null, {
 		id: entity.getId(),
-		prefix: entity.getPrefix(),
 		name: entity.getName(),
+		data: entity.getAllData(),
 		duration: entity.getDuration(),
 		targetDuration: entity.getTargetDuration(),
 		running: entity.isRunning()
@@ -52,8 +52,8 @@ let putOneFn = (getter, args, callback) => {
 	}
 	callback(null, {
 		id: entity.getId(),
-		prefix: entity.getPrefix(),
 		name: entity.getName(),
+		data: entity.getAllData(),
 		duration: entity.getDuration(),
 		targetDuration: entity.getTargetDuration(),
 		running: entity.isRunning()
@@ -75,73 +75,73 @@ module.exports = [
 		method: 'GET',
 		path: '/timers/',
 		public: false,
-		fn: getAllFn.bind(null, () => Chronograph.all().filter(entity => entity.getPrefix() == ChronographType.TIMER))
+		fn: getAllFn.bind(null, () => Chronograph.all().filter(entity => entity.getData('type') == ChronographType.TIMER))
 	},
 	{
 		method: 'GET',
 		path: '/timers/:id',
 		public: false,
-		fn: getOneFn.bind(null, Chronograph.getById)
+		fn: getOneFn.bind(null, Chronograph.get)
 	},
 	{
 		method: 'PUT',
 		path: '/timers/:id',
 		public: false,
-		fn: putOneFn.bind(null, Chronograph.getById)
+		fn: putOneFn.bind(null, Chronograph.get)
 	},
 	{
 		method: 'DELETE',
 		path: '/timers/:id',
 		public: false,
-		fn: deleteOneFn.bind(null, Chronograph.getById)
+		fn: deleteOneFn.bind(null, Chronograph.get)
 	},
 	{
 		method: 'GET',
 		path: '/stopwatches/',
 		public: false,
-		fn: getAllFn.bind(null, () => Chronograph.all().filter(entity => entity.getPrefix() == ChronographType.STOPWATCH))
+		fn: getAllFn.bind(null, () => Chronograph.all().filter(entity => entity.getData('type') == ChronographType.STOPWATCH))
 	},
 	{
 		method: 'GET',
 		path: '/stopwatches/:id',
 		public: false,
-		fn: getOneFn.bind(null, Chronograph.getById)
+		fn: getOneFn.bind(null, Chronograph.get)
 	},
 	{
 		method: 'PUT',
 		path: '/stopwatches/:id',
 		public: false,
-		fn: putOneFn.bind(null, Chronograph.getById)
+		fn: putOneFn.bind(null, Chronograph.get)
 	},
 	{
 		method: 'DELETE',
 		path: '/stopwatches/:id',
 		public: false,
-		fn: deleteOneFn.bind(null, Chronograph.getById)
+		fn: deleteOneFn.bind(null, Chronograph.get)
 	},
 	{
 		method: 'GET',
 		path: '/transitions/',
 		public: false,
-		fn: getAllFn.bind(null, () => Chronograph.all().filter(entity => entity.getPrefix() == ChronographType.TRANSITION))
+		fn: getAllFn.bind(null, () => Chronograph.all().filter(entity => entity.getData('type') == ChronographType.TRANSITION))
 	},
 	{
 		method: 'GET',
 		path: '/transitions/:id',
 		public: false,
-		fn: getOneFn.bind(null, Chronograph.getById)
+		fn: getOneFn.bind(null, Chronograph.get)
 	},
 	{
 		method: 'PUT',
 		path: '/transitions/:id',
 		public: false,
-		fn: putOneFn.bind(null, Chronograph.getById)
+		fn: putOneFn.bind(null, Chronograph.get)
 	},
 	{
 		method: 'DELETE',
 		path: '/transitions/:id',
 		public: false,
-		fn: deleteOneFn.bind(null, Chronograph.getById)
+		fn: deleteOneFn.bind(null, Chronograph.get)
 	},
 	{
 		method: 'GET',
@@ -153,18 +153,18 @@ module.exports = [
 		method: 'GET',
 		path: '/chronographs/:id',
 		public: false,
-		fn: getOneFn.bind(null, Chronograph.getById)
+		fn: getOneFn.bind(null, Chronograph.get)
 	},
 	{
 		method: 'PUT',
 		path: '/chronographs/:id',
 		public: false,
-		fn: putOneFn.bind(null, Chronograph.getById)
+		fn: putOneFn.bind(null, Chronograph.get)
 	},
 	{
 		method: 'DELETE',
 		path: '/chronographs/:id',
 		public: false,
-		fn: deleteOneFn.bind(null, Chronograph.getById)
+		fn: deleteOneFn.bind(null, Chronograph.get)
 	}
 ];

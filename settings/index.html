@@ -92,7 +92,7 @@
 					}
 				},
 				calculateDuration: function(chronograph) {
-					var duration = Math.max(0, chronograph.prefix == 'Timer' ? chronograph.targetDuration - chronograph.duration : chronograph.duration);
+					var duration = Math.max(0, chronograph.data.type == 'Timer' ? chronograph.targetDuration - chronograph.duration : chronograph.duration);
 					duration /= 1e3;
 					var days = Math.floor(duration / (24 * 3600));
 					duration %= (24 * 3600);
@@ -125,13 +125,13 @@
 			},
 			computed: {
 				timers: function() {
-					return this.chronographs.filter(chronograph => chronograph.prefix == 'Timer');
+					return this.chronographs.filter(chronograph => chronograph.data.type == 'Timer');
 				},
 				stopwatches: function() {
-					return this.chronographs.filter(chronograph => chronograph.prefix == 'Stopwatch');
+					return this.chronographs.filter(chronograph => chronograph.data.type == 'Stopwatch');
 				},
 				transitions: function() {
-					return this.chronographs.filter(chronograph => chronograph.prefix == 'Transition');
+					return this.chronographs.filter(chronograph => chronograph.data.type == 'Transition');
 				}
 			},
 			methods: {

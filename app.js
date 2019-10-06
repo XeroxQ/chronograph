@@ -137,9 +137,9 @@ class Application extends Homey.App {
 	_installLogEventHandler() {
 		Chronograph.events.on('log', (chronograph, text, level) => {
 			if (level >= LogLevel.WARNING) {
-				this.error('[' + chronograph.getPrefix() + '] [' + chronograph.getName() + '] ' + text);
+				this.error('[' + chronograph.getData('type') + '] [' + chronograph.getName() + '] ' + text);
 			} else {
-				this.log('[' + chronograph.getPrefix() + '] [' + chronograph.getName() + '] ' + text);
+				this.log('[' + chronograph.getData('type') + '] [' + chronograph.getName() + '] ' + text);
 			}
 		});
 	}
@@ -148,7 +148,6 @@ class Application extends Homey.App {
 		Chronograph.events.mon([ 'started', 'resumed', 'paused', 'updated', 'removed' ], (event, chronograph) => {
 			let raw = {
 				id: chronograph.getId(),
-				prefix: chronograph.getPrefix(),
 				name: chronograph.getName(),
 				duration: chronograph.getDuration(),
 				targetDuration: chronograph.getTargetDuration(),
@@ -172,15 +171,17 @@ class Application extends Homey.App {
 		let active = Homey.ManagerSettings.get('chronographs_active') || {};
 		Object.values(active).forEach(raw => {
 			// Create the correct type of chronograph.
+			let id = Utils.generateId(raw.data.type, raw.name);
 			let chronograph;
 			if (raw.targetDuration) {
-				chronograph = new Chronograph(raw.prefix, raw.name, raw.targetDuration, 'milliseconds');
+				chronograph = new Chronograph(id, raw.name, raw.targetDuration, 'milliseconds');
 			} else {
-				chronograph = new Chronograph(raw.prefix, raw.name);
+				chronograph = new Chronograph(id, raw.name);
 			}
+			chronograph.setData('type', raw.data.type);
 
 			// Add the splits.
-			if (raw.prefix == ChronographType.TIMER) {
+			if (raw.data.type == ChronographType.TIMER) {
 				let splits = Homey.ManagerSettings.get('timer_splits') || [];
 				splits
 					.filter(split => split.name == chronograph.getName())
@@ -190,14 +191,14 @@ class Application extends Homey.App {
 					});
 			}
 
-			if (raw.prefix == ChronographType.STOPWATCH) {
+			if (raw.data.type == ChronographType.STOPWATCH) {
 				let splits = Homey.ManagerSettings.get('stopwatch_splits') || [];
 				splits
 					.filter(split => split.name == chronograph.getName())
 					.forEach(split => chronograph.addSplit(split.time, split.unit, split));
 			}
 
-			if (raw.prefix == ChronographType.TRANSITION) {
+			if (raw.data.type == ChronographType.TRANSITION) {
 				let steps = raw.data.steps--;
 				let stepDuration = chronograph.getTargetDuration() / steps;
 				while(--steps > 0) {

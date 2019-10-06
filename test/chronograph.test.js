@@ -21,36 +21,40 @@ Chronograph.events.on('split', () => events.split = !!events.split ? events.spli
 describe('Chronograph', () => {
 	it('should be properly initialized', function() {
 		let name = 'test timer 1';
-		let timer = new Chronograph(ChronographType.TIMER, name, 1, 'minutes');
-		assert.ok(!!Chronograph.get(ChronographType.TIMER, name), 'timer should be in global timers array');
+		let timer = new Chronograph(1, name, 1, 'minutes');
+		timer.setData('type', ChronographType.TIMER);
+		assert.ok(!!Chronograph.get(1), 'timer should be in global timers array');
 		assert.equal(60000, timer.getTargetDuration(), 'target duration should be set correctly');
 		assert.ok(!timer.isRunning(), 'new timer should not be running');
 		assert.ok(!!events.created, 'created event should be emitted');
 		assert.equal(timer, events.created, 'created event should emit correct timer');
 
-		timer = new Chronograph(ChronographType.TIMER, name, 1, 'days');
+		timer = new Chronograph(1, name, 1, 'days');
+		timer.setData('type', ChronographType.TIMER);
 		assert.equal(60000 * 60 * 24, timer.getTargetDuration(), 'duration should be set correctly');
 		assert.ok(!timer.isRunning(), 'new timer should not be running');
 		assert.ok(!!events.updated, 'updated event should be emitted');
 		assert.equal(timer, events.updated, 'updated event should emit correct timer');
 		timer.stop();
 		timer.stop(); // second stop should do nothing
-		assert.ok(!Chronograph.get(ChronographType.TIMER, name), 'timer should not be in global timers array');
+		assert.ok(!Chronograph.get(1), 'timer should not be in global timers array');
 
 		name = 'test stopwatch 1';
-		let stopwatch = new Chronograph(ChronographType.STOPWATCH, name);
-		assert.ok(!!Chronograph.get(ChronographType.STOPWATCH, name), 'stopwatch should be in global stopwatches array');
+		let stopwatch = new Chronograph(3, name);
+		stopwatch.setData('type', ChronographType.STOPWATCH);
+		assert.ok(!!Chronograph.get(3), 'stopwatch should be in global stopwatches array');
 		assert.ok(!stopwatch.isRunning(), 'new stopwatch should not be running');
 		assert.ok(!!events.created, 'created event should be emitted');
 		assert.equal(stopwatch, events.created, 'created event should emit correct stopwatch');
 
-		stopwatch = new Chronograph(ChronographType.STOPWATCH, name);
+		stopwatch = new Chronograph(3, name);
+		stopwatch.setData('type', ChronographType.STOPWATCH);
 		assert.ok(!stopwatch.isRunning(), 'new stopwatch should not be running');
 		assert.ok(!!events.updated, 'updated event should be emitted');
 		assert.equal(stopwatch, events.updated, 'updated event should emit correct stopwatch');
 		stopwatch.stop();
 		stopwatch.stop(); // second stop should do nothing
-		assert.ok(!Chronograph.get(ChronographType.STOPWATCH, name), 'stopwatch should not be in global stopwatches array');
+		assert.ok(!Chronograph.get(3), 'stopwatch should not be in global stopwatches array');
 
 		events = {};
 	});
@@ -59,15 +63,16 @@ describe('Chronograph', () => {
 		this.timeout(250); // the entire test should not exceed this timeout
 
 		let name = 'test timer 2';
-		let timer = new Chronograph(ChronographType.TIMER, name, 0.1, 'seconds');
-		assert.ok(!!Chronograph.get(ChronographType.TIMER, name), 'timer should be in global timers array');
+		let timer = new Chronograph(5, name, 0.1, 'seconds');
+		timer.setData('type', ChronographType.TIMER);
+		assert.ok(!!Chronograph.get(5), 'timer should be in global timers array');
 		timer.start();
 		timer.start(); // second start should do nothing
 		assert.ok(!!events.started, 'started event should be emitted');
 		assert.equal(timer, events.started, 'started event should emit correct timer');
 		assert.ok(timer.isRunning(), 'new timer should be running');
 		setTimeout(() => {
-			assert.ok(!Chronograph.get(ChronographType.TIMER, name), 'timer should not be in global timers array after finish');
+			assert.ok(!Chronograph.get(5), 'timer should not be in global timers array after finish');
 			assert.equal(timer.getDuration(), timer.getTargetDuration(), 'after finishing the timer should have a the target duration')
 			assert.ok(!timer.isRunning(), 'new timer should not be running after finishing');
 			assert.ok(!!events.finished, 'finished event should be emitted');
@@ -84,15 +89,16 @@ describe('Chronograph', () => {
 		this.timeout(1250); // the entire test should not exceed this timeout
 
 		let name = 'test timer 3';
-		let timer = new Chronograph(ChronographType.TIMER, name, 0.3, 'seconds');
-		assert.ok(!!Chronograph.get(ChronographType.TIMER, name), 'timer should be in global timers array');
+		let timer = new Chronograph(6, name, 0.3, 'seconds');
+		timer.setData('type', ChronographType.TIMER);
+		assert.ok(!!Chronograph.get(6), 'timer should be in global timers array');
 		timer.start();
 		assert.ok(!!events.started, 'started event should be emitted');
 		assert.equal(timer, events.started, 'started event should emit correct timer');
 
 		setTimeout(() => {
 			timer.stop();
-			assert.ok(!Chronograph.get(ChronographType.TIMER, name), 'timer should not be in global timers array after stopping');
+			assert.ok(!Chronograph.get(6), 'timer should not be in global timers array after stopping');
 			assert.ok(!timer.isRunning(), 'stopped timer should not be running');
 			assert.ok(!!events.stopped, 'stopped event should be emitted');
 			assert.equal(timer, events.stopped, 'stopped event should emit correct timer');
@@ -113,8 +119,9 @@ describe('Chronograph', () => {
 		this.timeout(450); // the entire test should not exceed this timeout
 
 		let name = 'test stopwatch 2';
-		let stopwatch = new Chronograph(ChronographType.STOPWATCH, name);
-		assert.ok(!!Chronograph.get(ChronographType.STOPWATCH, name), 'stopwatch should be in global stopwatches array');
+		let stopwatch = new Chronograph(7, name);
+		stopwatch.setData('type', ChronographType.STOPWATCH);
+		assert.ok(!!Chronograph.get(7), 'stopwatch should be in global stopwatches array');
 		stopwatch.start();
 		stopwatch.start(); // second start should do nothing
 		assert.ok(!!events.started, 'started event should be emitted');
@@ -133,8 +140,9 @@ describe('Chronograph', () => {
 		this.timeout(3100); // the entire test should not exceed this timeout
 
 		let name = 'test timer 4';
-		let timer = new Chronograph(ChronographType.TIMER, name, 2, 'seconds');
-		assert.ok(!!Chronograph.get(ChronographType.TIMER, name), 'timer should be in global timers array');
+		let timer = new Chronograph(8, name, 2, 'seconds');
+		timer.setData('type', ChronographType.TIMER);
+		assert.ok(!!Chronograph.get(8), 'timer should be in global timers array');
 		timer.start();
 		assert.ok(!!events.started, 'started event should be emitted');
 		assert.equal(timer, events.started, 'started event should emit correct timer');
@@ -143,7 +151,7 @@ describe('Chronograph', () => {
 			assert.ok(timer.isRunning(), 'timer should be running');
 			timer.pause();
 			assert.ok(!timer.isRunning(), 'paused timer should not be running');
-			assert.ok(!!Chronograph.get(ChronographType.TIMER, name), 'timer should still be in global timers array after pause');
+			assert.ok(!!Chronograph.get(8), 'timer should still be in global timers array after pause');
 			assert.ok((timer.getTargetDuration() - timer.getDuration()) > 1450 && (timer.getTargetDuration() - timer.getDuration()) < 1550,	'timer should stopped at the correct position');
 			assert.ok(!!events.paused, 'paused event should be emitted');
 			assert.equal(timer, events.paused, 'paused event should emit correct timer');
@@ -151,7 +159,7 @@ describe('Chronograph', () => {
 			setTimeout(() => {
 				assert.ok((timer.getTargetDuration() - timer.getDuration()) > 1450 && (timer.getTargetDuration() - timer.getDuration()) < 1550, 'timer should not moved when paused');
 				timer.resume();
-				assert.ok(!!Chronograph.get(ChronographType.TIMER, name), 'timer should still be in global timers array after resume');
+				assert.ok(!!Chronograph.get(8), 'timer should still be in global timers array after resume');
 				assert.ok(timer.isRunning(), 'timer should be running');
 				assert.ok(!!events.resumed, 'resumed event should be emitted');
 				assert.equal(timer, events.resumed, 'resumed event should emit correct timer');
@@ -161,11 +169,11 @@ describe('Chronograph', () => {
 					timer.pause();
 					assert.ok(timer.getDuration() > 950 && timer.getDuration() < 1050, 'timer duration should be correct while paused');
 					assert.ok(!timer.isRunning(), 'paused timer should not be running');
-					assert.ok(!!Chronograph.get(ChronographType.TIMER, name), 'timer should still be in global timers array after pause');
+					assert.ok(!!Chronograph.get(8), 'timer should still be in global timers array after pause');
 					timer.resume();
 
 					setTimeout(() => {
-						assert.ok(!Chronograph.get(ChronographType.TIMER, name), 'timer should not be in global timers array after finish');
+						assert.ok(!Chronograph.get(8), 'timer should not be in global timers array after finish');
 						assert.equal(timer.getTargetDuration(), timer.getDuration(), 'after finishing the timer should have the target duration')
 						assert.ok(!timer.isRunning(), 'new timer should not be running after finishing');
 						assert.ok(!!events.finished, 'finished event should be emitted');
@@ -185,8 +193,9 @@ describe('Chronograph', () => {
 		this.timeout(250); // the entire test should not exceed this timeout
 
 		let name = 'test timer 5';
-		let timer = new Chronograph(ChronographType.TIMER, name, 1, 'days');
-		assert.ok(!!Chronograph.get(ChronographType.TIMER, name), 'timer should be in global timers array');
+		let timer = new Chronograph(9, name, 1, 'days');
+		timer.setData('type', ChronographType.TIMER);
+		assert.ok(!!Chronograph.get(9), 'timer should be in global timers array');
 		timer.start();
 		assert.ok(!!events.started, 'started event should be emitted');
 		assert.equal(timer, events.started, 'started event should emit correct timer');
@@ -202,7 +211,7 @@ describe('Chronograph', () => {
 			setTimeout(() => {
 				assert.ok(!timer.isRunning(), 'paused timer should not be running');
 				timer.stop();
-				assert.ok(!Chronograph.get(ChronographType.TIMER, name), 'timer should not be in global timers array after stopping');
+				assert.ok(!Chronograph.get(9), 'timer should not be in global timers array after stopping');
 				assert.ok(!timer.isRunning(), 'stopped timer should not be running');
 				assert.ok(!!events.stopped, 'stopped event should be emitted');
 				assert.equal(timer, events.stopped, 'stopped event should emit correct timer');
@@ -217,8 +226,9 @@ describe('Chronograph', () => {
 		this.timeout(2300); // the entire test should not exceed this timeout
 
 		let name = 'test timer 6';
-		let timer = new Chronograph(ChronographType.TIMER, name, 1, 'seconds');
-		assert.ok(!!Chronograph.get(ChronographType.TIMER, name), 'timer should be in global timers array');
+		let timer = new Chronograph(10, name, 1, 'seconds');
+		timer.setData('type', ChronographType.TIMER);
+		assert.ok(!!Chronograph.get(10), 'timer should be in global timers array');
 		timer.addSplit(0.2, 'seconds');
 		timer.addSplit(0.4, 'seconds');
 		timer.addSplit(0.7, 'seconds');
@@ -256,8 +266,9 @@ describe('Chronograph', () => {
 		this.timeout(4150); // the entire test should not exceed this timeout
 
 		let name = 'test timer 7';
-		let timer = new Chronograph(ChronographType.TIMER, name, 1, 'hours');
-		assert.ok(!!Chronograph.get(ChronographType.TIMER, name), 'timer should be in global timers array');
+		let timer = new Chronograph(11, name, 1, 'hours');
+		timer.setData('type', ChronographType.TIMER);
+		assert.ok(!!Chronograph.get(11), 'timer should be in global timers array');
 		timer.addSplit(3600 - 3599.5, 'seconds');
 		timer.addSplit(3600 - 3599.3, 'seconds');
 		timer.addSplit(3600 - 0.5, 'seconds');
@@ -293,7 +304,7 @@ describe('Chronograph', () => {
 							assert.ok(!events.stopped, 'stopped event should not be emitted');
 							assert.ok(!!events.finished, 'finished event should be emitted');
 							assert.equal(timer, events.finished, 'finished event should emit correct timer');
-							assert.ok(!Chronograph.get(ChronographType.TIMER, name), 'timer should not be in global timers array after finish');
+							assert.ok(!Chronograph.get(11), 'timer should not be in global timers array after finish');
 
 							events = {};
 							done();
@@ -306,15 +317,16 @@ describe('Chronograph', () => {
 
 	it('should allow for multiple timers at once', function(done) {
 		for (var i = 1; i <= 50; i++) {
-			new Chronograph(ChronographType.TIMER, 'bulk timer ' + i, Math.random(), 'seconds');
+			let timer = new Chronograph(12 + i, 'bulk timer ' + i, Math.random(), 'seconds');
+			timer.setData('type', ChronographType.TIMER);
 		}
-		let all = Chronograph.all().filter(chronograph => chronograph.getPrefix() == ChronographType.TIMER);
+		let all = Chronograph.all().filter(chronograph => chronograph.getData('type') == ChronographType.TIMER);
 		assert.equal(50, all.length);
 		all.forEach(timer => {
 			timer.start();
 		});
 		setTimeout(() => {
-			all = Chronograph.all().filter(chronograph => chronograph.getPrefix() == ChronographType.TIMER);
+			all = Chronograph.all().filter(chronograph => chronograph.getData('type') == ChronographType.TIMER);
 			assert.equal(0, all.length);
 
 			events = {};
