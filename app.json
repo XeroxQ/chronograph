@@ -51,6 +51,13 @@
     "name": "Fellownet",
     "email": "bob@fellownet.nl"
   },
+  "contributing": {
+    "donate": {
+      "paypal": {
+        "username": "bobkersten"
+      }
+    }
+  },
   "contributors": {
     "developers": [
       {
