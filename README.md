@@ -4,6 +4,7 @@ Adds precise timer, stopwatch and transition functionality to Homey.
 
 [![Build Status](https://travis-ci.com/fellownet/chronograph.svg?branch=master)](https://travis-ci.com/fellownet/chronograph)
 [![Code Climate](https://codeclimate.com/github/fellownet/chronograph/badges/gpa.svg)](https://codeclimate.com/github/fellownet/chronograph)
+[![Donate](https://img.shields.io/badge/paypal-donate-blue.svg)](https://www.paypal.me/bobkersten)
 
 ## Features
 
