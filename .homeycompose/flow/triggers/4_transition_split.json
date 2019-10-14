@@ -13,7 +13,7 @@
 	"hint": {
 		"en": "This card is activated when a transition with the provided name has reached a step.",
 		"nl": "Dit kaartje wordt geactiveerd als een transitie met de ingevoerde naam een stap bereikt.",
-		"de": "Diese Karte wird aktiviert, wenn ein Übergang mit dem angegebenen Namen einen Schritt erreicht hat."
+		"de": "Diese Karte wird aktiviert wenn ein Übergang mit dem angegebenen Namen einen Schritt erreicht hat."
 	},
 	"args": [
 		{

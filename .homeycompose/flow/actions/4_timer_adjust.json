@@ -14,8 +14,7 @@
 	"hint": {
 		"en": "Use this card to adjust the duration of the timer with the provided name. Use a positive duration to extend the timer, or a negative duration to shorten the timer.",
 		"nl": "Gebruik dit kaartje om de looptijd van de timer met de ingevoerde naam aan te passen. Gebruik een positive looptijd om de timer te verlengen, of een negative looptijd om de timer te verkorten.",
-		"de": "Verwenden Sie diese Karte um die Dauer des Timers mit dem angegebenen Namen anzupassen. Verwenden Sie eine positive Dauer um den Timer zu verlängern oder eine negative Dauer um den Timer zu verkürzen."
-
+		"de": "Verwende diese Karte um die Dauer des Timers mit dem angegebenen Namen anzupassen. Verwende eine positive Dauer um den Timer zu verlängern oder eine negative Dauer um den Timer zu verkürzen."
 	},
 	"args": [
 		{

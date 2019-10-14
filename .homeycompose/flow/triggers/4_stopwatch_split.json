@@ -4,17 +4,17 @@
 		"title": {
 			"en": "Stopwatch reached a duration",
 			"nl": "Stopwatch heeft looptijd bereikt",
-			"de": "Stopwatch hat eine Dauer erreicht."
+			"de": "Stoppuhr hat eine Dauer erreicht."
 		},
 		"titleFormatted": {
 			"en": "Stopwatch [[name]] has reached a duration of [[time]] [[unit]]",
 			"nl": "Stopwatch [[name]] heeft een looptijd van [[time]] [[unit]] bereikt",
-			"de": "Stopwatch [[name]] hat eine Dauer von [[time]] [[unit]] erreicht"
+			"de": "Stoppuhr [[name]] hat eine Dauer von [[time]] [[unit]] erreicht"
 		},
 		"hint": {
 			"en": "This card is activated when a stopwatch with the provided name has reached a specific duration.",
 			"nl": "Dit kaartje wordt geactiveerd als een stopwatch met de ingevoerde naam een bepaalde looptijd heeft bereikt.",
-			"de": "Diese Karte wird aktiviert, wenn eine Stoppuhr mit dem angegebenen Namen eine bestimmte Dauer erreicht hat."
+			"de": "Diese Karte wird aktiviert wenn eine Stoppuhr mit dem angegebenen Namen eine bestimmte Dauer erreicht hat."
 		},
 		"args": [
 			{

@@ -13,7 +13,7 @@
 	"hint": {
 		"en": "Use this card to run or cancel a flow depending on the duration of the transition with the provided name.",
 		"nl": "Gebruik dit kaartje om een flow wel of niet uit te voeren afhankelijk van de looptijd van de transitie met de ingevoerde naam.",
-		"de": "Verwenden Sie diese Karte um einen Flow abhängig von der Dauer des Übergangs mit dem angegebenen Namen auszuführen oder abzubrechen."
+		"de": "Verwende diese Karte um einen Flow abhängig von der Dauer des Übergangs mit dem angegebenen Namen auszuführen oder abzubrechen."
 	},
 	"args": [
 		{

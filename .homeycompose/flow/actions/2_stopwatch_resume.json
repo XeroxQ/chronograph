@@ -15,7 +15,7 @@
 	"hint": {
 		"en": "Use this card to start a stopwatch with the provided name. If a stopwatch with the same name is already running, it is resumed.",
 		"nl": "Gebruik dit kaartje om een stopwatch te starten met de ingevoerde naam. Als er al een stopwatch met dezelfde naam loopt dan wordt deze hervat.",
-		"de": "Verwenden Sie diese Karte um eine Stoppuhr mit dem angegebenen Namen zu starten. Wenn bereits eine Stoppuhr mit dem gleichen Namen läuft, wird sie fortgesetzt."
+		"de": "Verwende diese Karte um eine Stoppuhr mit dem angegebenen Namen zu starten. Wenn bereits eine Stoppuhr mit dem gleichen Namen läuft, wird sie fortgesetzt."
 
 	},
 	"args": [

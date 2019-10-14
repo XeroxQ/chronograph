@@ -13,8 +13,7 @@
 	"hint": {
 		"en": "Use this card to adjust the duration of the transition with the provided name. Use a positive duration to extend the transition, or a negative duration to shorten the transition.",
 		"nl": "Gebruik dit kaartje om de looptijd van de transitie met de ingevoerde naam aan te passen. Gebruik een positive looptijd om de transitie te verlengen, of een negative looptijd om de transitie te verkorten.",
-		"de": "Verwenden Sie diese Karte um die Dauer des Übergang mit dem angegebenen Namen anzupassen. Verwenden Sie eine positive Dauer um den Übergang zu verlängern oder eine negative Dauer um den Übergang zu verkürzen."
-
+		"de": "Verwende diese Karte um die Dauer des Übergang mit dem angegebenen Namen anzupassen. Verwende eine positive Dauer um den Übergang zu verlängern oder eine negative Dauer um den Übergang zu verkürzen."
 	},
 	"args": [
 		{

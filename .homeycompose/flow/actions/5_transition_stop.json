@@ -10,12 +10,11 @@
 		"en": "Stop transition [[name]]",
 		"nl": "Stop transitie [[name]]",
 		"de": "Übergang stoppen [[name]]"
-
 	},
 	"hint": {
 		"en": "Use this card to stop a transition with the provided name.",
 		"nl": "Gebruik dit kaartje om een transitie te stoppen met de ingevoerde naam.",
-		"de": "Mit dieser Karte können Sie einen Übergang mit dem angegebenen Namen stoppen."
+		"de": "Verwende diese Karte um einen Übergang mit dem angegebenen Namen zu stoppen."
 
 	},
 	"args": [

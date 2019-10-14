@@ -4,17 +4,17 @@
 		"title": {
 			"en": "Stopwatch is paused",
 			"nl": "Stopwatch is gepauzeerd",
-			"de": "Stopwatch ist pausiert"
+			"de": "Stoppuhr ist pausiert"
 		},
 		"titleFormatted": {
 			"en": "Stopwatch [[name]] is paused",
 			"nl": "Stopwatch [[name]] is gepauzeerd",
-			"de": "Stopwatch [[name]] ist pausiert"
+			"de": "Stoppuhr [[name]] ist pausiert"
 		},
 		"hint": {
 			"en": "This card is activated when a stopwatch with the provided name is paused.",
 			"nl": "Dit kaartje wordt geactiveerd als een stopwatch met de ingevoerde naam is gepauzeerd.",
-			"de": "Diese Karte wird aktiviert, wenn eine Stoppuhr mit dem angegebenen Namen pausiert ist."
+			"de": "Diese Karte wird aktiviert wenn eine Stoppuhr mit dem angegebenen Namen pausiert ist."
 		},
 		"args": [
 			{

@@ -14,8 +14,7 @@
 	"hint": {
 		"en": "Use this card to pause a transition with the provided name.",
 		"nl": "Gebruik dit kaartje om een transitie te pauzeren met de ingevoerde naam.",
-		"de": "Mit dieser Karte können Sie einen Übergang mit dem angegebenen Namen anhalten."
-
+		"de": "Verwende diese Karte um einen Übergang mit dem angegebenen Namen anzuhalten."
 	},
 	"args": [
 		{

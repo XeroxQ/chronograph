@@ -73,17 +73,17 @@
         "title": {
           "en": "Stopwatch is started",
           "nl": "Stopwatch is gestart",
-          "de": "Stopwatch ist gestartet"
+          "de": "Stoppuhr ist gestartet"
         },
         "titleFormatted": {
           "en": "Stopwatch [[name]] is started",
           "nl": "Stopwatch [[name]] is gestart",
-          "de": "Stopwatch [[name]] ist gestartet"
+          "de": "Stoppuhr [[name]] ist gestartet"
         },
         "hint": {
           "en": "This card is activated when a stopwatch with the provided name is started.",
           "nl": "Dit kaartje wordt geactiveerd als een stopwatch met de ingevoerde naam is gestart.",
-          "de": "Diese Karte wird aktiviert, wenn eine Stoppuhr mit dem angegebenen Namen gestartet ist."
+          "de": "Diese Karte wird aktiviert wenn eine Stoppuhr mit dem angegebenen Namen gestartet ist."
         },
         "args": [
           {
@@ -128,7 +128,7 @@
         "hint": {
           "en": "This card is activated when a timer with the provided name is started.",
           "nl": "Dit kaartje wordt geactiveerd als een timer met de ingevoerde naam is gestart.",
-          "de": "Diese Karte wird aktiviert, wenn ein Timer mit dem angegebenen Namen gestartet ist."
+          "de": "Diese Karte wird aktiviert wenn ein Timer mit dem angegebenen Namen gestartet ist."
         },
         "args": [
           {
@@ -183,7 +183,7 @@
         "hint": {
           "en": "This card is activated when a transition with the provided name is started.",
           "nl": "Dit kaartje wordt geactiveerd als een transitie met de ingevoerde naam is gestart.",
-          "de": "Diese Karte wird aktiviert, wenn ein Übergang mit dem angegebenen Namen gestartet ist."
+          "de": "Diese Karte wird aktiviert wenn ein Übergang mit dem angegebenen Namen gestartet ist."
         },
         "args": [
           {
@@ -238,7 +238,7 @@
         "hint": {
           "en": "This card is activated when a timer with the provided name is finished, not when a timer is prematurely stopped.",
           "nl": "Dit kaartje wordt geactiveerd als een timer met de ingevoerde naam is afgelopen, niet als een timer vroegtijdig is gestopt.",
-          "de": "Diese Karte wird aktiviert, wenn ein Timer mit dem angegebenen Namen abgelaufen ist, nicht wenn ein Timer vorzeitig gestoppt ist."
+          "de": "Diese Karte wird aktiviert wenn ein Timer mit dem angegebenen Namen abgelaufen ist, nicht wenn ein Timer vorzeitig gestoppt ist."
         },
         "args": [
           {
@@ -283,7 +283,7 @@
         "hint": {
           "en": "This card is activated when a transition with the provided name is finished, not when a transition is prematurely stopped.",
           "nl": "Dit kaartje wordt geactiveerd als een transitie met de ingevoerde naam is afgelopen, niet als een transitie vroegtijdig is gestopt.",
-          "de": "Diese Karte wird aktiviert, wenn ein Übergang mit dem angegebenen Namen abgelaufen ist, nicht wenn ein Übergang vorzeitig gestoppt ist."
+          "de": "Diese Karte wird aktiviert wenn ein Übergang mit dem angegebenen Namen abgelaufen ist, nicht wenn ein Übergang vorzeitig gestoppt ist."
         },
         "args": [
           {
@@ -318,17 +318,17 @@
         "title": {
           "en": "Stopwatch is stopped",
           "nl": "Stopwatch is gestopt",
-          "de": "Stopwatch ist gestoppt"
+          "de": "Stoppuhr ist gestoppt"
         },
         "titleFormatted": {
           "en": "Stopwatch [[name]] is stopped",
           "nl": "Stopwatch [[name]] is gestopt",
-          "de": "Stopwatch [[name]] ist gestoppt"
+          "de": "Stoppuhr [[name]] ist gestoppt"
         },
         "hint": {
           "en": "This card is activated when a stopwatch with the provided name is stopped.",
           "nl": "Dit kaartje wordt geactiveerd als een stopwatch met de ingevoerde naam is gestopt.",
-          "de": "Diese Karte wird aktiviert, wenn eine Stoppuhr mit dem angegebenen Namen gestoppt ist."
+          "de": "Diese Karte wird aktiviert wenn eine Stoppuhr mit dem angegebenen Namen gestoppt ist."
         },
         "args": [
           {
@@ -383,7 +383,7 @@
         "hint": {
           "en": "This card is activated when a timer with the provided name is prematurely stopped, not when a timer is finished.",
           "nl": "Dit kaartje wordt geactiveerd als een timer met de ingevoerde naam vroegtijdig is gestopt, niet als een timer is afgelopen.",
-          "de": "Diese Karte wird aktiviert, wenn ein Timer mit dem angegebenen Namen vorzeitig gestoppt ist, nicht wenn ein Timer abgelaufen ist."
+          "de": "Diese Karte wird aktiviert wenn ein Timer mit dem angegebenen Namen vorzeitig gestoppt ist, nicht wenn ein Timer abgelaufen ist."
         },
         "args": [
           {
@@ -438,7 +438,7 @@
         "hint": {
           "en": "This card is activated when a transition with the provided name is prematurely stopped, not when a transition is finished.",
           "nl": "Dit kaartje wordt geactiveerd als een transitie met de ingevoerde naam vroegtijdig is gestopt, niet als een transitie is afgelopen.",
-          "de": "Diese Karte wird aktiviert, wenn ein Übergang mit dem angegebenen Namen vorzeitig gestoppt ist, nicht wenn ein Übergang abgelaufen ist."
+          "de": "Diese Karte wird aktiviert wenn ein Übergang mit dem angegebenen Namen vorzeitig gestoppt ist, nicht wenn ein Übergang abgelaufen ist."
         },
         "args": [
           {
@@ -483,17 +483,17 @@
         "title": {
           "en": "Stopwatch reached a duration",
           "nl": "Stopwatch heeft looptijd bereikt",
-          "de": "Stopwatch hat eine Dauer erreicht."
+          "de": "Stoppuhr hat eine Dauer erreicht."
         },
         "titleFormatted": {
           "en": "Stopwatch [[name]] has reached a duration of [[time]] [[unit]]",
           "nl": "Stopwatch [[name]] heeft een looptijd van [[time]] [[unit]] bereikt",
-          "de": "Stopwatch [[name]] hat eine Dauer von [[time]] [[unit]] erreicht"
+          "de": "Stoppuhr [[name]] hat eine Dauer von [[time]] [[unit]] erreicht"
         },
         "hint": {
           "en": "This card is activated when a stopwatch with the provided name has reached a specific duration.",
           "nl": "Dit kaartje wordt geactiveerd als een stopwatch met de ingevoerde naam een bepaalde looptijd heeft bereikt.",
-          "de": "Diese Karte wird aktiviert, wenn eine Stoppuhr mit dem angegebenen Namen eine bestimmte Dauer erreicht hat."
+          "de": "Diese Karte wird aktiviert wenn eine Stoppuhr mit dem angegebenen Namen eine bestimmte Dauer erreicht hat."
         },
         "args": [
           {
@@ -602,7 +602,7 @@
         "hint": {
           "en": "This card is activated when a timer with the provided name has reached a specific duration.",
           "nl": "Dit kaartje wordt geactiveerd als een timer met de ingevoerde naam een bepaalde looptijd heeft bereikt.",
-          "de": "Diese Karte wird aktiviert, wenn ein Timer mit dem angegebenen Namen eine bestimmte Dauer erreicht hat."
+          "de": "Diese Karte wird aktiviert wenn ein Timer mit dem angegebenen Namen eine bestimmte Dauer erreicht hat."
         },
         "args": [
           {
@@ -711,7 +711,7 @@
         "hint": {
           "en": "This card is activated when a transition with the provided name has reached a step.",
           "nl": "Dit kaartje wordt geactiveerd als een transitie met de ingevoerde naam een stap bereikt.",
-          "de": "Diese Karte wird aktiviert, wenn ein Übergang mit dem angegebenen Namen einen Schritt erreicht hat."
+          "de": "Diese Karte wird aktiviert wenn ein Übergang mit dem angegebenen Namen einen Schritt erreicht hat."
         },
         "args": [
           {
@@ -766,17 +766,17 @@
         "title": {
           "en": "Stopwatch is paused",
           "nl": "Stopwatch is gepauzeerd",
-          "de": "Stopwatch ist pausiert"
+          "de": "Stoppuhr ist pausiert"
         },
         "titleFormatted": {
           "en": "Stopwatch [[name]] is paused",
           "nl": "Stopwatch [[name]] is gepauzeerd",
-          "de": "Stopwatch [[name]] ist pausiert"
+          "de": "Stoppuhr [[name]] ist pausiert"
         },
         "hint": {
           "en": "This card is activated when a stopwatch with the provided name is paused.",
           "nl": "Dit kaartje wordt geactiveerd als een stopwatch met de ingevoerde naam is gepauzeerd.",
-          "de": "Diese Karte wird aktiviert, wenn eine Stoppuhr mit dem angegebenen Namen pausiert ist."
+          "de": "Diese Karte wird aktiviert wenn eine Stoppuhr mit dem angegebenen Namen pausiert ist."
         },
         "args": [
           {
@@ -831,7 +831,7 @@
         "hint": {
           "en": "This card is activated when a timer with the provided name is paused.",
           "nl": "Dit kaartje wordt geactiveerd als een timer met de ingevoerde naam is gepauzeerd.",
-          "de": "Diese Karte wird aktiviert, wenn ein Timer mit dem angegebenen Namen pausiert ist."
+          "de": "Diese Karte wird aktiviert wenn ein Timer mit dem angegebenen Namen pausiert ist."
         },
         "args": [
           {
@@ -886,7 +886,7 @@
         "hint": {
           "en": "This card is activated when a transition with the provided name is paused.",
           "nl": "Dit kaartje wordt geactiveerd als een transitie met de ingevoerde naam is gepauzeerd.",
-          "de": "Diese Karte wird aktiviert, wenn ein Übergang mit dem angegebenen Namen pausiert ist."
+          "de": "Diese Karte wird aktiviert wenn ein Übergang mit dem angegebenen Namen pausiert ist."
         },
         "args": [
           {
@@ -943,7 +943,7 @@
         "hint": {
           "en": "Use this card to run or cancel a flow depending on the run state of the stopwatch with the provided name.",
           "nl": "Gebruik dit kaartje om een flow wel of niet uit te voeren afhankelijk van de loop status van de stopwatch met de ingevoerde naam.",
-          "de": "Verwenden Sie diese Karte um einen Ablauf abhängig vom Betriebsstatus der Stoppuhr mit dem angegebenen Namen auszuführen oder abzubrechen."
+          "de": "Verwende diese Karte um einen Flow abhängig vom Betriebsstatus der Stoppuhr mit dem angegebenen Namen auszuführen oder abzubrechen."
         },
         "args": [
           {
@@ -1030,7 +1030,7 @@
         "hint": {
           "en": "Use this card to run or cancel a flow depending on the duration of the stopwatch with the provided name.",
           "nl": "Gebruik dit kaartje om een flow wel of niet uit te voeren afhankelijk van de looptijd van de stopwatch met de ingevoerde naam.",
-          "de": "Verwenden Sie diese Karte, um einen Flow abhängig von der Dauer der Stoppuhr mit dem angegebenen Namen auszuführen oder abzubrechen."
+          "de": "Verwende diese Karte um einen Flow abhängig von der Dauer der Stoppuhr mit dem angegebenen Namen auszuführen oder abzubrechen."
         },
         "args": [
           {
@@ -1113,7 +1113,7 @@
         "hint": {
           "en": "Use this card to run or cancel a flow depending on the duration of the timer with the provided name.",
           "nl": "Gebruik dit kaartje om een flow wel of niet uit te voeren afhankelijk van de looptijd van de timer met de ingevoerde naam.",
-          "de": "Verwenden Sie diese Karte um einen Flow abhängig von der Dauer des Timers mit dem angegebenen Namen auszuführen oder abzubrechen."
+          "de": "Verwende diese Karte um einen Flow abhängig von der Dauer des Timers mit dem angegebenen Namen auszuführen oder abzubrechen."
         },
         "args": [
           {
@@ -1196,7 +1196,7 @@
         "hint": {
           "en": "Use this card to run or cancel a flow depending on the duration of the transition with the provided name.",
           "nl": "Gebruik dit kaartje om een flow wel of niet uit te voeren afhankelijk van de looptijd van de transitie met de ingevoerde naam.",
-          "de": "Verwenden Sie diese Karte um einen Flow abhängig von der Dauer des Übergangs mit dem angegebenen Namen auszuführen oder abzubrechen."
+          "de": "Verwende diese Karte um einen Flow abhängig von der Dauer des Übergangs mit dem angegebenen Namen auszuführen oder abzubrechen."
         },
         "args": [
           {
@@ -1281,7 +1281,7 @@
         "hint": {
           "en": "Use this card to start a stopwatch with the provided name. If a stopwatch with the same name is already running, it is replaced.",
           "nl": "Gebruik dit kaartje om een stopwatch te starten met de ingevoerde naam. Als er al een stopwatch met dezelfde naam loopt dan wordt deze vervangen.",
-          "de": "Verwenden Sie diese Karte, um eine Stoppuhr mit dem angegebenen Namen zu starten. Wenn bereits eine Stoppuhr mit dem gleichen Namen läuft, wird diese ersetzt."
+          "de": "Verwende diese Karte um eine Stoppuhr mit dem angegebenen Namen zu starten. Wenn bereits eine Stoppuhr mit dem gleichen Namen läuft, wird diese ersetzt."
         },
         "args": [
           {
@@ -1311,7 +1311,7 @@
         "hint": {
           "en": "Use this card to start a new timer with the provided name and duration. If a timer with the same name already exists, it is replaced.",
           "nl": "Gebruik dit kaartje om een timer te starten met de ingevoerde naam en looptijd. Als er al een timer met dezelfde naam loopt dan wordt deze vervangen.",
-          "de": "Verwenden Sie diese Karte um einen neuen Timer mit dem angegebenen Namen und der angegebenen Dauer zu starten. Wenn bereits ein Timer mit dem gleichen Namen vorhanden ist, wird er ersetzt."
+          "de": "Verwende diese Karte um einen neuen Timer mit dem angegebenen Namen und der angegebenen Dauer zu starten. Wenn bereits ein Timer mit dem gleichen Namen vorhanden ist, wird er ersetzt."
         },
         "args": [
           {
@@ -1394,7 +1394,7 @@
         "hint": {
           "en": "Use this card to start a new timer with the provided name and duration. If a timer with the same name already exists, it is replaced.",
           "nl": "Gebruik dit kaartje om een timer te starten met de ingevoerde naam en looptijd. Als er al een timer met dezelfde naam loopt dan wordt deze vervangen.",
-          "de": "Verwenden Sie diese Karte um einen neuen Timer mit dem angegebenen Namen und der angegebenen Dauer zu starten. Wenn bereits ein Timer mit dem gleichen Namen vorhanden ist, wird er ersetzt."
+          "de": "Verwende diese Karte um einen neuen Timer mit dem angegebenen Namen und der angegebenen Dauer zu starten. Wenn bereits ein Timer mit dem gleichen Namen vorhanden ist, wird er ersetzt."
         },
         "args": [
           {
@@ -1473,9 +1473,9 @@
           "de": "Übergang [[name]] von [[from]] nach [[to]] in [[steps]] Schritten während [[time]] [[unit]] starten oder ersetzen"
         },
         "hint": {
-          "en": "TODO Use this card to start a new timer with the provided name and duration. If a timer with the same name already exists, it is replaced.",
-          "nl": "TODO Gebruik dit kaartje om een timer te starten met de ingevoerde naam en looptijd. Als er al een timer met dezelfde naam loopt dan wordt deze vervangen.",
-          "de": "TODO Verwenden Sie diese Karte um einen neuen Timer mit dem angegebenen Namen und der angegebenen Dauer zu starten. Wenn bereits ein Timer mit dem gleichen Namen vorhanden ist, wird er ersetzt."
+          "en": "Use this card to start a new timer with the provided name and duration. If a timer with the same name already exists, it is replaced.",
+          "nl": "Gebruik dit kaartje om een timer te starten met de ingevoerde naam en looptijd. Als er al een timer met dezelfde naam loopt dan wordt deze vervangen.",
+          "de": "Verwende diese Karte um einen neuen Timer mit dem angegebenen Namen und der angegebenen Dauer zu starten. Wenn bereits ein Timer mit dem gleichen Namen vorhanden ist, wird er ersetzt."
         },
         "args": [
           {
@@ -1589,7 +1589,7 @@
         "hint": {
           "en": "Use this card to start a stopwatch with the provided name. If a stopwatch with the same name is already running, it is resumed.",
           "nl": "Gebruik dit kaartje om een stopwatch te starten met de ingevoerde naam. Als er al een stopwatch met dezelfde naam loopt dan wordt deze hervat.",
-          "de": "Verwenden Sie diese Karte um eine Stoppuhr mit dem angegebenen Namen zu starten. Wenn bereits eine Stoppuhr mit dem gleichen Namen läuft, wird sie fortgesetzt."
+          "de": "Verwende diese Karte um eine Stoppuhr mit dem angegebenen Namen zu starten. Wenn bereits eine Stoppuhr mit dem gleichen Namen läuft, wird sie fortgesetzt."
         },
         "args": [
           {
@@ -1619,7 +1619,7 @@
         "hint": {
           "en": "Use this card to start a new timer with the provided name and duration. If a timer with the same name already exists, it is resumed.",
           "nl": "Gebruik dit kaartje om een timer te starten met de ingevoerde naam en looptijd. Als er al een timer met dezelfde naam loopt dan wordt deze hervat.",
-          "de": "Verwenden Sie diese Karte um einen neuen Timer mit dem angegebenen Namen und der angegebenen Dauer zu starten. Wenn bereits ein Timer mit dem gleichen Namen vorhanden ist, wird er fortgesetzt."
+          "de": "Verwende diese Karte um einen neuen Timer mit dem angegebenen Namen und der angegebenen Dauer zu starten. Wenn bereits ein Timer mit dem gleichen Namen vorhanden ist, wird er fortgesetzt."
         },
         "args": [
           {
@@ -1702,7 +1702,7 @@
         "hint": {
           "en": "Use this card to start a new timer with the provided name and duration. If a timer with the same name already exists, it is resumed.",
           "nl": "Gebruik dit kaartje om een timer te starten met de ingevoerde naam en looptijd. Als er al een timer met dezelfde naam loopt dan wordt deze hervat.",
-          "de": "Verwenden Sie diese Karte um einen neuen Timer mit dem angegebenen Namen und der angegebenen Dauer zu starten. Wenn bereits ein Timer mit dem gleichen Namen vorhanden ist, wird er fortgesetzt."
+          "de": "Verwende diese Karte um einen neuen Timer mit dem angegebenen Namen und der angegebenen Dauer zu starten. Wenn bereits ein Timer mit dem gleichen Namen vorhanden ist, wird er fortgesetzt."
         },
         "args": [
           {
@@ -1781,9 +1781,9 @@
           "de": "Übergang [[name]] von [[from]] nach [[to]] in [[steps]] Schritten während [[time]] [[unit]] starten oder fortsetzen"
         },
         "hint": {
-          "en": "TODO Use this card to start a new timer with the provided name and duration. If a timer with the same name already exists, it is replaced.",
-          "nl": "TODO Gebruik dit kaartje om een timer te starten met de ingevoerde naam en looptijd. Als er al een timer met dezelfde naam loopt dan wordt deze vervangen.",
-          "de": "TODO Verwenden Sie diese Karte um einen neuen Timer mit dem angegebenen Namen und der angegebenen Dauer zu starten. Wenn bereits ein Timer mit dem gleichen Namen vorhanden ist, wird er ersetzt."
+          "en": "Use this card to start a new timer with the provided name and duration. If a timer with the same name already exists, it is replaced.",
+          "nl": "Gebruik dit kaartje om een timer te starten met de ingevoerde naam en looptijd. Als er al een timer met dezelfde naam loopt dan wordt deze vervangen.",
+          "de": "Verwende diese Karte um einen neuen Timer mit dem angegebenen Namen und der angegebenen Dauer zu starten. Wenn bereits ein Timer mit dem gleichen Namen vorhanden ist, wird er ersetzt."
         },
         "args": [
           {
@@ -1897,7 +1897,7 @@
         "hint": {
           "en": "Use this card to pause a stopwatch with the provided name.",
           "nl": "Gebruik dit kaartje om een stopwatch te pauzeren met de ingevoerde naam.",
-          "de": "Verwenden Sie diese Karte, um eine Stoppuhr mit dem angegebenen Namen anzuhalten."
+          "de": "Verwende diese Karte um eine Stoppuhr mit dem angegebenen Namen anzuhalten."
         },
         "args": [
           {
@@ -1926,7 +1926,7 @@
         "hint": {
           "en": "Use this card to pause a timer with the provided name.",
           "nl": "Gebruik dit kaartje om een timer te pauzeren met de ingevoerde naam.",
-          "de": "Mit dieser Karte können Sie einen Timer mit dem angegebenen Namen anhalten."
+          "de": "Verwende diese Karte um einen Timer mit dem angegebenen Namen anzuhalten."
         },
         "args": [
           {
@@ -1955,7 +1955,7 @@
         "hint": {
           "en": "Use this card to pause a transition with the provided name.",
           "nl": "Gebruik dit kaartje om een transitie te pauzeren met de ingevoerde naam.",
-          "de": "Mit dieser Karte können Sie einen Übergang mit dem angegebenen Namen anhalten."
+          "de": "Verwende diese Karte um einen Übergang mit dem angegebenen Namen anzuhalten."
         },
         "args": [
           {
@@ -1985,7 +1985,7 @@
         "hint": {
           "en": "Use this card to adjust the duration of the stopwatch with the provided name. Use a positive duration to extend the stopwatch, or a negative duration to shorten the stopwatch.",
           "nl": "Gebruik dit kaartje om de looptijd van de stopwatch met de ingevoerde naam aan te passen. Gebruik een positive looptijd om de stopwatch te verlengen, of een negative looptijd om de stopwatch te verkorten.",
-          "de": "Verwenden Sie diese Karte um die Dauer der Stoppuhr mit dem angegebenen Namen anzupassen. Verwenden Sie eine positive Dauer um die Stoppuhr zu verlängern oder eine negative Dauer um die Stoppuhr zu verkürzen."
+          "de": "Verwende diese Karte um die Dauer der Stoppuhr mit dem angegebenen Namen anzupassen. Verwende eine positive Dauer um die Stoppuhr zu verlängern oder eine negative Dauer um die Stoppuhr zu verkürzen."
         },
         "args": [
           {
@@ -2067,7 +2067,7 @@
         "hint": {
           "en": "Use this card to adjust the duration of the stopwatch with the provided name. Use a positive duration to extend the stopwatch, or a negative duration to shorten the stopwatch.",
           "nl": "Gebruik dit kaartje om de looptijd van de stopwatch met de ingevoerde naam aan te passen. Gebruik een positive looptijd om de stopwatch te verlengen, of een negative looptijd om de stopwatch te verkorten.",
-          "de": "Verwenden Sie diese Karte um die Dauer der Stoppuhr mit dem angegebenen Namen anzupassen. Verwenden Sie eine positive Dauer um die Stoppuhr zu verlängern oder eine negative Dauer um die Stoppuhr zu verkürzen."
+          "de": "Verwende diese Karte um die Dauer der Stoppuhr mit dem angegebenen Namen anzupassen. Verwende eine positive Dauer um die Stoppuhr zu verlängern oder eine negative Dauer um die Stoppuhr zu verkürzen."
         },
         "args": [
           {
@@ -2149,7 +2149,7 @@
         "hint": {
           "en": "Use this card to adjust the duration of the timer with the provided name. Use a positive duration to extend the timer, or a negative duration to shorten the timer.",
           "nl": "Gebruik dit kaartje om de looptijd van de timer met de ingevoerde naam aan te passen. Gebruik een positive looptijd om de timer te verlengen, of een negative looptijd om de timer te verkorten.",
-          "de": "Verwenden Sie diese Karte um die Dauer des Timers mit dem angegebenen Namen anzupassen. Verwenden Sie eine positive Dauer um den Timer zu verlängern oder eine negative Dauer um den Timer zu verkürzen."
+          "de": "Verwende diese Karte um die Dauer des Timers mit dem angegebenen Namen anzupassen. Verwende eine positive Dauer um den Timer zu verlängern oder eine negative Dauer um den Timer zu verkürzen."
         },
         "args": [
           {
@@ -2231,7 +2231,7 @@
         "hint": {
           "en": "Use this card to adjust the duration of the timer with the provided name. Use a positive duration to extend the timer, or a negative duration to shorten the timer.",
           "nl": "Gebruik dit kaartje om de looptijd van de timer met de ingevoerde naam aan te passen. Gebruik een positive looptijd om de timer te verlengen, of een negative looptijd om de timer te verkorten.",
-          "de": "Verwenden Sie diese Karte um die Dauer des Timers mit dem angegebenen Namen anzupassen. Verwenden Sie eine positive Dauer um den Timer zu verlängern oder eine negative Dauer um den Timer zu verkürzen."
+          "de": "Verwende diese Karte um die Dauer des Timers mit dem angegebenen Namen anzupassen. Verwende eine positive Dauer um den Timer zu verlängern oder eine negative Dauer um den Timer zu verkürzen."
         },
         "args": [
           {
@@ -2312,7 +2312,7 @@
         "hint": {
           "en": "Use this card to adjust the duration of the transition with the provided name. Use a positive duration to extend the transition, or a negative duration to shorten the transition.",
           "nl": "Gebruik dit kaartje om de looptijd van de transitie met de ingevoerde naam aan te passen. Gebruik een positive looptijd om de transitie te verlengen, of een negative looptijd om de transitie te verkorten.",
-          "de": "Verwenden Sie diese Karte um die Dauer des Übergang mit dem angegebenen Namen anzupassen. Verwenden Sie eine positive Dauer um den Übergang zu verlängern oder eine negative Dauer um den Übergang zu verkürzen."
+          "de": "Verwende diese Karte um die Dauer des Übergang mit dem angegebenen Namen anzupassen. Verwende eine positive Dauer um den Übergang zu verlängern oder eine negative Dauer um den Übergang zu verkürzen."
         },
         "args": [
           {
@@ -2393,7 +2393,7 @@
         "hint": {
           "en": "Use this card to stop a stopwatch with the provided name.",
           "nl": "Gebruik dit kaartje om een stopwatch te stoppen met de ingevoerde naam.",
-          "de": "Benutze diese Karte um eine Stoppuhr mit dem angegebenen Namen zu stoppen"
+          "de": "Verwende diese Karte um eine Stoppuhr mit dem angegebenen Namen zu stoppen"
         },
         "args": [
           {
@@ -2422,7 +2422,7 @@
         "hint": {
           "en": "Use this card to stop a timer with the provided name.",
           "nl": "Gebruik dit kaartje om een timer te stoppen met de ingevoerde naam.",
-          "de": "Mit dieser Karte können Sie einen Timer mit dem angegebenen Namen stoppen."
+          "de": "Verwende diese Karte um einen Timer mit dem angegebenen Namen zu stoppen."
         },
         "args": [
           {
@@ -2451,7 +2451,7 @@
         "hint": {
           "en": "Use this card to stop a transition with the provided name.",
           "nl": "Gebruik dit kaartje om een transitie te stoppen met de ingevoerde naam.",
-          "de": "Mit dieser Karte können Sie einen Übergang mit dem angegebenen Namen stoppen."
+          "de": "Verwende diese Karte um einen Übergang mit dem angegebenen Namen zu stoppen."
         },
         "args": [
           {
@@ -2470,12 +2470,12 @@
         "title": {
           "en": "Stop all stopwatches",
           "nl": "Stop alle stopwatches",
-          "de": "Stoppe alle Stopuhren"
+          "de": "Stoppe alle Stoppuhren"
         },
         "hint": {
           "en": "Use this card to stop all stopwatches.",
           "nl": "Gebruik dit kaartje om alle stopwatches te stoppen.",
-          "de": "Verwenden Sie diese Karte, um alle Stoppuhren zu stoppen."
+          "de": "Verwende diese Karte um alle Stoppuhren zu stoppen."
         }
       },
       {
@@ -2488,7 +2488,7 @@
         "hint": {
           "en": "Use this card to stop all running timers.",
           "nl": "Gebruik dit kaartje om alle timers te stoppen.",
-          "de": "Verwenden Sie diese Karte um alle laufenden Timer zu stoppen."
+          "de": "Verwende diese Karte um alle laufenden Timer zu stoppen."
         }
       },
       {
@@ -2501,7 +2501,7 @@
         "hint": {
           "en": "Use this card to stop all running transitions.",
           "nl": "Gebruik dit kaartje om alle transities te stoppen.",
-          "de": "Verwenden Sie diese Karte um alle laufenden Übergange zu stoppen."
+          "de": "Verwende diese Karte um alle laufenden Übergange zu stoppen."
         }
       }
     ]

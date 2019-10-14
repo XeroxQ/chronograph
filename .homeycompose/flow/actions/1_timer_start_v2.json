@@ -13,7 +13,7 @@
 	"hint": {
 		"en": "Use this card to start a new timer with the provided name and duration. If a timer with the same name already exists, it is replaced.",
 		"nl": "Gebruik dit kaartje om een timer te starten met de ingevoerde naam en looptijd. Als er al een timer met dezelfde naam loopt dan wordt deze vervangen.",
-		"de": "Verwenden Sie diese Karte um einen neuen Timer mit dem angegebenen Namen und der angegebenen Dauer zu starten. Wenn bereits ein Timer mit dem gleichen Namen vorhanden ist, wird er ersetzt."
+		"de": "Verwende diese Karte um einen neuen Timer mit dem angegebenen Namen und der angegebenen Dauer zu starten. Wenn bereits ein Timer mit dem gleichen Namen vorhanden ist, wird er ersetzt."
 	},
 	"args": [
 		{

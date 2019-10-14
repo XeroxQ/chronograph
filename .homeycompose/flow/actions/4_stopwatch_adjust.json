@@ -14,8 +14,7 @@
 	"hint": {
 		"en": "Use this card to adjust the duration of the stopwatch with the provided name. Use a positive duration to extend the stopwatch, or a negative duration to shorten the stopwatch.",
 		"nl": "Gebruik dit kaartje om de looptijd van de stopwatch met de ingevoerde naam aan te passen. Gebruik een positive looptijd om de stopwatch te verlengen, of een negative looptijd om de stopwatch te verkorten.",
-		"de": "Verwenden Sie diese Karte um die Dauer der Stoppuhr mit dem angegebenen Namen anzupassen. Verwenden Sie eine positive Dauer um die Stoppuhr zu verlängern oder eine negative Dauer um die Stoppuhr zu verkürzen."
-
+		"de": "Verwende diese Karte um die Dauer der Stoppuhr mit dem angegebenen Namen anzupassen. Verwende eine positive Dauer um die Stoppuhr zu verlängern oder eine negative Dauer um die Stoppuhr zu verkürzen."
 	},
 	"args": [
 		{

@@ -13,7 +13,7 @@
 	"hint": {
 		"en": "Use this card to run or cancel a flow depending on the duration of the stopwatch with the provided name.",
 		"nl": "Gebruik dit kaartje om een flow wel of niet uit te voeren afhankelijk van de looptijd van de stopwatch met de ingevoerde naam.",
-		"de": "Verwenden Sie diese Karte, um einen Flow abhängig von der Dauer der Stoppuhr mit dem angegebenen Namen auszuführen oder abzubrechen."
+		"de": "Verwende diese Karte um einen Flow abhängig von der Dauer der Stoppuhr mit dem angegebenen Namen auszuführen oder abzubrechen."
 	},
 	"args": [
 		{

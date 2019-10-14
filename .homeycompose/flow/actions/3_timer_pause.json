@@ -14,8 +14,7 @@
 	"hint": {
 		"en": "Use this card to pause a timer with the provided name.",
 		"nl": "Gebruik dit kaartje om een timer te pauzeren met de ingevoerde naam.",
-		"de": "Mit dieser Karte können Sie einen Timer mit dem angegebenen Namen anhalten."
-
+		"de": "Verwende diese Karte um einen Timer mit dem angegebenen Namen anzuhalten."
 	},
 	"args": [
 		{

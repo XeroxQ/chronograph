@@ -11,9 +11,9 @@
 		"de": "Übergang [[name]] von [[from]] nach [[to]] in [[steps]] Schritten während [[time]] [[unit]] starten oder fortsetzen"
 	},
 	"hint": {
-		"en": "TODO Use this card to start a new timer with the provided name and duration. If a timer with the same name already exists, it is replaced.",
-		"nl": "TODO Gebruik dit kaartje om een timer te starten met de ingevoerde naam en looptijd. Als er al een timer met dezelfde naam loopt dan wordt deze vervangen.",
-		"de": "TODO Verwenden Sie diese Karte um einen neuen Timer mit dem angegebenen Namen und der angegebenen Dauer zu starten. Wenn bereits ein Timer mit dem gleichen Namen vorhanden ist, wird er ersetzt."
+		"en": "Use this card to start a new timer with the provided name and duration. If a timer with the same name already exists, it is replaced.",
+		"nl": "Gebruik dit kaartje om een timer te starten met de ingevoerde naam en looptijd. Als er al een timer met dezelfde naam loopt dan wordt deze vervangen.",
+		"de": "Verwende diese Karte um einen neuen Timer mit dem angegebenen Namen und der angegebenen Dauer zu starten. Wenn bereits ein Timer mit dem gleichen Namen vorhanden ist, wird er ersetzt."
 	},
 	"args": [
 		{
