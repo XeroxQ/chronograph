@@ -89,6 +89,10 @@ Application image by [Agê Barros](https://unsplash.com/@agebarros?utm_source=un
 
 ## Changelog
 
+### v1.0.7
+
+* Added pause trigger cards.
+
 ### v1.0.6
 
 * Added transitions to gradually change a value over time.

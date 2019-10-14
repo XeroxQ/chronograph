@@ -1,6 +1,6 @@
 {
   "id": "nl.fellownet.chronograph",
-  "version": "1.0.6",
+  "version": "1.0.7",
   "compatibility": ">=2.1.0",
   "sdk": 2,
   "name": {
@@ -71,19 +71,19 @@
       {
         "id": "stopwatch_started",
         "title": {
-          "en": "Stopwatch has started",
+          "en": "Stopwatch is started",
           "nl": "Stopwatch is gestart",
           "de": "Stopwatch ist gestartet"
         },
         "titleFormatted": {
-          "en": "Stopwatch [[name]] has started",
+          "en": "Stopwatch [[name]] is started",
           "nl": "Stopwatch [[name]] is gestart",
           "de": "Stopwatch [[name]] ist gestartet"
         },
         "hint": {
-          "en": "This card is activated when a stopwatch with the provided name has started.",
-          "nl": "Dit kaartje wordt geactiveerd als een stopwatch met de ingevoerde naam wordt gestart.",
-          "de": "Diese Karte wird aktiviert, wenn eine Stoppuhr mit dem angegebenen Namen gestartet wurde."
+          "en": "This card is activated when a stopwatch with the provided name is started.",
+          "nl": "Dit kaartje wordt geactiveerd als een stopwatch met de ingevoerde naam is gestart.",
+          "de": "Diese Karte wird aktiviert, wenn eine Stoppuhr mit dem angegebenen Namen gestartet ist."
         },
         "args": [
           {
@@ -116,19 +116,19 @@
       {
         "id": "timer_started",
         "title": {
-          "en": "Timer has started",
+          "en": "Timer is started",
           "nl": "Timer is gestart",
           "de": "Timer ist gestartet"
         },
         "titleFormatted": {
-          "en": "Timer [[name]] has started",
+          "en": "Timer [[name]] is started",
           "nl": "Timer [[name]] is gestart",
           "de": "Timer [[name]] ist gestartet"
         },
         "hint": {
-          "en": "This card is activated when a timer with the provided name has started.",
-          "nl": "Dit kaartje wordt geactiveerd als een timer met de ingevoerde naam wordt gestart.",
-          "de": "Diese Karte wird aktiviert, wenn ein Timer mit dem angegebenen Namen gestartet wurde."
+          "en": "This card is activated when a timer with the provided name is started.",
+          "nl": "Dit kaartje wordt geactiveerd als een timer met de ingevoerde naam is gestart.",
+          "de": "Diese Karte wird aktiviert, wenn ein Timer mit dem angegebenen Namen gestartet ist."
         },
         "args": [
           {
@@ -171,19 +171,19 @@
       {
         "id": "transition_started",
         "title": {
-          "en": "Transition has started",
+          "en": "Transition is started",
           "nl": "Transitie is gestart",
           "de": "Übergang ist gestartet"
         },
         "titleFormatted": {
-          "en": "Transition [[name]] has started",
+          "en": "Transition [[name]] is started",
           "nl": "Transitie [[name]] is gestart",
           "de": "Übergang [[name]] ist gestartet"
         },
         "hint": {
-          "en": "This card is activated when a transition with the provided name has started.",
-          "nl": "Dit kaartje wordt geactiveerd als een transitie met de ingevoerde naam wordt gestart.",
-          "de": "Diese Karte wird aktiviert, wenn ein Übergang mit dem angegebenen Namen gestartet wurde."
+          "en": "This card is activated when a transition with the provided name is started.",
+          "nl": "Dit kaartje wordt geactiveerd als een transitie met de ingevoerde naam is gestart.",
+          "de": "Diese Karte wird aktiviert, wenn ein Übergang mit dem angegebenen Namen gestartet ist."
         },
         "args": [
           {
@@ -226,19 +226,19 @@
       {
         "id": "timer_finished",
         "title": {
-          "en": "Timer has finished",
+          "en": "Timer is finished",
           "nl": "Timer is afgelopen",
           "de": "Timer ist abgelaufen"
         },
         "titleFormatted": {
-          "en": "Timer [[name]] has finished",
+          "en": "Timer [[name]] is finished",
           "nl": "Timer [[name]] is afgelopen",
           "de": "Timer [[name]] ist abgelaufen"
         },
         "hint": {
-          "en": "This card is activated when a timer with the provided name has finished, not when a timer is prematurely stopped.",
-          "nl": "Dit kaartje wordt geactiveerd als een timer met de ingevoerde naam is afgelopen, niet als een timer vroegtijdig wordt gestopt.",
-          "de": "Diese Karte wird aktiviert, wenn ein Timer mit dem angegebenen Namen abgelaufen ist, nicht wenn ein Timer vorzeitig gestoppt wird."
+          "en": "This card is activated when a timer with the provided name is finished, not when a timer is prematurely stopped.",
+          "nl": "Dit kaartje wordt geactiveerd als een timer met de ingevoerde naam is afgelopen, niet als een timer vroegtijdig is gestopt.",
+          "de": "Diese Karte wird aktiviert, wenn ein Timer mit dem angegebenen Namen abgelaufen ist, nicht wenn ein Timer vorzeitig gestoppt ist."
         },
         "args": [
           {
@@ -271,19 +271,19 @@
       {
         "id": "transition_finished",
         "title": {
-          "en": "Transition has finished",
+          "en": "Transition is finished",
           "nl": "Transitie is afgelopen",
           "de": "Übergang ist abgelaufen"
         },
         "titleFormatted": {
-          "en": "Transition [[name]] has finished",
+          "en": "Transition [[name]] is finished",
           "nl": "Transitie [[name]] is afgelopen",
           "de": "Übergang [[name]] ist abgelaufen"
         },
         "hint": {
-          "en": "This card is activated when a transition with the provided name has finished, not when a transition is prematurely stopped.",
-          "nl": "Dit kaartje wordt geactiveerd als een transitie met de ingevoerde naam is afgelopen, niet als een transitie vroegtijdig wordt gestopt.",
-          "de": "Diese Karte wird aktiviert, wenn ein Übergang mit dem angegebenen Namen abgelaufen ist, nicht wenn ein Übergang vorzeitig gestoppt wird."
+          "en": "This card is activated when a transition with the provided name is finished, not when a transition is prematurely stopped.",
+          "nl": "Dit kaartje wordt geactiveerd als een transitie met de ingevoerde naam is afgelopen, niet als een transitie vroegtijdig is gestopt.",
+          "de": "Diese Karte wird aktiviert, wenn ein Übergang mit dem angegebenen Namen abgelaufen ist, nicht wenn ein Übergang vorzeitig gestoppt ist."
         },
         "args": [
           {
@@ -317,18 +317,18 @@
         "id": "stopwatch_stopped",
         "title": {
           "en": "Stopwatch is stopped",
-          "nl": "Stopwatch wordt gestopt",
-          "de": "Stopwatch wurde gestoppt"
+          "nl": "Stopwatch is gestopt",
+          "de": "Stopwatch ist gestoppt"
         },
         "titleFormatted": {
           "en": "Stopwatch [[name]] is stopped",
-          "nl": "Stopwatch [[name]] wordt gestopt",
-          "de": "Stopwatch [[name]] wurde gestoppt"
+          "nl": "Stopwatch [[name]] is gestopt",
+          "de": "Stopwatch [[name]] ist gestoppt"
         },
         "hint": {
-          "en": "This card is activated when a stopwatch with the provided name has been stopped.",
-          "nl": "Dit kaartje wordt geactiveerd als een stopwatch met de ingevoerde naam wordt gestopt.",
-          "de": "Diese Karte wird aktiviert, wenn eine Stoppuhr mit dem angegebenen Namen gestoppt wurde."
+          "en": "This card is activated when a stopwatch with the provided name is stopped.",
+          "nl": "Dit kaartje wordt geactiveerd als een stopwatch met de ingevoerde naam is gestopt.",
+          "de": "Diese Karte wird aktiviert, wenn eine Stoppuhr mit dem angegebenen Namen gestoppt ist."
         },
         "args": [
           {
@@ -372,18 +372,18 @@
         "id": "timer_stopped",
         "title": {
           "en": "Timer is stopped",
-          "nl": "Timer wordt gestopt",
-          "de": "Timer wurde gestoppt"
+          "nl": "Timer is gestopt",
+          "de": "Timer ist gestoppt"
         },
         "titleFormatted": {
           "en": "Timer [[name]] is stopped",
-          "nl": "Timer [[name]] wordt gestopt",
-          "de": "Timer [[name]] wurde gestoppt"
+          "nl": "Timer [[name]] is gestopt",
+          "de": "Timer [[name]] ist gestoppt"
         },
         "hint": {
-          "en": "This card is activated when a timer with the provided name has been prematurely stopped, not when a timer is finished.",
-          "nl": "Dit kaartje wordt geactiveerd als een timer met de ingevoerde naam vroegtijdig wordt gestopt, niet als een timer is afgelopen.",
-          "de": "Diese Karte wird aktiviert, wenn ein Timer mit dem angegebenen Namen vorzeitig gestoppt wurde, nicht wenn ein Timer abgelaufen ist."
+          "en": "This card is activated when a timer with the provided name is prematurely stopped, not when a timer is finished.",
+          "nl": "Dit kaartje wordt geactiveerd als een timer met de ingevoerde naam vroegtijdig is gestopt, niet als een timer is afgelopen.",
+          "de": "Diese Karte wird aktiviert, wenn ein Timer mit dem angegebenen Namen vorzeitig gestoppt ist, nicht wenn ein Timer abgelaufen ist."
         },
         "args": [
           {
@@ -427,18 +427,18 @@
         "id": "transition_stopped",
         "title": {
           "en": "Transition is stopped",
-          "nl": "Transitie wordt gestopt",
-          "de": "Übergang wurde gestoppt"
+          "nl": "Transitie is gestopt",
+          "de": "Übergang ist gestoppt"
         },
         "titleFormatted": {
           "en": "Transition [[name]] is stopped",
-          "nl": "Transitie [[name]] wordt gestopt",
-          "de": "Übergang [[name]] wurde gestoppt"
+          "nl": "Transitie [[name]] is gestopt",
+          "de": "Übergang [[name]] ist gestoppt"
         },
         "hint": {
-          "en": "This card is activated when a transition with the provided name has been prematurely stopped, not when a transition is finished.",
-          "nl": "Dit kaartje wordt geactiveerd als een transitie met de ingevoerde naam vroegtijdig wordt gestopt, niet als een transitie is afgelopen.",
-          "de": "Diese Karte wird aktiviert, wenn ein Übergang mit dem angegebenen Namen vorzeitig gestoppt wurde, nicht wenn ein Übergang abgelaufen ist."
+          "en": "This card is activated when a transition with the provided name is prematurely stopped, not when a transition is finished.",
+          "nl": "Dit kaartje wordt geactiveerd als een transitie met de ingevoerde naam vroegtijdig is gestopt, niet als een transitie is afgelopen.",
+          "de": "Diese Karte wird aktiviert, wenn ein Übergang mit dem angegebenen Namen vorzeitig gestoppt ist, nicht wenn ein Übergang abgelaufen ist."
         },
         "args": [
           {
@@ -758,6 +758,171 @@
               "de": "Übergangswert"
             },
             "example": 10
+          }
+        ]
+      },
+      {
+        "id": "stopwatch_paused",
+        "title": {
+          "en": "Stopwatch is paused",
+          "nl": "Stopwatch is gepauzeerd",
+          "de": "Stopwatch ist pausiert"
+        },
+        "titleFormatted": {
+          "en": "Stopwatch [[name]] is paused",
+          "nl": "Stopwatch [[name]] is gepauzeerd",
+          "de": "Stopwatch [[name]] ist pausiert"
+        },
+        "hint": {
+          "en": "This card is activated when a stopwatch with the provided name is paused.",
+          "nl": "Dit kaartje wordt geactiveerd als een stopwatch met de ingevoerde naam is gepauzeerd.",
+          "de": "Diese Karte wird aktiviert, wenn eine Stoppuhr mit dem angegebenen Namen pausiert ist."
+        },
+        "args": [
+          {
+            "name": "name",
+            "title": {
+              "en": "Name",
+              "nl": "Naam",
+              "de": "Name"
+            },
+            "type": "text"
+          }
+        ],
+        "tokens": [
+          {
+            "name": "name",
+            "type": "string",
+            "title": {
+              "en": "Name",
+              "nl": "Naam",
+              "de": "Name"
+            },
+            "example": {
+              "en": "bathroom",
+              "nl": "badkamer",
+              "de": "Badezimmer"
+            }
+          },
+          {
+            "name": "seconds",
+            "type": "number",
+            "title": {
+              "en": "Duration (s)",
+              "nl": "Looptijd (s)",
+              "de": "Dauer (s)"
+            },
+            "example": 60
+          }
+        ]
+      },
+      {
+        "id": "timer_paused",
+        "title": {
+          "en": "Timer is paused",
+          "nl": "Timer is gepauzeerd",
+          "de": "Timer ist pausiert"
+        },
+        "titleFormatted": {
+          "en": "Timer [[name]] is paused",
+          "nl": "Timer [[name]] is gepauzeerd",
+          "de": "Timer [[name]] ist pausiert"
+        },
+        "hint": {
+          "en": "This card is activated when a timer with the provided name is paused.",
+          "nl": "Dit kaartje wordt geactiveerd als een timer met de ingevoerde naam is gepauzeerd.",
+          "de": "Diese Karte wird aktiviert, wenn ein Timer mit dem angegebenen Namen pausiert ist."
+        },
+        "args": [
+          {
+            "name": "name",
+            "title": {
+              "en": "Name",
+              "nl": "Naam",
+              "de": "Name"
+            },
+            "type": "text"
+          }
+        ],
+        "tokens": [
+          {
+            "name": "name",
+            "type": "string",
+            "title": {
+              "en": "Name",
+              "nl": "Naam",
+              "de": "Name"
+            },
+            "example": {
+              "en": "bathroom",
+              "nl": "badkamer",
+              "de": "Badezimmer"
+            }
+          },
+          {
+            "name": "seconds",
+            "type": "number",
+            "title": {
+              "en": "Duration (s)",
+              "nl": "Looptijd (s)",
+              "de": "Dauer (s)"
+            },
+            "example": 60
+          }
+        ]
+      },
+      {
+        "id": "transition_paused",
+        "title": {
+          "en": "Transition is paused",
+          "nl": "Transitie is gepauzeerd",
+          "de": "Übergang ist pausiert"
+        },
+        "titleFormatted": {
+          "en": "Transition [[name]] is paused",
+          "nl": "Transitie [[name]] is gepauzeerd",
+          "de": "Übergang [[name]] ist pausiert"
+        },
+        "hint": {
+          "en": "This card is activated when a transition with the provided name is paused.",
+          "nl": "Dit kaartje wordt geactiveerd als een transitie met de ingevoerde naam is gepauzeerd.",
+          "de": "Diese Karte wird aktiviert, wenn ein Übergang mit dem angegebenen Namen pausiert ist."
+        },
+        "args": [
+          {
+            "name": "name",
+            "title": {
+              "en": "Name",
+              "nl": "Naam",
+              "de": "Name"
+            },
+            "type": "text"
+          }
+        ],
+        "tokens": [
+          {
+            "name": "name",
+            "type": "string",
+            "title": {
+              "en": "Name",
+              "nl": "Naam",
+              "de": "Name"
+            },
+            "example": {
+              "en": "bathroom",
+              "nl": "badkamer",
+              "de": "Badezimmer"
+            }
+          },
+          {
+            "name": "seconds",
+            "type": "number",
+            "title": {
+              "en": "Duration (s)",
+              "nl": "Looptijd (s)",
+              "de": "Dauer (s)"
+            },
+            "example": 60
           }
         ]
       }
@@ -1720,9 +1885,9 @@
       {
         "id": "stopwatch_pause",
         "title": {
-          "en": "Pause a stopwatch",
-          "nl": "Pauzeer een stopwatch",
-          "de": "Pausiere eine Stoppuhr"
+          "en": "Pause stopwatch",
+          "nl": "Pauzeer stopwatch",
+          "de": "Pausiere Stoppuhr"
         },
         "titleFormatted": {
           "en": "Pause stopwatch [[name]]",

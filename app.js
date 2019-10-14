@@ -37,13 +37,16 @@ const TimerStarted = require('./lib/timer/triggers/timer_started.js');
 const TimerSplit = require('./lib/timer/triggers/timer_split.js');
 const TimerFinished = require('./lib/timer/triggers/timer_finished.js');
 const TimerStopped = require('./lib/timer/triggers/timer_stopped.js');
+const TimerPaused = require('./lib/timer/triggers/timer_paused.js');
 const StopwatchStarted = require('./lib/stopwatch/triggers/stopwatch_started.js');
 const StopwatchSplit = require('./lib/stopwatch/triggers/stopwatch_split.js');
 const StopwatchStopped = require('./lib/stopwatch/triggers/stopwatch_stopped.js');
+const StopwatchPaused = require('./lib/stopwatch/triggers/stopwatch_paused.js');
 const TransitionStarted = require('./lib/transition/triggers/transition_started.js');
 const TransitionSplit = require('./lib/transition/triggers/transition_split.js');
 const TransitionFinished = require('./lib/transition/triggers/transition_finished.js');
 const TransitionStopped = require('./lib/transition/triggers/transition_stopped.js');
+const TransitionPaused = require('./lib/transition/triggers/transition_paused.js');
 
 class Application extends Homey.App {
 	onInit() {
@@ -87,6 +90,7 @@ class Application extends Homey.App {
 			"timer_split": new TimerSplit('timer_split'),
 			"timer_finished": new TimerFinished('timer_finished'),
 			"timer_stopped": new TimerStopped('timer_stopped'),
+			"timer_paused": new TimerPaused('timer_paused')
 		};
 	}
 
@@ -109,6 +113,7 @@ class Application extends Homey.App {
 			"stopwatch_started": new StopwatchStarted('stopwatch_started'),
 			"stopwatch_split": new StopwatchSplit('stopwatch_split'),
 			"stopwatch_stopped": new StopwatchStopped('stopwatch_stopped'),
+			"stopwatch_paused": new StopwatchPaused('stopwatch_paused')
 		};
 	}
 
@@ -130,7 +135,8 @@ class Application extends Homey.App {
 			"transition_started": new TransitionStarted('transition_started'),
 			"transition_split": new TransitionSplit('transition_split'),
 			"transition_finished": new TransitionFinished('transition_finished'),
-			"transition_stopped": new TransitionStopped('transition_stopped')
+			"transition_stopped": new TransitionStopped('transition_stopped'),
+			"transition_paused": new TransitionPaused('transition_paused')
 		};
 	}
 

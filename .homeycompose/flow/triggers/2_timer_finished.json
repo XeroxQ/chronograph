@@ -1,19 +1,19 @@
 {
 	"id": "timer_finished",
 	"title": {
-		"en": "Timer has finished",
+		"en": "Timer is finished",
 		"nl": "Timer is afgelopen",
 		"de": "Timer ist abgelaufen"
 	},
 	"titleFormatted": {
-		"en": "Timer [[name]] has finished",
+		"en": "Timer [[name]] is finished",
 		"nl": "Timer [[name]] is afgelopen",
 		"de": "Timer [[name]] ist abgelaufen"
 	},
 	"hint": {
-		"en": "This card is activated when a timer with the provided name has finished, not when a timer is prematurely stopped.",
-		"nl": "Dit kaartje wordt geactiveerd als een timer met de ingevoerde naam is afgelopen, niet als een timer vroegtijdig wordt gestopt.",
-		"de": "Diese Karte wird aktiviert, wenn ein Timer mit dem angegebenen Namen abgelaufen ist, nicht wenn ein Timer vorzeitig gestoppt wird."
+		"en": "This card is activated when a timer with the provided name is finished, not when a timer is prematurely stopped.",
+		"nl": "Dit kaartje wordt geactiveerd als een timer met de ingevoerde naam is afgelopen, niet als een timer vroegtijdig is gestopt.",
+		"de": "Diese Karte wird aktiviert, wenn ein Timer mit dem angegebenen Namen abgelaufen ist, nicht wenn ein Timer vorzeitig gestoppt ist."
 	},
 	"args": [
 		{

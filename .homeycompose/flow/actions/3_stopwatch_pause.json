@@ -1,9 +1,9 @@
 {
 	"id": "stopwatch_pause",
 	"title": {
-		"en": "Pause a stopwatch",
-		"nl": "Pauzeer een stopwatch",
-		"de": "Pausiere eine Stoppuhr"
+		"en": "Pause stopwatch",
+		"nl": "Pauzeer stopwatch",
+		"de": "Pausiere Stoppuhr"
 	},
 	"titleFormatted": {
 		"en": "Pause stopwatch [[name]]",

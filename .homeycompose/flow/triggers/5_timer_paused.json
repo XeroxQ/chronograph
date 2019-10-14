@@ -1,19 +1,19 @@
 {
-	"id": "timer_started",
+	"id": "timer_paused",
 	"title": {
-		"en": "Timer is started",
-		"nl": "Timer is gestart",
-		"de": "Timer ist gestartet"
+		"en": "Timer is paused",
+		"nl": "Timer is gepauzeerd",
+		"de": "Timer ist pausiert"
 	},
 	"titleFormatted": {
-		"en": "Timer [[name]] is started",
-		"nl": "Timer [[name]] is gestart",
-		"de": "Timer [[name]] ist gestartet"
+		"en": "Timer [[name]] is paused",
+		"nl": "Timer [[name]] is gepauzeerd",
+		"de": "Timer [[name]] ist pausiert"
 	},
 	"hint": {
-		"en": "This card is activated when a timer with the provided name is started.",
-		"nl": "Dit kaartje wordt geactiveerd als een timer met de ingevoerde naam is gestart.",
-		"de": "Diese Karte wird aktiviert, wenn ein Timer mit dem angegebenen Namen gestartet ist."
+		"en": "This card is activated when a timer with the provided name is paused.",
+		"nl": "Dit kaartje wordt geactiveerd als een timer met de ingevoerde naam is gepauzeerd.",
+		"de": "Diese Karte wird aktiviert, wenn ein Timer mit dem angegebenen Namen pausiert ist."
 	},
 	"args": [
 		{

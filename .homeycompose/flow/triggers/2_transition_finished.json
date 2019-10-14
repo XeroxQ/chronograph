@@ -1,19 +1,19 @@
 {
 	"id": "transition_finished",
 	"title": {
-		"en": "Transition has finished",
+		"en": "Transition is finished",
 		"nl": "Transitie is afgelopen",
 		"de": "Übergang ist abgelaufen"
 	},
 	"titleFormatted": {
-		"en": "Transition [[name]] has finished",
+		"en": "Transition [[name]] is finished",
 		"nl": "Transitie [[name]] is afgelopen",
 		"de": "Übergang [[name]] ist abgelaufen"
 	},
 	"hint": {
-		"en": "This card is activated when a transition with the provided name has finished, not when a transition is prematurely stopped.",
-		"nl": "Dit kaartje wordt geactiveerd als een transitie met de ingevoerde naam is afgelopen, niet als een transitie vroegtijdig wordt gestopt.",
-		"de": "Diese Karte wird aktiviert, wenn ein Übergang mit dem angegebenen Namen abgelaufen ist, nicht wenn ein Übergang vorzeitig gestoppt wird."
+		"en": "This card is activated when a transition with the provided name is finished, not when a transition is prematurely stopped.",
+		"nl": "Dit kaartje wordt geactiveerd als een transitie met de ingevoerde naam is afgelopen, niet als een transitie vroegtijdig is gestopt.",
+		"de": "Diese Karte wird aktiviert, wenn ein Übergang mit dem angegebenen Namen abgelaufen ist, nicht wenn ein Übergang vorzeitig gestoppt ist."
 	},
 	"args": [
 		{

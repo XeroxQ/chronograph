@@ -2,19 +2,19 @@
 	{
 		"id": "stopwatch_started",
 		"title": {
-			"en": "Stopwatch has started",
+			"en": "Stopwatch is started",
 			"nl": "Stopwatch is gestart",
 			"de": "Stopwatch ist gestartet"
 		},
 		"titleFormatted": {
-			"en": "Stopwatch [[name]] has started",
+			"en": "Stopwatch [[name]] is started",
 			"nl": "Stopwatch [[name]] is gestart",
 			"de": "Stopwatch [[name]] ist gestartet"
 		},
 		"hint": {
-			"en": "This card is activated when a stopwatch with the provided name has started.",
-			"nl": "Dit kaartje wordt geactiveerd als een stopwatch met de ingevoerde naam wordt gestart.",
-			"de": "Diese Karte wird aktiviert, wenn eine Stoppuhr mit dem angegebenen Namen gestartet wurde."
+			"en": "This card is activated when a stopwatch with the provided name is started.",
+			"nl": "Dit kaartje wordt geactiveerd als een stopwatch met de ingevoerde naam is gestart.",
+			"de": "Diese Karte wird aktiviert, wenn eine Stoppuhr mit dem angegebenen Namen gestartet ist."
 		},
 		"args": [
 			{

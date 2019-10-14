@@ -1,19 +1,19 @@
 {
 	"id": "transition_started",
 	"title": {
-		"en": "Transition has started",
+		"en": "Transition is started",
 		"nl": "Transitie is gestart",
 		"de": "Übergang ist gestartet"
 	},
 	"titleFormatted": {
-		"en": "Transition [[name]] has started",
+		"en": "Transition [[name]] is started",
 		"nl": "Transitie [[name]] is gestart",
 		"de": "Übergang [[name]] ist gestartet"
 	},
 	"hint": {
-		"en": "This card is activated when a transition with the provided name has started.",
-		"nl": "Dit kaartje wordt geactiveerd als een transitie met de ingevoerde naam wordt gestart.",
-		"de": "Diese Karte wird aktiviert, wenn ein Übergang mit dem angegebenen Namen gestartet wurde."
+		"en": "This card is activated when a transition with the provided name is started.",
+		"nl": "Dit kaartje wordt geactiveerd als een transitie met de ingevoerde naam is gestart.",
+		"de": "Diese Karte wird aktiviert, wenn ein Übergang mit dem angegebenen Namen gestartet ist."
 	},
 	"args": [
 		{
