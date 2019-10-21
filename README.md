@@ -16,7 +16,8 @@ Adds precise timer, stopwatch and transition functionality to Homey.
 * Trigger flows at exact timer- or stopwatch durations with millisecond (fractional seconds) precision,
 * Pause and resume timers, stopwatches and transitions with action cards or from within settings,
 * Support for random or computed durations or adjustments using simple math expressions,
-* All timers, stopwatches and transitions are persistent across Homey restarts.
+* All timers, stopwatches and transitions are persistent across Homey restarts,
+* Target multiple timers, stopwatches and transitions at once using wildcards in supported cards.
 
 **Simple math expressions**
 
@@ -89,6 +90,10 @@ If you like this project, perhaps you can support us by making a donation?
 Application image by [Agê Barros](https://unsplash.com/@agebarros?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText) on [Unsplash](https://unsplash.com/search/photos/time?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText).
 
 ## Changelog
+
+### v1.0.8
+
+* Added the ability to use wildcards in various action and trigger cards.
 
 ### v1.0.7
 

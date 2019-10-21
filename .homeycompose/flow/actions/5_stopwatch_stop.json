@@ -1,9 +1,9 @@
 {
 	"id": "stopwatch_stop",
 	"title": {
-		"en": "Stop a stopwatch",
-		"nl": "Stop een stopwatch",
-		"de": "Stoppe eine Stopuhr"
+		"en": "Stop stopwatch",
+		"nl": "Stop stopwatch",
+		"de": "Stoppe Stopuhr"
 	},
 	"titleFormatted": {
 		"en": "Stop stopwatch [[name]]",

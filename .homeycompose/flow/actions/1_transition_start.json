@@ -11,9 +11,9 @@
 		"de": "Übergang [[name]] von [[from]] nach [[to]] in [[steps]] Schritten während [[time]] [[unit]] starten oder ersetzen"
 	},
 	"hint": {
-		"en": "Use this card to start a new timer with the provided name and duration. If a timer with the same name already exists, it is replaced.",
-		"nl": "Gebruik dit kaartje om een timer te starten met de ingevoerde naam en looptijd. Als er al een timer met dezelfde naam loopt dan wordt deze vervangen.",
-		"de": "Verwende diese Karte um einen neuen Timer mit dem angegebenen Namen und der angegebenen Dauer zu starten. Wenn bereits ein Timer mit dem gleichen Namen vorhanden ist, wird er ersetzt."
+		"en": "Use this card to start a new transition with the provided name, duration and steps. If a transition with the same name already exists, it is replaced.",
+		"nl": "Gebruik dit kaartje om een transitie te starten met de ingevoerde naam, looptijd en stappen. Als er al een transitie met dezelfde naam loopt dan wordt deze vervangen.",
+		"de": "Verwende diese Karte um einen neuen Ubergang mit dem angegebenen Namen, Dauer und Schritten zu starten. Wenn bereits ein Ubergang mit dem gleichen Namen vorhanden ist, wird er ersetzt."
 	},
 	"args": [
 		{
