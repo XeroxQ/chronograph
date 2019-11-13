@@ -177,6 +177,9 @@ class Application extends Homey.App {
 		let active = Homey.ManagerSettings.get('chronographs_active') || {};
 		Object.values(active).forEach(raw => {
 			// Create the correct type of chronograph.
+			if (!raw.data || !raw.data.type || !raw.name) {
+				return;
+			}
 			let id = Utils.generateId(raw.data.type, raw.name);
 			let chronograph;
 			if (raw.targetDuration) {
