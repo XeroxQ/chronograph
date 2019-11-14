@@ -91,6 +91,11 @@ Application image by [Agê Barros](https://unsplash.com/@agebarros?utm_source=un
 
 ## Changelog
 
+### v1.1.0
+
+* Support for the new Homey App Store.
+* Prevent stale chronographs after restart.
+
 ### v1.0.8
 
 * Added the ability to use wildcards in various action and trigger cards.
