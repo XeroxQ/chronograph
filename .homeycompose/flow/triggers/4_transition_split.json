@@ -60,6 +60,26 @@
 				"de": "Übergangswert"
 			},
 			"example": 10
+		},
+		{
+			"name": "first",
+			"type": "boolean",
+			"title": {
+				"en": "First step",
+				"nl": "Eerste stap",
+				"de": "Erster Schritt"
+			},
+			"example": true
+		},
+		{
+			"name": "last",
+			"type": "boolean",
+			"title": {
+				"en": "Last step",
+				"nl": "Laatste stap",
+				"de": "Letzter Schritt"
+			},
+			"example": false
 		}
 	]
 }

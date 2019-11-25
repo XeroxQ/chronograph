@@ -31,6 +31,7 @@ const StopwatchCompare = require('./lib/stopwatch/conditions/stopwatch_compare.j
 const StopwatchRunning = require('./lib/stopwatch/conditions/stopwatch_running.js');
 const TransitionCompare = require('./lib/transition/conditions/transition_compare.js');
 const TransitionRunning = require('./lib/transition/conditions/transition_running.js');
+const DelayPassed = require('./lib/generic/conditions/delay_passed.js');
 
 // Triggers.
 const TimerStarted = require('./lib/timer/triggers/timer_started.js');
@@ -55,6 +56,7 @@ class Application extends Homey.App {
 		this._initializeTimerCards();
 		this._initializeStopwatchCards();
 		this._initializeTransitionCards();
+		this._initializeGenericCards();
 
 		// Install event handlers.
 		this.log('Installing event handlers.');
@@ -137,6 +139,17 @@ class Application extends Homey.App {
 			"transition_finished": new TransitionFinished('transition_finished'),
 			"transition_stopped": new TransitionStopped('transition_stopped'),
 			"transition_paused": new TransitionPaused('transition_paused')
+		};
+	}
+
+	_initializeGenericCards() {
+		this._cards = {
+			// Actions.
+
+			// Conditions.
+			"delay_passed": new DelayPassed("delay_passed"),
+
+			// Triggers.
 		};
 	}
 

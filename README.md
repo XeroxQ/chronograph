@@ -91,6 +91,9 @@ Application image by [Agê Barros](https://unsplash.com/@agebarros?utm_source=un
 
 ## Changelog
 
+### v1.1.1
+
+
 ### v1.1.0
 
 * Support for the new Homey App Store.

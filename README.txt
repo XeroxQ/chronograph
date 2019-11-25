@@ -13,8 +13,7 @@ FEATURES
 
 SIMPLE MATH EXPRESSIONS
 
-The start, resume and adjust action cards have built-in support for simple math expressions. This allows
-for random or computed timer and stopwatch durations, including calculations based on token values.
+The start, resume and adjust action cards have built-in support for simple math expressions. This allows for random or computed timer and stopwatch durations, including calculations based on token values.
 
 For example:
 
@@ -37,6 +36,7 @@ In addition to basic math expressions, the following functions are supported:
 HOMEYSCRIPT
 
 In addition to the available flow cards, timers and stopwatches can also be controlled using [HomeyScript](https://homeyscript.homey.app).
+
 For example, this script will stop all running timers:
 
 	let app = await Homey.apps.getApp({id:'nl.fellownet.chronograph'});

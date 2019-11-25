@@ -1,6 +1,6 @@
 {
   "id": "nl.fellownet.chronograph",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "compatibility": ">=2.1.0",
   "sdk": 2,
   "name": {
@@ -8,7 +8,7 @@
   },
   "description": {
     "en": "Adds precise timer, stopwatch and transition functionality to Homey.",
-    "nl": "Voegt accurate timer,stopwatch en transitie functionaliteit toe aan Homey.",
+    "nl": "Voegt accurate timer, stopwatch en transitie functionaliteit toe aan Homey.",
     "de": "Fügt Homey präzise Timer, Stoppuhrfunktionen und Übergänge hinzu."
   },
   "brandColor": "#5583C3",
@@ -758,6 +758,26 @@
               "de": "Übergangswert"
             },
             "example": 10
+          },
+          {
+            "name": "first",
+            "type": "boolean",
+            "title": {
+              "en": "First step",
+              "nl": "Eerste stap",
+              "de": "Erster Schritt"
+            },
+            "example": true
+          },
+          {
+            "name": "last",
+            "type": "boolean",
+            "title": {
+              "en": "Last step",
+              "nl": "Laatste stap",
+              "de": "Letzter Schritt"
+            },
+            "example": false
           }
         ]
       },
@@ -1258,6 +1278,64 @@
                   "en": "days",
                   "nl": "dagen",
                   "de": "Tage"
+                }
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "delay_passed",
+        "title": {
+          "en": "A delay has passed",
+          "nl": "Vertraging is verstreken",
+          "de": "Verzögerung ist vergangen"
+        },
+        "titleFormatted": {
+          "en": "A delay of [[time]] [[unit]] has passed",
+          "nl": "Vertraging van [[time]] [[unit]] is verstreken",
+          "de": "Verzögerung von [[time]] [[unit]] ist vergangen"
+        },
+        "hint": {
+          "en": "Use this card to delay executing the then flow cards.",
+          "nl": "Gebruik dit kaartje om de Dan flow kaartjes vertraagd uit te voeren.",
+          "de": "Verwenden Sie diese Karte, um die Dann-Flow-Karten zu verzögern."
+        },
+        "args": [
+          {
+            "name": "time",
+            "title": {
+              "en": "Duration",
+              "nl": "Looptijd",
+              "de": "Dauer"
+            },
+            "type": "number",
+            "min": 0,
+            "step": 0.01
+          },
+          {
+            "name": "unit",
+            "title": {
+              "en": "Unit",
+              "nl": "Eenheid",
+              "de": "Einheit"
+            },
+            "type": "dropdown",
+            "values": [
+              {
+                "id": "seconds",
+                "label": {
+                  "en": "seconds",
+                  "nl": "seconden",
+                  "de": "Sekunden"
+                }
+              },
+              {
+                "id": "minutes",
+                "label": {
+                  "en": "minutes",
+                  "nl": "minuten",
+                  "de": "Minuten"
                 }
               }
             ]
