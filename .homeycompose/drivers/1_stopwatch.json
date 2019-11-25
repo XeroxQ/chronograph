@@ -1,0 +1,67 @@
+{
+	"id": "stopwatch_driver",
+	"name": {
+		"en": "Stopwatch"
+	},
+	"settings": [
+		{
+			"type": "group",
+			"label": {
+				"en": "Timer",
+				"nl": "Timer"
+			},
+			"children": [
+				{
+					"id": "name",
+					"type": "text",
+					"label": {
+						"en": "Name",
+						"nl": "Naam"
+					},
+					"hint": {
+						"en": "The name of the stopwatch this device controls.",
+						"nl": "De naam van de stopwatch die door dit apparaat wordt bestuurd."
+					}
+				}
+			]
+		}
+	],
+	"images": {
+		"large": "drivers/stopwatch_driver/assets/images/large.png",
+		"small": "drivers/stopwatch_driver/assets/images/small.png"
+	},
+	"class": "sensor",
+	"capabilities": [ "alarm_running", "duration", "onoff.0" ],
+	"capabilitiesOptions": {
+		"alarm_running": {
+			"preventTag": true
+		},
+		"duration": {
+			"preventTag": true
+		},
+		"onoff.0": {
+			"title":{
+				"en": "Start / Stop",
+				"nl": "Starten / Stoppen"
+			},
+			"preventTag": true,
+			"preventInsights": true
+		}
+	},
+	"pair": [
+		{
+			"id": "list_devices",
+			"template": "list_devices",
+			"navigation": {
+				"next": "add_devices"
+			},
+			"options": {
+				"singular": true
+			}
+		},
+		{
+			"id": "add_devices",
+			"template": "add_devices"
+		}
+	]
+}
