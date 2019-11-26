@@ -1,6 +1,12 @@
 const assert = require('assert');
 const { Utils } = require('../lib/utils.js');
 
+
+console.log(Utils.beautifyName('bert'));
+console.log(Utils.beautifyName('bert123'));
+console.log(Utils.beautifyName('badkamer boven 1'));
+
+/*
 describe('Math', () => {
 	it('math evaluate should handle basic math', function() {
 		assert.equal(Utils.evalTime('   2 *    5'), 10, 'multiply should work properly');
@@ -29,3 +35,4 @@ describe('Math', () => {
 		assert.equal(Utils.evalTime('abs(-10)'), 10, 'abs should be 10');
 	});
 });
+*/

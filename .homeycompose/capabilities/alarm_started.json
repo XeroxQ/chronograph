@@ -1,0 +1,13 @@
+{
+	"id": "alarm_started",
+	"type": "boolean",
+	"title": {
+			"en": "Started",
+			"nl": "Gestart",
+			"de": "Gestartet"
+	},
+	"getable": true,
+	"setable": false,
+	"uiComponent": "sensor",
+	"icon": "assets/alarm_started.svg"
+}

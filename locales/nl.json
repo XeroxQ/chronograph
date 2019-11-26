@@ -1,20 +1,20 @@
 {
-	"timer_not_running": "Timer __name__ loopt niet.",
-	"stopwatch_not_running": "Stopwatch __name__ loopt niet.",
-	"transition_not_running": "Transitie __name__ loopt niet.",
-	"invalid_duration": "Ongeldige looptijd.",
-	"invalid_transition": "Ongeldige transitie.",
-	"invalid_name": "Ongeldige naam.",
-	"settings": {
-		"timers": "Timers",
-		"stopwatches": "Stopwatches",
-		"transitions": "Transities",
-		"no_active_timers": "Geen actieve timers.",
-		"no_active_stopwatches": "Geen actieve stopwatches.",
-		"no_active_transitions": "Geen actieve transities.",
-		"days_abbreviation": "d",
-		"stop": "Stoppen",
-		"pause": "Pauzeren",
-		"resume": "Hervatten"
-	}
+  "timer_not_running": "Timer __name__ loopt niet.",
+  "stopwatch_not_running": "Stopwatch __name__ loopt niet.",
+  "transition_not_running": "Transitie __name__ loopt niet.",
+  "invalid_duration": "Ongeldige looptijd.",
+  "invalid_transition": "Ongeldige transitie.",
+  "invalid_name": "Ongeldige naam.",
+  "settings": {
+    "timers": "Timers",
+    "stopwatches": "Stopwatches",
+    "transitions": "Transities",
+    "no_active_timers": "Geen actieve timers.",
+    "no_active_stopwatches": "Geen actieve stopwatches.",
+    "no_active_transitions": "Geen actieve transities.",
+    "days_abbreviation": "d",
+    "stop": "Stoppen",
+    "pause": "Pauzeren",
+    "resume": "Hervatten"
+  }
 }

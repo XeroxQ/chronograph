@@ -1,0 +1,12 @@
+{
+	"timers": "Timer",
+	"stopwatches": "Stopuhren",
+	"transitions": "Übergange",
+	"no_active_timers": "Keine aktive Timer.",
+	"no_active_stopwatches": "Keine aktive Stopuhren.",
+	"no_active_transitions": "Keine aktive Übergange.",
+	"days_abbreviation": "d",
+	"stop": "Stop",
+	"pause": "Pause",
+	"resume": "Fortsetzen"
+}

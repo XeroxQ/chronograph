@@ -1,0 +1,38 @@
+{
+	"id": "transition",
+	"name": {
+		"en": "Transition",
+		"nl": "Transitie",
+		"de": "Übergäng"
+	},
+	"images": {
+		"large": "{{driverAssetsPath}}/images/large.png",
+		"small": "{{driverAssetsPath}}/images/small.png"
+	},
+	"class": "sensor",
+	"capabilities": [ "alarm_started", "duration" ],
+	"capabilitiesOptions": {
+		"alarm_started": {
+			"preventTag": true
+		},
+		"duration": {
+			"preventTag": true
+		}
+	},
+	"pair": [
+		{
+			"id": "list_devices",
+			"template": "list_devices",
+			"navigation": {
+				"next": "add_devices"
+			},
+			"options": {
+				"singular": true
+			}
+		},
+		{
+			"id": "add_devices",
+			"template": "add_devices"
+		}
+	]
+}

@@ -2053,7 +2053,7 @@
         "title": {
           "en": "Adjust stopwatch",
           "nl": "Pas stopwatch aan",
-          "de": "Stoppuh einstellen"
+          "de": "Stoppuhr einstellen"
         },
         "titleFormatted": {
           "en": "Adjust stopwatch [[name]] with a duration of [[time]] [[unit]]",
@@ -2135,7 +2135,7 @@
         "title": {
           "en": "Adjust stopwatch",
           "nl": "Pas stopwatch aan",
-          "de": "Stoppuh einstellen"
+          "de": "Stoppuhr einstellen"
         },
         "titleFormatted": {
           "en": "Adjust stopwatch [[name]] with a duration of [[time]] [[unit]]",
@@ -2584,38 +2584,157 @@
       }
     ]
   },
+  "drivers": [
+    {
+      "id": "stopwatch",
+      "name": {
+        "en": "Stopwatch",
+        "nl": "Stopwatch",
+        "de": "Stoppuhr"
+      },
+      "images": {
+        "large": "/drivers/stopwatch/assets/images/large.png",
+        "small": "/drivers/stopwatch/assets/images/small.png"
+      },
+      "class": "sensor",
+      "capabilities": [
+        "alarm_started",
+        "duration"
+      ],
+      "capabilitiesOptions": {
+        "alarm_started": {
+          "preventTag": true
+        },
+        "duration": {
+          "preventTag": true
+        }
+      },
+      "pair": [
+        {
+          "id": "list_devices",
+          "template": "list_devices",
+          "navigation": {
+            "next": "add_devices"
+          },
+          "options": {
+            "singular": true
+          }
+        },
+        {
+          "id": "add_devices",
+          "template": "add_devices"
+        }
+      ]
+    },
+    {
+      "id": "timer",
+      "name": {
+        "en": "Timer",
+        "nl": "Timer",
+        "de": "Timer"
+      },
+      "images": {
+        "large": "/drivers/timer/assets/images/large.png",
+        "small": "/drivers/timer/assets/images/small.png"
+      },
+      "class": "sensor",
+      "capabilities": [
+        "alarm_started",
+        "duration"
+      ],
+      "capabilitiesOptions": {
+        "alarm_started": {
+          "preventTag": true
+        },
+        "duration": {
+          "preventTag": true
+        }
+      },
+      "pair": [
+        {
+          "id": "list_devices",
+          "template": "list_devices",
+          "navigation": {
+            "next": "add_devices"
+          },
+          "options": {
+            "singular": true
+          }
+        },
+        {
+          "id": "add_devices",
+          "template": "add_devices"
+        }
+      ]
+    },
+    {
+      "id": "transition",
+      "name": {
+        "en": "Transition",
+        "nl": "Transitie",
+        "de": "Übergäng"
+      },
+      "images": {
+        "large": "/drivers/transition/assets/images/large.png",
+        "small": "/drivers/transition/assets/images/small.png"
+      },
+      "class": "sensor",
+      "capabilities": [
+        "alarm_started",
+        "duration"
+      ],
+      "capabilitiesOptions": {
+        "alarm_started": {
+          "preventTag": true
+        },
+        "duration": {
+          "preventTag": true
+        }
+      },
+      "pair": [
+        {
+          "id": "list_devices",
+          "template": "list_devices",
+          "navigation": {
+            "next": "add_devices"
+          },
+          "options": {
+            "singular": true
+          }
+        },
+        {
+          "id": "add_devices",
+          "template": "add_devices"
+        }
+      ]
+    }
+  ],
   "capabilities": {
-    "alarm_running": {
-      "id": "alarm_running",
+    "alarm_started": {
+      "id": "alarm_started",
       "type": "boolean",
       "title": {
-        "en": "Running",
-        "nl": "Loopt"
+        "en": "Started",
+        "nl": "Gestart",
+        "de": "Gestartet"
       },
       "getable": true,
       "setable": false,
       "uiComponent": "sensor",
-      "insights": true,
-      "insightsTitleTrue": {
-        "en": "Started",
-        "nl": "Gestart"
-      },
-      "insightsTitleFalse": {
-        "en": "Stopped",
-        "nl": "Gestopt"
-      },
-      "icon": "assets/running.svg"
+      "icon": "assets/alarm_started.svg"
     },
     "duration": {
       "id": "duration",
       "type": "number",
       "title": {
         "en": "Duration",
-        "nl": "Looptijd"
+        "nl": "Looptijd",
+        "de": "Dauer"
       },
       "units": {
         "en": "seconds",
-        "nl": "seconden"
+        "nl": "seconden",
+        "de": "Sekunden"
       },
       "getable": true,
       "setable": false,

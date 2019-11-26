@@ -1,0 +1,18 @@
+{
+	"id": "duration",
+	"type": "number",
+	"title": {
+			"en": "Duration",
+			"nl": "Looptijd",
+			"de": "Dauer"
+
+	},
+	"units": {
+			"en": "seconds",
+			"nl": "seconden",
+			"de": "Sekunden"
+	},
+	"getable": true,
+	"setable": false,
+	"icon": "assets/duration.svg"
+}

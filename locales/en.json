@@ -1,20 +1,20 @@
 {
-	"timer_not_running": "Timer __name__ is not running.",
-	"stopwatch_not_running": "Stopwatch __name__ is not running.",
-	"transition_not_running": "Transition __name__ is not running.",
-	"invalid_duration": "Invalid duration.",
-	"invalid_transition": "Invalid transition.",
-	"invalid_name": "Invalid name.",
-	"settings": {
-		"timers": "Timers",
-		"stopwatches": "Stopwatches",
-		"transitions": "Transitions",
-		"no_active_timers": "No active timers.",
-		"no_active_stopwatches": "No active stopwatches.",
-		"no_active_transitions": "No active transitions.",
-		"days_abbreviation": "d",
-		"stop": "Stop",
-		"pause": "Pause",
-		"resume": "Resume"
-	}
+  "timer_not_running": "Timer __name__ is not running.",
+  "stopwatch_not_running": "Stopwatch __name__ is not running.",
+  "transition_not_running": "Transition __name__ is not running.",
+  "invalid_duration": "Invalid duration.",
+  "invalid_transition": "Invalid transition.",
+  "invalid_name": "Invalid name.",
+  "settings": {
+    "timers": "Timers",
+    "stopwatches": "Stopwatches",
+    "transitions": "Transitions",
+    "no_active_timers": "No active timers.",
+    "no_active_stopwatches": "No active stopwatches.",
+    "no_active_transitions": "No active transitions.",
+    "days_abbreviation": "d",
+    "stop": "Stop",
+    "pause": "Pause",
+    "resume": "Resume"
+  }
 }

@@ -1,0 +1,12 @@
+{
+	"timers": "Timers",
+	"stopwatches": "Stopwatches",
+	"transitions": "Transities",
+	"no_active_timers": "Geen actieve timers.",
+	"no_active_stopwatches": "Geen actieve stopwatches.",
+	"no_active_transitions": "Geen actieve transities.",
+	"days_abbreviation": "d",
+	"stop": "Stoppen",
+	"pause": "Pauzeren",
+	"resume": "Hervatten"
+}
