@@ -1,10 +1,10 @@
 {
-  "id": "nl.fellownet.chronograph",
+  "id": "nl.fellownet.chronograph_debug",
   "version": "1.1.1",
   "compatibility": ">=2.1.0",
   "sdk": 2,
   "name": {
-    "en": "Chronograph"
+    "en": "Chronograph Debug"
   },
   "description": {
     "en": "Adds precise timer, stopwatch and transition functionality to Homey.",
@@ -2599,7 +2599,9 @@
       "class": "sensor",
       "capabilities": [
         "alarm_started",
-        "duration"
+        "duration",
+        "button.0",
+        "button.1"
       ],
       "capabilitiesOptions": {
         "alarm_started": {
@@ -2607,6 +2609,18 @@
         },
         "duration": {
           "preventTag": true
+        },
+        "button.0": {
+          "title": {
+            "en": "Pause",
+            "nl": "Pauzeren"
+          }
+        },
+        "button.1": {
+          "title": {
+            "en": "Stop",
+            "nl": "Stoppen"
+          }
         }
       },
       "pair": [

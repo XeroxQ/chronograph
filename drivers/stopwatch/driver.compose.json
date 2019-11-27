@@ -10,13 +10,25 @@
 		"small": "{{driverAssetsPath}}/images/small.png"
 	},
 	"class": "sensor",
-	"capabilities": [ "alarm_started", "duration" ],
+	"capabilities": [ "alarm_started", "duration", "button.0", "button.1" ],
 	"capabilitiesOptions": {
 		"alarm_started": {
 			"preventTag": true
 		},
 		"duration": {
 			"preventTag": true
+		},
+		"button.0": {
+			"title": {
+				"en": "Pause",
+				"nl": "Pauzeren"
+			}
+		},
+		"button.1": {
+			"title": {
+				"en": "Stop",
+				"nl": "Stoppen"
+			}
 		}
 	},
 	"pair": [
