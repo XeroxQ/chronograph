@@ -18,7 +18,6 @@ Chronograph.events.on('stopped', chronograph => events.stopped = chronograph);
 Chronograph.events.on('removed', chronograph => events.removed = chronograph);
 Chronograph.events.on('split', () => events.split = !!events.split ? events.split + 1 : 1);
 
-/*
 describe('Chronograph', () => {
 	it('should be properly initialized', function() {
 		let name = 'test timer 1';
@@ -335,4 +334,4 @@ describe('Chronograph', () => {
 		}, 1050);
 	});
 });
-*/
+

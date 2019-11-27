@@ -1,12 +1,12 @@
 {
   "1.1.1": {
-    "en": "Ability to delay the execution of flows. Additional tokens for transition cards.",
-    "nl": "Mogelijkheid tot vertragen van het uitvoeren van de flows. Extra tokens voor transitie kaartjes.",
-    "de": "Möglichkeit, die Ausführung von Flows zu verzögern. Zusätzliche Token für Übergangskarten."
+    "en": "Ability to delay the execution of flows. Additional tokens for transition cards. Simplified monitoring of timers, stopwatches and transitions.",
+    "nl": "Mogelijkheid tot vertragen van het uitvoeren van de flows. Extra tokens voor transitie kaartjes. Eenvoudigere monitoring van timers, stopwatches en transities.",
+    "de": "Möglichkeit, die Ausführung von Flows zu verzögern. Zusätzliche Token für Übergangskarten. Vereinfachte Überwachung von Timern, Stoppuhren und Übergängen."
   },
   "1.1.0": {
-    "en": "Support for new Homey App Store",
-    "nl": "Ondersteuning voor de nieuwe Homey App Store",
-    "de": "Unterstützung für den neuen Homey App Store"
+    "en": "Support for new Homey App Store.",
+    "nl": "Ondersteuning voor de nieuwe Homey App Store.",
+    "de": "Unterstützung für den neuen Homey App Store."
   }
 }

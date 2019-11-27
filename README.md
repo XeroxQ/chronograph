@@ -93,6 +93,9 @@ Application image by [Agê Barros](https://unsplash.com/@agebarros?utm_source=un
 
 ### v1.1.1
 
+* Ability to delay the execution of flows.
+* Additional tokens for transition cards.
+* Simplified monitoring of timers, stopwatches and transitions.
 
 ### v1.1.0
 
