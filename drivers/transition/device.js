@@ -6,6 +6,27 @@ const { Utils, ChronographType } = require('../../lib/utils.js');
 
 class TransitionDevice extends Homey.Device {
 	onInit() {
+		this.registerCapabilityListener('button.pause', () => {
+			let transition = Chronograph.get(this.getData().id);
+			if (transition) {
+				if (transition.isRunning()) {
+					transition.pause();
+
+				} else {
+					transition.resume();
+				}
+			}
+			return Promise.resolve();
+		});
+
+		this.registerCapabilityListener('button.stop', () => {
+			let transition = Chronograph.get(this.getData().id);
+			if (transition) {
+				transition.stop();
+			}
+			return Promise.resolve();
+		});
+
 		this._transitionEventHandlers = Chronograph.events.mon([ 'started', 'resumed', 'paused', 'removed', 'updated' ], (event, transition) => {
 			if (transition.getId() == this.getData().id) {
 				this.setCapabilityValue('alarm_started', event != 'removed');

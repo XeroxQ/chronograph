@@ -91,6 +91,11 @@ Application image by [Agê Barros](https://unsplash.com/@agebarros?utm_source=un
 
 ## Changelog
 
+### v1.1.2
+
+* Fixed a timer display bug.
+* Additional capabilities for monitoring.
+
 ### v1.1.1
 
 * Ability to delay the execution of flows.
