@@ -103,10 +103,10 @@
 					var seconds = duration.toFixed(2);
 
 					var result = seconds.toString().padStart(5, '0');
-					if (minutes > 0) {
+					if (minutes > 0 || hours > 0 || days > 0) {
 						result = minutes.toString().padStart(2, '0') + ':' + result;
 					}
-					if (hours > 0) {
+					if (hours > 0 || days > 0) {
 						result = hours.toString().padStart(2, '0') + ':' + result;
 					}
 					if (days > 0) {
