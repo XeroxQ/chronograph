@@ -6,6 +6,27 @@ const { Utils, ChronographType } = require('../../lib/utils.js');
 
 class StopwatchDevice extends Homey.Device {
 	onInit() {
+		this.registerCapabilityListener('button.pause', () => {
+			let stopwatch = Chronograph.get(this.getData().id);
+			if (stopwatch) {
+				if (stopwatch.isRunning()) {
+					stopwatch.pause();
+
+				} else {
+					stopwatch.resume();
+				}
+			}
+			return Promise.resolve();
+		});
+
+		this.registerCapabilityListener('button.stop', () => {
+			let stopwatch = Chronograph.get(this.getData().id);
+			if (stopwatch) {
+				stopwatch.stop();
+			}
+			return Promise.resolve();
+		});
+
 		this._stopwatchEventHandlers = Chronograph.events.mon([ 'started', 'resumed', 'paused', 'removed', 'updated' ], (event, stopwatch) => {
 			if (stopwatch.getId() == this.getData().id) {
 				this.setCapabilityValue('alarm_started', event != 'removed');

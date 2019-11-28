@@ -2600,8 +2600,8 @@
       "capabilities": [
         "alarm_started",
         "duration",
-        "button.0",
-        "button.1"
+        "button.pause",
+        "button.stop"
       ],
       "capabilitiesOptions": {
         "alarm_started": {
@@ -2610,13 +2610,13 @@
         "duration": {
           "preventTag": true
         },
-        "button.0": {
+        "button.pause": {
           "title": {
-            "en": "Pause",
-            "nl": "Pauzeren"
+            "en": "Pause / Resume",
+            "nl": "Pauzeren / Hervatten"
           }
         },
-        "button.1": {
+        "button.stop": {
           "title": {
             "en": "Stop",
             "nl": "Stoppen"
@@ -2654,7 +2654,9 @@
       "class": "sensor",
       "capabilities": [
         "alarm_started",
-        "duration"
+        "duration",
+        "button.pause",
+        "button.stop"
       ],
       "capabilitiesOptions": {
         "alarm_started": {
@@ -2662,6 +2664,18 @@
         },
         "duration": {
           "preventTag": true
+        },
+        "button.pause": {
+          "title": {
+            "en": "Pause / Resume",
+            "nl": "Pauzeren / Hervatten"
+          }
+        },
+        "button.stop": {
+          "title": {
+            "en": "Stop",
+            "nl": "Stoppen"
+          }
         }
       },
       "pair": [
@@ -2695,7 +2709,9 @@
       "class": "sensor",
       "capabilities": [
         "alarm_started",
-        "duration"
+        "duration",
+        "button.pause",
+        "button.stop"
       ],
       "capabilitiesOptions": {
         "alarm_started": {
@@ -2703,6 +2719,18 @@
         },
         "duration": {
           "preventTag": true
+        },
+        "button.pause": {
+          "title": {
+            "en": "Pause / Resume",
+            "nl": "Pauzeren / Hervatten"
+          }
+        },
+        "button.stop": {
+          "title": {
+            "en": "Stop",
+            "nl": "Stoppen"
+          }
         }
       },
       "pair": [
