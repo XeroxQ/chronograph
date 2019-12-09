@@ -79,7 +79,7 @@ describe('Chronograph', () => {
 			assert.equal(timer, events.finished, 'finished event should emit correct timer');
 			assert.ok(!!events.removed, 'removed event should be emitted');
 			assert.equal(timer, events.removed, 'removed event should emit correct timer');
-	
+
 			events = {};
 			done();
 		}, 200);
@@ -108,7 +108,7 @@ describe('Chronograph', () => {
 				assert.ok(!events.split, 'split event should not be emitted');
 				assert.ok(!events.paused, 'paused event should not be emitted');
 				assert.ok(!events.resumed, 'resumed event should not be emitted');
-	
+
 				events = {};
 				done();
 			}, 1000); // stopped
@@ -163,7 +163,7 @@ describe('Chronograph', () => {
 				assert.ok(timer.isRunning(), 'timer should be running');
 				assert.ok(!!events.resumed, 'resumed event should be emitted');
 				assert.equal(timer, events.resumed, 'resumed event should emit correct timer');
-		
+
 				setTimeout(() => {
 					assert.ok(timer.getDuration() > 950 && timer.getDuration() < 1050, 'timer duration should be correct while running');
 					timer.pause();
@@ -253,7 +253,7 @@ describe('Chronograph', () => {
 					setTimeout(() => {
 						assert.equal(events.split, 3, 'splits should be stopped too')
 						assert.ok(!timer.isRunning(), 'stopped timer should not be running');
-		
+
 						events = {};
 						done();
 					}, 300); // stopped
@@ -298,7 +298,7 @@ describe('Chronograph', () => {
 							assert.equal(2, events.split, 'two split events should be emitted')
 							assert.equal(timer.getTargetDuration(), timer.getDuration(), 'finished timer should have a the target duration')
 							assert.ok(!timer.isRunning(), 'finished timer should not be running');
-	
+
 							assert.ok(!events.paused, 'paused event should not be emitted');
 							assert.ok(!events.resumed, 'paused event should not be emitted');
 							assert.ok(!events.stopped, 'stopped event should not be emitted');
@@ -316,6 +316,8 @@ describe('Chronograph', () => {
 	});
 
 	it('should allow for multiple timers at once', function(done) {
+		this.timeout(1250);
+
 		for (var i = 1; i <= 50; i++) {
 			let timer = new Chronograph(12 + i, 'bulk timer ' + i, Math.random(), 'seconds');
 			timer.setData('type', ChronographType.TIMER);
@@ -333,5 +335,33 @@ describe('Chronograph', () => {
 			done();
 		}, 1050);
 	});
-});
 
+	it('should allow for multiple timers with splits at once', function(done) {
+		this.timeout(5500);
+
+		let splits = 0;
+		for (var i = 1; i <= 150; i++) {
+			let duration = 2 + (3 * Math.random());
+			let timer = new Chronograph(1000 + i, 'bulk timer ' + i, duration, 'seconds');
+			timer.setData('type', ChronographType.TIMER);
+			let offset = Math.random();
+			while (offset < duration) {
+				timer.addSplit(offset, 'seconds');
+				splits++;
+				offset += Math.random();
+			}
+		}
+		let all = Chronograph.all().filter(chronograph => chronograph.getData('type') == ChronographType.TIMER);
+		assert.equal(150, all.length);
+		all.forEach(timer => {
+			timer.start();
+		});
+		setTimeout(() => {
+			all = Chronograph.all().filter(chronograph => chronograph.getData('type') == ChronographType.TIMER);
+			assert.equal(0, all.length);
+			assert.equal(splits, events.split, 'all splits should have been executed');
+			events = {};
+			done();
+		}, 5250);
+	});
+});
