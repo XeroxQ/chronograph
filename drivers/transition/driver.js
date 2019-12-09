@@ -1,24 +1,20 @@
 'use strict';
 
 const Homey = require('homey');
-const { Utils, ChronographType } = require('../../lib/utils.js');
+const { ChronographType } = require('../../lib/utils.js');
+const Driver = require('../../lib/driver.js');
 
-class TransitionDriver extends Homey.Driver {
-	onPairListDevices(data, callback) {
-		let transitionStartCards = Homey.ManagerSettings.get('transition_start_cards') || [];
-		let transitionResumeCards = Homey.ManagerSettings.get('transition_resume_cards') || [];
-		let names =
-			[].concat(transitionStartCards, transitionResumeCards)
-			.map(transition => transition.name)
-			.filter((name, index, self) => self.indexOf(name) === index)
-			.sort();
+class TransitionDriver extends Driver {
+	getStartCards() {
+		return Homey.ManagerSettings.get('transition_start_cards') || [];
+	}
 
-		callback(null, names.map(name => ({
-			name: Utils.beautifyName(name),
-			data: {
-				id: Utils.generateId(ChronographType.TRANSITION, name)
-			}
-		})));
+	getResumeCards() {
+		return Homey.ManagerSettings.get('transition_resume_cards') || [];
+	}
+
+	getChronographType() {
+		return ChronographType.TRANSITION;
 	}
 }
 

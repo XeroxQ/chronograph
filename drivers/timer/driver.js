@@ -1,24 +1,20 @@
 'use strict';
 
 const Homey = require('homey');
-const { Utils, ChronographType } = require('../../lib/utils.js');
+const { ChronographType } = require('../../lib/utils.js');
+const Driver = require('../../lib/driver.js');
 
-class TimerDriver extends Homey.Driver {
-	onPairListDevices(data, callback) {
-		let timerStartCards = Homey.ManagerSettings.get('timer_start_cards') || [];
-		let timerResumeCards = Homey.ManagerSettings.get('timer_resume_cards') || [];
-		let names =
-			[].concat(timerStartCards, timerResumeCards)
-			.map(timer => timer.name)
-			.filter((name, index, self) => self.indexOf(name) === index)
-			.sort();
+class TimerDriver extends Driver {
+	getStartCards() {
+		return Homey.ManagerSettings.get('timer_start_cards') || [];
+	}
 
-		callback(null, names.map(name => ({
-			name: Utils.beautifyName(name),
-			data: {
-				id: Utils.generateId(ChronographType.TIMER, name)
-			}
-		})));
+	getResumeCards() {
+		return Homey.ManagerSettings.get('timer_resume_cards') || [];
+	}
+
+	getChronographType() {
+		return ChronographType.TIMER;
 	}
 }
 

@@ -1,24 +1,20 @@
 'use strict';
 
 const Homey = require('homey');
-const { Utils, ChronographType } = require('../../lib/utils.js');
+const { ChronographType } = require('../../lib/utils.js');
+const Driver = require('../../lib/driver.js');
 
-class StopwatchDriver extends Homey.Driver {
-	onPairListDevices(data, callback) {
-		let stopwatchStartCards = Homey.ManagerSettings.get('stopwatch_start_cards') || [];
-		let stopwatchResumeCards = Homey.ManagerSettings.get('stopwatch_resume_cards') || [];
-		let names =
-			[].concat(stopwatchStartCards, stopwatchResumeCards)
-			.map(stopwatch => stopwatch.name)
-			.filter((name, index, self) => self.indexOf(name) === index) // unique
-			.sort();
+class StopwatchDriver extends Driver {
+	getStartCards() {
+		return Homey.ManagerSettings.get('stopwatch_start_cards') || [];
+	}
 
-		callback(null, names.map(name => ({
-			name: Utils.beautifyName(name),
-			data: {
-				id: Utils.generateId(ChronographType.STOPWATCH, name)
-			}
-		})));
+	getResumeCards() {
+		return Homey.ManagerSettings.get('stopwatch_resume_cards') || [];
+	}
+
+	getChronographType() {
+		return ChronographType.STOPWATCH;
 	}
 }
 

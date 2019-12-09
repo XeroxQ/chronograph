@@ -63,9 +63,11 @@ class Application extends Homey.App {
 		this._installLogEventHandler();
 		this._installEventHandlers();
 
-		// Restore chronographs from settings.
-		this.log('Restoring chronographs.');
-		this._restoreChronographs();
+		// Restore chronographs from settings after the application has started.
+		setTimeout(() => {
+			this.log('Restoring chronographs.');
+			this._restoreChronographs();
+		}, 1000);
 
 		this.log('Application is running.');
 	}
@@ -164,7 +166,7 @@ class Application extends Homey.App {
 	}
 
 	_installEventHandlers() {
-		Chronograph.events.mon([ 'started', 'resumed', 'paused', 'updated', 'removed' ], (event, chronograph) => {
+		Chronograph.events.mon([ 'created', 'started', 'resumed', 'paused', 'updated', 'removed' ], (event, chronograph) => {
 			let raw = {
 				id: chronograph.getId(),
 				name: chronograph.getName(),
@@ -188,6 +190,7 @@ class Application extends Homey.App {
 
 	_restoreChronographs() {
 		let active = Homey.ManagerSettings.get('chronographs_active') || {};
+		Homey.ManagerSettings.set('chronographs_active', {});
 		Object.values(active).forEach(raw => {
 			// Create the correct type of chronograph.
 			if (!raw.data || !raw.data.type || !raw.name) {
@@ -237,7 +240,7 @@ class Application extends Homey.App {
 
 			// Start chronograph if it was running before.
 			if (raw.running) {
-				chronograph.start(true);
+				chronograph.start();
 			}
 		});
 	}
