@@ -34,6 +34,9 @@
 	},
 	"devDependencies": {
 		"husky": "^3.1.0",
-		"mocha": "^6.2.2"
+		"mocha": "^6.2.3"
+	},
+	"dependencies": {
+		"homey": "^2.8.0"
 	}
 }
